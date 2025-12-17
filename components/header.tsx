@@ -18,7 +18,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center">
           <div className="relative h-10 w-10 mr-2">
-            <Image src="/images/logo.png" alt="Fashion Fabric Logo" fill className="object-contain" />
+            <Image src="/images/logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold text-[#2e7d32]">Fashion Fabric</span>

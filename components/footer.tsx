@@ -9,8 +9,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center mb-4">
-              <div className="relative h-12 w-12 mr-3 bg-white rounded-md p-1">
-                <Image src="/images/logo.png" alt="Fashion Fabric Logo" fill className="object-contain" />
+              <div className="relative h-12 w-12 mr-3  rounded-md p-1">
+                <Image src="/images/logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
               </div>
               <h3 className="text-lg font-semibold">Fashion Fabric</h3>
             </div>

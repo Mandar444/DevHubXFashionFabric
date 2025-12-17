@@ -8,8 +8,8 @@ import { InfiniteLogoScroll } from "./components/infinite-logo-scroll"
 const clients = [
   { name: "The Astor", logo: "/images/clients/astor-goa.png" },
   { name: "Big daddy casino", logo: "/images/clients/big_daddy.png" },
-  { name: "Cadillac casino", logo: "/images/clients/cadillac-diamond.webp" },
-  { name: "Goa marriot", logo: "/images/clients/Goa_Marriott_Resort.avif" },
+  { name: "Cadillac casino", logo: "/images/clients/cadillac-casion.png" },
+  { name: "Goa marriot", logo: "/images/clients/Goa_Marriott_Resort.jpg" },
   { name: "Fairfield by marriots", logo: "/images/clients/fairfield-logo" },
   { name: "W goa", logo: "/images/clients/wh-logo-fullcolor-hws-13225.avif" },
   { name: "St regies", logo: "/images/clients/xr-xr-logo-l-33456.avif" },

@@ -40,13 +40,13 @@ export default function AboutPage() {
                   <p className="text-neutral-600 mb-4">
                     For over 15 years, Fashion Fabric has been India&apos;s premier destination for bespoke textile
                     solutions, renowned for exquisite craftsmanship and timeless elegance. We specialize in creating
-                    custom-made fabrics tailored to perfection—designed to complement every shape, size, and setting
+                    custom-made fabrics tailored to perfection designed to complement every shape, size, and setting
                     with seamless sophistication.
                   </p>
                   <p className="text-neutral-600 mb-4">
                     Our legacy is built on trust, discretion, and an unwavering commitment to quality, earning us the
                     confidence of the most prestigious names in the hospitality industry. At Fashion Fabric, comfort and
-                    style are not just a product—it&apos;s an experience stitched into every garment.
+                    style are not just a product it&apos;s an experience stitched into every garment.
                   </p>
                 </div>
               </AnimateIn>
