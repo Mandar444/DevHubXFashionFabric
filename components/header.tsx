@@ -17,7 +17,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center">
-          <div className="relative h-10 w-10 mr-2">
+          <div className="relative h-12 w-12 mr-2">
             <Image src="/images/logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
           </div>
           <div className="flex flex-col">

@@ -2,37 +2,47 @@ import Image from "next/image"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 
 const clients = [
-  { name: "The Astor", logo: "/images/clients/astor-goa.png" },
-  { name: "Big daddy casino", logo: "/images/clients/big_daddy.png" },
-  { name: "Cadillac casino", logo: "/images/clients/cadillac-casion.png" },
-  { name: "Goa marriot", logo: "/images/clients/Goa_Marriott_Resort.jpg" },
-  { name: "Fairfield by marriots", logo: "/images/clients/fairfield-logo" },
-  { name: "W goa", logo: "/images/clients/wh-logo-fullcolor-hws-13225.avif" },
-  { name: "St regies", logo: "/images/clients/xr-xr-logo-l-33456.avif" },
-  { name: "Holiday inn goa", logo: "/images/clients/hi_logo.svg" },
-  { name: "Kenilworth", logo: "/images/clients/Kenilworth_Logo_mcxx3d_ivmncx.avif", darkBg: true },
-  { name: "Taj fort village", logo: "/images/clients/taj.png", darkBg: true },
-  { name: "Taj fort aguda", logo: "/images/clients/taj.png", darkBg: true },
-  { name: "Sinq prive", logo: "/images/clients/sinq-logo-blue.webp" },
-  { name: "Double tree by hilton", logo: "/images/clients/double-tree.svg" },
-  { name: "Taj by vivanta", logo: "/images/clients/icon-vivanta.png", darkBg: true },
-  { name: "Grand hyatt", logo: "/images/clients/hyatt-logo.svg" },
-  { name: "Casino pride", logo: "/images/clients/casino-pride.png" },
+  { name: "The Astor", logo: "/images/clients/astor-goa_new.png" },
+  { name: "Big Daddy Casino", logo: "/images/clients/big_daddy-new.png" },
+  { name: "Cadillac Casino", logo: "/images/clients/cadillac-casion.png" },
+  { name: "Goa Marriot", logo: "/images/clients/Goa_Marriott_Resort.jpg" },
+  { name: "Fairfield By Marriots", logo: "/images/clients/fair-field.png" },
+  { name: "W Goa", logo: "/images/clients/wh-logo_new.png" },
+  { name: "St Regies", logo: "/images/clients/st-regis-new.png" },
+  { name: "Holiday Inn Goa", logo: "/images/clients/hi_logo01.png" },
+  { name: "Kenilworth", logo: "/images/clients/Kenilworth_Logo_mcxx3d_ivmncx.png" },
+  { name: "Taj Fort Village", logo: "/images/clients/taj_holiday_village.png" },
+  { name: "Taj Fort Aguda", logo: "/images/clients/taj_aguada_resort.png" },
+  { name: "Sinq Prive", logo: "/images/clients/sinq-prive_new.webp" },
+  { name: "Double Tree by Hilton", logo: "/images/clients/double-tree_new.png" },
+  { name: "Taj by Vivanta", logo: "/images/clients/icon-vivanta.png" },
+  { name: "Grand Hyatt", logo: "/images/clients/grand_hyatt_new.png" },
+  { name: "Casino Pride", logo: "/images/clients/casino-pride_new.png" },
   { name: "Deltin", logo: "/images/clients/DeltinOnLogo1.png" },  
-  { name: "The Fern", logo: "/images/clients/fern-hotels.svg" },
-  { name: "Jw marriot", logo: "/images/clients/jw_marriot.avif" },
-  { name: "Ramada", logo: "/images/clients/ramada.svg" },
-  { name: "Big B Casino", logo: "/images/clients/cropped-big-b-casino-web.png" },
-  { name: "Club Mahindra", logo: "/images/clients/club-mahindra.png" },
+  { name: "The Fern", logo: "/images/clients/fern-hotels_new.png" },
+  { name: "Jw Marriot", logo: "/images/clients/jw_marriot_new.png" },
+  { name: "Ramada", logo: "/images/clients/ramada_new.png" },
+  { name: "Big B Casino", logo: "/images/clients/cropped-big-b-casino_new.png" },
+  { name: "Club Mahindra", logo: "/images/clients/club-mahindra_new.png" },
   { name: "Puppy's Casino Gold", logo: "/images/clients/Puppy-Casino-Gold-Logo.png" },
-  { name: "Fortune Hotels", logo: "/images/clients/fortune" },
-  { name: "Baale Resort", logo: "/images/clients/baale.webp" },
-  { name: "Hard Rock Hotel", logo: "/images/clients/HardRockHotelLogo-White3x.png", darkBg: true },
-  { name: "Taj Resort & Convention Centre", logo: "/images/clients/taj.png", darkBg: true },
-  { name: "Taj Cidade de Goa", logo: "/images/clients/taj.png", darkBg: true },
-  { name: "La Estoria", logo: "/images/clients/seleqtions-brand-icon.png" },
-  { name: "Ibis Styles", logo: "/images/clients/ibis.png" },
-  { name: "Birch by Romeo Lane", logo: "/images/clients/birch.png" }
+  { name: "Fortune Hotels", logo: "/images/clients/fortune_new.png" },
+  { name: "Baale Resort", logo: "/images/clients/baale_new.png" },
+  { name: "Hard Rock Hotel", logo: "/images/clients/HardRockHotelLogo-White3x_new.png" },
+  { name: "Taj Resort & Convention Centre", logo: "/images/clients/taj_convention_centre.png"},
+  { name: "Taj Cidade de Goa", logo: "/images/clients/taj_cidade_de_new.png" },
+  { name: "La Estoria", logo: "/images/clients/seleqtions-brand-icon_new.png" },
+  { name: "Ibis Styles", logo: "/images/clients/ibis_new.png" },
+  { name: "Birch by Romeo Lane", logo: "/images/clients/birch_new.png" },
+  { name: "Caravela Beach Resort", logo: "/images/clients/caravela-beach.png" },
+  { name: "Elements", logo: "/images/clients/elements.png" },
+  { name: "Le Meridien", logo: "/images/clients/le_meridien.png" },
+  { name: "Novotel", logo: "/images/clients/novotel.png" },
+  { name: "Planet Hollywood", logo: "/images/clients/planet-hollywod.png" },
+  { name: "Hyatt Centric", logo: "/images/clients/hyatt_centric.png" },
+  { name: "Araqila", logo: "/images/clients/araqila.png" },
+  { name: "Strike Casino", logo: "/images/clients/strike_casino.png" }
+  // { name: "Taj Aguada Resort", logo: "/images/clients/taj_aguada_resort.png", darkBg: true },
+  // { name: "Taj Holiday Village", logo: "/images/clients/taj_holiday_village.png", darkBg: true }
 ]
 
 export default function ClientsPage() {
@@ -70,9 +80,7 @@ export default function ClientsPage() {
               {clients.map((client, index) => (
                 <div
                   key={index}
-                  className={`rounded-lg p-6 flex items-center justify-center h-32 shadow-sm hover:shadow-md transition-shadow ${
-                    client.darkBg ? 'bg-neutral-900' : 'bg-neutral-50'
-                  }`}
+                  className="rounded-lg p-6 flex items-center justify-center h-32 shadow-sm hover:shadow-md transition-shadow bg-neutral-50"
                 >
                   <div className="text-center">
                     <Image
@@ -82,7 +90,7 @@ export default function ClientsPage() {
                       height={50}
                       className="mx-auto mb-2 object-contain"
                     />
-                    <p className={`text-sm font-medium ${client.darkBg ? 'text-white' : 'text-neutral-700'}`}>
+                    <p className="text-sm font-medium text-neutral-700">
                       {client.name}
                     </p>
                   </div>

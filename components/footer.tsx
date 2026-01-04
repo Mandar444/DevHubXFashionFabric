@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { MapPin, Mail, Phone } from "lucide-react"
+import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-4">
               <div className="relative h-12 w-12 mr-3  rounded-md p-1">
-                <Image src="/images/logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
+                <Image src="/images/footer-logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
               </div>
               <h3 className="text-lg font-semibold">Fashion Fabric</h3>
             </div>
@@ -32,6 +32,7 @@ export default function Footer() {
                 Shop No. 8, Block - II, Dukle Heaven, Near Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
               </p>
             </div>
+         
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -107,6 +108,35 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+              <div className="flex items-center gap-4 mt-6">
+              <Link
+                href="https://www.instagram.com/fashionfabric.info/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-200 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-6 w-6" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/fashionfabric/?viewAsMember=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-200 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-6 w-6" />
+              </Link>
+              <Link
+                href="https://wa.me/919867275524"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-neutral-200 hover:text-white transition-colors"
+                aria-label="WhatsApp"
+              >
+                <Image src="/images/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={24} height={24} className="brightness-0 invert" />
+              </Link>
+            </div>
           </div>
         </div>
         <div className="border-t border-[#388e3c] mt-12 pt-6 text-center text-neutral-200 text-sm">
