@@ -108,34 +108,42 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-              <div className="flex items-center gap-4 mt-6">
-              <Link
-                href="https://www.instagram.com/fashionfabric.info/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-200 hover:text-white transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-6 w-6" />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/company/fashionfabric/?viewAsMember=true"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-200 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-6 w-6" />
-              </Link>
-              <Link
-                href="https://wa.me/919867275524"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-200 hover:text-white transition-colors"
-                aria-label="WhatsApp"
-              >
-                <Image src="/images/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={24} height={24} className="brightness-0 invert" />
-              </Link>
+            <div className="mt-6">
+              <h3 className="text-lg font-semibold mb-4">Follow Fashion Fabric</h3>
+              <div className="space-y-3 ">
+                <Link
+                  href="https://www.instagram.com/fashionfabric.info/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-neutral-200 hover:text-white transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-5 w-5  text-[#f0f4c3]" />
+                  <span>Instagram</span>
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/company/fashionfabric/?viewAsMember=true"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-neutral-200 hover:text-white transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-5 w-5 text-[#f0f4c3]" />
+                  <span>LinkedIn</span>
+                </Link>
+                <Link
+                  href="https://wa.me/919867275524"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-neutral-200 hover:text-white transition-colors"
+                  aria-label="WhatsApp"
+                >
+                  <div className="text-[#f0f4c3]">
+                    <Image src="/images/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={20} height={20} className="brightness-0 invert" />
+                  </div>
+                  <span>WhatsApp</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

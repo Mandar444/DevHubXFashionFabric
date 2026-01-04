@@ -1,9 +1,95 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function CataloguePage() {
+  const router = useRouter()
+  const [phoneNumber, setPhoneNumber] = useState("")
+  const [otp, setOtp] = useState("")
+  const [otpSent, setOtpSent] = useState(false)
+  const [otpVerified, setOtpVerified] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleSendOtp = async () => {
+    if (phoneNumber.length < 10) {
+      alert("Please enter a valid phone number")
+      return
+    }
+    setIsLoading(true)
+    // Simulate OTP sending
+    setTimeout(() => {
+      setOtpSent(true)
+      setIsLoading(false)
+      alert("OTP sent to your phone number")
+    }, 1000)
+  }
+
+  const handleVerifyOtp = async () => {
+    if (otp.length !== 6) {
+      alert("Please enter a valid 6-digit OTP")
+      return
+    }
+    setIsLoading(true)
+    // Simulate OTP verification
+    setTimeout(() => {
+      setOtpVerified(true)
+      setIsLoading(false)
+      alert("Phone number verified successfully!")
+    }, 1000)
+  }
+
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    
+    if (!otpVerified) {
+      alert("Please verify your phone number before downloading")
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      // Get form data
+      const formData = new FormData(e.currentTarget)
+      const data = {
+        firstName: formData.get("firstName") as string,
+        lastName: formData.get("lastName") as string,
+        email: formData.get("email") as string,
+        companyName: formData.get("companyName") as string,
+        phoneNumber: phoneNumber,
+        country: formData.get("country") as string,
+        communications: formData.get("communications") === "on",
+      }
+
+      // Submit form data to API
+      const response = await fetch("/api/catalogue/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        // Navigate to downloads page
+        router.push("/catalogue/downloads")
+      } else {
+        alert(result.error || "Failed to submit form")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      alert("An error occurred. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
   const categories = [
     { name: "Air Hostess Uniform", image: "/images/catalogue/air-hostess.png" },
     { name: "Bar Tender Uniform", image: "/images/catalogue/bar-tendor.png" },
@@ -206,6 +292,202 @@ export default function CataloguePage() {
                 </div>
               ))}
             </AnimateInStagger>
+          </div>
+        </section>
+
+        {/* Download Catalogue Section */}
+        <section className="py-16 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Form Section */}
+              <AnimateIn>
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-8">DOWNLOAD THE NEW CATALOGUE</h2>
+                  <form className="space-y-4" onSubmit={handleFormSubmit}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="firstName" className="block text-sm font-medium mb-1">
+                          First name<span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="firstName"
+                          name="firstName"
+                          placeholder="First name"
+                          required
+                          className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="lastName" className="block text-sm font-medium mb-1">
+                          Last name<span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="lastName"
+                          name="lastName"
+                          placeholder="Last name"
+                          required
+                          className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium mb-1">
+                        Email<span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                        className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="companyName" className="block text-sm font-medium mb-1">
+                        Company name
+                      </label>
+                      <input
+                        type="text"
+                        id="companyName"
+                        name="companyName"
+                        placeholder="Company Name"
+                        className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phoneNumber" className="block text-sm font-medium mb-1">
+                        Contact Number<span className="text-red-500">*</span>
+                      </label>
+                      <div className="flex gap-2">
+                        <input
+                          type="tel"
+                          id="phoneNumber"
+                          placeholder="Enter 10-digit phone number"
+                          required
+                          value={phoneNumber}
+                          onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, "").slice(0, 10))}
+                          disabled={otpVerified}
+                          className="flex-1 px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700 disabled:bg-neutral-100"
+                        />
+                        {!otpVerified && (
+                          <Button
+                            type="button"
+                            onClick={handleSendOtp}
+                            disabled={phoneNumber.length < 10 || otpSent || isLoading}
+                            className="bg-amber-700 hover:bg-amber-800 text-white whitespace-nowrap"
+                          >
+                            {isLoading ? "Sending..." : otpSent ? "Resend OTP" : "Send OTP"}
+                          </Button>
+                        )}
+                        {otpVerified && (
+                          <span className="flex items-center text-green-600 font-medium">
+                            ✓ Verified
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {otpSent && !otpVerified && (
+                      <div>
+                        <label htmlFor="otp" className="block text-sm font-medium mb-1">
+                          Enter OTP<span className="text-red-500">*</span>
+                        </label>
+                        <div className="flex gap-2">
+                          <input
+                            type="text"
+                            id="otp"
+                            placeholder="Enter 6-digit OTP"
+                            required
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
+                            className="flex-1 px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
+                          />
+                          <Button
+                            type="button"
+                            onClick={handleVerifyOtp}
+                            disabled={otp.length !== 6 || isLoading}
+                            className="bg-green-600 hover:bg-green-700 text-white"
+                          >
+                            {isLoading ? "Verifying..." : "Verify"}
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+
+                    <div>
+                      <label htmlFor="country" className="block text-sm font-medium mb-1">
+                        Country<span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        id="country"
+                        name="country"
+                        required
+                        className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700 text-neutral-500"
+                      >
+                        <option value="">Please Select</option>
+                        <option value="india">India</option>
+                        <option value="usa">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="uae">United Arab Emirates</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+
+                   
+
+                    
+                    <div className="flex items-start">
+                      <input
+                        type="checkbox"
+                        id="communications"
+                        name="communications"
+                        className="mt-1 mr-2"
+                      />
+                      <label htmlFor="communications" className="text-sm">
+                        Yes! I agree to receive communications from Cargo Crew.<span className="text-red-500">*</span>
+                      </label>
+                    </div>
+
+                    <div className="pt-2">
+                      <div className="bg-neutral-100 p-3 rounded-md text-xs text-neutral-600">
+                        This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                      </div>
+                    </div>
+
+                    <Button
+                      type="submit"
+                      size="lg"
+                      disabled={!otpVerified}
+                      className="bg-[#0a1f3d] hover:bg-[#0a1f3d]/90 text-white px-8 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      Download
+                    </Button>
+                    {!otpVerified && (
+                      <p className="text-sm text-red-600 mt-2">Please verify your phone number to download catalogues</p>
+                    )}
+                  </form>
+                </div>
+              </AnimateIn>
+
+              {/* Catalogue Preview Image */}
+              <AnimateIn delay={0.2}>
+                <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/catalogue/catalogue-preview.jpg"
+                    alt="Catalogue Preview"
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </AnimateIn>
+            </div>
           </div>
         </section>
 

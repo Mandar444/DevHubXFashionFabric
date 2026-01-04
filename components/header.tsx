@@ -22,7 +22,7 @@ export default function Header() {
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold text-[#2e7d32]">Fashion Fabric</span>
-            <span className="text-sm text-[#2e7d32] -mt-1">LINEN SHOP</span>
+           
           </div>
         </Link>
         <nav className="hidden md:flex gap-6">

@@ -5,6 +5,8 @@ import "./globals.css"
 import Script from "next/script"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import AuthProvider from "@/components/auth-provider"
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -82,9 +84,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <Header />
+          {children}
+          <Footer />
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   )
