@@ -33,7 +33,7 @@ export function PageFlipBook({ pdfUrl, title }: PageFlipBookProps) {
     const loadPageFlip = async () => {
       try {
         // Dynamically import page-flip
-        const module = await import('page-flip')
+        const module = await import('page-flip') as any
         
         // Extract the constructor - try all possible export formats
         let PageFlipConstructor

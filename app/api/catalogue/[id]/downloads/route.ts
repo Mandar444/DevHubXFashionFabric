@@ -6,7 +6,7 @@ import { prisma } from "@/lib/prisma"
 // GET downloads for a specific catalogue (admin only)
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const session = await getServerSession(authOptions)
@@ -18,8 +18,9 @@ export async function GET(
             )
         }
 
+        const { id } = await params
         const downloads = await prisma.download.findMany({
-            where: { catalogueId: params.id },
+            where: { catalogueId: id },
             orderBy: { downloadedAt: "desc" },
             include: {
                 catalogue: {
@@ -32,7 +33,7 @@ export async function GET(
         })
 
         const downloadCount = await prisma.download.count({
-            where: { catalogueId: params.id }
+            where: { catalogueId: id }
         })
 
         return NextResponse.json({
