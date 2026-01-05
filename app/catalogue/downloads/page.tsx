@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
-import { Eye, BookOpen } from "lucide-react"
+import { Eye, BookOpen, Download } from "lucide-react"
 import { useEffect, useState } from "react"
 import { toast } from "sonner"
 
@@ -68,6 +68,40 @@ export default function CatalogueDownloadsPage() {
     }
   }
 
+  const handleDownloadPdf = async (catalogue: Catalogue) => {
+    try {
+      // Track download
+      await fetch("/api/download/track", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          catalogueId: catalogue.id,
+          userName: null,
+          userEmail: null,
+          userPhone: null,
+        }),
+      })
+
+      // Download PDF
+      const response = await fetch(catalogue.pdfUrl)
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement("a")
+      a.href = url
+      a.download = `${catalogue.title}.pdf`
+      document.body.appendChild(a)
+      a.click()
+      window.URL.revokeObjectURL(url)
+      document.body.removeChild(a)
+      toast.success("Download started")
+    } catch (error) {
+      console.error("Error downloading:", error)
+      toast.error("Failed to download catalogue")
+    }
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
@@ -110,37 +144,53 @@ export default function CatalogueDownloadsPage() {
                     key={catalogue.id}
                     className={`group ${catalogue.color} rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-neutral-200`}
                   >
-                    <div className="aspect-[3/5] relative h-[500px]">
+                    <div className="relative w-full h-[400px]">
                       <Image
                         src={catalogue.coverImage || "/placeholder.svg"}
                         alt={catalogue.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                         loading="lazy"
                       />
                     </div>
                     
-                    <div className="p-6 bg-white">
-                      <h3 className="text-xl font-bold mb-2">{catalogue.title}</h3>
+                    <div className="p-5 bg-white">
+                      <h3 className="text-xl font-bold mb-1.5">{catalogue.title}</h3>
                       {catalogue.subtitle && (
-                        <p className="text-neutral-600 mb-4">{catalogue.subtitle}</p>
+                        <p className="text-neutral-600 text-sm mb-4">{catalogue.subtitle}</p>
                       )}
-                      <div className="space-y-2">
-                        <Button
-                          onClick={() => handleOpenPdf(catalogue)}
-                          variant="default"
-                          className="w-full bg-amber-700 hover:bg-amber-800 text-white"
-                        >
-                          <Eye className="mr-2 h-4 w-4" />
-                          View PDF
-                        </Button>
+                      <div className="space-y-2.5">
+                        {/* Primary & Secondary Actions - Side by Side */}
+                        <div className="grid grid-cols-2 gap-2">
+                          <Button
+                            onClick={() => handleOpenPdf(catalogue)}
+                            variant="default"
+                            size="sm"
+                            className="h-9 bg-amber-600 hover:bg-amber-700 text-white font-medium text-sm rounded-md shadow-sm transition-all duration-200 hover:shadow-md active:scale-[0.98]"
+                          >
+                            <Eye className="mr-1.5 h-3.5 w-3.5" />
+                            View
+                          </Button>
+                          <Button
+                            onClick={() => handleDownloadPdf(catalogue)}
+                            variant="default"
+                            size="sm"
+                            className="h-9 bg-green-600 hover:bg-green-700 text-white font-medium text-sm rounded-md shadow-sm transition-all duration-200 hover:shadow-md active:scale-[0.98]"
+                          >
+                            <Download className="mr-1.5 h-3.5 w-3.5" />
+                            Download
+                          </Button>
+                        </div>
+                        
+                        {/* Tertiary Action - Full Width */}
                         <Button
                           asChild
                           variant="outline"
-                          className="w-full border-amber-700 text-amber-700 hover:bg-amber-50"
+                          size="sm"
+                          className="w-full h-9 border-2 border-amber-600 text-amber-700 hover:bg-amber-50 hover:border-amber-700 font-medium text-sm rounded-md transition-all duration-200 hover:shadow-sm active:scale-[0.98]"
                         >
                           <Link href={`/catalogue/flip/${catalogue.id}`}>
-                            <BookOpen className="mr-2 h-4 w-4" />
+                            <BookOpen className="mr-1.5 h-3.5 w-3.5" />
                             Open Flip Book
                           </Link>
                         </Button>

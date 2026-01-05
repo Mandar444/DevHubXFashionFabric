@@ -37,6 +37,20 @@ export default function AdminPage() {
             </Button>
           </CardContent>
         </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Catalogue Submissions</CardTitle>
+            <CardDescription>
+              View all catalogue form submissions
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild className="w-full">
+              <Link href="/admin/catalogue-submissions">View Submissions</Link>
+            </Button>
+          </CardContent>
+        </Card>
       </div>
     </div>
   )

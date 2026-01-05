@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="flex items-start">
               <MapPin className="h-5 w-5 text-[#f0f4c3] mt-1 mr-3 flex-shrink-0" />
               <p className="text-neutral-200">
-                Shop No. 8, Block - II, Dukle Heaven, Near Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
+                Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
               </p>
             </div>
          

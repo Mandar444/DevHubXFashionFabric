@@ -55,7 +55,26 @@ CREATE TABLE IF NOT EXISTS "FileUpload" (
     "updatedAt" TIMESTAMP(3) NOT NULL
 );
 
+-- Create CatalogueSubmission table
+CREATE TABLE IF NOT EXISTS "CatalogueSubmission" (
+    id TEXT PRIMARY KEY,
+    "firstName" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
+    email TEXT NOT NULL,
+    "companyName" TEXT,
+    "phoneNumber" TEXT NOT NULL,
+    country TEXT NOT NULL,
+    "ipAddress" TEXT,
+    "userAgent" TEXT,
+    "otpVerified" BOOLEAN DEFAULT false NOT NULL,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "updatedAt" TIMESTAMP(3) NOT NULL
+);
+
 -- Create indexes for better performance
 CREATE INDEX IF NOT EXISTS "Download_catalogueId_idx" ON "Download"("catalogueId");
 CREATE INDEX IF NOT EXISTS "Catalogue_published_idx" ON "Catalogue"(published);
 CREATE INDEX IF NOT EXISTS "FileUpload_catalogueId_idx" ON "FileUpload"("catalogueId");
+CREATE INDEX IF NOT EXISTS "CatalogueSubmission_email_idx" ON "CatalogueSubmission"(email);
+CREATE INDEX IF NOT EXISTS "CatalogueSubmission_phoneNumber_idx" ON "CatalogueSubmission"("phoneNumber");
+CREATE INDEX IF NOT EXISTS "CatalogueSubmission_createdAt_idx" ON "CatalogueSubmission"("createdAt");

@@ -291,6 +291,7 @@ export default function AdminCatalogueUploadPage() {
     setSubtitle(catalogue.subtitle || "")
     setCategory(catalogue.category)
     setColor(catalogue.color)
+    toast.info(`Editing: ${catalogue.title}`)
     // Scroll to form
     window.scrollTo({ top: 0, behavior: "smooth" })
   }

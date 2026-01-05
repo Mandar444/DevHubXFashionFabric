@@ -442,23 +442,7 @@ export default function CataloguePage() {
                    
 
                     
-                    <div className="flex items-start">
-                      <input
-                        type="checkbox"
-                        id="communications"
-                        name="communications"
-                        className="mt-1 mr-2"
-                      />
-                      <label htmlFor="communications" className="text-sm">
-                        Yes! I agree to receive communications from Cargo Crew.<span className="text-red-500">*</span>
-                      </label>
-                    </div>
-
-                    <div className="pt-2">
-                      <div className="bg-neutral-100 p-3 rounded-md text-xs text-neutral-600">
-                        This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-                      </div>
-                    </div>
+                 
 
                     <Button
                       type="submit"
@@ -479,7 +463,7 @@ export default function CataloguePage() {
               <AnimateIn delay={0.2}>
                 <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
                   <Image
-                    src="/images/catalogue/catalogue-preview.jpg"
+                    src="/images/catalogue/priview.png"
                     alt="Catalogue Preview"
                     fill
                     className="object-cover"

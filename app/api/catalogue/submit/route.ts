@@ -11,7 +11,6 @@ export async function POST(request: NextRequest) {
             companyName,
             phoneNumber,
             country,
-            communications,
         } = body
 
         // Validate required fields
@@ -29,6 +28,28 @@ export async function POST(request: NextRequest) {
             "unknown"
         const userAgent = request.headers.get("user-agent") || "unknown"
 
+        // Store catalogue submission data in CatalogueSubmission table
+        let submission = null
+        try {
+            // @ts-ignore - CatalogueSubmission model exists in schema but Prisma client needs regeneration
+            submission = await prisma.catalogueSubmission.create({
+                data: {
+                    firstName,
+                    lastName,
+                    email,
+                    companyName: companyName || null,
+                    phoneNumber,
+                    country,
+                    ipAddress,
+                    userAgent,
+                    otpVerified: true,
+                },
+            })
+        } catch (error) {
+            console.log("CatalogueSubmission table not available yet, storing in Download table only")
+        }
+
+        // Also create a download record for tracking purposes
         // Find or create a general catalogue entry
         let catalogue = await prisma.catalogue.findFirst({
             where: { category: "general" }
@@ -47,11 +68,15 @@ export async function POST(request: NextRequest) {
             })
         }
 
-        // Create download record
+        // Create download record with extended info
+        const userNameWithDetails = companyName
+            ? `${firstName} ${lastName} (${companyName}) - ${country}`
+            : `${firstName} ${lastName} - ${country}`
+
         const download = await prisma.download.create({
             data: {
                 catalogueId: catalogue.id,
-                userName: `${firstName} ${lastName}`,
+                userName: userNameWithDetails,
                 userEmail: email,
                 userPhone: phoneNumber,
                 ipAddress,
@@ -61,6 +86,7 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json({
             success: true,
+            submissionId: submission?.id || null,
             downloadId: download.id,
             message: "Form submitted successfully",
         })

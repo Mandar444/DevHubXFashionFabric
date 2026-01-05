@@ -60,3 +60,22 @@ model FileUpload {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model CatalogueSubmission {
+  id          String   @id @default(cuid())
+  firstName   String
+  lastName    String
+  email       String
+  companyName String?
+  phoneNumber String
+  country     String
+  ipAddress   String?
+  userAgent   String?
+  otpVerified Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([email])
+  @@index([phoneNumber])
+  @@index([createdAt])
+}
