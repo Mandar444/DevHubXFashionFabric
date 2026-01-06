@@ -3,130 +3,56 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
-import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { Card } from "@/components/ui/card"
+import { AnimateIn } from "@/components/animate-in"
+import { useState, useEffect } from "react"
+import { Download, BookOpen, FileText } from "lucide-react"
+
+interface Catalogue {
+  id: string
+  title: string
+  subtitle?: string | null
+  description?: string | null
+  category: string
+  coverImage: string
+  pdfUrl: string
+  color: string
+  publishedAt: string
+}
 
 export default function CataloguePage() {
-  const router = useRouter()
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [otp, setOtp] = useState("")
-  const [otpSent, setOtpSent] = useState(false)
-  const [otpVerified, setOtpVerified] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [catalogues, setCatalogues] = useState<Catalogue[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSendOtp = async () => {
-    if (phoneNumber.length < 10) {
-      alert("Please enter a valid phone number")
-      return
-    }
-    setIsLoading(true)
-    // Simulate OTP sending
-    setTimeout(() => {
-      setOtpSent(true)
-      setIsLoading(false)
-      alert("OTP sent to your phone number")
-    }, 1000)
-  }
+  useEffect(() => {
+    fetchCatalogues()
+  }, [])
 
-  const handleVerifyOtp = async () => {
-    if (otp.length !== 6) {
-      alert("Please enter a valid 6-digit OTP")
-      return
-    }
-    setIsLoading(true)
-    // Simulate OTP verification
-    setTimeout(() => {
-      setOtpVerified(true)
-      setIsLoading(false)
-      alert("Phone number verified successfully!")
-    }, 1000)
-  }
-
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    
-    if (!otpVerified) {
-      alert("Please verify your phone number before downloading")
-      return
-    }
-
-    setIsLoading(true)
-
+  const fetchCatalogues = async () => {
     try {
-      // Get form data
-      const formData = new FormData(e.currentTarget)
-      const data = {
-        firstName: formData.get("firstName") as string,
-        lastName: formData.get("lastName") as string,
-        email: formData.get("email") as string,
-        companyName: formData.get("companyName") as string,
-        phoneNumber: phoneNumber,
-        country: formData.get("country") as string,
-        communications: formData.get("communications") === "on",
+      setIsLoading(true)
+      const response = await fetch("/api/catalogue")
+      
+      if (!response.ok) {
+        throw new Error("Failed to fetch catalogues")
       }
 
-      // Submit form data to API
-      const response = await fetch("/api/catalogue/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-
-      const result = await response.json()
-
-      if (response.ok) {
-        // Navigate to downloads page
-        router.push("/catalogue/downloads")
-      } else {
-        alert(result.error || "Failed to submit form")
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error)
-      alert("An error occurred. Please try again.")
+      const data = await response.json()
+      setCatalogues(data)
+    } catch (err) {
+      console.error("Error fetching catalogues:", err)
+      setError("Failed to load catalogues. Please try again later.")
     } finally {
       setIsLoading(false)
     }
   }
-  const categories = [
-    { name: "Air Hostess Uniform", image: "/images/catalogue/air-hostess.png" },
-    { name: "Bar Tender Uniform", image: "/images/catalogue/bar-tendor.png" },
-    { name: "Bow Tie", image: "/images/catalogue/bow.jpg" },
-    { name: "Casino Uniform", image: "/images/catalogue/casino-uniform.jpg" },
-    { name: "Catering Uniforms", image: "/images/catalogue/catering-uniforms.png" },
-    { name: "Chef Accessories", image: "/images/catalogue/CHEF-ACCESSORIES.jpg" },
-    { name: "Chef Apron", image: "/images/catalogue/chef-apron.png" },
-    { name: "Chef Coats", image: "/images/catalogue/chef-coats.jpg" },
-    { name: "Corporate Wear Suit", image: "/images/catalogue/CORPORATE-WEAR-SUIT.png" },
-    { name: "Doorman Uniforms", image: "/images/catalogue/DOORMAN-UNIFORMS.png" },
-    { name: "Driver Uniforms", image: "/images/catalogue/driver-uniforms.png" },
-    { name: "F&B Uniforms", image: "/images/catalogue/f&b-uniforms.png" },
-    { name: "Front Office Uniforms", image: "/images/catalogue/FRONT-OFFICE-UNIFORMS.png" },
-    { name: "Hospital Uniforms", image: "/images/catalogue/HOSPITAL-UNIFORMS.png" },
-    { name: "Security Uniform", image: "/images/catalogue/hotel-security.jpg" },
-    { name: "Housekeeping Uniforms", image: "/images/catalogue/HOUSEKEEPING-UNIFORMS.png" },
-    { name: "Lab Coats", image: "/images/catalogue/lab-coats.png" },
-    { name: "Polo T-shirt", image: "/images/catalogue/polo-tshirt.jpg" },
-    { name: "School Uniform", image: "/images/catalogue/school-uniform.png" },
-    { name: "Spa Uniforms", image: "/images/catalogue/SPA-UNIFORMS.png" },
-    { name: "Tie", image: "/images/catalogue/tie.jpg" },
-    { name: "Trousers", image: "/images/catalogue/trousers.jpg" },
-    { name: "Round Neck T-shirt", image: "/images/catalogue/uniform-ROUND-NECK-T-SHIRT.jpg" },
-  ]
-
-  const formalShoes = [
-    { name: "FORMAL SHOES - BLACK", image: "/images/catalogue/shoes-black.jpg" },
-    { name: "FORMAL SHOES - BROWN", image: "/images/catalogue/shoes-brown.jpg" },
-    // { name: "FORMAL SHOES - WOMEN", image: "/images/catalogue/shoes-women.jpg" },
-  ]
 
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[40vh] flex items-center justify-center overflow-hidden bg-neutral-200">
+        <section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden bg-neutral-200">
           {/* Video for desktop */}
           <video
             autoPlay
@@ -154,340 +80,154 @@ export default function CataloguePage() {
           <div className="absolute inset-0 z-10 bg-black/40"></div>
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Product Catalogue</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white mb-4">
+                Our Catalogues
+              </h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
-              <p className="max-w-[800px] text-lg text-white/90">
-                Explore our wide range of high-quality uniforms for the hospitality industry
+              <p className="max-w-[800px] text-lg md:text-xl text-white/90 mb-8">
+                Browse our complete collection of catalogues. Download to view detailed information about our products.
               </p>
             </AnimateIn>
           </div>
         </section>
 
-        {/* Catalogue Grid */}
-        <section className="py-16 bg-white">
+        {/* Catalogues Grid Section */}
+        <section className="py-16 md:py-24 bg-neutral-50">
           <div className="container px-4 md:px-6">
-            <AnimateInStagger
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-              staggerDelay={0.03}
-            >
-              {categories.map((category, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={category.image || "/placeholder.svg"}
-                      alt={category.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-center">{category.name}</h3>
-                  </div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Available Catalogues</h2>
+              <p className="text-neutral-600 max-w-2xl mx-auto">
+                Select a catalogue to download. You'll need to fill in your details before accessing the catalogue.
+              </p>
+            </div>
+
+            {isLoading ? (
+              <div className="flex justify-center items-center min-h-[400px]">
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-700 mx-auto mb-4"></div>
+                  <p className="text-neutral-600">Loading catalogues...</p>
                 </div>
-              ))}
-            </AnimateInStagger>
-          </div>
-        </section>
-
-        {/* Formal Shoes Section */}
-        <section className="py-16 bg-neutral-50">
-          <div className="container px-4 md:px-6">
-            <AnimateIn>
-              <h2 className="text-3xl font-bold text-center mb-12">Formal Shoes Collection</h2>
-            </AnimateIn>
-
-            {/* MEN Section */}
-            <AnimateIn>
-              <h3 className="text-2xl font-semibold mb-6 mt-8 text-center text-neutral-800">MEN</h3>
-            </AnimateIn>
-            <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {[
-                { name: "Oxford shoes", image: "/images/catalogue/oxford-shoes.webp" },
-                { name: "Derby shoes", image: "/images/catalogue/derby-shoes.jpg" },
-                { name: "Brogues", image: "/images/catalogue/Brogues.webp" },
-                { name: "Monk Straps", image: "/images/catalogue/Monk-Straps.webp" },
-                { name: "Loafers", image: "/images/catalogue/Loafers.avif" },
-                { name: "Wholecut", image: "/images/catalogue/Wholecut.jpeg" },
-                { name: "Chelsea Boots", image: "/images/catalogue/Chelsea.jpg" },
-              ].map((shoe, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={shoe.image}
-                      alt={shoe.name}
-                      fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-center">{shoe.name}</h3>
-                  </div>
+              </div>
+            ) : error ? (
+              <div className="flex justify-center items-center min-h-[400px]">
+                <div className="text-center">
+                  <p className="text-red-600 mb-4">{error}</p>
+                  <Button onClick={fetchCatalogues} variant="outline">
+                    Try Again
+                  </Button>
                 </div>
-              ))}
-            </AnimateInStagger>
-
-            {/* WOMEN Section */}
-            <AnimateIn>
-              <h3 className="text-2xl font-semibold mb-6 mt-8 text-center text-neutral-800">WOMEN</h3>
-            </AnimateIn>
-            <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {[
-                { name: "Classic Pumps", image: "/images/catalogue/Classic-Pumps.jpg" },
-                { name: "Ballet Flats", image: "/images/catalogue/Ballet-Flats.jpg" },
-                { name: "Moccasins", image: "/images/catalogue/Moccasins.jpg" },
-              ].map((shoe, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={shoe.image}
-                      alt={shoe.name}
-                      fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-center">{shoe.name}</h3>
-                  </div>
+              </div>
+            ) : catalogues.length === 0 ? (
+              <div className="flex justify-center items-center min-h-[400px]">
+                <div className="text-center">
+                  <FileText className="w-16 h-16 text-neutral-400 mx-auto mb-4" />
+                  <p className="text-neutral-600 text-lg">No catalogues available at the moment.</p>
                 </div>
-              ))}
-            </AnimateInStagger>
-
-            {/* UNISEX Section */}
-            <AnimateIn>
-              <h3 className="text-2xl font-semibold mb-6 mt-8 text-center text-neutral-800">UNISEX</h3>
-            </AnimateIn>
-            <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { name: "Chef clogs", image: "/images/catalogue/Chef-clogs.jpg" },
-              ].map((shoe, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={shoe.image}
-                      alt={shoe.name}
-                      fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-center">{shoe.name}</h3>
-                  </div>
-                </div>
-              ))}
-            </AnimateInStagger>
-          </div>
-        </section>
-
-        {/* Download Catalogue Section */}
-        <section className="py-16 bg-white">
-          <div className="container px-4 md:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Form Section */}
-              <AnimateIn>
-                <div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-8">DOWNLOAD THE NEW CATALOGUE</h2>
-                  <form className="space-y-4" onSubmit={handleFormSubmit}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="firstName" className="block text-sm font-medium mb-1">
-                          First name<span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          placeholder="First name"
-                          required
-                          className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                {catalogues.map((catalogue, index) => (
+                  <AnimateIn key={catalogue.id} delay={index * 0.1}>
+                    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                      {/* Cover Image */}
+                      <div className="relative w-full aspect-[3/4] overflow-hidden bg-neutral-100">
+                        <Image
+                          src={catalogue.coverImage}
+                          alt={catalogue.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                         />
-                      </div>
-                      <div>
-                        <label htmlFor="lastName" className="block text-sm font-medium mb-1">
-                          Last name<span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          placeholder="Last name"
-                          required
-                          className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-1">
-                        Email<span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                        required
-                        className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="companyName" className="block text-sm font-medium mb-1">
-                        Company name
-                      </label>
-                      <input
-                        type="text"
-                        id="companyName"
-                        name="companyName"
-                        placeholder="Company Name"
-                        className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="phoneNumber" className="block text-sm font-medium mb-1">
-                        Contact Number<span className="text-red-500">*</span>
-                      </label>
-                      <div className="flex gap-2">
-                        <input
-                          type="tel"
-                          id="phoneNumber"
-                          placeholder="Enter 10-digit phone number"
-                          required
-                          value={phoneNumber}
-                          onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, "").slice(0, 10))}
-                          disabled={otpVerified}
-                          className="flex-1 px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700 disabled:bg-neutral-100"
-                        />
-                        {!otpVerified && (
-                          <Button
-                            type="button"
-                            onClick={handleSendOtp}
-                            disabled={phoneNumber.length < 10 || otpSent || isLoading}
-                            className="bg-amber-700 hover:bg-amber-800 text-white whitespace-nowrap"
-                          >
-                            {isLoading ? "Sending..." : otpSent ? "Resend OTP" : "Send OTP"}
-                          </Button>
-                        )}
-                        {otpVerified && (
-                          <span className="flex items-center text-green-600 font-medium">
-                            ✓ Verified
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {otpSent && !otpVerified && (
-                      <div>
-                        <label htmlFor="otp" className="block text-sm font-medium mb-1">
-                          Enter OTP<span className="text-red-500">*</span>
-                        </label>
-                        <div className="flex gap-2">
-                          <input
-                            type="text"
-                            id="otp"
-                            placeholder="Enter 6-digit OTP"
-                            required
-                            value={otp}
-                            onChange={(e) => setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                            className="flex-1 px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700"
-                          />
-                          <Button
-                            type="button"
-                            onClick={handleVerifyOtp}
-                            disabled={otp.length !== 6 || isLoading}
-                            className="bg-green-600 hover:bg-green-700 text-white"
-                          >
-                            {isLoading ? "Verifying..." : "Verify"}
-                          </Button>
+                        {/* Category Badge */}
+                        <div className="absolute top-3 left-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                          {catalogue.category}
                         </div>
                       </div>
-                    )}
 
-                    <div>
-                      <label htmlFor="country" className="block text-sm font-medium mb-1">
-                        Country<span className="text-red-500">*</span>
-                      </label>
-                      <select
-                        id="country"
-                        name="country"
-                        required
-                        className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700 text-neutral-500"
-                      >
-                        <option value="">Please Select</option>
-                        <option value="india">India</option>
-                        <option value="usa">United States</option>
-                        <option value="uk">United Kingdom</option>
-                        <option value="uae">United Arab Emirates</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
+                      {/* Content */}
+                      <div className="p-5 flex flex-col flex-1">
+                        <h3 className="text-lg font-bold mb-2 line-clamp-2 group-hover:text-amber-700 transition-colors">
+                          {catalogue.title}
+                        </h3>
+                        {catalogue.subtitle && (
+                          <p className="text-sm text-neutral-600 mb-4 line-clamp-2">
+                            {catalogue.subtitle}
+                          </p>
+                        )}
 
-                   
+                        {/* Description */}
+                        {catalogue.description && (
+                          <div className="text-sm text-neutral-600 mb-4">
+                            <p className="mb-2 font-medium">Inside you'll find:</p>
+                            <ul className="space-y-1 text-xs">
+                              {catalogue.description.split('\n').filter(line => line.trim()).map((line, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <span className="text-amber-700 mr-2">•</span>
+                                  <span className="line-clamp-2">{line}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
 
-                    
-                 
+                        {/* Spacer */}
+                        <div className="flex-1"></div>
 
-                    <Button
-                      type="submit"
-                      size="lg"
-                      disabled={!otpVerified}
-                      className="bg-[#0a1f3d] hover:bg-[#0a1f3d]/90 text-white px-8 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      Download
-                    </Button>
-                    {!otpVerified && (
-                      <p className="text-sm text-red-600 mt-2">Please verify your phone number to download catalogues</p>
-                    )}
-                  </form>
-                </div>
+                        {/* Download Button */}
+                        <Link
+                          href={`/catalogue/${catalogue.id}/download`}
+                          className="w-full"
+                        >
+                          <Button className="w-full bg-amber-700 hover:bg-amber-800 text-white mt-4 group/btn">
+                            <Download className="w-4 h-4 mr-2 group-hover/btn:animate-bounce" />
+                            Download Catalogue
+                          </Button>
+                        </Link>
+                      </div>
+                    </Card>
+                  </AnimateIn>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Info Section */}
+        <section className="py-16 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-3xl mx-auto text-center">
+              <AnimateIn>
+                <h2 className="text-3xl font-bold mb-6">Why Download Our Catalogues?</h2>
               </AnimateIn>
-
-              {/* Catalogue Preview Image */}
               <AnimateIn delay={0.2}>
-                <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
-                  <Image
-                    src="/images/catalogue/priview.png"
-                    alt="Catalogue Preview"
-                    fill
-                    className="object-cover"
-                    loading="lazy"
-                  />
+                <div className="grid md:grid-cols-3 gap-8 mt-12">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <BookOpen className="w-8 h-8 text-amber-700" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Complete Collection</h3>
+                    <p className="text-neutral-600 text-sm">Access our full range of uniform products in one place</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-semibold mb-2">Detailed Information</h3>
+                    <p className="text-neutral-600 text-sm">Specifications, materials, and sizing details included</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Download className="w-8 h-8 text-amber-700" />
+                    </div>
+                    <h3 className="font-semibold mb-2">Easy Access</h3>
+                    <p className="text-neutral-600 text-sm">Download and view offline anytime, anywhere</p>
+                  </div>
                 </div>
               </AnimateIn>
             </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 bg-amber-50">
-          <div className="container px-4 md:px-6 text-center">
-            <AnimateIn>
-              <h2 className="text-3xl font-bold mb-6">Need Custom Uniforms?</h2>
-              <p className="max-w-[600px] mx-auto text-neutral-600 mb-8">
-                We specialize in creating bespoke uniform solutions tailored to your specific requirements. Contact us
-                today to discuss your needs.
-              </p>
-              <Button asChild size="lg" className="bg-amber-700 hover:bg-amber-800 text-white">
-                <Link href="/enquiry">Request a Quote</Link>
-              </Button>
-            </AnimateIn>
           </div>
         </section>
       </main>

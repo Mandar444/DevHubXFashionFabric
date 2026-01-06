@@ -24,6 +24,7 @@ model Catalogue {
   id          String     @id @default(cuid())
   title       String
   subtitle    String?
+  description String?    // Description with bullet points
   category    String
   coverImage  String     // URL to cover image
   pdfUrl      String     // URL to PDF file
@@ -69,6 +70,7 @@ model CatalogueSubmission {
   companyName String?
   phoneNumber String
   country     String
+  state       String
   ipAddress   String?
   userAgent   String?
   otpVerified Boolean  @default(false)

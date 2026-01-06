@@ -32,8 +32,8 @@ export default function Header() {
           <Link href="/about" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             About Us
           </Link>
-          <Link href="/catalogue" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            Catalogue
+          <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+           Products
           </Link>
           <Link href="/clients" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Clients
@@ -46,6 +46,9 @@ export default function Header() {
           </Link>
           <Link href="/enquiry" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Enquiry
+          </Link>
+          <Link href="/catalogue" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+            catalogue
           </Link>
         </nav>
         <Button asChild className="hidden md:inline-flex bg-[#2e7d32] hover:bg-[#1b5e20] text-white">

@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
         }
 
         const body = await request.json()
-        const { title, subtitle, category, coverImage, pdfUrl, color } = body
+        const { title, subtitle, description, category, coverImage, pdfUrl, color } = body
 
         // Validate required fields
         if (!title || !category || !coverImage || !pdfUrl) {
@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
             data: {
                 title,
                 subtitle,
+                description,
                 category,
                 coverImage,
                 pdfUrl,

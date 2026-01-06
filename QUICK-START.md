@@ -8,9 +8,13 @@ Your admin catalogue upload system is now fully configured and ready to use.
 
 - **Login URL**: http://localhost:8080/admin/login
 - **Email**: `admin@fashionfabric.com`
-- **Password**: `admin123`
+- **Password**: `FashionAdmin@2026!` (default - **change immediately after first login**)
 
-⚠️ **IMPORTANT**: Change this password after your first login!
+⚠️ **IMPORTANT SECURITY UPDATE**:
+
+- The system now requires strong passwords (12+ chars, uppercase, lowercase, number, special char)
+- Change your password at: http://localhost:8080/admin/change-password
+- See [ADMIN-PASSWORD-SECURITY.md](./ADMIN-PASSWORD-SECURITY.md) for details
 
 ---
 

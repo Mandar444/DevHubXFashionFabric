@@ -10,7 +10,9 @@
     "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
     "prisma:push": "prisma db push",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "seed": "prisma db seed",
+    "setup-admin": "powershell -ExecutionPolicy Bypass -File ./setup-admin-password.ps1"
   },
   "prisma": {
     "seed": "node prisma/seed.js"

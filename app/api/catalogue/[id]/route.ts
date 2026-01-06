@@ -48,13 +48,14 @@ export async function PUT(
 
         const { id } = await params
         const body = await request.json()
-        const { title, subtitle, category, coverImage, pdfUrl, color, published } = body
+        const { title, subtitle, description, category, coverImage, pdfUrl, color, published } = body
 
         const catalogue = await prisma.catalogue.update({
             where: { id },
             data: {
                 ...(title && { title }),
                 ...(subtitle !== undefined && { subtitle }),
+                ...(description !== undefined && { description }),
                 ...(category && { category }),
                 ...(coverImage && { coverImage }),
                 ...(pdfUrl && { pdfUrl }),

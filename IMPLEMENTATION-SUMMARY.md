@@ -121,9 +121,13 @@ package.json                          # Added dependencies
 **Default Admin Account:**
 
 - **Email**: `admin@fashionfabric.com`
-- **Password**: `admin123`
+- **Password**: `FashionAdmin@2026!` (default)
 
-⚠️ **SECURITY**: Change this password immediately after first login!
+⚠️ **SECURITY UPDATE**:
+
+- Strong password requirements now enforced (12+ chars, uppercase, lowercase, number, special char)
+- Change password at: http://localhost:8080/admin/change-password
+- See [ADMIN-PASSWORD-SECURITY.md](./ADMIN-PASSWORD-SECURITY.md) for complete details
 
 ---
 

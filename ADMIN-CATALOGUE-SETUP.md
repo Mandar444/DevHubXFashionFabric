@@ -25,9 +25,13 @@ npm run dev
 
 - **URL**: http://localhost:8080/admin/login
 - **Email**: admin@fashionfabric.com
-- **Password**: admin123
+- **Password**: FashionAdmin@2026!
 
-⚠️ **Important**: Change the admin password after first login!
+⚠️ **Important**:
+
+- Strong password policy now enforced
+- Change password at: http://localhost:8080/admin/change-password
+- See [ADMIN-PASSWORD-SECURITY.md](./ADMIN-PASSWORD-SECURITY.md) for details
 
 ---
 

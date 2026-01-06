@@ -5,20 +5,45 @@ export async function POST(request: NextRequest) {
     try {
         const body = await request.json()
         const {
+            catalogueId,
             firstName,
             lastName,
             email,
             companyName,
             phoneNumber,
             country,
+            state,
+            otpVerified
         } = body
 
         // Validate required fields
-        if (!firstName || !lastName || !email || !phoneNumber || !country) {
+        if (!firstName || !lastName || !email || !phoneNumber || !country || !state) {
             return NextResponse.json(
                 { error: "All required fields must be filled" },
                 { status: 400 }
             )
+        }
+
+        // Validate OTP verification
+        if (!otpVerified) {
+            return NextResponse.json(
+                { error: "Phone number must be verified" },
+                { status: 400 }
+            )
+        }
+
+        // Validate catalogue exists
+        if (catalogueId) {
+            const catalogue = await prisma.catalogue.findUnique({
+                where: { id: catalogueId }
+            })
+
+            if (!catalogue) {
+                return NextResponse.json(
+                    { error: "Catalogue not found" },
+                    { status: 404 }
+                )
+            }
         }
 
         // Get IP address and user agent
@@ -31,7 +56,7 @@ export async function POST(request: NextRequest) {
         // Store catalogue submission data in CatalogueSubmission table
         let submission = null
         try {
-            // @ts-ignore - CatalogueSubmission model exists in schema but Prisma client needs regeneration
+            // @ts-ignore - CatalogueSubmission model exists in schema
             submission = await prisma.catalogueSubmission.create({
                 data: {
                     firstName,
@@ -40,6 +65,7 @@ export async function POST(request: NextRequest) {
                     companyName: companyName || null,
                     phoneNumber,
                     country,
+                    state,
                     ipAddress,
                     userAgent,
                     otpVerified: true,
@@ -49,45 +75,30 @@ export async function POST(request: NextRequest) {
             console.log("CatalogueSubmission table not available yet, storing in Download table only")
         }
 
-        // Also create a download record for tracking purposes
-        // Find or create a general catalogue entry
-        let catalogue = await prisma.catalogue.findFirst({
-            where: { category: "general" }
-        })
+        // Create download record for tracking
+        if (catalogueId) {
+            let userNameWithDetails
+            if (companyName) {
+                userNameWithDetails = `${firstName} ${lastName} (${companyName}) - ${state}, ${country}`
+            } else {
+                userNameWithDetails = `${firstName} ${lastName} - ${state}, ${country}`
+            }
 
-        if (!catalogue) {
-            // Create a default catalogue entry if it doesn't exist
-            catalogue = await prisma.catalogue.create({
+            await prisma.download.create({
                 data: {
-                    title: "General Catalogue",
-                    category: "general",
-                    coverImage: "/images/catalogue/catalogue-preview.jpg",
-                    pdfUrl: "/pdfs/general-catalogue.pdf",
-                    published: true,
-                }
+                    catalogueId,
+                    userName: userNameWithDetails,
+                    userEmail: email,
+                    userPhone: phoneNumber,
+                    ipAddress,
+                    userAgent,
+                },
             })
         }
-
-        // Create download record with extended info
-        const userNameWithDetails = companyName
-            ? `${firstName} ${lastName} (${companyName}) - ${country}`
-            : `${firstName} ${lastName} - ${country}`
-
-        const download = await prisma.download.create({
-            data: {
-                catalogueId: catalogue.id,
-                userName: userNameWithDetails,
-                userEmail: email,
-                userPhone: phoneNumber,
-                ipAddress,
-                userAgent,
-            },
-        })
 
         return NextResponse.json({
             success: true,
             submissionId: submission?.id || null,
-            downloadId: download.id,
             message: "Form submitted successfully",
         })
     } catch (error) {

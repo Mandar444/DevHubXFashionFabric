@@ -25,14 +25,16 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { toast } from "sonner"
-import { Loader2, Trash2, Edit, LogOut, Download as DownloadIcon, TrendingUp, Eye, BookOpen } from "lucide-react"
+import { Loader2, Trash2, Edit, LogOut, Download as DownloadIcon, TrendingUp, Eye, BookOpen, KeyRound } from "lucide-react"
 import { signOut } from "next-auth/react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface Catalogue {
   id: string
   title: string
   subtitle: string
+  description?: string | null
   category: string
   coverImage: string
   pdfUrl: string
@@ -71,6 +73,7 @@ export default function AdminCatalogueUploadPage() {
   // Form state
   const [title, setTitle] = useState("")
   const [subtitle, setSubtitle] = useState("")
+  const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
   const [pdfFile, setPdfFile] = useState<File | null>(null)
   const [coverFile, setCoverFile] = useState<File | null>(null)
@@ -189,6 +192,7 @@ export default function AdminCatalogueUploadPage() {
       const catalogueData = {
         title,
         subtitle,
+        description: description || null,
         category,
         ...(pdfUrl && { pdfUrl }),
         ...(coverImageUrl && { coverImage: coverImageUrl }),
@@ -247,6 +251,7 @@ export default function AdminCatalogueUploadPage() {
       // Reset form
       setTitle("")
       setSubtitle("")
+      setDescription("")
       setCategory("")
       setPdfFile(null)
       setCoverFile(null)
@@ -289,6 +294,7 @@ export default function AdminCatalogueUploadPage() {
     setEditingId(catalogue.id)
     setTitle(catalogue.title)
     setSubtitle(catalogue.subtitle || "")
+    setDescription(catalogue.description || "")
     setCategory(catalogue.category)
     setColor(catalogue.color)
     toast.info(`Editing: ${catalogue.title}`)
@@ -300,6 +306,7 @@ export default function AdminCatalogueUploadPage() {
     setEditingId(null)
     setTitle("")
     setSubtitle("")
+    setDescription("")
     setCategory("")
     setPdfFile(null)
     setCoverFile(null)
@@ -371,14 +378,26 @@ export default function AdminCatalogueUploadPage() {
               Upload and manage catalogue PDFs • Total Downloads: <span className="font-semibold text-amber-700">{totalDownloads}</span>
             </p>
           </div>
-          <Button
-            onClick={handleLogout}
-            variant="outline"
-            className="gap-2"
-          >
-            <LogOut className="h-4 w-4" />
-            Logout
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              asChild
+              variant="outline"
+              className="gap-2"
+            >
+              <Link href="/admin/change-password">
+                <KeyRound className="h-4 w-4" />
+                Change Password
+              </Link>
+            </Button>
+            <Button
+              onClick={handleLogout}
+              variant="outline"
+              className="gap-2"
+            >
+              <LogOut className="h-4 w-4" />
+              Logout
+            </Button>
+          </div>
         </div>
 
         {/* Upload Form */}
@@ -429,6 +448,20 @@ export default function AdminCatalogueUploadPage() {
                     onChange={(e) => setSubtitle(e.target.value)}
                     disabled={isLoading}
                   />
+                </div>
+
+                <div className="space-y-2 md:col-span-2">
+                  <Label htmlFor="description">Description</Label>
+                  <textarea
+                    id="description"
+                    placeholder="Enter description points, one per line. e.g.:&#10;First look at new collections & colour palettes&#10;Style tips & collabs with fashion stylists&#10;A curated vision of uniforms built to last"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    disabled={isLoading}
+                    rows={4}
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent resize-none"
+                  />
+                  <p className="text-xs text-neutral-500">Enter each point on a new line. These will appear as bullet points on the catalogue card.</p>
                 </div>
 
                 <div className="space-y-2">
