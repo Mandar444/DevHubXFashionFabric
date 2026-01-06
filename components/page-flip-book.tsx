@@ -202,7 +202,7 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
             style={{ width: `${loadingProgress}%` }}
           />
         </div>
-        <p className="text-sm text-neutral-500 font-medium">Preparing Catalogue...</p>
+        <p className="text-sm text-neutral-500 font-medium">Preparing Catalogue... {loadingProgress}%</p>
       </div>
     )
   }
@@ -252,7 +252,7 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
         </div>
 
         {/* Floating Navigation (Desktop) */}
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white/90 backdrop-blur border border-neutral-200 shadow-xl rounded-full px-6 py-3 z-50 transition-transform hover:scale-105">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white/90 backdrop-blur border border-neutral-200 shadow-xl rounded-full px-6 py-3 z-50 transition-transform hover:scale-105">
            <button 
              onClick={handlePrev}
              disabled={currentPage === 0}

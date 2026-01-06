@@ -64,6 +64,7 @@ export default function Header() {
             <Link href="/" className="text-sm font-medium hover:text-[#2e7d32] transition-colors" onClick={toggleMenu}>
               Home
             </Link>
+
             <Link
               href="/about"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
@@ -71,6 +72,9 @@ export default function Header() {
             >
               About Us
             </Link>
+            <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+           Products
+          </Link>
             <Link
               href="/catalogue"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
