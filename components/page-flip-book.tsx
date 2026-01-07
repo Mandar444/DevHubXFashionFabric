@@ -1,9 +1,19 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { ChevronLeft, ChevronRight, Loader2, Download, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { ChevronLeft, ChevronRight, Download, X, Smartphone } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
+
 
 // Types for the libraries we import dynamically
 type PageFlip = any
@@ -12,7 +22,7 @@ type PDFDocumentProxy = any
 interface PageFlipBookProps {
   pdfUrl: string
   title?: string
-  backLink?: string // URL to go back to (e.g., "/catalogue")
+  backLink?: string
 }
 
 export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProps) {
@@ -25,6 +35,31 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   const [error, setError] = useState<string | null>(null)
+  const [showMobileWarning, setShowMobileWarning] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Check if mobile on mount and show warning
+  useEffect(() => {
+    const checkMobile = () => {
+      if (typeof window !== 'undefined') {
+        const mobile = window.innerWidth < 768
+        setIsMobile(mobile)
+        if (mobile) {
+          setShowMobileWarning(true)
+        }
+      }
+    }
+    checkMobile()
+    
+    // Handle window resize
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // 1. Load Libraries & Generate Images (Client Side Only)
   useEffect(() => {
@@ -35,15 +70,9 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
       try {
         setIsLoading(true)
         
-        // --- Dynamic Imports for Next.js ---
-        // Prevents "window is not defined" errors during Server Side Rendering
         const pdfjs = await import('pdfjs-dist')
-        
-        // Set worker from CDN to avoid Next.js public folder config issues
-        // We use the version matching the installed package
         pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 
-        // Fetch PDF
         const loadingTask = pdfjs.getDocument(pdfUrl)
         loadingTask.onProgress = (p: { loaded: number; total: number }) => {
            if (isMounted) setLoadingProgress(Math.round((p.loaded / p.total) * 20))
@@ -53,12 +82,10 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
         const numPages = pdfDoc.numPages
         if (isMounted) setTotalPages(numPages)
 
-        // --- High-Res Rendering Logic ---
         const images: string[] = []
-        // Detect retina display (2x) or standard (1x)
         const dpr = window.devicePixelRatio || 1
-        // We multiply by 2 again to ensure text remains crisp even when zoomed in
-        const scale = Math.min(dpr * 2, 4) 
+        // Higher scale for better quality
+        const scale = Math.min(dpr * 3, 6)
 
         for (let i = 1; i <= numPages; i++) {
           if (!isMounted) return
@@ -79,10 +106,7 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
             viewport: viewport,
           }).promise
 
-          // Convert to JPEG (0.9 quality is virtually indistinguishable from PNG but much lighter)
-          images.push(canvas.toDataURL("image/jpeg", 0.9))
-          
-          // Update progress bar
+          images.push(canvas.toDataURL("image/jpeg", 0.95))
           setLoadingProgress(20 + Math.round((i / numPages) * 80))
         }
 
@@ -101,7 +125,6 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
     }
 
     init()
-
     return () => { isMounted = false }
   }, [pdfUrl])
 
@@ -113,43 +136,44 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
 
     const setupFlip = async () => {
       try {
-        // Dynamic import for page-flip to strictly run on client
         const PageFlipModule = await import('page-flip')
         const PageFlip = (PageFlipModule as any).PageFlip || PageFlipModule.default
 
-        const isMobile = window.innerWidth < 768
+        const mobile = window.innerWidth < 768
         
-        // Responsive dimensions based on window size
-        // We want the book to fit comfortably
-        const maxWidth = Math.min(window.innerWidth * 0.9, 1200)
-        // Reduced height for mobile devices to improve usability
-        const maxHeight = isMobile ? window.innerHeight * 0.5 : window.innerHeight * 0.85
+        // Better responsive dimensions
+        let baseWidth, baseHeight
         
-        // Base dimensions for a single page
-        // Desktop: spread is 2x width. Mobile: single page.
-        const baseWidth = isMobile ? maxWidth : maxWidth / 2 
-        const baseHeight = maxHeight
+        if (mobile) {
+          // Mobile: single page, larger and more readable
+          baseWidth = Math.min(window.innerWidth - 32, 600)
+          baseHeight = window.innerHeight * 0.7
+        } else {
+          // Desktop: double page spread
+          const maxWidth = Math.min(window.innerWidth * 0.85, 1400)
+          const maxHeight = window.innerHeight * 0.8
+          baseWidth = maxWidth / 2
+          baseHeight = maxHeight
+        }
 
         pageFlipInstance = new PageFlip(bookRef.current, {
           width: baseWidth,
           height: baseHeight,
-          // "stretch" allows the book to resize nicely with the window
           size: "stretch",
-          // Constraints
-          minWidth: 300,
-          maxWidth: 1000,
-          minHeight: 400,
-          maxHeight: 1200,
-          // Visuals
+          minWidth: mobile ? 280 : 400,
+          maxWidth: mobile ? 600 : 1200,
+          minHeight: mobile ? 400 : 500,
+          maxHeight: mobile ? 900 : 1400,
           showCover: true,
           drawShadow: true,
-          maxShadowOpacity: 0.2, // Softer shadow looks cleaner
+          maxShadowOpacity: 0.3,
           showPageCorners: true,
-          usePortrait: isMobile, // Single page on mobile
+          usePortrait: mobile, // Single page on mobile
           startZIndex: 0,
           autoSize: true,
-          flippingTime: 800,
-          mobileScrollSupport: true 
+          flippingTime: 1000,
+          mobileScrollSupport: mobile,
+          disableFlipByClick: false,
         })
 
         pageFlipInstance.loadFromImages(pageImages)
@@ -167,9 +191,8 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
     return () => {
       if (pageFlipInstance) pageFlipInstance.destroy()
     }
-  }, [isLoading, pageImages]) // Re-run if images change
+  }, [isLoading, pageImages, isMobile])
 
-  // Actions
   const handleNext = () => pageFlipRef.current?.flipNext()
   const handlePrev = () => pageFlipRef.current?.flipPrev()
   
@@ -182,8 +205,6 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
     document.body.removeChild(link)
   }
 
-  // --- RENDER ---
-
   if (error) {
     return (
       <div className="h-screen flex items-center justify-center bg-neutral-100 text-neutral-500">
@@ -195,7 +216,6 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
   if (isLoading) {
     return (
       <div className="h-screen w-full flex flex-col items-center justify-center bg-neutral-50 gap-4">
-        <Loader2 className="h-10 w-10 animate-spin text-neutral-400" />
         <div className="w-64 h-2 bg-neutral-200 rounded-full overflow-hidden">
           <div 
             className="h-full bg-neutral-800 transition-all duration-300 ease-out"
@@ -208,104 +228,154 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#Fdfdfd]">
-      {/* Header: Clean & Minimal */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100 px-4 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link href={backLink}>
-              <Button variant="ghost" size="icon" className="hover:bg-neutral-100 rounded-full">
-                <X className="h-5 w-5 text-neutral-600" />
-              </Button>
-            </Link>
-            <h1 className="text-lg font-serif font-semibold text-neutral-800 hidden sm:block">
-              {title || "Digital Catalogue"}
-            </h1>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-neutral-500 mr-2 hidden sm:block">
-              {currentPage + 1} / {totalPages}
-            </span>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={handleDownload}
-              className="rounded-full border-neutral-200 text-neutral-700 hover:bg-neutral-50 hover:text-black"
+    <>
+      <AlertDialog open={showMobileWarning} onOpenChange={setShowMobileWarning}>
+        <AlertDialogContent className="max-w-md mx-4">
+          <AlertDialogHeader>
+            <div className="flex items-center gap-2 mb-2">
+              <Smartphone className="h-6 w-6 text-orange-500" />
+              <AlertDialogTitle>Mobile View Notice</AlertDialogTitle>
+            </div>
+            <AlertDialogDescription className="text-base">
+              For the best viewing experience with larger text and images, please open this catalogue on a desktop or laptop computer, or download the PDF.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="flex-col sm:flex-row gap-2">
+            <Button
+              variant="outline"
+              onClick={() => {
+                handleDownload()
+                setShowMobileWarning(false)
+              }}
+              className="w-full sm:w-auto"
             >
               <Download className="h-4 w-4 mr-2" />
-              Download
+              Download PDF
             </Button>
+            <AlertDialogAction onClick={() => setShowMobileWarning(false)} className="w-full sm:w-auto">
+              Continue Anyway
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <div className="flex flex-col min-h-screen bg-neutral-50">
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200 px-4 py-3 shadow-sm">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Link href={backLink}>
+                <Button variant="ghost" size="icon" className="hover:bg-neutral-100 rounded-full">
+                  <X className="h-5 w-5 text-neutral-600" />
+                </Button>
+              </Link>
+              <h1 className="text-base md:text-lg font-semibold text-neutral-800">
+                {title || "Digital Catalogue"}
+              </h1>
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <span className="text-xs md:text-sm font-medium text-neutral-500 mr-1">
+                {currentPage + 1} / {totalPages}
+              </span>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={handleDownload}
+                className="rounded-full border-neutral-300 text-neutral-700 hover:bg-neutral-100"
+              >
+                <Download className="h-4 w-4 md:mr-2" />
+                <span className="hidden md:inline">Download</span>
+              </Button>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Main Book Area */}
-      <main className="flex-1 flex flex-col items-center justify-center py-8 px-4 overflow-hidden relative">
-        
-        {/* Background Texture (Optional) to make white pages pop */}
-        <div className="absolute inset-0 bg-neutral-50/50 pointer-events-none" />
+        <main className="flex-1 flex flex-col items-center justify-center py-4 md:py-8 px-2 md:px-4 overflow-hidden relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-neutral-50 to-neutral-100 pointer-events-none" />
 
-        <div className="relative z-10 w-full flex justify-center perspective-1000">
-          {/* The actual Book Container */}
-          <div ref={bookRef} className="book-wrapper" />
-        </div>
+          <div className="relative z-10 w-full flex justify-center items-center" style={{ perspective: '2000px' }}>
+            <div ref={bookRef} className="book-wrapper" />
+          </div>
 
-        {/* Floating Navigation (Desktop) */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-white/90 backdrop-blur border border-neutral-200 shadow-xl rounded-full px-6 py-3 z-50 transition-transform hover:scale-105">
-           <button 
-             onClick={handlePrev}
-             disabled={currentPage === 0}
-             className="p-2 hover:bg-neutral-100 rounded-full disabled:opacity-30 transition-colors"
-           >
-             <ChevronLeft className="h-6 w-6 text-neutral-800" />
-           </button>
-           
-           <span className="text-sm font-medium text-neutral-600 min-w-[60px] text-center">
-             Page {currentPage + 1}
-           </span>
+          {/* Navigation Controls */}
+          <div className={`${isMobile ? 'fixed bottom-4' : 'absolute bottom-8'} left-1/2 -translate-x-1/2 flex items-center gap-3 md:gap-4 bg-white/95 backdrop-blur-sm border border-neutral-300 shadow-2xl rounded-full px-4 md:px-6 py-2 md:py-3 z-50`}>
+            <button 
+              onClick={handlePrev}
+              disabled={currentPage === 0}
+              className="p-1.5 md:p-2 hover:bg-neutral-100 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
+            >
+              <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 text-neutral-800" />
+            </button>
+            
+            <span className="text-xs md:text-sm font-semibold text-neutral-700 min-w-[50px] md:min-w-[70px] text-center">
+              {currentPage + 1} / {totalPages}
+            </span>
 
-           <button 
-             onClick={handleNext}
-             disabled={currentPage >= totalPages - 1}
-             className="p-2 hover:bg-neutral-100 rounded-full disabled:opacity-30 transition-colors"
-           >
-             <ChevronRight className="h-6 w-6 text-neutral-800" />
-           </button>
-        </div>
+            <button 
+              onClick={handleNext}
+              disabled={currentPage >= totalPages - 1}
+              className="p-1.5 md:p-2 hover:bg-neutral-100 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
+            >
+              <ChevronRight className="h-5 w-5 md:h-6 md:w-6 text-neutral-800" />
+            </button>
+          </div>
+        </main>
 
-      </main>
+        <style jsx global>{`
+          .book-wrapper {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
 
-      <style jsx global>{`
-        /* Next.js CSS Modules or styled-jsx for isolation */
-        
-        .book-wrapper {
-          margin: 0 auto;
-        }
+          .stf__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+          }
 
-        /* This is the secret to crisp text:
-           1. We use object-fit: contain to ensure no stretching
-           2. image-rendering prioritizes contrast over smoothness for text 
-        */
-        .stf__item img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          image-rendering: -webkit-optimize-contrast;
-          user-select: none;
-          -webkit-user-drag: none;
-        }
+          .stf__item {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 2px;
+          }
 
-        /* Add a subtle paper texture/shadow to pages */
-        .stf__item {
-          background-color: #ffffff;
-          box-shadow: inset 2px 0 10px rgba(0,0,0,0.03); 
-        }
+          .stf__wrapper {
+            perspective: 2500px !important;
+          }
 
-        .stf__wrapper {
-          perspective: 2000px !important; /* Deeper perspective for realism */
-        }
-      `}</style>
-    </div>
+          .stf__block {
+            transform-style: preserve-3d;
+          }
+
+          /* Mobile specific adjustments */
+          @media (max-width: 768px) {
+            .stf__item {
+              box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+            }
+            
+            .book-wrapper {
+              max-width: 100%;
+              padding: 0 8px;
+            }
+          }
+
+          /* Desktop specific adjustments */
+          @media (min-width: 769px) {
+            .stf__item {
+              box-shadow: 
+                0 8px 30px rgba(0,0,0,0.12),
+                inset 3px 0 15px rgba(0,0,0,0.05);
+            }
+          }
+        `}</style>
+      </div>
+    </>
   )
 }
