@@ -44,6 +44,12 @@ export default function Header() {
           <Link href="/media" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Media
           </Link>
+          <Link href="/blog" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+            Blog
+          </Link>
+          <Link href="/faq" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+            FAQ
+          </Link>
           <Link href="/enquiry" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Enquiry
           </Link>
@@ -102,6 +108,20 @@ export default function Header() {
               onClick={toggleMenu}
             >
               Media
+            </Link>
+            <Link
+              href="/blog"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              onClick={toggleMenu}
+            >
+              Blog
+            </Link>
+            <Link
+              href="/faq"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              onClick={toggleMenu}
+            >
+              FAQ
             </Link>
             <Link
               href="/enquiry"

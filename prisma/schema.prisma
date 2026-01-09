@@ -81,3 +81,22 @@ model CatalogueSubmission {
   @@index([phoneNumber])
   @@index([createdAt])
 }
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String
+  content     String   @db.Text
+  image       String   // URL to blog post image
+  category    String   @default("BLOG")
+  author      String   @default("BLOGUSER")
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt DateTime?
+  
+  @@index([slug])
+  @@index([published])
+  @@index([createdAt])
+}

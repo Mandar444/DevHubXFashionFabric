@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { KeyRound } from "lucide-react"
+import { KeyRound, FileText } from "lucide-react"
 
 export default function AdminPage() {
   return (
@@ -57,6 +57,23 @@ export default function AdminPage() {
           <CardContent>
             <Button asChild className="w-full">
               <Link href="/admin/catalogue-submissions">View Submissions</Link>
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <FileText className="h-5 w-5" />
+              Blog Management
+            </CardTitle>
+            <CardDescription>
+              Create and manage blog posts
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button asChild className="w-full">
+              <Link href="/admin/blog-management">Manage Blog Posts</Link>
             </Button>
           </CardContent>
         </Card>
