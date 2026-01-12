@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 
 export default function TestimonialsPage() {
@@ -44,9 +45,16 @@ export default function TestimonialsPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full h-[40vh] bg-[#1b5e20] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0 bg-black/40"></div>
-          <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
+        <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+          <Image
+            src="/images/testimonials-hero-bg.png"
+            alt="Testimonials Background"
+            fill
+            className="object-cover z-0"
+            priority
+          />
+          <div className="absolute inset-0 z-10 bg-black/50"></div>
+          <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Client Testimonials</h1>
             </AnimateIn>

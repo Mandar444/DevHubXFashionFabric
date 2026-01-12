@@ -5,15 +5,7 @@ import Link from "next/link"
 import HTMLFlipBook from "react-pageflip"
 import { ChevronLeft, ChevronRight, Download, X, Smartphone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
+
 
 // Types for the libraries we import dynamically
 type PDFDocumentProxy = any
@@ -46,7 +38,7 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   const [error, setError] = useState<string | null>(null)
-  const [showMobileWarning, setShowMobileWarning] = useState(false)
+
   const [isMobile, setIsMobile] = useState(false)
   const [dimensions, setDimensions] = useState({ width: 550, height: 733 })
 
@@ -57,7 +49,6 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
         const mobile = window.innerWidth < 768
         setIsMobile(mobile)
         if (mobile) {
-          setShowMobileWarning(true)
           // Mobile dimensions - single page view
           setDimensions({
             width: Math.min(window.innerWidth - 32, 400),
@@ -225,35 +216,6 @@ export function PageFlipBook({ pdfUrl, title, backLink = "/" }: PageFlipBookProp
 
   return (
     <>
-      <AlertDialog open={showMobileWarning} onOpenChange={setShowMobileWarning}>
-        <AlertDialogContent className="max-w-md mx-4">
-          <AlertDialogHeader>
-            <div className="flex items-center gap-2 mb-2">
-              <Smartphone className="h-6 w-6 text-orange-500" />
-              <AlertDialogTitle>Mobile View Notice</AlertDialogTitle>
-            </div>
-            <AlertDialogDescription className="text-base">
-              For the best viewing experience with larger text and images, please open this catalogue on a desktop or laptop computer, or download the PDF.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter className="flex-col sm:flex-row gap-2">
-            <Button
-              variant="outline"
-              onClick={() => {
-                handleDownload()
-                setShowMobileWarning(false)
-              }}
-              className="w-full sm:w-auto"
-            >
-              <Download className="h-4 w-4 mr-2" />
-              Download PDF
-            </Button>
-            <AlertDialogAction onClick={() => setShowMobileWarning(false)} className="w-full sm:w-auto">
-              Continue Anyway
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
 
       <div className="flex flex-col min-h-screen bg-neutral-50">
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200 px-4 py-3 shadow-sm">
