@@ -9,7 +9,7 @@ export default function AdminPage() {
   return (
     <div className="container mx-auto py-10">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Admin Dashboard</h1>
+        <h1 className="text-3xl font-bold text-neutral-800">Admin Dashboard</h1>
         <Button asChild variant="outline" className="gap-2">
           <Link href="/admin/change-password">
             <KeyRound className="h-4 w-4" />
@@ -17,7 +17,7 @@ export default function AdminPage() {
           </Link>
         </Button>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card>
           <CardHeader>

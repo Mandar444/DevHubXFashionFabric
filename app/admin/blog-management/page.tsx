@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog"
 import { toast } from "@/hooks/use-toast"
-import { Pencil, Trash2, Plus, ArrowLeft, Eye, Upload, X } from "lucide-react"
+import { Pencil, Trash2, Plus, ArrowLeft, Eye, Upload, X, Heading2, Image as ImageIcon } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -40,8 +40,9 @@ export default function BlogManagementPage() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [postToDelete, setPostToDelete] = useState<string | null>(null)
   const [uploadingImage, setUploadingImage] = useState(false)
-  const [imagePreview, setImagePreview] = useState<string>("") 
-   const [formData, setFormData] = useState({
+  const [imagePreview, setImagePreview] = useState<string>("")
+  const [uploadingContentImage, setUploadingContentImage] = useState(false)
+  const [formData, setFormData] = useState({
     title: "",
     slug: "",
     excerpt: "",
@@ -100,7 +101,7 @@ export default function BlogManagementPage() {
       [name]: value,
       ...(name === "title" && !isEditing ? { slug: generateSlug(value) } : {}),
     }))
-    
+
     // Update image preview when URL changes
     if (name === "image") {
       setImagePreview(value)
@@ -132,7 +133,7 @@ export default function BlogManagementPage() {
     }
 
     setUploadingImage(true)
-    
+
     try {
       const uploadFormData = new FormData()
       uploadFormData.append("file", file)
@@ -148,10 +149,10 @@ export default function BlogManagementPage() {
       }
 
       const data = await response.json()
-      
+
       setFormData((prev) => ({ ...prev, image: data.url }))
       setImagePreview(data.url)
-      
+
       toast({
         title: "Success",
         description: "Image uploaded successfully",
@@ -173,6 +174,110 @@ export default function BlogManagementPage() {
   const clearImage = () => {
     setFormData((prev) => ({ ...prev, image: "" }))
     setImagePreview("")
+  }
+
+  const insertHeader = () => {
+    const textarea = document.getElementById("content") as HTMLTextAreaElement
+    if (!textarea) return
+
+    const start = textarea.selectionStart
+    const end = textarea.selectionEnd
+    const selectedText = formData.content.substring(start, end)
+    const headerText = selectedText || "Header Text"
+
+    const beforeText = formData.content.substring(0, start)
+    const afterText = formData.content.substring(end)
+
+    const newContent = `${beforeText}\n\n## ${headerText}\n\n${afterText}`
+
+    setFormData((prev) => ({ ...prev, content: newContent }))
+
+    // Set cursor position after the inserted header
+    setTimeout(() => {
+      textarea.focus()
+      const newPosition = start + 5 + headerText.length
+      textarea.setSelectionRange(newPosition, newPosition)
+    }, 0)
+  }
+
+  const handleContentImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    // Validate file type
+    if (!file.type.startsWith("image/")) {
+      toast({
+        title: "Invalid file",
+        description: "Please upload an image file",
+        variant: "destructive",
+      })
+      return
+    }
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: "Please upload an image smaller than 5MB",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setUploadingContentImage(true)
+
+    try {
+      const uploadFormData = new FormData()
+      uploadFormData.append("file", file)
+      uploadFormData.append("type", "image")
+
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: uploadFormData,
+      })
+
+      if (!response.ok) {
+        throw new Error("Upload failed")
+      }
+
+      const data = await response.json()
+
+      // Insert image markdown at cursor position
+      const textarea = document.getElementById("content") as HTMLTextAreaElement
+      if (textarea) {
+        const start = textarea.selectionStart
+        const beforeText = formData.content.substring(0, start)
+        const afterText = formData.content.substring(start)
+
+        const imageMarkdown = `\n\n![Image](${data.url})\n\n`
+        const newContent = `${beforeText}${imageMarkdown}${afterText}`
+
+        setFormData((prev) => ({ ...prev, content: newContent }))
+
+        // Set cursor position after the inserted image
+        setTimeout(() => {
+          textarea.focus()
+          const newPosition = start + imageMarkdown.length
+          textarea.setSelectionRange(newPosition, newPosition)
+        }, 0)
+      }
+
+      toast({
+        title: "Success",
+        description: "Image uploaded and inserted successfully",
+      })
+    } catch (error) {
+      console.error("Error uploading image:", error)
+      toast({
+        title: "Error",
+        description: "Failed to upload image",
+        variant: "destructive",
+      })
+    } finally {
+      setUploadingContentImage(false)
+      // Reset file input
+      e.target.value = ""
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -306,7 +411,7 @@ export default function BlogManagementPage() {
   return (
     <div className="container mx-auto py-10">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Blog Management</h1>
+        <h1 className="text-3xl font-bold text-neutral-800">Blog Management</h1>
         <Button asChild variant="outline">
           <Link href="/admin" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
@@ -365,19 +470,66 @@ export default function BlogManagementPage() {
 
             <div className="space-y-2">
               <Label htmlFor="content">Content *</Label>
+
+              {/* Formatting Toolbar */}
+              <div className="flex gap-2 p-2 bg-neutral-50 border rounded-md">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={insertHeader}
+                  title="Insert Highlighted Header"
+                  className="flex items-center gap-2"
+                >
+                  <Heading2 className="h-4 w-4" />
+                  <span className="hidden sm:inline">Add Header</span>
+                </Button>
+
+                <div className="relative">
+                  <Input
+                    type="file"
+                    id="contentImageUpload"
+                    accept="image/*"
+                    onChange={handleContentImageUpload}
+                    disabled={uploadingContentImage}
+                    className="hidden"
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => document.getElementById("contentImageUpload")?.click()}
+                    disabled={uploadingContentImage}
+                    title="Upload and Insert Image"
+                    className="flex items-center gap-2"
+                  >
+                    <ImageIcon className="h-4 w-4" />
+                    <span className="hidden sm:inline">
+                      {uploadingContentImage ? "Uploading..." : "Add Image"}
+                    </span>
+                  </Button>
+                </div>
+              </div>
+
               <Textarea
                 id="content"
                 name="content"
                 value={formData.content}
                 onChange={handleInputChange}
                 required
-                placeholder="Full blog post content (plain text)"
+                placeholder="Write your article content here..."
                 rows={15}
-                className="text-base leading-relaxed"
+                className="text-base leading-relaxed font-mono"
               />
-              <p className="text-sm text-gray-500">
-                Write your content in plain text. Line breaks will be preserved automatically.
-              </p>
+              <div className="text-sm text-neutral-600 space-y-1 bg-blue-50 p-3 rounded-md border border-blue-200">
+                <p className="font-semibold text-blue-900">Formatting Guide:</p>
+                <ul className="list-disc list-inside space-y-1 text-blue-800">
+                  <li><code className="bg-blue-100 px-1 rounded">## Header Text</code> - Creates a highlighted header</li>
+                  <li><code className="bg-blue-100 px-1 rounded">![Image](url)</code> - Inserts an image (auto-added when you upload)</li>
+                  <li>Use the buttons above to easily insert headers and images</li>
+                  <li>Line breaks will be preserved automatically</li>
+                </ul>
+              </div>
             </div>
 
             <div className="space-y-2">
@@ -405,7 +557,7 @@ export default function BlogManagementPage() {
                     </Button>
                   </div>
                 )}
-                
+
                 {/* Upload Button */}
                 <div className="flex gap-2">
                   <div className="flex-1">
@@ -429,10 +581,10 @@ export default function BlogManagementPage() {
                     </Button>
                   </div>
                 </div>
-                
+
                 {/* URL Input */}
                 <div className="space-y-1">
-                  <Label htmlFor="image" className="text-sm text-gray-600">Or enter image URL</Label>
+                  <Label htmlFor="image" className="text-sm text-neutral-600">Or enter image URL</Label>
                   <Input
                     id="image"
                     name="image"
@@ -442,8 +594,8 @@ export default function BlogManagementPage() {
                     placeholder="https://example.com/image.jpg"
                   />
                 </div>
-                
-                <p className="text-xs text-gray-500">
+
+                <p className="text-xs text-neutral-500">
                   Upload an image (max 5MB) or provide a URL. Supported formats: JPG, PNG, GIF, WebP
                 </p>
               </div>
@@ -482,7 +634,7 @@ export default function BlogManagementPage() {
                 onChange={handleInputChange}
                 placeholder="Select publish date"
               />
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-neutral-500">
                 Leave empty to use current date when publishing. This date will be shown on the blog post.
               </p>
             </div>
@@ -520,13 +672,13 @@ export default function BlogManagementPage() {
         </CardHeader>
         <CardContent>
           {blogPosts.length === 0 ? (
-            <p className="text-center text-gray-500 py-8">No blog posts yet. Create your first one above!</p>
+            <p className="text-center text-neutral-500 py-8">No blog posts yet. Create your first one above!</p>
           ) : (
             <div className="space-y-4">
               {blogPosts.map((post) => (
                 <div
                   key={post.id}
-                  className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex items-center justify-between p-4 border rounded-lg hover:bg-neutral-50 transition-colors"
                 >
                   <div className="flex items-start gap-4 flex-1">
                     <div className="relative h-20 w-32 rounded overflow-hidden flex-shrink-0">
@@ -550,8 +702,8 @@ export default function BlogManagementPage() {
                           </span>
                         )}
                       </div>
-                      <p className="text-sm text-gray-600 mb-2 line-clamp-2">{post.excerpt}</p>
-                      <div className="text-xs text-gray-500">
+                      <p className="text-sm text-neutral-600 mb-2 line-clamp-2">{post.excerpt}</p>
+                      <div className="text-xs text-neutral-500">
                         <span>Slug: {post.slug}</span>
                         <span className="mx-2">•</span>
                         <span>Created: {new Date(post.createdAt).toLocaleDateString()}</span>

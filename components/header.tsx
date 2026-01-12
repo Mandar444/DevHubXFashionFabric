@@ -22,7 +22,7 @@ export default function Header() {
           </div>
           <div className="flex flex-col">
             <span className="text-xl font-bold text-[#2e7d32]">Fashion Fabric</span>
-           
+
           </div>
         </Link>
         <nav className="hidden md:flex gap-6">
@@ -33,7 +33,7 @@ export default function Header() {
             About Us
           </Link>
           <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-           Products
+            Products
           </Link>
           <Link href="/clients" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Clients
@@ -41,9 +41,7 @@ export default function Header() {
           <Link href="/testimonials" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Testimonials
           </Link>
-          <Link href="/media" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            Media
-          </Link>
+
           <Link href="/blog" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Blog
           </Link>
@@ -79,8 +77,8 @@ export default function Header() {
               About Us
             </Link>
             <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-           Products
-          </Link>
+              Products
+            </Link>
             <Link
               href="/catalogue"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
@@ -102,13 +100,7 @@ export default function Header() {
             >
               Testimonials
             </Link>
-            <Link
-              href="/media"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
-              onClick={toggleMenu}
-            >
-              Media
-            </Link>
+
             <Link
               href="/blog"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"

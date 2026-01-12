@@ -220,7 +220,7 @@ export default function AdminCatalogueUploadPage() {
       // If a new PDF was uploaded, convert it to images for page flip
       if (pdfUrl && catalogueId) {
         toast.info("Converting PDF pages for flip view...")
-        
+
         try {
           const convertResponse = await fetch("/api/catalogue/convert-pdf", {
             method: "POST",
@@ -247,7 +247,7 @@ export default function AdminCatalogueUploadPage() {
       }
 
       toast.success(editingId ? "Catalogue updated successfully!" : "Catalogue created successfully!")
-      
+
       // Reset form
       setTitle("")
       setSubtitle("")
@@ -373,7 +373,7 @@ export default function AdminCatalogueUploadPage() {
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-3xl font-bold">Catalogue Management</h1>
+            <h1 className="text-3xl font-bold text-neutral-800">Catalogue Management</h1>
             <p className="text-neutral-600 mt-1">
               Upload and manage catalogue PDFs • Total Downloads: <span className="font-semibold text-amber-700">{totalDownloads}</span>
             </p>

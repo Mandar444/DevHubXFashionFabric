@@ -33,7 +33,7 @@ export default function CataloguePage() {
     try {
       setIsLoading(true)
       const response = await fetch("/api/catalogue")
-      
+
       if (!response.ok) {
         throw new Error("Failed to fetch catalogues")
       }

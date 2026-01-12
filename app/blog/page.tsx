@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { prisma } from "@/lib/prisma"
 
 async function getBlogPosts() {
-    
+
   try {
     const blogPosts = await prisma.blogPost.findMany({
       where: { published: true },
@@ -55,12 +55,12 @@ export default async function BlogPage() {
         </section>
 
         {/* Blog Posts Grid */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">
             {blogPosts.length === 0 ? (
               <div className="text-center py-12">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">No blog posts yet</h2>
-                <p className="text-gray-600">Check back soon for new content!</p>
+                <h2 className="text-2xl font-bold text-neutral-800 mb-4">No blog posts yet</h2>
+                <p className="text-neutral-600">Check back soon for new content!</p>
               </div>
             ) : (
               <AnimateInStagger>
@@ -74,7 +74,7 @@ export default async function BlogPage() {
                           <div className="relative h-64 w-full overflow-hidden group">
                             <div className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-md shadow-lg border-l-4 border-[#2e7d32]">
                               <div className="text-xs font-semibold text-[#2e7d32]">This</div>
-                              <div className="text-2xl font-bold text-gray-800">{day}</div>
+                              <div className="text-2xl font-bold text-neutral-800">{day}</div>
                               <div className="text-xs font-semibold text-[#2e7d32]">{month}</div>
                             </div>
                             <Image
@@ -88,27 +88,27 @@ export default async function BlogPage() {
                           {/* Blog Content */}
                           <div className="p-6">
                             {/* Category and Author */}
-                            <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                            <div className="flex items-center gap-2 text-xs text-neutral-500 mb-3">
                               <span className="font-semibold">{post.category}</span>
                               <span>/</span>
                               <span>by {post.author}</span>
                             </div>
 
                             {/* Title */}
-                            <h3 className="text-xl font-bold text-gray-800 mb-3 line-clamp-2 hover:text-[#2e7d32] transition-colors">
+                            <h3 className="text-xl font-bold text-neutral-800 mb-3 line-clamp-2 hover:text-[#2e7d32] transition-colors">
                               <Link href={`/blog/${post.slug}`}>
                                 {post.title}
                               </Link>
                             </h3>
 
                             {/* Excerpt */}
-                            <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                            <p className="text-neutral-600 text-sm mb-4 line-clamp-3">
                               {post.excerpt}
                             </p>
 
                             {/* Read More Button */}
-                            <Button 
-                              asChild 
+                            <Button
+                              asChild
                               className="bg-[#2e7d32] hover:bg-[#1b5e20] text-white w-full"
                             >
                               <Link href={`/blog/${post.slug}`}>

@@ -9,7 +9,7 @@ import { notFound } from "next/navigation"
 async function getBlogPost(slug: string) {
   try {
     const blogPost = await prisma.blogPost.findUnique({
-      where: { 
+      where: {
         slug,
         published: true,
       },
@@ -63,9 +63,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <section className="pt-8 pb-4 bg-white">
           <div className="container px-4 md:px-6">
             <AnimateIn>
-              <Button 
-                asChild 
-                variant="outline" 
+              <Button
+                asChild
+                variant="outline"
                 className="hover:bg-[#2e7d32] hover:text-white hover:border-[#2e7d32] transition-colors"
               >
                 <Link href="/blog" className="flex items-center gap-2">
@@ -118,10 +118,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <span>/</span>
                     <span>by {blogPost.author}</span>
                     <span>/</span>
-                    <span>{new Date(blogPost.createdAt).toLocaleDateString('en-US', { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
+                    <span>{new Date(blogPost.createdAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
                     })}</span>
                   </div>
                 </div>
@@ -137,15 +137,56 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {/* Article Content */}
               <AnimateIn delay={0.2}>
                 <article className="text-gray-700 text-lg leading-relaxed space-y-6">
-                  {blogPost.content.split('\n').map((paragraph: string, index: number) => {
-                    if (paragraph.trim()) {
+                  {blogPost.content.split('\n').map((line: string, index: number) => {
+                    const trimmedLine = line.trim()
+
+                    // Skip empty lines
+                    if (!trimmedLine) {
+                      return null
+                    }
+
+                    // Check if line is a header (starts with ##)
+                    if (trimmedLine.startsWith('## ')) {
+                      const headerText = trimmedLine.substring(3).trim()
                       return (
-                        <p key={index} className="text-gray-600">
-                          {paragraph}
-                        </p>
+                        <h2
+                          key={index}
+                          className="text-2xl md:text-3xl font-bold text-gray-900 mt-8 mb-4 pb-3 border-b-2 border-[#2e7d32] bg-gradient-to-r from-green-50 to-transparent px-4 py-3 rounded-lg"
+                        >
+                          {headerText}
+                        </h2>
                       )
                     }
-                    return null
+
+                    // Check if line is an image (markdown format: ![alt](url))
+                    const imageMatch = trimmedLine.match(/^!\[([^\]]*)\]\(([^)]+)\)$/)
+                    if (imageMatch) {
+                      const [, alt, url] = imageMatch
+                      return (
+                        <div key={index} className="my-8">
+                          <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg">
+                            <Image
+                              src={url}
+                              alt={alt || 'Article image'}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                          {alt && (
+                            <p className="text-sm text-gray-500 text-center mt-2 italic">
+                              {alt}
+                            </p>
+                          )}
+                        </div>
+                      )
+                    }
+
+                    // Regular paragraph
+                    return (
+                      <p key={index} className="text-gray-600">
+                        {line}
+                      </p>
+                    )
                   })}
                 </article>
               </AnimateIn>
@@ -155,13 +196,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="mt-12 pt-8 border-t border-gray-200">
                   <h3 className="text-lg font-semibold mb-4 text-gray-800">Share this article</h3>
                   <div className="flex gap-4">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="hover:bg-[#2e7d32] hover:text-white hover:border-[#2e7d32] transition-colors"
                       asChild
                     >
-                      <a 
+                      <a
                         href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yourdomain.com/blog/${blogPost.slug}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -169,13 +210,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         Facebook
                       </a>
                     </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="hover:bg-[#2e7d32] hover:text-white hover:border-[#2e7d32] transition-colors"
                       asChild
                     >
-                      <a 
+                      <a
                         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://yourdomain.com/blog/${blogPost.slug}`)}&text=${encodeURIComponent(blogPost.title)}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -183,13 +224,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         Twitter
                       </a>
                     </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="hover:bg-[#2e7d32] hover:text-white hover:border-[#2e7d32] transition-colors"
                       asChild
                     >
-                      <a 
+                      <a
                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://yourdomain.com/blog/${blogPost.slug}`)}`}
                         target="_blank"
                         rel="noopener noreferrer"

@@ -172,13 +172,26 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-[#2e7d32] to-[#1b5e20] text-white">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          poster="/images/work/DSC00446.jpg"
+        >
+          <source src="https://dhyeydeveloper.github.io/fashion-fabric-videos/V2.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 z-10 bg-black/40"></div>
+        <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
           <AnimateIn>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">
               Frequently Asked Questions
             </h1>
-            <p className="text-lg md:text-xl opacity-90">
+          </AnimateIn>
+          <AnimateIn delay={0.2}>
+            <p className="max-w-[800px] text-lg text-white/90">
               Find answers to common questions about our uniform manufacturing and services
             </p>
           </AnimateIn>
@@ -191,7 +204,7 @@ export default function FAQPage() {
           {faqSections.map((section, sectionIndex) => (
             <div key={sectionIndex} className="mb-12">
               <AnimateIn>
-                <h2 className="text-3xl font-bold mb-6 text-gray-800">
+                <h2 className="text-3xl font-bold mb-6 text-neutral-800">
                   {section.title}
                 </h2>
               </AnimateIn>
@@ -218,7 +231,7 @@ export default function FAQPage() {
                         </button>
                         {isOpen && (
                           <div className="px-6 py-5 bg-white border-t-2 border-[#2e7d32]">
-                            <div className="text-gray-700 leading-relaxed">
+                            <div className="text-neutral-700 leading-relaxed">
                               {item.answer}
                             </div>
                           </div>
@@ -234,13 +247,13 @@ export default function FAQPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4 bg-neutral-50">
         <div className="container mx-auto max-w-4xl text-center">
           <AnimateIn>
-            <h2 className="text-3xl font-bold mb-4 text-gray-800">
+            <h2 className="text-3xl font-bold mb-4 text-neutral-800">
               Still Have Questions?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-neutral-600 mb-8">
               We're here to help! Contact our team for personalized assistance with your uniform requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -32,7 +32,7 @@ export default function Footer() {
                 Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
               </p>
             </div>
-         
+
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -60,11 +60,6 @@ export default function Footer() {
               <li>
                 <Link href="/testimonials" className="text-neutral-200 hover:text-white transition-colors">
                   Testimonials
-                </Link>
-              </li>
-              <li>
-                <Link href="/media" className="text-neutral-200 hover:text-white transition-colors">
-                  Media
                 </Link>
               </li>
               <li>
