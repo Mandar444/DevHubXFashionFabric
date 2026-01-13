@@ -89,7 +89,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[30vh] sm:h-[35vh] md:h-[40vh] flex items-center justify-center overflow-hidden">
         <video
           autoPlay
           loop
@@ -103,12 +103,12 @@ export default function FAQPage() {
         <div className="absolute inset-0 z-10 bg-black/40"></div>
         <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
           <AnimateIn>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-2 sm:mb-3 md:mb-4">
               Frequently Asked Questions
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <p className="max-w-[800px] text-lg text-white/90">
+            <p className="max-w-[800px] text-sm sm:text-base md:text-lg text-white/90 px-2">
               Find answers to common questions about our uniform manufacturing and services
             </p>
           </AnimateIn>
@@ -116,16 +116,16 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Sections */}
-      <section className="py-16 px-4">
+      <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-4">
         <div className="container mx-auto max-w-5xl">
           {faqSections.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="mb-12">
+            <div key={sectionIndex} className="mb-8 sm:mb-10 md:mb-12">
               <AnimateIn>
-                <h2 className="text-3xl font-bold mb-6 text-neutral-800">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-6 text-neutral-800 px-1">
                   {section.title}
                 </h2>
               </AnimateIn>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {section.items.map((item, itemIndex) => {
                   const key = `${sectionIndex}-${itemIndex}`
                   const isOpen = openItems[key]
@@ -135,20 +135,20 @@ export default function FAQPage() {
                       <div className="border-2 border-[#2e7d32] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <button
                           onClick={() => toggleItem(sectionIndex, itemIndex)}
-                          className="w-full px-6 py-5 bg-[#2e7d32] hover:bg-[#1b5e20] transition-colors flex items-center justify-between text-left"
+                          className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 bg-[#2e7d32] hover:bg-[#1b5e20] transition-colors flex items-center justify-between text-left gap-2"
                         >
-                          <span className="font-semibold text-white text-lg pr-4">
+                          <span className="font-semibold text-white text-sm sm:text-base md:text-lg pr-2">
                             {item.question}
                           </span>
                           {isOpen ? (
-                            <ChevronUp className="w-6 h-6 text-white flex-shrink-0" />
+                            <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" />
                           ) : (
-                            <ChevronDown className="w-6 h-6 text-white flex-shrink-0" />
+                            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" />
                           )}
                         </button>
                         {isOpen && (
-                          <div className="px-6 py-5 bg-white border-t-2 border-[#2e7d32]">
-                            <div className="text-neutral-700 leading-relaxed">
+                          <div className="px-4 sm:px-5 md:px-6 py-4 sm:py-5 bg-white border-t-2 border-[#2e7d32]">
+                            <div className="text-neutral-700 leading-relaxed text-sm sm:text-base">
                               {item.answer}
                             </div>
                           </div>
@@ -164,25 +164,25 @@ export default function FAQPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-neutral-50">
+      <section className="py-10 sm:py-12 md:py-16 px-4 bg-neutral-50">
         <div className="container mx-auto max-w-4xl text-center">
           <AnimateIn>
-            <h2 className="text-3xl font-bold mb-4 text-neutral-800">
+            <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-neutral-800">
               Still Have Questions?
             </h2>
-            <p className="text-lg text-neutral-600 mb-8">
+            <p className="text-base sm:text-lg text-neutral-600 mb-6 sm:mb-8 px-2">
               We're here to help! Contact our team for personalized assistance with your uniform requirements.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
               <Link
                 href="/enquiry"
-                className="inline-flex items-center justify-center px-8 py-3 bg-[#2e7d32] text-white font-semibold rounded-lg hover:bg-[#1b5e20] transition-colors"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-[#2e7d32] text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-[#1b5e20] transition-colors"
               >
                 Get in Touch
               </Link>
               <Link
                 href="/catalogue"
-                className="inline-flex items-center justify-center px-8 py-3 bg-white text-[#2e7d32] font-semibold rounded-lg border-2 border-[#2e7d32] hover:bg-[#f5f5f5] transition-colors"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-[#2e7d32] text-sm sm:text-base font-semibold rounded-lg border-2 border-[#2e7d32] hover:bg-[#f5f5f5] transition-colors"
               >
                 View Our Catalogue
               </Link>
