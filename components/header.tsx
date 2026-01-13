@@ -20,7 +20,7 @@ export default function Header() {
           <div className="relative h-12 w-12 mr-2">
             <Image src="/images/logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex pt-2 ">
             <span className="text-xl font-bold text-[#2e7d32]">Fashion Fabric</span>
 
           </div>
@@ -33,26 +33,25 @@ export default function Header() {
             About Us
           </Link>
           <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            Products
+            Collection
           </Link>
           <Link href="/clients" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Clients
           </Link>
+          <Link href="/catalogue" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+            Catalogues
+          </Link>
+          <Link href="/faq" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+            FAQs
+          </Link>
+          <Link href="/blog" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+            Blogs
+          </Link>
           <Link href="/testimonials" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Testimonials
           </Link>
-
-          <Link href="/blog" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            Blog
-          </Link>
-          <Link href="/faq" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            FAQ
-          </Link>
           <Link href="/enquiry" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            Enquiry
-          </Link>
-          <Link href="/catalogue" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            catalogue
+            Enquire
           </Link>
         </nav>
         <Button asChild className="hidden md:inline-flex bg-[#2e7d32] hover:bg-[#1b5e20] text-white">
@@ -68,7 +67,6 @@ export default function Header() {
             <Link href="/" className="text-sm font-medium hover:text-[#2e7d32] transition-colors" onClick={toggleMenu}>
               Home
             </Link>
-
             <Link
               href="/about"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
@@ -76,15 +74,12 @@ export default function Header() {
             >
               About Us
             </Link>
-            <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-              Products
-            </Link>
             <Link
-              href="/catalogue"
+              href="/products"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
               onClick={toggleMenu}
             >
-              Catalogue
+              Collection
             </Link>
             <Link
               href="/clients"
@@ -94,33 +89,39 @@ export default function Header() {
               Clients
             </Link>
             <Link
-              href="/testimonials"
+              href="/catalogue"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
               onClick={toggleMenu}
             >
-              Testimonials
-            </Link>
-
-            <Link
-              href="/blog"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
-              onClick={toggleMenu}
-            >
-              Blog
+              Catalogues
             </Link>
             <Link
               href="/faq"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
               onClick={toggleMenu}
             >
-              FAQ
+              FAQs
+            </Link>
+            <Link
+              href="/blog"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              onClick={toggleMenu}
+            >
+              Blogs
+            </Link>
+            <Link
+              href="/testimonials"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              onClick={toggleMenu}
+            >
+              Testimonials
             </Link>
             <Link
               href="/enquiry"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
               onClick={toggleMenu}
             >
-              Enquiry
+              Enquire
             </Link>
             <Button asChild className="w-full bg-[#2e7d32] hover:bg-[#1b5e20] text-white">
               <Link href="/enquiry" onClick={toggleMenu}>

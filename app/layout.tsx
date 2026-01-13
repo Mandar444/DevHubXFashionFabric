@@ -7,6 +7,7 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import AuthProvider from "@/components/auth-provider"
 import { Toaster } from "@/components/ui/sonner"
+import { WhatsAppSticky } from "@/components/whatsapp-sticky"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -17,7 +18,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fashionfabric.com'),
-  title: "Fashion Fabric - India's Premier Uniform Supplier & Linen Shop",
+  title: "Fashion Fabric - India's Premier Uniform Supplier",
   description: "India's leading uniform manufacturer with over 15 years of excellence. Specializing in hospitality uniforms, corporate wear, and premium linens. Custom-tailored solutions for hotels, restaurants, and businesses.",
   keywords: "uniforms in Goa, hotel uniforms, corporate uniforms, chef uniforms, hospitality uniforms, uniform manufacturer Goa, custom uniforms, linen shop Goa, Fashion Fabric",
   authors: [{ name: "Fashion Fabric" }],
@@ -30,8 +31,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.svg" },
-      { url: "/logo.svg", type: "image/png" },
+      { url: "/images/footer-logo.svg" },
+      { url: "/images/footer-logo.svg", type: "image/png" },
     ],
     apple: [
       { url: "/apple-icon.png", type: "image/png" },
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-  title: "Fashion Fabric - India's Premier Uniform Supplier",
+    title: "Fashion Fabric - India's Premier Uniform Supplier",
     description: "Custom uniform solutions for the hospitality industry with over 15 years of excellence in Goa.",
     images: ["/twitter-image.png"],
   },
@@ -89,6 +90,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <Toaster />
+          <WhatsAppSticky />
         </AuthProvider>
       </body>
     </html>

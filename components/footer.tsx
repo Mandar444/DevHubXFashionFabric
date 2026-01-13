@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1b5e20] text-white">
+    <footer className="bg-[#307035] text-white">
       <div className="container px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -48,13 +48,28 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
-                  Catalogue
+                <Link href="/products" className="text-neutral-200 hover:text-white transition-colors">
+                  Collection
                 </Link>
               </li>
               <li>
                 <Link href="/clients" className="text-neutral-200 hover:text-white transition-colors">
                   Clients
+                </Link>
+              </li>
+              <li>
+                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                  Catalogues
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="text-neutral-200 hover:text-white transition-colors">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-neutral-200 hover:text-white transition-colors">
+                  Blogs
                 </Link>
               </li>
               <li>
@@ -64,13 +79,13 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/enquiry" className="text-neutral-200 hover:text-white transition-colors">
-                  Enquiry
+                  Enquire
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Products</h3>
+            <h3 className="text-lg font-semibold mb-4">Our Collection</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
@@ -110,19 +125,19 @@ export default function Footer() {
                   href="https://www.instagram.com/fashionfabric.info/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-200 hover:text-white transition-colors"
+                  className="text-[#f0f4c3] hover:text-white transition-colors"
                   aria-label="Instagram"
                 >
-                  <Instagram className="h-6 w-6 text-[#f0f4c3]" />
+                  <Instagram className="h-8 w-8" />
                 </Link>
                 <Link
                   href="https://www.linkedin.com/company/fashionfabric/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-neutral-200 hover:text-white transition-colors"
+                  className="text-[#f0f4c3] hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="h-6 w-6 text-[#f0f4c3]" />
+                  <Linkedin className="h-8 w-8" />
                 </Link>
                 <Link
                   href="https://wa.me/919867275524"
@@ -131,8 +146,8 @@ export default function Footer() {
                   className="text-neutral-200 hover:text-white transition-colors"
                   aria-label="WhatsApp"
                 >
-                  <div className="text-[#f0f4c3]">
-                    <Image src="/images/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={24} height={24} className="brightness-0 invert" />
+                  <div>
+                    <Image src="/images/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={32} height={32} style={{ filter: 'brightness(0) saturate(100%) invert(96%) sepia(13%) saturate(1049%) hue-rotate(16deg) brightness(102%) contrast(95%)' }} />
                   </div>
                 </Link>
               </div>

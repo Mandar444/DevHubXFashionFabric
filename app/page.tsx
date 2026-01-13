@@ -164,9 +164,9 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <AnimateIn>
               <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-                <h2 className="text-3xl font-bold">Featured Products</h2>
+                <h2 className="text-3xl font-bold">Featured Collection</h2>
                 <Link href="/catalogue" className="group flex items-center text-[#2e7d32] font-medium mt-4 md:mt-0">
-                  View Full Catalogue
+                  View Our Catalogues
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
@@ -241,7 +241,7 @@ export default function Home() {
                   <div className="flex items-start mb-4">
                     <MapPin className="h-5 w-5 text-[#2e7d32] mt-1 mr-3 flex-shrink-0" />
                     <p className="text-neutral-600">
-                      Fashion Fabric, Shop No. 8, Block - II, Dukle Heaven, Near Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
+                      Fashion Fabric, Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
                     </p>
                   </div>
                   <div className="flex items-center mb-4">
