@@ -84,7 +84,7 @@ export default function ProductsPage() {
           <div className="absolute inset-0 z-10 bg-black/40"></div>
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Our Products</h1>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Our Collections</h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <p className="max-w-[800px] text-lg text-white/90">
@@ -98,7 +98,7 @@ export default function ProductsPage() {
         <section className="py-16 bg-white">
           <div className="container px-4 md:px-6">
             <AnimateIn>
-              <h2 className="text-3xl font-bold text-center mb-12">Product Catalogue</h2>
+              <h2 className="text-3xl font-bold text-center mb-12">Collections Catalogue</h2>
             </AnimateIn>
             <AnimateInStagger
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"

@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { AnimateIn } from "@/components/animate-in"
+import Image from "next/image"
 
 // SuccessModal component
 function SuccessModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -102,19 +103,16 @@ export default function EnquiryPage() {
       <SuccessModal open={showSuccessModal} onClose={() => setShowSuccessModal(false)} />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full h-[40vh] bg-[#1b5e20] flex items-center justify-center overflow-hidden">
-        <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            poster="/images/work/DSC00443.jpg"
-          >
-            <source src="https://dhyeydeveloper.github.io/fashion-fabric-videos/V8.mp4" type="video/mp4" />
-          </video>          
-          <div className="absolute inset-0 z-0 bg-black/40"></div>
-          <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
+        <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+          <Image
+            src="/images/bg-imges-hero-sections/image-06.jpg"
+            alt="Contact Background"
+            fill
+            className="object-cover z-0"
+            priority
+          />
+          <div className="absolute inset-0 z-10 bg-black/40"></div>
+          <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Contact Us</h1>
             </AnimateIn>

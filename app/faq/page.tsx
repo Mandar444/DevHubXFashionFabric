@@ -4,6 +4,7 @@ import { JSX, useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { AnimateIn } from "@/components/animate-in"
 import Link from "next/link"
+import Image from "next/image"
 
 interface FAQItem {
   question: string
@@ -84,22 +85,91 @@ export default function FAQPage() {
         },
       ],
     },
+    {
+      title: "IV. Ordering & Delivery",
+      items: [
+        {
+          question: "What is the step-by-step process from enquiry to delivery?",
+          answer: "From enquiry to delivery, Fashion Fabric ensures a seamless, end-to-end uniform experience. Once you share your requirements, our team consults you on design, fabric and branding options and provides a detailed quotation. After confirmation, we arrange a physical visit to take accurate measurements for the best fit and finalize the design for approval. Production then begins with stringent quality checks at every stage, followed by timely packaging and delivery to your location as per the committed schedule.",
+        },
+        {
+          question: "Can you replicate an existing uniform design?",
+          answer: "Yes, we can replicate your existing uniform design based on clear photos/videos or a physical sample piece. Our team matches the pattern, colour, fabric feel and branding as closely as possible, and if any fabric or accessory is unavailable, we recommend the nearest alternatives and proceed only after your approval.",
+        },
+        {
+          question: "Can we place repeat orders later?",
+          answer: "Yes, absolutely. Repeat orders are easy with Fashion Fabric. Once your design is finalized, we keep the pattern, fabric details, sizing and branding records so you can reorder anytime without restarting the process. This is ideal when you hire new staff or need additional uniforms later.",
+        },
+      ],
+    },
+    {
+      title: "V. Samples & Designs",
+      items: [
+        {
+          question: "Does Fashion Fabric provide samples?",
+          answer: "Yes. Fashion Fabric provides samples to help you finalize the fabric quality, fit, and overall design before bulk production. For new departments or first-time clients, we strongly recommend sample development and approval to ensure complete clarity, eliminate errors, and guarantee satisfaction with the final uniforms.",
+        },
+        {
+          question: "Is there a sample cost?",
+          answer: "Sample charges are applicable based on the design complexity, fabric type, and branding requirements. For bulk orders, the sample cost is adjusted in the final order value once the order is confirmed.",
+        },
+        {
+          question: "How long does sample development take?",
+          answer: "Sample development typically takes 2 weeks depending on customization and material availability. For urgent requirements, we can also offer an expedited sample process subject to feasibility.",
+        },
+      ],
+    },
+    {
+      title: "VI. After-sales",
+      items: [
+        {
+          question: "Do you offer uniform maintenance or after-sales services?",
+          answer: "Yes. We provide after-sales support including alterations, size adjustments, patchwork, and finishing improvements. We also assist with edits such as additions/deletions of design elements.",
+        },
+        {
+          question: "Return / exchange policy for customized uniforms",
+          answer: "Since uniforms are customized as per approved design, measurements, and branding details, returns are not applicable. However, in case of sizing issues or approved changes, we support alterations, adjustments and fit corrections wherever feasible to ensure the final uniform fits perfectly.",
+        },
+        {
+          question: "Do you offer replacement for defective pieces?",
+          answer: "Yes. Fashion Fabric offers free replacement for any quality defect from our end, including stitching issues, fabric defects, or branding errors identified at the time of delivery. Our priority is to ensure every uniform meets our quality standards before it reaches you.",
+        },
+        {
+          question: "How do you handle stitching defects?",
+          answer: "At Fashion Fabric all uniforms go through strict quality checks, but if any stitching defect is identified, our team promptly rectifies it through re-stitching, patchwork, reinforcement, or finishing corrections. If required, we also provide replacement for the affected piece, depending on the issue and feasibility.",
+        },
+      ],
+    },
+    {
+      title: "VII. Contact & Support",
+      items: [
+        {
+          question: "How do I request a quotation?",
+          answer: "You can request a quotation by reaching out to us via email at fashionfabric@rocketmail.com, call/ WhatsApp at 9867275524, or visiting our store offline. Share your uniform requirement and our team will assist you with a quick consultation and provide a detailed quotation.",
+        },
+        {
+          question: "What details should I share for a quotation?",
+          answer: "To receive a quotation, share the uniform type, quantity, fabric preference, design reference, branding details, size range/measurement method. Based on this, we will revert with the quotation and estimated delivery timeline.",
+        },
+        {
+          question: "Can I schedule a meeting / site visit?",
+          answer: "Yes. You can schedule a meeting or site visit with our team for consultation, fabric selection, and overall uniform planning. Our team ensures a smooth and professional experience from discussion to final execution.",
+        },
+      ],
+    },
   ]
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative w-full h-[30vh] sm:h-[35vh] md:h-[40vh] flex items-center justify-center overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          poster="/images/work/DSC00446.jpg"
-        >
-          <source src="https://dhyeydeveloper.github.io/fashion-fabric-videos/V2.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/images/bg-imges-hero-sections/image-03.jpg"
+          alt="FAQ Background"
+          fill
+          className="object-cover z-0"
+          priority
+        />
         <div className="absolute inset-0 z-10 bg-black/40"></div>
         <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
           <AnimateIn>

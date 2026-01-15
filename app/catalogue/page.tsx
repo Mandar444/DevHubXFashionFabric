@@ -52,31 +52,10 @@ export default function CataloguePage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden bg-neutral-200">
-          {/* Video for desktop */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            className="absolute inset-0 w-full h-full object-cover z-0 hidden sm:block"
-            poster="/images/work/DSC00467.jpg"
-          >
-            <source
-              src="https://dhyeydeveloper.github.io/fashion-fabric-videos/V1.mp4"
-              type="video/mp4"
-            />
-          </video>
-
-          {/* Fallback image for mobile */}
-          <Image
-            src="/images/work/DSC00467.jpg"
-            alt="Product Catalogue"
-            fill
-            className="absolute inset-0 w-full h-full object-cover z-0 block sm:hidden"
-          />
-
+        <section 
+          className="relative w-full min-h-[60vh] flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/bg-imges-hero-sections/image-02.jpg')" }}
+        >
           <div className="absolute inset-0 z-10 bg-black/40"></div>
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>

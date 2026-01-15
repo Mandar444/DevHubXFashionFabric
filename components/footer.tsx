@@ -12,7 +12,7 @@ export default function Footer() {
               <div className="relative h-12 w-12 mr-3  rounded-md p-1">
                 <Image src="/images/footer-logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
               </div>
-              <h3 className="text-lg font-semibold">Fashion Fabric</h3>
+              <h3 className="text-lg font-semibold pt-2">Fashion Fabric</h3>
             </div>
             <p className="text-neutral-200 mb-6">
               India&apos;s premier destination for bespoke textile solutions, renowned for exquisite craftsmanship and
@@ -118,9 +118,9 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-            <div className="mt-6">
+            <div className="mt-6 ">
               <h3 className="text-lg font-semibold mb-4">Follow Fashion Fabric</h3>
-              <div className="flex gap-4">
+              <div className="flex gap-4 items-center pl-10">
                 <Link
                   href="https://www.instagram.com/fashionfabric.info/"
                   target="_blank"
@@ -139,17 +139,7 @@ export default function Footer() {
                 >
                   <Linkedin className="h-8 w-8" />
                 </Link>
-                <Link
-                  href="https://wa.me/919867275524"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-neutral-200 hover:text-white transition-colors"
-                  aria-label="WhatsApp"
-                >
-                  <div>
-                    <Image src="/images/icons/whatsapp-svgrepo-com.svg" alt="WhatsApp" width={32} height={32} style={{ filter: 'brightness(0) saturate(100%) invert(96%) sepia(13%) saturate(1049%) hue-rotate(16deg) brightness(102%) contrast(95%)' }} />
-                  </div>
-                </Link>
+               
               </div>
             </div>
           </div>

@@ -52,9 +52,16 @@ export default function ClientsPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full h-[40vh] bg-[#1b5e20] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0 bg-black/40"></div>
-          <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
+        <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+          <Image
+            src="/images/bg-imges-hero-sections/image-01.jpg"
+            alt="Our Clients Background"
+            fill
+            className="object-cover z-0"
+            priority
+          />
+          <div className="absolute inset-0 z-10 bg-black/40"></div>
+          <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">
                 Our Prestigious Clients
@@ -82,20 +89,20 @@ export default function ClientsPage() {
               {clients.map((client, index) => (
                 <div
                   key={index}
-                  className="rounded-lg p-6 flex items-center justify-center h-32 shadow-sm hover:shadow-md transition-shadow bg-neutral-50"
+                  className="rounded-lg p-6 flex flex-col items-center justify-center h-40 shadow-sm hover:shadow-md transition-shadow bg-neutral-50"
                 >
-                  <div className="text-center">
+                  <div className="h-16 w-full flex items-center justify-center mb-3">
                     <Image
                       src={client.logo}
                       alt={client.name}
                       width={100}
-                      height={50}
-                      className="mx-auto mb-2 object-contain"
+                      height={64}
+                      className="object-contain max-w-full max-h-full"
                     />
-                    <p className="text-sm font-medium text-neutral-700">
-                      {client.name}
-                    </p>
                   </div>
+                  <p className="text-sm font-medium text-neutral-700 text-center w-full leading-tight">
+                    {client.name}
+                  </p>
                 </div>
               ))}
             </AnimateInStagger>

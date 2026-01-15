@@ -45,9 +45,9 @@ export default function TestimonialsPage() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+        <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
           <Image
-            src="/images/testimonials-hero-bg.png"
+            src="/images/bg-imges-hero-sections/image-05.jpg"
             alt="Testimonials Background"
             fill
             className="object-cover z-0"
@@ -56,10 +56,10 @@ export default function TestimonialsPage() {
           <div className="absolute inset-0 z-10 bg-black/50"></div>
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Client Testimonials</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-white mb-3 md:mb-4 px-4">Client Testimonials</h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
-              <p className="max-w-[800px] text-lg text-white/90">
+              <p className="max-w-[800px] text-base sm:text-lg text-white/90 px-4">
                 What our valued clients have to say about our services
               </p>
             </AnimateIn>
@@ -67,17 +67,19 @@ export default function TestimonialsPage() {
         </section>
 
         {/* Testimonials Grid */}
-        <section className="py-16 bg-white">
+        <section className="py-12 md:py-16 bg-white">
           <div className="container px-4 md:px-6">
-            <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" staggerDelay={0.1}>
+            <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.1}>
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-neutral-50 p-8 rounded-lg shadow-sm">
-                  <svg className="h-8 w-8 text-amber-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
-                  <p className="text-neutral-600 italic mb-6">{testimonial.quote}</p>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
+                <div key={index} className="bg-neutral-50 p-6 md:p-8 rounded-lg shadow-sm min-h-[280px] md:min-h-[320px] flex flex-col justify-between">
+                  <div className="flex-shrink-0">
+                    <svg className="h-8 w-8 text-amber-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                  </div>
+                  <p className="text-base text-neutral-600 italic mb-6 line-clamp-6 flex-grow">{testimonial.quote}</p>
+                  <div className="flex-shrink-0">
+                    <p className="font-semibold text-base">{testimonial.name}</p>
                     <p className="text-sm text-neutral-500">{testimonial.company}</p>
                   </div>
                 </div>
@@ -87,15 +89,15 @@ export default function TestimonialsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-amber-50">
+        <section className="py-12 md:py-16 bg-amber-50">
           <div className="container px-4 md:px-6 text-center">
             <AnimateIn>
-              <h2 className="text-3xl font-bold mb-6">Join Our Satisfied Clients</h2>
-              <p className="max-w-[600px] mx-auto text-neutral-600 mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 md:mb-6 px-4">Join Our Satisfied Clients</h2>
+              <p className="max-w-[600px] mx-auto text-sm sm:text-base text-neutral-600 mb-6 md:mb-8 px-4">
                 Experience the Fashion Fabric difference for yourself. Contact us today to discuss your uniform
                 requirements.
               </p>
-              <div className="inline-flex h-10 items-center justify-center rounded-md bg-amber-700 px-8 text-sm font-medium text-white shadow transition-colors hover:bg-amber-800">
+              <div className="inline-flex h-10 md:h-11 items-center justify-center rounded-md bg-amber-700 px-6 md:px-8 text-sm md:text-base font-medium text-white shadow transition-colors hover:bg-amber-800">
                 <a href="/enquiry">Contact Us</a>
               </div>
             </AnimateIn>
