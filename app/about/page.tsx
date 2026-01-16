@@ -38,15 +38,16 @@ export default function AboutPage() {
                 <div>
                   <h2 className="text-3xl font-bold mb-6">Our Story</h2>
                   <p className="text-neutral-600 mb-4">
-                    For over 15 years, Fashion Fabric has been India&apos;s premier destination for bespoke textile
-                    solutions, renowned for exquisite craftsmanship and timeless elegance. We specialize in creating
-                    custom-made fabrics tailored to perfection designed to complement every shape, size, and setting
-                    with seamless sophistication.
+                    Fashion Fabric began its journey in 2010, not as a uniform manufacturer, but as a retail linen showroom built on a deep understanding of textiles. Our strength has always been fabric-first quality, feel, finish and durability; because we believe every great garment starts with the right material.
                   </p>
                   <p className="text-neutral-600 mb-4">
-                    Our legacy is built on trust, discretion, and an unwavering commitment to quality, earning us the
-                    confidence of the most prestigious names in the hospitality industry. At Fashion Fabric, comfort and
-                    style are not just a product it&apos;s an experience stitched into every garment.
+                    Our entry into uniforms happened through a sheer request from a spa that needed professional uniforms. We weren&apos;t specialised in uniforms at the time, and we didn&apos;t have the full infrastructure either, but we said yes. We sourced the fabric, got customisation done in another city, and managed multiple rounds of follow-ups just to deliver the perfect final product. When we saw the client&apos;s smile at delivery, we knew we had created something beyond a garment, we had created trust.
+                  </p>
+                  <p className="text-neutral-600 mb-4">
+                    That one order became a turning point. More requests followed, and we realised there was a genuine need for uniforms that looked premium, felt comfortable, and represented the brand with pride. That&apos;s when Fashion Fabric evolved from a showroom into a full-scale uniform solution brand. Since then, Fashion Fabric has grown into a brand trusted by leading names across industries, especially hospitality and service-driven businesses; building processes, strengthening production capability, and taking ownership of design, tailoring, branding and finishing. What began as a request became our purpose and uniforms became our core.
+                  </p>
+                  <p className="text-neutral-600 mb-4">
+                    Today, Fashion Fabric outfits over 100,000 crew members every year, redefining what uniforms mean to the modern workforce. Uniforms are no longer just attire, they carry your team&apos;s confidence and your brand&apos;s first impression. With over 15 years of expertise, we deliver uniforms crafted with precision, quality control and elegance; where comfort and style are stitched into every detail.
                   </p>
                 </div>
               </AnimateIn>
@@ -71,7 +72,7 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-center mb-12">Our Meticulous Process</h2>
             </AnimateIn>
             <AnimateInStagger className="grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.05}>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">1</span>
                 </div>
@@ -81,7 +82,7 @@ export default function AboutPage() {
                   their unique requirements.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">2</span>
                 </div>
@@ -91,7 +92,7 @@ export default function AboutPage() {
                   fit and comfort.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">3</span>
                 </div>
@@ -101,7 +102,7 @@ export default function AboutPage() {
                   our uniforms.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">4</span>
                 </div>
@@ -111,7 +112,7 @@ export default function AboutPage() {
                   in every cut.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">5</span>
                 </div>
@@ -121,7 +122,7 @@ export default function AboutPage() {
                   of experience in crafting perfect garments.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">6</span>
                 </div>
@@ -131,7 +132,7 @@ export default function AboutPage() {
                   your uniforms stand out.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">7</span>
                 </div>
@@ -141,7 +142,7 @@ export default function AboutPage() {
                   final product.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">8</span>
                 </div>
@@ -151,7 +152,7 @@ export default function AboutPage() {
                   delivery.
                 </p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm h-full flex flex-col">
                 <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
                   <span className="text-amber-700 font-bold text-xl">9</span>
                 </div>

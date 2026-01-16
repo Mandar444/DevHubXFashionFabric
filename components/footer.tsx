@@ -14,21 +14,21 @@ export default function Footer() {
               </div>
               <h3 className="text-lg font-semibold pt-2">Fashion Fabric</h3>
             </div>
-            <p className="text-neutral-200 mb-6">
+            <p className="text-white mb-6">
               India&apos;s premier destination for bespoke textile solutions, renowned for exquisite craftsmanship and
               timeless elegance.
             </p>
             <div className="flex items-center mb-3">
               <Phone className="h-5 w-5 text-[#f0f4c3] mr-3 flex-shrink-0" />
-              <p className="text-neutral-200">+91 9867275524</p>
+              <p className="text-white">+91 9867275524</p>
             </div>
             <div className="flex items-center mb-3">
               <Mail className="h-5 w-5 text-[#f0f4c3] mr-3 flex-shrink-0" />
-              <p className="text-neutral-200">fashionfabric@rocketmail.com</p>
+              <p className="text-white">fashionfabric@rocketmail.com</p>
             </div>
             <div className="flex items-start">
               <MapPin className="h-5 w-5 text-[#f0f4c3] mt-1 mr-3 flex-shrink-0" />
-              <p className="text-neutral-200">
+              <p className="text-white">
                 Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
               </p>
             </div>
@@ -38,47 +38,47 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/" className="text-white hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/about" className="text-white hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/products" className="text-white hover:text-white transition-colors">
                   Collection
                 </Link>
               </li>
               <li>
-                <Link href="/clients" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/clients" className="text-white hover:text-white transition-colors">
                   Clients
                 </Link>
               </li>
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   Catalogues
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/faq" className="text-white hover:text-white transition-colors">
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/blog" className="text-white hover:text-white transition-colors">
                   Blogs
                 </Link>
               </li>
               <li>
-                <Link href="/testimonials" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/testimonials" className="text-white hover:text-white transition-colors">
                   Testimonials
                 </Link>
               </li>
               <li>
-                <Link href="/enquiry" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/enquiry" className="text-white hover:text-white transition-colors">
                   Enquire
                 </Link>
               </li>
@@ -88,32 +88,32 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Our Collection</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   Chef Uniforms
                 </Link>
               </li>
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   F&B Uniforms
                 </Link>
               </li>
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   Housekeeping Uniforms
                 </Link>
               </li>
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   Corporate Wear
                 </Link>
               </li>
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   Resort & Spa Uniforms
                 </Link>
               </li>
               <li>
-                <Link href="/catalogue" className="text-neutral-200 hover:text-white transition-colors">
+                <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   Casino Uniforms
                 </Link>
               </li>
@@ -144,7 +144,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-[#388e3c] mt-12 pt-6 text-center text-neutral-200 text-sm">
+        <div className="border-t border-[#388e3c] mt-12 pt-6 text-center text-white text-sm">
           <p>&copy; {new Date().getFullYear()} Fashion Fabric. All rights reserved.</p>
         </div>
       </div>
