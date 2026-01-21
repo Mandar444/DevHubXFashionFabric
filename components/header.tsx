@@ -3,15 +3,26 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isCollectionOpen, setIsCollectionOpen] = useState(false)
+  const [isMobileCollectionOpen, setIsMobileCollectionOpen] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
+
+  const collectionCategories = [
+    { name: "Hotel Uniform", href: "/products/hotel-uniform" },
+    { name: "Restaurant & Chef", href: "/products/restaurant-chef" },
+    { name: "Corporate", href: "/products/corporate" },
+    { name: "Airline", href: "/products/airline" },
+    { name: "Hospital", href: "/products/hospital" },
+    { name: "Industrial", href: "/products/industrial" },
+  ]
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -32,9 +43,31 @@ export default function Header() {
           <Link href="/about" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             About Us
           </Link>
-          <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
-            Collection
-          </Link>
+          <div 
+            className="relative group"
+            onMouseEnter={() => setIsCollectionOpen(true)}
+            onMouseLeave={() => setIsCollectionOpen(false)}
+          >
+            <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors flex items-center gap-1">
+              Collection
+              <ChevronDown className={`h-4 w-4 transition-transform ${isCollectionOpen ? 'rotate-180' : ''}`} />
+            </Link>
+            {isCollectionOpen && (
+              <div className="absolute left-0 top-full pt-2">
+                <div className="w-56 bg-white border rounded-md shadow-lg py-2 z-50">
+                  {collectionCategories.map((category) => (
+                    <Link
+                      key={category.name}
+                      href={category.href}
+                      className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-[#2e7d32] transition-colors"
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
           <Link href="/clients" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Clients
           </Link>
@@ -74,13 +107,37 @@ export default function Header() {
             >
               About Us
             </Link>
-            <Link
-              href="/products"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
-              onClick={toggleMenu}
-            >
-              Collection
-            </Link>
+            <div className="flex flex-col">
+              <div className="flex items-center justify-between">
+                <Link
+                  href="/products"
+                  className="text-sm font-medium hover:text-[#2e7d32] transition-colors flex-1"
+                  onClick={toggleMenu}
+                >
+                  Collection
+                </Link>
+                <button
+                  onClick={() => setIsMobileCollectionOpen(!isMobileCollectionOpen)}
+                  className="text-sm font-medium hover:text-[#2e7d32] transition-colors p-2"
+                >
+                  <ChevronDown className={`h-4 w-4 transition-transform ${isMobileCollectionOpen ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+              {isMobileCollectionOpen && (
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  {collectionCategories.map((category) => (
+                    <Link
+                      key={category.name}
+                      href={category.href}
+                      className="text-sm hover:text-[#2e7d32] transition-colors py-1"
+                      onClick={toggleMenu}
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link
               href="/clients"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"

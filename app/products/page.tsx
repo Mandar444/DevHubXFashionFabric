@@ -82,7 +82,7 @@ export default function ProductsPage() {
           />
 
           <div className="absolute inset-0 z-10 bg-black/40"></div>
-          <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
+          <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center ">
             <AnimateIn>
               <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Our Collections</h1>
             </AnimateIn>
@@ -94,8 +94,72 @@ export default function ProductsPage() {
           </div>
         </section>
 
+        {/* Hospitality Section Banner */}
+        <section className="py-10 bg-white">
+          <div className="container px-4 md:px-6">
+            <AnimateIn>
+              <div className="relative w-full rounded-[2rem] md:rounded-[2.5rem] bg-[#2e7d32] overflow-hidden shadow-xl">
+                <div className="relative grid md:grid-cols-2 gap-6 md:gap-8 items-end md:items-center p-6 md:p-8 lg:p-10 pr-10 ">
+                  {/* Left Content Card */}
+                  <div className="relative z-10 bg-[#f5f3e8] rounded-xl md:rounded-2xl 
+p-6 md:p-8 lg:p-10 shadow-lg order-1 overflow-hidden 
+translate-x-0 md:translate-x-4 lg:translate-x-8">
+                    {/* Decorative circles - bottom right of card */}
+                    <div className="absolute -bottom-16 -right-16 md:-bottom-20 md:-right-20">
+                      <div className="relative w-32 h-32 md:w-40 md:h-40">
+                        {/* Arc Container with top cut */}
+                        <div className="absolute inset-0" style={{ clipPath: 'polygon(0 15%, 15% 0, 85% 0, 100% 15%, 100% 100%, 0 100%)' }}>
+                          {[...Array(6)].map((_, i) => (
+                            <div
+                              key={`card-arc-${i}`}
+                              className="absolute rounded-full"
+                              style={{
+                                border: '5px solid #2e7d32',
+                                width: `${50 + i * 20}px`,
+                                height: `${50 + i * 20}px`,
+                                top: '50%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)',
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+                      Hospitality
+                    </h2>
+                    <p className="text-neutral-700 leading-relaxed text-sm md:text-base">
+                      In hospitality, every interaction tells a story, and your team is its narrator. 
+                      At Fashion Fabric, we craft uniforms that move with your staff, balance comfort 
+                      with style, and reflect the personality of your brand. Thoughtful design, durable 
+                      fabrics, and practical details ensure your team looks poised, feels confident, and 
+                      leaves a lasting impression on every guest.
+                    </p>
+                  </div>
+
+                  {/* Right Image Section */}
+                <div className="relative z-10 flex justify-center md:justify-end items-end order-2">
+  <div className="relative w-full max-w-[550px] aspect-[16/10] md:aspect-auto md:h-[380px] lg:h-[350px] translate-y-6 md:translate-y-10">
+    <Image
+      src="\images\collections-images\Hospitality.png"
+      alt="Hospitality team in professional uniforms"
+      fill
+      className="object-contain object-bottom"
+      priority
+    />
+  </div>
+</div>
+
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </section>
+
         {/* Product Catalogue Section */}
-        <section className="py-16 bg-white">
+        {/* <section className="py-16 bg-white">
           <div className="container px-4 md:px-6">
             <AnimateIn>
               <h2 className="text-3xl font-bold text-center mb-12">Collections Catalogue</h2>
@@ -125,96 +189,10 @@ export default function ProductsPage() {
               ))}
             </AnimateInStagger>
           </div>
-        </section>
+        </section> */}
 
-        {/* Formal Shoes Collection Section */}
-        <section className="py-16 bg-neutral-50">
-          <div className="container px-4 md:px-6">
-            <AnimateIn>
-              <h2 className="text-3xl font-bold text-center mb-12">Formal Shoes Collection</h2>
-            </AnimateIn>
 
-            {/* MEN Section */}
-            <AnimateIn>
-              <h3 className="text-2xl font-semibold mb-6 mt-8 text-center text-neutral-800">MEN</h3>
-            </AnimateIn>
-            <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {menShoes.map((shoe, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={shoe.image}
-                      alt={shoe.name}
-                      fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-center">{shoe.name}</h3>
-                  </div>
-                </div>
-              ))}
-            </AnimateInStagger>
-
-            {/* WOMEN Section */}
-            <AnimateIn>
-              <h3 className="text-2xl font-semibold mb-6 mt-8 text-center text-neutral-800">WOMEN</h3>
-            </AnimateIn>
-            <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {womenShoes.map((shoe, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={shoe.image}
-                      alt={shoe.name}
-                      fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-center">{shoe.name}</h3>
-                  </div>
-                </div>
-              ))}
-            </AnimateInStagger>
-
-            {/* UNISEX Section */}
-            <AnimateIn>
-              <h3 className="text-2xl font-semibold mb-6 mt-8 text-center text-neutral-800">UNISEX</h3>
-            </AnimateIn>
-            <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {unisexShoes.map((shoe, index) => (
-                <div
-                  key={index}
-                  className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border"
-                >
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={shoe.image}
-                      alt={shoe.name}
-                      fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-center">{shoe.name}</h3>
-                  </div>
-                </div>
-              ))}
-            </AnimateInStagger>
-          </div>
-        </section>
-
-        {/* CTA Section - Need Custom Uniforms */}
+        {/* CTA Section - Need Custom Uniforms
         <section className="py-16 bg-amber-50">
           <div className="container px-4 md:px-6 text-center">
             <AnimateIn>
@@ -228,7 +206,7 @@ export default function ProductsPage() {
               </Button>
             </AnimateIn>
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   )
