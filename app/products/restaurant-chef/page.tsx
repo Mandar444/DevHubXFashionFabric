@@ -1,70 +1,85 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-
+import Image from "next/image"
+import { AnimateIn } from "@/components/animate-in"
+import Process from "@/app/products/process/pages"
 export default function RestaurantChefPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <section className="py-20 px-4 md:px-6 bg-gradient-to-r from-[#2e7d32] to-[#1b5e20]">
-        <div className="container mx-auto text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Restaurant & Chef Collection</h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
-            Professional-grade fabrics for culinary excellence
-          </p>
-          <Button asChild size="lg" variant="secondary">
-            <Link href="/enquiry">Request Samples</Link>
-          </Button>
-        </div>
-      </section>
+    {/*  Section Banner */}
+<section className="py-10 bg-white">
+  <div className="container px-4 md:px-6">
+    <AnimateIn>
+      <div className="relative w-full rounded-[2rem] md:rounded-[2.5rem] bg-[#2e7d32] overflow-hidden shadow-xl">
+        <div className="relative grid md:grid-cols-2 gap-6 md:gap-8 items-end md:items-center p-6 md:p-8 lg:p-10 pr-10">
 
-      {/* Content Section */}
-      <section className="py-16 px-4 md:px-6">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-[#2e7d32]">Restaurant & Chef Uniform Fabrics</h2>
-            <p className="text-lg text-gray-700 mb-8">
-              Our restaurant and chef collection offers premium fabrics engineered to withstand the demanding 
-              kitchen environment. Heat-resistant, stain-repellent, and easy to maintain, these materials 
-              ensure your culinary team looks professional while staying comfortable throughout their shift.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">Key Features</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Heat and flame resistant</li>
-                    <li>• Oil and stain repellent</li>
-                    <li>• Breathable for kitchen heat</li>
-                    <li>• Industrial wash durability</li>
-                    <li>• Antimicrobial treatment</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">Applications</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Chef coats and jackets</li>
-                    <li>• Kitchen staff uniforms</li>
-                    <li>• Waiter and server attire</li>
-                    <li>• Aprons and accessories</li>
-                    <li>• Restaurant manager outfits</li>
-                  </ul>
-                </CardContent>
-              </Card>
+          {/* Left Content Card */}
+          <div
+            className="relative z-10 bg-[#f5f3e8] rounded-xl md:rounded-2xl 
+            p-6 md:p-8 lg:p-10 shadow-lg order-1 overflow-hidden 
+            translate-x-0 md:translate-x-4 lg:translate-x-8"
+          >
+            {/* Decorative circles - bottom right of card */}
+            <div className="absolute -bottom-16 -right-16 md:-bottom-20 md:-right-20">
+              <div className="relative w-32 h-32 md:w-40 md:h-40">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    clipPath:
+                      "polygon(0 15%, 15% 0, 85% 0, 100% 15%, 100% 100%, 0 100%)",
+                  }}
+                >
+                  {[...Array(6)].map((_, i) => (
+                    <div
+                      key={`card-arc-${i}`}
+                      className="absolute rounded-full"
+                      style={{
+                        border: "5px solid #2e7d32",
+                        width: `${50 + i * 20}px`,
+                        height: `${50 + i * 20}px`,
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)",
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="text-center">
-              <Button asChild size="lg" className="bg-[#2e7d32] hover:bg-[#1b5e20]">
-                <Link href="/enquiry">Get a Quote</Link>
-              </Button>
+            {/* Updated Content */}
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+              Restaurants / Bar
+            </h2>
+
+            <p className="text-neutral-700 leading-relaxed text-sm md:text-base">
+              Whether you operate a boutique fine-dining restaurant or a high-volume
+              service chain, our uniforms are built for performance, comfort, and
+              brand expression. Designed for long shifts and fast-paced environments,
+              they offer the right balance of style, mobility, and durability.
+            </p>
+          </div>
+
+          {/* Right Image Section */}
+          <div className="relative z-10 flex justify-center md:justify-end items-end order-2">
+            <div className="relative w-full max-w-[550px] aspect-[16/10] md:aspect-auto md:h-[380px] lg:h-[350px] translate-y-6 md:translate-y-10">
+              <Image
+                src="/images/collections-images/Restaurants.png"
+                alt="Restaurant and bar staff in professional uniforms"
+                fill
+                className="object-contain object-bottom"
+                priority
+              />
             </div>
           </div>
+
         </div>
-      </section>
+      </div>
+    </AnimateIn>
+  </div>
+</section>
+{/* Process Section */}
+<Process />
+
     </div>
   )
 }

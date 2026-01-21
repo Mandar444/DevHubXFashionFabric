@@ -15,14 +15,16 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const collectionCategories = [
-    { name: "Hotel Uniform", href: "/products/hotel-uniform" },
-    { name: "Restaurant & Chef", href: "/products/restaurant-chef" },
-    { name: "Corporate", href: "/products/corporate" },
-    { name: "Airline", href: "/products/airline" },
-    { name: "Hospital", href: "/products/hospital" },
-    { name: "Industrial", href: "/products/industrial" },
-  ]
+ const collectionCategories = [
+   { name: "Hospitality", href: "/products/hospitality" },
+   { name: "Restaurant & Chef", href: "/products/restaurant-chef" },
+{ name: "Spa / Saloons", href: "/products/spa" },
+  { name: "Healthcare", href: "/products/healthcare" },
+  { name: "Airline", href: "/products/airline" },
+  { name: "Corporate", href: "/products/corporate" },
+  { name: "Schools", href: "/products/school" },
+];
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -48,7 +50,7 @@ export default function Header() {
             onMouseEnter={() => setIsCollectionOpen(true)}
             onMouseLeave={() => setIsCollectionOpen(false)}
           >
-            <Link href="/products" className="text-sm font-medium hover:text-[#2e7d32] transition-colors flex items-center gap-1">
+            <Link href="/#" className="text-sm font-medium hover:text-[#2e7d32] transition-colors flex items-center gap-1">
               Collection
               <ChevronDown className={`h-4 w-4 transition-transform ${isCollectionOpen ? 'rotate-180' : ''}`} />
             </Link>
