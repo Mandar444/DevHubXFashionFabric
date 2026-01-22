@@ -112,7 +112,7 @@ export default function Header() {
             <div className="flex flex-col">
               <div className="flex items-center justify-between">
                 <Link
-                  href="/products"
+                  href="/#"
                   className="text-sm font-medium hover:text-[#2e7d32] transition-colors flex-1"
                   onClick={toggleMenu}
                 >
