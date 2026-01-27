@@ -82,9 +82,9 @@ export default function Header() {
           <Link href="/blog" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Blogs
           </Link>
-          <Link href="/testimonials" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          {/* <Link href="/testimonials" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Testimonials
-          </Link>
+          </Link> */}
           <Link href="/enquiry" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Enquire
           </Link>
@@ -168,13 +168,13 @@ export default function Header() {
             >
               Blogs
             </Link>
-            <Link
+            {/* <Link
               href="/testimonials"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
               onClick={toggleMenu}
             >
               Testimonials
-            </Link>
+            </Link> */}
             <Link
               href="/enquiry"
               className="text-sm font-medium hover:text-[#2e7d32] transition-colors"

@@ -4,47 +4,47 @@ import { MapPin, Mail, Phone, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 import { InfiniteLogoScroll } from "./components/infinite-logo-scroll"
-
+import TestimonialsPage from "./testimonials/page"
 const clients = [
-  { name: "The Astor", logo: "/images/clients/astor-goa_new.png" },
-  { name: "Big Daddy Casino", logo: "/images/clients/big_daddy-new.png" },
-  { name: "Cadillac Casino", logo: "/images/clients/cadillac-casion.png" },
-  { name: "Goa Marriot", logo: "/images/clients/Goa_Marriott_Resort.jpg" },
-  { name: "Fairfield By Marriots", logo: "/images/clients/fair-field.png" },
-  { name: "W Goa", logo: "/images/clients/wh-logo_new.png" },
-  { name: "St Regies", logo: "/images/clients/st-regis-new.png" },
-  { name: "Holiday Inn Goa", logo: "/images/clients/hi_logo01.png" },
-  { name: "Kenilworth", logo: "/images/clients/Kenilworth_Logo_mcxx3d_ivmncx.png" },
-  { name: "Taj Fort Village", logo: "/images/clients/taj_holiday_village.png" },
-  { name: "Taj Fort Aguda", logo: "/images/clients/taj_aguada_resort.png" },
-  { name: "Sinq Prive", logo: "/images/clients/sinq-prive_new.webp" },
-  { name: "Double Tree by Hilton", logo: "/images/clients/double-tree_new.png" },
-  { name: "Taj by Vivanta", logo: "/images/clients/icon-vivanta.png" },
-  { name: "Grand Hyatt", logo: "/images/clients/grand_hyatt_new.png" },
-  { name: "Casino Pride", logo: "/images/clients/casino-pride_new.png" },
-  { name: "Deltin", logo: "/images/clients/DeltinOnLogo1.png" },  
-  { name: "The Fern", logo: "/images/clients/fern-hotels_new.png" },
-  { name: "Jw Marriot", logo: "/images/clients/jw_marriot_new.png" },
-  { name: "Ramada", logo: "/images/clients/ramada_new.png" },
-  { name: "Big B Casino", logo: "/images/clients/cropped-big-b-casino_new.png" },
-  { name: "Club Mahindra", logo: "/images/clients/club-mahindra_new.png" },
-  { name: "Puppy's Casino Gold", logo: "/images/clients/Puppy-Casino-Gold-Logo.png" },
-  { name: "Fortune Hotels", logo: "/images/clients/fortune_new.png" },
-  { name: "Baale Resort", logo: "/images/clients/baale_new.png" },
-  { name: "Hard Rock Hotel", logo: "/images/clients/HardRockHotelLogo-White3x_new.png" },
-  { name: "Taj Resort & Convention Centre", logo: "/images/clients/taj_convention_centre.png"},
-  { name: "Taj Cidade de Goa", logo: "/images/clients/taj_cidade_de_new.png" },
-  { name: "La Estoria", logo: "/images/clients/seleqtions-brand-icon_new.png" },
-  { name: "Ibis Styles", logo: "/images/clients/ibis_new.png" },
-  { name: "Birch by Romeo Lane", logo: "/images/clients/birch_new.png" },
-  { name: "Caravela Beach Resort", logo: "/images/clients/caravela-beach.png" },
-  { name: "Elements", logo: "/images/clients/elements.png" },
-  { name: "Le Meridien", logo: "/images/clients/le_meridien.png" },
-  { name: "Novotel", logo: "/images/clients/novotel.png" },
-  { name: "Planet Hollywood", logo: "/images/clients/planet-hollywod.png" },
-  { name: "Hyatt Centric", logo: "/images/clients/hyatt_centric.png" },
-  { name: "Araqila", logo: "/images/clients/araqila.png" },
-  { name: "Strike Casino", logo: "/images/clients/strike_casino.png" }
+  { name: "Araqila", logo: "/images/clients-home-logos/Araqila.png" },
+  { name: "Baale", logo: "/images/clients-home-logos/Baale.png" },
+  { name: "Big B Casino", logo: "/images/clients-home-logos/Big B Casino.png" },
+  { name: "Big Daddy", logo: "/images/clients-home-logos/Big Daddy.png" },
+  { name: "Birch", logo: "/images/clients-home-logos/Birch.png" },
+  { name: "Cadillac Casino", logo: "/images/clients-home-logos/Cadillac Casino.png" },
+  { name: "Caravela", logo: "/images/clients-home-logos/Caravela.png" },
+  { name: "Casino Gold", logo: "/images/clients-home-logos/Casino Gold.png" },
+  { name: "Casino Pride", logo: "/images/clients-home-logos/Casino Pride .png" },
+  { name: "Cidade de Goa", logo: "/images/clients-home-logos/Cidade de Goa .png" },
+  { name: "Club Mahindra", logo: "/images/clients-home-logos/Club Mahindra.png" },
+  { name: "Deltin", logo: "/images/clients-home-logos/deltin.png" },
+  { name: "Double Tree", logo: "/images/clients-home-logos/Double Tree.png" },
+  { name: "Elements", logo: "/images/clients-home-logos/Elements.png" },
+  { name: "Fairfield", logo: "/images/clients-home-logos/Fairfield.png" },
+  { name: "Fortune", logo: "/images/clients-home-logos/Fortune.png" },
+  { name: "Grand Hyatt", logo: "/images/clients-home-logos/Grand Hyatt.png" },
+  { name: "Hard Rock", logo: "/images/clients-home-logos/Hard Rock.png" },
+  { name: "Hilton", logo: "/images/clients-home-logos/Hilton.png" },
+  { name: "Holiday Inn", logo: "/images/clients-home-logos/Holiday Inn.png" },
+  { name: "Hyatt Centric", logo: "/images/clients-home-logos/Hyatt Centric.png" },
+  { name: "Ibis", logo: "/images/clients-home-logos/Ibis.png" },
+  { name: "JW Marriott", logo: "/images/clients-home-logos/JW Marriott.png" },
+  { name: "Kenilworth", logo: "/images/clients-home-logos/Kenilworth.png" },
+  { name: "Le Meridien", logo: "/images/clients-home-logos/Le Meridien.png" },
+  { name: "Marriott", logo: "/images/clients-home-logos/Marriott.png" },
+  { name: "Neptune", logo: "/images/clients-home-logos/Neptune.png" },
+  { name: "Novotel", logo: "/images/clients-home-logos/Novotel.png" },
+  { name: "Planet Hollywood", logo: "/images/clients-home-logos/Planet Hollywood.png" },
+  { name: "Ramada", logo: "/images/clients-home-logos/Ramada.png" },
+  { name: "SeleQtions", logo: "/images/clients-home-logos/SeleQtions.png" },
+  { name: "SinQ", logo: "/images/clients-home-logos/SinQ.png" },
+  { name: "St. Regis", logo: "/images/clients-home-logos/St. Regis.png" },
+  { name: "Strike", logo: "/images/clients-home-logos/Strike.png" },
+  { name: "Taj", logo: "/images/clients-home-logos/Taj.png" },
+  { name: "The Astor", logo: "/images/clients-home-logos/The Astor.png" },
+  { name: "The Fern", logo: "/images/clients-home-logos/The Fern.png" },
+  { name: "Vivanta", logo: "/images/clients-home-logos/Vivanta.png" },
+  { name: "W Hotels", logo: "/images/clients-home-logos/W Hotels.png" }
 ]
 
 export default function Home() {
@@ -158,7 +158,8 @@ export default function Home() {
             </AnimateInStagger>
           </div>
         </section>
-
+        {/* Testimonials Section */}
+    <TestimonialsPage />
         {/* Featured Products */}
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">
@@ -231,7 +232,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Map Section */}
+        {/* Map Section
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -293,7 +294,7 @@ export default function Home() {
               </AnimateIn>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   )

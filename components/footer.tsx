@@ -5,14 +5,14 @@ import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react"
 export default function Footer() {
   return (
     <footer className="bg-[#307035] text-white">
-      <div className="container px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+      <div className="container px-4 md:px-6 py-12 text-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+          <div className="text-white">
             <div className="flex items-center mb-4">
               <div className="relative h-12 w-12 mr-3  rounded-md p-1">
                 <Image src="/images/footer-logo.svg" alt="Fashion Fabric Logo" fill className="object-contain" />
               </div>
-              <h3 className="text-lg font-semibold pt-2">Fashion Fabric</h3>
+              <h3 className="text-lg font-semibold pt-2 text-white">Fashion Fabric</h3>
             </div>
             <p className="text-white mb-6">
               India&apos;s premier destination for bespoke textile solutions, renowned for exquisite craftsmanship and
@@ -32,11 +32,10 @@ export default function Footer() {
                 Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
               </p>
             </div>
-
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+          <div className="text-white">
+            <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
+            <ul className="space-y-2 text-white">
               <li>
                 <Link href="/" className="text-white hover:text-white transition-colors">
                   Home
@@ -84,9 +83,9 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Our Collection</h3>
-            <ul className="space-y-2">
+          <div className="text-white">
+            <h3 className="text-lg font-semibold mb-4 text-white">Our Collection</h3>
+            <ul className="space-y-2 text-white">
               <li>
                 <Link href="/catalogue" className="text-white hover:text-white transition-colors">
                   Chef Uniforms
@@ -119,7 +118,7 @@ export default function Footer() {
               </li>
             </ul>
             <div className="mt-6 ">
-              <h3 className="text-lg font-semibold mb-4">Follow Fashion Fabric</h3>
+              <h3 className="text-lg font-semibold mb-4 text-white">Follow Fashion Fabric</h3>
               <div className="flex gap-4 items-center pl-10">
                 <Link
                   href="https://www.instagram.com/fashionfabric.info/"
@@ -139,13 +138,12 @@ export default function Footer() {
                 >
                   <Linkedin className="h-8 w-8" />
                 </Link>
-               
               </div>
             </div>
           </div>
         </div>
         <div className="border-t border-[#388e3c] mt-12 pt-6 text-center text-white text-sm">
-          <p>&copy; {new Date().getFullYear()} Fashion Fabric. All rights reserved.</p>
+          <p className="text-white">&copy; {new Date().getFullYear()} Fashion Fabric. All rights reserved.</p>
         </div>
       </div>
     </footer>

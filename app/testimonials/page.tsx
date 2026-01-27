@@ -1,109 +1,154 @@
-import Image from "next/image"
-import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
+"use client"
+
+import { useState } from "react"
+import { AnimateIn } from "@/components/animate-in"
 
 export default function TestimonialsPage() {
   const testimonials = [
     {
+      name: "Pradippta Biiswaas",
+      title: "Vice President Operations",
       quote:
-        "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of fabrics, and timely delivery have made them an invaluable asset to our operations.",
+        "We've been working with the IRIS team for years, and it's always been a very smooth experience. The quality of uniforms and their timely delivery have consistently met our expectations.",
+      company: "Radisson Hotels",
+    },
+    {
+      name: "Neeraj Kataria",
+      title: "Corporate Director – Culinary",
+      quote:
+        "I wanted to take a moment to express my heartfelt appreciation for the incredible service I have received from IRIS over the past 15 years.",
+      company: "Ananta Hotels & Resorts",
+    },
+    {
+      name: "Abha Dwivedi",
+      title: "Assistant Vice President – Housekeeping",
+      quote:
+        "I'm amazed at how smooth the whole uniform design process has been. The end result exceeded expectations, and I look forward to continuing our collaboration.",
+      company: "Atmosphere Core",
+    },
+    {
       name: "Hotel Manager",
-      company: "5-Star Hotel in Goa",
-    },
-    {
+      title: "Operations Head",
       quote:
-        "The team at Fashion Fabric understands our brand aesthetic perfectly. They've created custom uniforms that our staff love to wear and that perfectly represent our brand image.",
-      name: "F&B Director",
-      company: "Luxury Resort in Goa",
-    },
-    {
-      quote:
-        "We've been working with Fashion Fabric for over 5 years now. Their consistent quality and reliability make them our go-to uniform supplier for all our properties.",
-      name: "Procurement Manager",
-      company: "Hotel Chain",
-    },
-    {
-      quote:
-        "The custom chef coats designed by Fashion Fabric are not only stylish but also incredibly comfortable and durable. Our kitchen team is very satisfied.",
-      name: "Executive Chef",
-      company: "Fine Dining Restaurant",
-    },
-    {
-      quote:
-        "Fashion Fabric's attention to detail and commitment to quality is unmatched. They delivered our large order on time and exceeded our expectations.",
-      name: "General Manager",
-      company: "Casino in Goa",
-    },
-    {
-      quote:
-        "Working with Fashion Fabric has been a pleasure. Their team is responsive, professional, and always willing to go the extra mile to meet our requirements.",
-      name: "Operations Director",
-      company: "Boutique Hotel",
+        "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail and quality is unmatched.",
+      company: "5-Star Hotel",
     },
   ]
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden">
-          <Image
-            src="/images/bg-imges-hero-sections/image-05.jpg"
-            alt="Testimonials Background"
-            fill
-            className="object-cover z-0"
-            priority
-          />
-          <div className="absolute inset-0 z-10 bg-black/50"></div>
-          <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
-            <AnimateIn>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-white mb-3 md:mb-4 px-4">Client Testimonials</h1>
-            </AnimateIn>
-            <AnimateIn delay={0.2}>
-              <p className="max-w-[800px] text-base sm:text-lg text-white/90 px-4">
-                What our valued clients have to say about our services
-              </p>
-            </AnimateIn>
-          </div>
-        </section>
+  const [index, setIndex] = useState(1)
 
-        {/* Testimonials Grid */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="container px-4 md:px-6">
-            <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" staggerDelay={0.1}>
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-neutral-50 p-6 md:p-8 rounded-lg shadow-sm min-h-[280px] md:min-h-[320px] flex flex-col justify-between">
-                  <div className="flex-shrink-0">
-                    <svg className="h-8 w-8 text-amber-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                    </svg>
-                  </div>
-                  <p className="text-base text-neutral-600 italic mb-6 line-clamp-6 flex-grow">{testimonial.quote}</p>
-                  <div className="flex-shrink-0">
-                    <p className="font-semibold text-base">{testimonial.name}</p>
-                    <p className="text-sm text-neutral-500">{testimonial.company}</p>
+  const prev = () =>
+    setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
+
+  const next = () =>
+    setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
+
+  return (
+    <div className="min-h-screen bg-neutral-50 text-white">
+      {/* Title */}
+      <section className="py-20 text-center">
+        <AnimateIn>
+          <h1 className="text-4xl md:text-5xl font-serif text-black font-semibold">
+            Client Testimonials
+          </h1>
+        </AnimateIn>
+      </section>
+
+      {/* Slider */}
+      <section className="relative pb-24 px-4">
+        <div className="container mx-auto">
+          <div className="relative h-[550px] flex items-center justify-center">
+            {testimonials.map((item, i) => {
+              // Calculate position relative to center
+              let position = i - index
+              
+              // Handle wrap around
+              if (position < -Math.floor(testimonials.length / 2)) {
+                position += testimonials.length
+              }
+              if (position > Math.floor(testimonials.length / 2)) {
+                position -= testimonials.length
+              }
+
+              const isCenter = position === 0
+              const isVisible = Math.abs(position) <= 1
+
+              return (
+                <div
+                  key={i}
+                  className="absolute transition-all duration-700 ease-in-out"
+                  style={{
+                    left: '50%',
+                    transform: `translateX(calc(-50% + ${position * 380}px)) scale(${isCenter ? 1 : 0.85})`,
+                    zIndex: isCenter ? 20 : 10 - Math.abs(position),
+                    opacity: isVisible ? (isCenter ? 1 : 0.5) : 0,
+                    pointerEvents: isVisible ? 'auto' : 'none',
+                  }}
+                >
+                  <div
+                    className={`bg-[#f6ecdd] text-black rounded-2xl shadow-2xl
+                      transition-all duration-700 w-[360px]
+                      ${isCenter ? 'h-[480px] p-12' : 'h-[400px] p-8'}
+                    `}
+                  >
+                    <h3 className={`font-serif font-semibold text-center mb-1 ${isCenter ? 'text-2xl' : 'text-xl'}`}>
+                      {item.name}
+                    </h3>
+                    <p className={`text-center text-neutral-700 mb-6 ${isCenter ? 'text-sm' : 'text-xs'}`}>
+                      {item.title}
+                    </p>
+
+                    <p className={`leading-relaxed text-center mb-8 ${isCenter ? 'text-base' : 'text-sm'}`}>
+                      {item.quote}
+                    </p>
+
+                    <div className="flex justify-center text-amber-500 mb-6">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <span key={i} className={isCenter ? 'text-xl' : 'text-base'}>★</span>
+                      ))}
+                    </div>
+
+                    <p className={`text-center font-semibold tracking-wide ${isCenter ? 'text-base' : 'text-sm'}`}>
+                      {item.company}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </AnimateInStagger>
+              )
+            })}
           </div>
-        </section>
 
-        {/* CTA Section */}
-        <section className="py-12 md:py-16 bg-amber-50">
-          <div className="container px-4 md:px-6 text-center">
-            <AnimateIn>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4 md:mb-6 px-4">Join Our Satisfied Clients</h2>
-              <p className="max-w-[600px] mx-auto text-sm sm:text-base text-neutral-600 mb-6 md:mb-8 px-4">
-                Experience the Fashion Fabric difference for yourself. Contact us today to discuss your uniform
-                requirements.
-              </p>
-              <div className="inline-flex h-10 md:h-11 items-center justify-center rounded-md bg-amber-700 px-6 md:px-8 text-sm md:text-base font-medium text-white shadow transition-colors hover:bg-amber-800">
-                <a href="/enquiry">Contact Us</a>
-              </div>
-            </AnimateIn>
+          {/* Left Button */}
+          <button
+            onClick={prev}
+            className="absolute left-6 top-1/2 -translate-y-1/2
+                       text-black text-4xl hover:opacity-70 z-30"
+          >
+            ‹
+          </button>
+
+          {/* Right Button */}
+          <button
+            onClick={next}
+            className="absolute right-6 top-1/2 -translate-y-1/2
+                       text-black text-4xl hover:opacity-70 z-30"
+          >
+            ›
+          </button>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-3 mt-10">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`h-3 w-3 rounded-full transition ${
+                  index === i ? "bg-black" : "bg-neutral-400"
+                }`}
+              />
+            ))}
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
     </div>
   )
 }
