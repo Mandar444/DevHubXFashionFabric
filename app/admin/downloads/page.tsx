@@ -12,6 +12,8 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 interface Download {
   id: string
@@ -113,20 +115,30 @@ export default function AdminDownloadsPage() {
   }
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto py-4 px-4 md:py-10">
+      <Button
+        asChild
+        variant="outline"
+        className="gap-2 mb-4 w-fit"
+      >
+        <Link href="/admin">
+          <ArrowLeft className="h-4 w-4" />
+          Back to Dashboard
+        </Link>
+      </Button>
       <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
+        <CardHeader className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0 pb-7">
           <div>
-            <CardTitle className="text-2xl font-bold">Catalogue Downloads</CardTitle>
-            <CardDescription>
+            <CardTitle className="text-xl md:text-2xl font-bold">Catalogue Downloads</CardTitle>
+            <CardDescription className="text-sm">
               View all users who have downloaded catalogues
             </CardDescription>
           </div>
-          <div className="flex gap-2">
-            <Button onClick={exportToCSV} variant="outline">
+          <div className="flex flex-wrap gap-2">
+            <Button onClick={exportToCSV} variant="outline" size="sm" className="flex-1 sm:flex-none">
               Export to CSV
             </Button>
-            <Button onClick={fetchDownloads} variant="outline">
+            <Button onClick={fetchDownloads} variant="outline" size="sm" className="flex-1 sm:flex-none">
               Refresh
             </Button>
           </div>
@@ -139,12 +151,12 @@ export default function AdminDownloadsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[200px]">Name</TableHead>
-                  <TableHead className="w-[250px]">Email</TableHead>
-                  <TableHead className="w-[150px]">Phone</TableHead>
-                  <TableHead className="w-[150px]">IP Address</TableHead>
-                  <TableHead className="w-[200px]">Downloaded At</TableHead>
-                  <TableHead className="w-[300px]">User Agent</TableHead>
+                  <TableHead className="min-w-[150px] md:w-[200px]">Name</TableHead>
+                  <TableHead className="min-w-[200px] md:w-[250px]">Email</TableHead>
+                  <TableHead className="min-w-[120px] md:w-[150px]">Phone</TableHead>
+                  <TableHead className="min-w-[120px] md:w-[150px]">IP Address</TableHead>
+                  <TableHead className="min-w-[150px] md:w-[200px]">Downloaded At</TableHead>
+                  <TableHead className="min-w-[200px] md:w-[300px]">User Agent</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

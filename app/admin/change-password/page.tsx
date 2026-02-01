@@ -10,7 +10,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { toast } from "sonner"
 import { validatePasswordStrength, getPasswordStrength } from "@/lib/password-validation"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { CheckCircle2, XCircle } from "lucide-react"
+import { CheckCircle2, XCircle, ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 export default function ChangePasswordPage() {
   const { data: session, status } = useSession()
@@ -81,15 +82,26 @@ export default function ChangePasswordPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-neutral-50 p-4">
-      <Card className="w-full max-w-2xl">
-        <CardHeader>
-          <CardTitle>Change Password</CardTitle>
-          <CardDescription>
-            Update your password to keep your account secure
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="w-full max-w-2xl space-y-4">
+        <Button
+          asChild
+          variant="outline"
+          className="gap-2 w-fit"
+        >
+          <Link href="/admin">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Dashboard
+          </Link>
+        </Button>
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle className="text-xl md:text-2xl">Change Password</CardTitle>
+            <CardDescription className="text-sm">
+              Update your password to keep your account secure
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             {/* Current Password */}
             <div className="space-y-2">
               <Label htmlFor="currentPassword">Current Password</Label>
@@ -194,7 +206,7 @@ export default function ChangePasswordPage() {
             </div>
 
             {/* Submit Button */}
-            <div className="flex gap-3 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 pt-4">
               <Button
                 type="submit"
                 className="flex-1 bg-amber-700 hover:bg-amber-800"
@@ -212,6 +224,7 @@ export default function ChangePasswordPage() {
                 variant="outline"
                 onClick={() => router.back()}
                 disabled={isLoading}
+                className="flex-1 sm:flex-none"
               >
                 Cancel
               </Button>
@@ -219,6 +232,7 @@ export default function ChangePasswordPage() {
           </form>
         </CardContent>
       </Card>
+      </div>
     </div>
   )
 }

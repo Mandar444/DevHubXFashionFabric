@@ -15,7 +15,7 @@ const clients = [
   { name: "Caravela", logo: "/images/clients-home-logos/Caravela.png" },
   { name: "Casino Gold", logo: "/images/clients-home-logos/Casino Gold.png" },
   { name: "Casino Pride", logo: "/images/clients-home-logos/Casino Pride .png" },
-  { name: "Cidade de Goa", logo: "/images/clients-home-logos/Cidade de Goa .png" },
+  // { name: "Cidade de Goa", logo: "/images/clients-home-logos/Cidade de Goa .png" },
   { name: "Club Mahindra", logo: "/images/clients-home-logos/Club Mahindra.png" },
   { name: "Deltin", logo: "/images/clients-home-logos/deltin.png" },
   { name: "Double Tree", logo: "/images/clients-home-logos/Double Tree.png" },
@@ -66,12 +66,13 @@ export default function Home() {
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">
-                India&apos;s Premier Uniform Supplier
+                India&apos;s Premier Uniform Manufactures
               </h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
               <p className="max-w-[800px] text-lg md:text-xl text-white/90 mb-8">
-                Bespoke uniform solutions for the hospitality industry with over 15 years of excellence
+                End-to-end bespoke uniform solution for teams across industries with over 15 years of excellence 
+
               </p>
             </AnimateIn>
             <AnimateIn delay={0.4}>

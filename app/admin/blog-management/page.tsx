@@ -409,10 +409,10 @@ export default function BlogManagementPage() {
   }
 
   return (
-    <div className="container mx-auto py-10">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-neutral-800">Blog Management</h1>
-        <Button asChild variant="outline">
+    <div className="container mx-auto py-4 px-4 md:py-10">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 md:mb-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-neutral-800">Blog Management</h1>
+        <Button asChild variant="outline" className="w-fit">
           <Link href="/admin" className="flex items-center gap-2">
             <ArrowLeft className="h-4 w-4" />
             Back to Dashboard
@@ -421,15 +421,15 @@ export default function BlogManagementPage() {
       </div>
 
       {/* Create/Edit Form */}
-      <Card className="mb-8">
+      <Card className="mb-6 md:mb-8">
         <CardHeader>
-          <CardTitle>{isEditing ? "Edit Blog Post" : "Create New Blog Post"}</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-xl md:text-2xl">{isEditing ? "Edit Blog Post" : "Create New Blog Post"}</CardTitle>
+          <CardDescription className="text-sm">
             {isEditing ? "Update the blog post details below" : "Fill in the details to create a new blog post"}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="title">Title *</Label>
@@ -650,12 +650,12 @@ export default function BlogManagementPage() {
               <Label htmlFor="published">Publish immediately</Label>
             </div>
 
-            <div className="flex gap-4">
-              <Button type="submit" disabled={loading}>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <Button type="submit" disabled={loading} className="w-full sm:w-auto">
                 {loading ? "Saving..." : isEditing ? "Update Blog Post" : "Create Blog Post"}
               </Button>
               {isEditing && (
-                <Button type="button" variant="outline" onClick={resetForm}>
+                <Button type="button" variant="outline" onClick={resetForm} className="w-full sm:w-auto">
                   Cancel
                 </Button>
               )}
@@ -667,8 +667,8 @@ export default function BlogManagementPage() {
       {/* Blog Posts List */}
       <Card>
         <CardHeader>
-          <CardTitle>All Blog Posts</CardTitle>
-          <CardDescription>Manage your existing blog posts</CardDescription>
+          <CardTitle className="text-xl md:text-2xl">All Blog Posts</CardTitle>
+          <CardDescription className="text-sm">Manage your existing blog posts</CardDescription>
         </CardHeader>
         <CardContent>
           {blogPosts.length === 0 ? (
@@ -678,10 +678,10 @@ export default function BlogManagementPage() {
               {blogPosts.map((post) => (
                 <div
                   key={post.id}
-                  className="flex items-center justify-between p-4 border rounded-lg hover:bg-neutral-50 transition-colors"
+                  className="flex flex-col sm:flex-row sm:items-center justify-between p-3 md:p-4 border rounded-lg hover:bg-neutral-50 transition-colors gap-3"
                 >
-                  <div className="flex items-start gap-4 flex-1">
-                    <div className="relative h-20 w-32 rounded overflow-hidden flex-shrink-0">
+                  <div className="flex items-start gap-3 md:gap-4 flex-1">
+                    <div className="relative h-16 w-24 sm:h-20 sm:w-32 rounded overflow-hidden flex-shrink-0">
                       <Image
                         src={post.image}
                         alt={post.title}
@@ -689,41 +689,45 @@ export default function BlogManagementPage() {
                         className="object-cover"
                       />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-semibold text-lg">{post.title}</h3>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1">
+                        <h3 className="font-semibold text-base md:text-lg truncate">{post.title}</h3>
                         {post.published ? (
-                          <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                          <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded w-fit">
                             Published
                           </span>
                         ) : (
-                          <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">
+                          <span className="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded w-fit">
                             Draft
                           </span>
                         )}
                       </div>
-                      <p className="text-sm text-neutral-600 mb-2 line-clamp-2">{post.excerpt}</p>
-                      <div className="text-xs text-neutral-500">
-                        <span>Slug: {post.slug}</span>
-                        <span className="mx-2">•</span>
-                        <span>Created: {new Date(post.createdAt).toLocaleDateString()}</span>
+                      <p className="text-xs md:text-sm text-neutral-600 mb-2 line-clamp-2">{post.excerpt}</p>
+                      <div className="text-xs text-neutral-500 flex flex-col sm:flex-row sm:items-center gap-1">
+                        <span className="truncate">Slug: {post.slug}</span>
+                        <span className="hidden sm:inline mx-2">•</span>
+                        <span className="whitespace-nowrap">Created: {new Date(post.createdAt).toLocaleDateString()}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 justify-end sm:justify-start">
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={() => window.open(`/blog/${post.slug}`, "_blank")}
+                      className="flex-1 sm:flex-none"
                     >
                       <Eye className="h-4 w-4" />
+                      <span className="ml-1 sm:hidden">View</span>
                     </Button>
                     <Button
                       size="sm"
                       variant="outline"
                       onClick={() => handleEdit(post)}
+                      className="flex-1 sm:flex-none"
                     >
                       <Pencil className="h-4 w-4" />
+                      <span className="ml-1 sm:hidden">Edit</span>
                     </Button>
                     <Button
                       size="sm"
@@ -732,8 +736,10 @@ export default function BlogManagementPage() {
                         setPostToDelete(post.id)
                         setDeleteDialogOpen(true)
                       }}
+                      className="flex-1 sm:flex-none"
                     >
                       <Trash2 className="h-4 w-4" />
+                      <span className="ml-1 sm:hidden">Delete</span>
                     </Button>
                   </div>
                 </div>
@@ -745,16 +751,16 @@ export default function BlogManagementPage() {
 
       {/* Delete Confirmation Dialog */}
       <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-w-[90%] sm:max-w-lg">
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-            <AlertDialogDescription>
+            <AlertDialogTitle className="text-lg md:text-xl">Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription className="text-sm">
               This action cannot be undone. This will permanently delete the blog post.
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => setPostToDelete(null)}>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete} className="bg-red-600 hover:bg-red-700">
+          <AlertDialogFooter className="flex-col sm:flex-row gap-2">
+            <AlertDialogCancel onClick={() => setPostToDelete(null)} className="w-full sm:w-auto">Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleDelete} className="bg-red-600 hover:bg-red-700 w-full sm:w-auto">
               Delete
             </AlertDialogAction>
           </AlertDialogFooter>

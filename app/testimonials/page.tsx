@@ -6,32 +6,40 @@ import { AnimateIn } from "@/components/animate-in"
 export default function TestimonialsPage() {
   const testimonials = [
     {
-      name: "Pradippta Biiswaas",
-      title: "Vice President Operations",
       quote:
-        "We've been working with the IRIS team for years, and it's always been a very smooth experience. The quality of uniforms and their timely delivery have consistently met our expectations.",
-      company: "Radisson Hotels",
-    },
-    {
-      name: "Neeraj Kataria",
-      title: "Corporate Director – Culinary",
-      quote:
-        "I wanted to take a moment to express my heartfelt appreciation for the incredible service I have received from IRIS over the past 15 years.",
-      company: "Ananta Hotels & Resorts",
-    },
-    {
-      name: "Abha Dwivedi",
-      title: "Assistant Vice President – Housekeeping",
-      quote:
-        "I'm amazed at how smooth the whole uniform design process has been. The end result exceeded expectations, and I look forward to continuing our collaboration.",
-      company: "Atmosphere Core",
-    },
-    {
+        "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of fabrics, and timely delivery have made them an invaluable asset to our operations.",
       name: "Hotel Manager",
-      title: "Operations Head",
+      company: "5-Star Hotel in Goa",
+    },
+    {
       quote:
-        "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail and quality is unmatched.",
-      company: "5-Star Hotel",
+        "The team at Fashion Fabric understands our brand aesthetic perfectly. They've created custom uniforms that our staff love to wear and that perfectly represent our brand image.",
+      name: "F&B Director",
+      company: "Luxury Resort in Goa",
+    },
+    {
+      quote:
+        "We've been working with Fashion Fabric for over 5 years now. Their consistent quality and reliability make them our go-to uniform supplier for all our properties.",
+      name: "Procurement Manager",
+      company: "Hotel Chain",
+    },
+    {
+      quote:
+        "The custom chef coats designed by Fashion Fabric are not only stylish but also incredibly comfortable and durable. Our kitchen team is very satisfied.",
+      name: "Executive Chef",
+      company: "Fine Dining Restaurant",
+    },
+    {
+      quote:
+        "Fashion Fabric's attention to detail and commitment to quality is unmatched. They delivered our large order on time and exceeded our expectations.",
+      name: "General Manager",
+      company: "Casino in Goa",
+    },
+    {
+      quote:
+        "Working with Fashion Fabric has been a pleasure. Their team is responsive, professional, and always willing to go the extra mile to meet our requirements.",
+      name: "Operations Director",
+      company: "Boutique Hotel",
     },
   ]
 
@@ -94,9 +102,9 @@ export default function TestimonialsPage() {
                     <h3 className={`font-serif font-semibold text-center mb-1 ${isCenter ? 'text-2xl' : 'text-xl'}`}>
                       {item.name}
                     </h3>
-                    <p className={`text-center text-neutral-700 mb-6 ${isCenter ? 'text-sm' : 'text-xs'}`}>
+                    {/* <p className={`text-center text-neutral-700 mb-6 ${isCenter ? 'text-sm' : 'text-xs'}`}>
                       {item.title}
-                    </p>
+                    </p> */}
 
                     <p className={`leading-relaxed text-center mb-8 ${isCenter ? 'text-base' : 'text-sm'}`}>
                       {item.quote}

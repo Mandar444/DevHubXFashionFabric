@@ -13,6 +13,8 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
+import { ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 interface CatalogueSubmission {
   id: string
@@ -136,28 +138,38 @@ export default function CatalogueSubmissionsPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-4 md:py-8">
+      <Button
+        asChild
+        variant="outline"
+        className="gap-2 mb-4 w-fit"
+      >
+        <Link href="/admin">
+          <ArrowLeft className="h-4 w-4" />
+          Back to Dashboard
+        </Link>
+      </Button>
       <Card>
         <CardHeader>
-          <CardTitle>Catalogue Submissions</CardTitle>
-          <CardDescription>
+          <CardTitle className="text-xl md:text-2xl">Catalogue Submissions</CardTitle>
+          <CardDescription className="text-sm">
             View and manage all catalogue download requests
           </CardDescription>
         </CardHeader>
         <CardContent>
           {/* Filters and Actions */}
-          <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6">
             <Input
-              placeholder="Search by name, email, phone, or company..."
+              placeholder="Search by name, email, phone..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="md:w-96"
+              className="w-full sm:flex-1 md:w-96"
             />
             
             <select
               value={countryFilter}
               onChange={(e) => setCountryFilter(e.target.value)}
-              className="px-3 py-2 border rounded-md"
+              className="px-3 py-2 border rounded-md w-full sm:w-auto"
             >
               <option value="">All Countries</option>
               {uniqueCountries.map((country) => (
@@ -167,11 +179,11 @@ export default function CatalogueSubmissionsPage() {
               ))}
             </select>
 
-            <Button onClick={exportToCSV} variant="outline" className="md:ml-auto">
+            <Button onClick={exportToCSV} variant="outline" className="sm:ml-auto w-full sm:w-auto" size="sm">
               Export to CSV
             </Button>
 
-            <Button onClick={fetchSubmissions} variant="outline">
+            <Button onClick={fetchSubmissions} variant="outline" className="w-full sm:w-auto" size="sm">
               Refresh
             </Button>
           </div>
@@ -213,13 +225,13 @@ export default function CatalogueSubmissionsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Email</TableHead>
-                  <TableHead>Company</TableHead>
-                  <TableHead>Phone</TableHead>
-                  <TableHead>Country</TableHead>
-                  <TableHead>Verified</TableHead>
-                  <TableHead>Submitted At</TableHead>
+                  <TableHead className="min-w-[150px]">Name</TableHead>
+                  <TableHead className="min-w-[200px]">Email</TableHead>
+                  <TableHead className="min-w-[150px]">Company</TableHead>
+                  <TableHead className="min-w-[120px]">Phone</TableHead>
+                  <TableHead className="min-w-[100px]">Country</TableHead>
+                  <TableHead className="min-w-[100px]">Verified</TableHead>
+                  <TableHead className="min-w-[150px]">Submitted At</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>

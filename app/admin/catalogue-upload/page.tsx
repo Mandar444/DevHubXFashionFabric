@@ -25,7 +25,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { toast } from "sonner"
-import { Loader2, Trash2, Edit, LogOut, Download as DownloadIcon, TrendingUp, Eye, BookOpen, KeyRound } from "lucide-react"
+import { Loader2, Trash2, Edit, LogOut, Download as DownloadIcon, TrendingUp, Eye, BookOpen, KeyRound, ArrowLeft } from "lucide-react"
 import { signOut } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
@@ -74,7 +74,6 @@ export default function AdminCatalogueUploadPage() {
   const [title, setTitle] = useState("")
   const [subtitle, setSubtitle] = useState("")
   const [description, setDescription] = useState("")
-  const [category, setCategory] = useState("")
   const [pdfFile, setPdfFile] = useState<File | null>(null)
   const [coverFile, setCoverFile] = useState<File | null>(null)
   const [color, setColor] = useState("bg-neutral-100")
@@ -193,7 +192,6 @@ export default function AdminCatalogueUploadPage() {
         title,
         subtitle,
         description: description || null,
-        category,
         ...(pdfUrl && { pdfUrl }),
         ...(coverImageUrl && { coverImage: coverImageUrl }),
         color,
@@ -252,7 +250,6 @@ export default function AdminCatalogueUploadPage() {
       setTitle("")
       setSubtitle("")
       setDescription("")
-      setCategory("")
       setPdfFile(null)
       setCoverFile(null)
       setColor("bg-neutral-100")
@@ -295,7 +292,6 @@ export default function AdminCatalogueUploadPage() {
     setTitle(catalogue.title)
     setSubtitle(catalogue.subtitle || "")
     setDescription(catalogue.description || "")
-    setCategory(catalogue.category)
     setColor(catalogue.color)
     toast.info(`Editing: ${catalogue.title}`)
     // Scroll to form
@@ -307,7 +303,6 @@ export default function AdminCatalogueUploadPage() {
     setTitle("")
     setSubtitle("")
     setDescription("")
-    setCategory("")
     setPdfFile(null)
     setCoverFile(null)
     setColor("bg-neutral-100")
@@ -331,33 +326,6 @@ export default function AdminCatalogueUploadPage() {
     return null
   }
 
-  const categories = [
-    "Air Hostess Uniform",
-    "Bar Tender Uniform",
-    "Bow Tie",
-    "Casino Uniform",
-    "Catering Uniforms",
-    "Chef Accessories",
-    "Chef Apron",
-    "Chef Coats",
-    "Corporate Wear Suit",
-    "Doorman Uniforms",
-    "Driver Uniforms",
-    "F&B Uniforms",
-    "Front Office Uniforms",
-    "Hospital Uniforms",
-    "Security Uniform",
-    "Housekeeping Uniforms",
-    "Lab Coats",
-    "Polo T-shirt",
-    "School Uniform",
-    "Spa Uniforms",
-    "Tie",
-    "Trousers",
-    "Round Neck T-shirt",
-    "Formal Shoes",
-  ]
-
   const colorOptions = [
     { value: "bg-neutral-100", label: "Neutral" },
     { value: "bg-amber-50", label: "Amber" },
@@ -368,21 +336,39 @@ export default function AdminCatalogueUploadPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-neutral-50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-amber-50/20 to-neutral-50">
+      <div className="container mx-auto px-4 py-4 md:py-12">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-neutral-800">Catalogue Management</h1>
-            <p className="text-neutral-600 mt-1">
-              Upload and manage catalogue PDFs • Total Downloads: <span className="font-semibold text-amber-700">{totalDownloads}</span>
-            </p>
+        <div className="flex flex-col gap-4 mb-6 md:mb-12">
+          <Button
+            asChild
+            variant="outline"
+            className="gap-2 w-fit"
+          >
+            <Link href="/admin">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Dashboard
+            </Link>
+          </Button>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div className="space-y-2">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 tracking-tight">
+                Catalogue Management
+              </h1>
+              <div className="flex items-center gap-3 text-neutral-600">
+                <div className="flex items-center gap-2 bg-white px-3 md:px-4 py-2 rounded-full shadow-sm border border-neutral-200">
+                  <DownloadIcon className="h-4 w-4 text-green-700" />
+                  <span className="text-xs md:text-sm font-medium">Total Downloads:</span>
+                  <span className="text-xs md:text-sm font-bold text-green-700">{totalDownloads}</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex gap-2">
+          {/* <div className="flex gap-3">
             <Button
               asChild
               variant="outline"
-              className="gap-2"
+              className="gap-2 hover:bg-green-50 hover:border-green-200 transition-all shadow-sm"
             >
               <Link href="/admin/change-password">
                 <KeyRound className="h-4 w-4" />
@@ -392,140 +378,213 @@ export default function AdminCatalogueUploadPage() {
             <Button
               onClick={handleLogout}
               variant="outline"
-              className="gap-2"
+              className="gap-2 hover:bg-red-50 hover:border-red-200 hover:text-red-700 transition-all shadow-sm"
             >
               <LogOut className="h-4 w-4" />
               Logout
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Upload Form */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>{editingId ? "Edit Catalogue" : "Upload New Catalogue"}</CardTitle>
-            <CardDescription>
-              {editingId ? "Update catalogue details" : "Add a new catalogue to your collection"}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="title">Catalogue Title *</Label>
-                  <Input
-                    id="title"
-                    placeholder="e.g., AMOHA Collection"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    required
-                    disabled={isLoading}
-                  />
+        <Card className="mb-6 md:mb-12 shadow-lg border-2 border-neutral-200 overflow-hidden">
+          <div className="bg-gradient-to-r from-green-700 to-green-800 px-4 md:px-8 py-4 md:py-6">
+            <CardHeader className="p-0">
+              <CardTitle className="text-xl md:text-2xl font-bold text-white flex items-center gap-3">
+                {editingId ? (
+                  <>
+                    <Edit className="h-6 w-6" />
+                    Edit Catalogue
+                  </>
+                ) : (
+                  <>
+                    <BookOpen className="h-6 w-6" />
+                    Upload New Catalogue
+                  </>
+                )}
+              </CardTitle>
+              <CardDescription className="text-green-50 mt-2 text-sm md:text-base">
+                {editingId ? "Update catalogue details and files" : "Add a new catalogue to your collection"}
+              </CardDescription>
+            </CardHeader>
+          </div>
+          <CardContent className="p-4 md:p-8 bg-white">
+            <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
+              <div className="space-y-4 md:space-y-6">
+                {/* Title Section */}
+                <div className="bg-neutral-50 p-4 md:p-6 rounded-xl border border-neutral-200">
+                  <h3 className="text-base md:text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
+                    <span className="w-6 h-6 md:w-8 md:h-8 bg-green-700 text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">1</span>
+                    Basic Information
+                  </h3>
+                  <div className="grid grid-cols-1 gap-4 md:gap-5">
+                    <div className="space-y-2">
+                      <Label htmlFor="title" className="text-sm font-semibold text-neutral-700">Catalogue Title *</Label>
+                      <Input
+                        id="title"
+                        placeholder="e.g., AMOHA Collection"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                        disabled={isLoading}
+                        className="border-neutral-300 focus:border-green-700 focus:ring-green-700 h-12 text-base"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="subtitle" className="text-sm font-semibold text-neutral-700">Subtitle</Label>
+                      <Input
+                        id="subtitle"
+                        placeholder="e.g., Uniform Designs by Rohit & Abhishek Kamra"
+                        value={subtitle}
+                        onChange={(e) => setSubtitle(e.target.value)}
+                        disabled={isLoading}
+                        className="border-neutral-300 focus:border-green-700 focus:ring-green-700 h-12 text-base"
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="category">Category *</Label>
-                  <Select value={category} onValueChange={setCategory} required disabled={isLoading}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {categories.map((cat) => (
-                        <SelectItem key={cat} value={cat}>
-                          {cat}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                {/* Description Section */}
+                <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+                  <h3 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-green-700 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                    Description & Details
+                  </h3>
+                  <div className="space-y-2">
+                    <Label htmlFor="description" className="text-sm font-semibold text-neutral-700">Description</Label>
+                    <textarea
+                      id="description"
+                      placeholder="Enter description points, one per line. e.g.:&#10;First look at new collections & colour palettes&#10;Style tips & collabs with fashion stylists&#10;A curated vision of uniforms built to last"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      disabled={isLoading}
+                      rows={5}
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 focus:border-transparent resize-none text-base"
+                    />
+                    <p className="text-xs text-neutral-500 flex items-start gap-2">
+                      <span className="text-green-700 mt-0.5">ℹ️</span>
+                      <span>Enter each point on a new line. These will appear as bullet points on the catalogue card.</span>
+                    </p>
+                  </div>
                 </div>
 
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="subtitle">Subtitle</Label>
-                  <Input
-                    id="subtitle"
-                    placeholder="e.g., Uniform Designs by Rohit & Abhishek Kamra"
-                    value={subtitle}
-                    onChange={(e) => setSubtitle(e.target.value)}
-                    disabled={isLoading}
-                  />
+                {/* Visual Customization */}
+                <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+                  <h3 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-green-700 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                    Visual Customization
+                  </h3>
+                  <div className="space-y-2">
+                    <Label htmlFor="color" className="text-sm font-semibold text-neutral-700">Card Background Color</Label>
+                    <Select value={color} onValueChange={setColor} disabled={isLoading}>
+                      <SelectTrigger className="h-12 border-neutral-300 focus:border-green-700 focus:ring-green-700">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {colorOptions.map((opt) => (
+                          <SelectItem key={opt.value} value={opt.value}>
+                            <div className="flex items-center gap-2">
+                              <div className={`w-4 h-4 rounded ${opt.value} border border-neutral-300`} />
+                              {opt.label}
+                            </div>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
-                <div className="space-y-2 md:col-span-2">
-                  <Label htmlFor="description">Description</Label>
-                  <textarea
-                    id="description"
-                    placeholder="Enter description points, one per line. e.g.:&#10;First look at new collections & colour palettes&#10;Style tips & collabs with fashion stylists&#10;A curated vision of uniforms built to last"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    disabled={isLoading}
-                    rows={4}
-                    className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-700 focus:border-transparent resize-none"
-                  />
-                  <p className="text-xs text-neutral-500">Enter each point on a new line. These will appear as bullet points on the catalogue card.</p>
-                </div>
+                {/* File Uploads */}
+                <div className="bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+                  <h3 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
+                    <span className="w-8 h-8 bg-green-700 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                    File Uploads
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="pdf" className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
+                        <BookOpen className="h-4 w-4 text-green-700" />
+                        PDF File {!editingId && <span className="text-red-500">*</span>}
+                      </Label>
+                      <div className="relative">
+                        <Input
+                          id="pdf"
+                          type="file"
+                          accept=".pdf"
+                          onChange={(e) => setPdfFile(e.target.files?.[0] || null)}
+                          disabled={isLoading}
+                          required={!editingId}
+                          className="border-neutral-300 focus:border-green-700 focus:ring-green-700 h-12 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-700 file:text-white hover:file:bg-green-800"
+                        />
+                      </div>
+                      {pdfFile && (
+                        <p className="text-xs text-green-600 flex items-center gap-1">
+                          ✓ {pdfFile.name}
+                        </p>
+                      )}
+                      {uploadingPdf && (
+                        <div className="flex items-center gap-2 text-sm text-green-700">
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <span>Uploading PDF...</span>
+                        </div>
+                      )}
+                    </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="color">Card Background Color</Label>
-                  <Select value={color} onValueChange={setColor} disabled={isLoading}>
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {colorOptions.map((opt) => (
-                        <SelectItem key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="pdf">PDF File {!editingId && "*"}</Label>
-                  <Input
-                    id="pdf"
-                    type="file"
-                    accept=".pdf"
-                    onChange={(e) => setPdfFile(e.target.files?.[0] || null)}
-                    disabled={isLoading}
-                    required={!editingId}
-                  />
-                  {uploadingPdf && (
-                    <p className="text-sm text-neutral-500">Uploading PDF...</p>
-                  )}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="cover">Cover Image {!editingId && "*"}</Label>
-                  <Input
-                    id="cover"
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => setCoverFile(e.target.files?.[0] || null)}
-                    disabled={isLoading}
-                    required={!editingId}
-                  />
-                  {uploadingCover && (
-                    <p className="text-sm text-neutral-500">Uploading image...</p>
-                  )}
+                    <div className="space-y-2">
+                      <Label htmlFor="cover" className="text-sm font-semibold text-neutral-700 flex items-center gap-2">
+                        <Eye className="h-4 w-4 text-green-700" />
+                        Cover Image {!editingId && <span className="text-red-500">*</span>}
+                      </Label>
+                      <div className="relative">
+                        <Input
+                          id="cover"
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => setCoverFile(e.target.files?.[0] || null)}
+                          disabled={isLoading}
+                          required={!editingId}
+                          className="border-neutral-300 focus:border-green-700 focus:ring-green-700 h-12 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-700 file:text-white hover:file:bg-green-800"
+                        />
+                      </div>
+                      {coverFile && (
+                        <p className="text-xs text-green-600 flex items-center gap-1">
+                          ✓ {coverFile.name}
+                        </p>
+                      )}
+                      {uploadingCover && (
+                        <div className="flex items-center gap-2 text-sm text-green-700">
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <span>Uploading image...</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex gap-3">
+              {/* Action Buttons */}
+              <div className="flex gap-3 pt-4 border-t border-neutral-200">
                 <Button
                   type="submit"
-                  className="bg-amber-700 hover:bg-amber-800"
+                  className="bg-green-700 hover:bg-green-800 h-12 px-8 text-base font-semibold shadow-md hover:shadow-lg transition-all"
                   disabled={isLoading || uploadingPdf || uploadingCover}
                 >
                   {isLoading ? (
                     <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                       {uploadingPdf ? "Uploading PDF..." : uploadingCover ? "Uploading Image..." : "Saving..."}
                     </>
                   ) : editingId ? (
-                    "Update Catalogue"
+                    <>
+                      <Edit className="mr-2 h-5 w-5" />
+                      Update Catalogue
+                    </>
                   ) : (
-                    "Publish Catalogue"
+                    <>
+                      <BookOpen className="mr-2 h-5 w-5" />
+                      Publish Catalogue
+                    </>
                   )}
                 </Button>
                 {editingId && (
@@ -534,6 +593,7 @@ export default function AdminCatalogueUploadPage() {
                     variant="outline"
                     onClick={handleCancelEdit}
                     disabled={isLoading}
+                    className="h-12 px-6 text-base border-2 hover:bg-neutral-100"
                   >
                     Cancel Edit
                   </Button>
@@ -544,26 +604,32 @@ export default function AdminCatalogueUploadPage() {
         </Card>
 
         {/* Existing Catalogues */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Existing Catalogues</CardTitle>
-            <CardDescription>
-              Manage your published catalogues
+        <Card className="shadow-lg border-2 border-neutral-200">
+          <CardHeader className="bg-gradient-to-r from-neutral-800 to-neutral-900 text-white rounded-t-lg pb-6">
+            <CardTitle className="text-2xl font-bold flex items-center gap-3">
+              <BookOpen className="h-6 w-6" />
+              Existing Catalogues
+            </CardTitle>
+            <CardDescription className="text-neutral-300 text-base">
+              Manage your published catalogues • {catalogues.length} total
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-8 bg-white">
             {catalogues.length === 0 ? (
-              <p className="text-center text-neutral-500 py-8">
-                No catalogues yet. Upload your first one above!
-              </p>
+              <div className="text-center py-16">
+                <BookOpen className="h-16 w-16 text-neutral-300 mx-auto mb-4" />
+                <p className="text-neutral-500 text-lg">
+                  No catalogues yet. Upload your first one above!
+                </p>
+              </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {catalogues.map((catalogue) => (
                   <div
                     key={catalogue.id}
-                    className={`${catalogue.color} rounded-lg overflow-hidden border-2 border-neutral-200 shadow-sm`}
+                    className={`${catalogue.color} rounded-xl overflow-hidden border-2 border-neutral-300 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
                   >
-                    <div className="aspect-[3/4] relative">
+                    <div className="aspect-[3/4] relative border-b-2 border-neutral-300">
                       <Image
                         src={catalogue.coverImage}
                         alt={catalogue.title}
@@ -571,57 +637,59 @@ export default function AdminCatalogueUploadPage() {
                         className="object-cover"
                       />
                     </div>
-                    <div className="p-4">
-                      <h3 className="font-bold text-lg mb-1">{catalogue.title}</h3>
-                      <p className="text-sm text-neutral-600 mb-2">{catalogue.category}</p>
+                    <div className="p-5 bg-white/80 backdrop-blur-sm">
+                      <h3 className="font-bold text-xl mb-2 text-neutral-900 line-clamp-1">{catalogue.title}</h3>
                       {catalogue.subtitle && (
-                        <p className="text-xs text-neutral-500 mb-2 line-clamp-2">
+                        <p className="text-sm text-neutral-600 mb-3 line-clamp-2">
                           {catalogue.subtitle}
                         </p>
                       )}
                       {/* Download Stats */}
-                      <div className="flex items-center gap-2 mb-3 text-amber-700 bg-amber-50 px-2 py-1 rounded text-xs font-medium">
-                        <DownloadIcon className="h-3 w-3" />
-                        <span>{catalogue._count?.downloads || 0} downloads</span>
+                      <div className="flex items-center gap-2 mb-4 text-green-700 bg-green-50 px-3 py-2 rounded-lg border border-green-200 shadow-sm">
+                        <DownloadIcon className="h-4 w-4" />
+                        <span className="text-sm font-bold">{catalogue._count?.downloads || 0}</span>
+                        <span className="text-sm">downloads</span>
                       </div>
-                      <div className="flex gap-2 mb-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="flex-1"
-                          onClick={() => handleEdit(catalogue)}
-                        >
-                          <Edit className="h-3 w-3 mr-1" />
-                          Edit
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="text-red-600 hover:text-red-700 hover:bg-red-50"
-                          onClick={() => setDeleteId(catalogue.id)}
-                        >
-                          <Trash2 className="h-3 w-3" />
-                        </Button>
-                      </div>
-                      <div className="flex gap-2 mb-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="flex-1"
-                          onClick={() => window.open(`/catalogue/flip/${catalogue.id}`, '_blank')}
-                        >
-                          <BookOpen className="h-3 w-3 mr-1" />
-                          Flip Book
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          className="flex-1"
-                          onClick={() => handleViewDownloads(catalogue.id)}
-                        >
-                          <Eye className="h-3 w-3 mr-1" />
-                          Details
-                        </Button>
+                      <div className="space-y-2">
+                        <div className="flex gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-1 hover:bg-green-50 hover:border-green-300 hover:text-green-800 transition-all"
+                            onClick={() => handleEdit(catalogue)}
+                          >
+                            <Edit className="h-4 w-4 mr-1" />
+                            Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="text-red-600 hover:text-white hover:bg-red-600 border-red-300 hover:border-red-600 transition-all px-3"
+                            onClick={() => setDeleteId(catalogue.id)}
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-1 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-800 transition-all"
+                            onClick={() => window.open(`/catalogue/flip/${catalogue.id}`, '_blank')}
+                          >
+                            <BookOpen className="h-4 w-4 mr-1" />
+                            Flip Book
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            className="flex-1 hover:bg-purple-50 hover:border-purple-300 hover:text-purple-800 transition-all"
+                            onClick={() => handleViewDownloads(catalogue.id)}
+                          >
+                            <Eye className="h-4 w-4 mr-1" />
+                            Details
+                          </Button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -659,11 +727,11 @@ export default function AdminCatalogueUploadPage() {
         <AlertDialogContent className="max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-amber-700" />
+              <TrendingUp className="h-5 w-5 text-green-700" />
               Download Details
             </AlertDialogTitle>
             <AlertDialogDescription>
-              Total downloads: <span className="font-semibold text-amber-700">{downloadCount}</span>
+              Total downloads: <span className="font-semibold text-green-700">{downloadCount}</span>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <div className="flex-1 overflow-y-auto">

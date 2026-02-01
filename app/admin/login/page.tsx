@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
         toast.error("Invalid credentials")
       } else {
         toast.success("Login successful!")
-        router.push("/admin/catalogue-upload")
+        router.push("/admin")
         router.refresh()
       }
     } catch (error) {

@@ -55,8 +55,8 @@ export default function WhyChooseFashionFabric() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-16">
-          Why Choose Fashion Fabric ?
+        <h2 className="text-3xl md:text-4xl  font-bold text-center mb-16">
+          Redefining The Art of Workwear
         </h2>
 
         {/* Values Grid */}
@@ -98,7 +98,7 @@ export default function WhyChooseFashionFabric() {
             ))}
           </div>
 
-          <p className="text-center text-sm font-serif text-gray-800 max-w-md">
+          <p className="text-center text-sm  text-gray-800 max-w-md">
             Each dot symbolizes a core value in our approach to exceptional
             uniform manufactures
           </p>
