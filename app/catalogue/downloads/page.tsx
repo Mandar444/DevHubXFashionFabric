@@ -169,7 +169,7 @@ export default function CatalogueDownloadsPage() {
                             className="h-9 bg-amber-600 hover:bg-amber-700 text-white font-medium text-sm rounded-md shadow-sm transition-all duration-200 hover:shadow-md active:scale-[0.98]"
                           >
                             <Eye className="mr-1.5 h-3.5 w-3.5" />
-                            View
+                            View 
                           </Button>
                           <Button
                             onClick={() => handleDownloadPdf(catalogue)}
@@ -178,7 +178,7 @@ export default function CatalogueDownloadsPage() {
                             className="h-9 bg-green-600 hover:bg-green-700 text-white font-medium text-sm rounded-md shadow-sm transition-all duration-200 hover:shadow-md active:scale-[0.98]"
                           >
                             <Download className="mr-1.5 h-3.5 w-3.5" />
-                            Download
+                            Download 
                           </Button>
                         </div>
                         

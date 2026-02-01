@@ -30,8 +30,8 @@ export default function CatalogueDownloadPage() {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
-  const [companyName, setCompanyName] = useState("")
   const [phoneNumber, setPhoneNumber] = useState("")
+  const [companyName, setCompanyName] = useState("")
   const [country, setCountry] = useState("")
   const [state, setState] = useState("")
   
@@ -79,8 +79,10 @@ export default function CatalogueDownloadPage() {
   }
 
   const handleSendOtp = async () => {
-    if (!phoneNumber || phoneNumber.length < 10) {
-      setOtpError("Please enter a valid phone number (minimum 10 digits)")
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!email || !emailRegex.test(email)) {
+      setOtpError("Please enter a valid email address")
       return
     }
 
@@ -88,10 +90,10 @@ export default function CatalogueDownloadPage() {
     setOtpError("")
 
     try {
-      const response = await fetch("/api/catalogue/send-otp", {
+      const response = await fetch("/api/catalogue/send-email-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phoneNumber })
+        body: JSON.stringify({ email })
       })
 
       const data = await response.json()
@@ -99,7 +101,7 @@ export default function CatalogueDownloadPage() {
       if (response.ok) {
         setOtpSent(true)
         setOtpTimer(60) // 60 second cooldown
-        alert("OTP sent to your phone number!")
+        alert("OTP sent to your email address!")
       } else {
         setOtpError(data.error || "Failed to send OTP")
       }
@@ -121,17 +123,17 @@ export default function CatalogueDownloadPage() {
     setOtpError("")
 
     try {
-      const response = await fetch("/api/catalogue/verify-otp", {
+      const response = await fetch("/api/catalogue/verify-email-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phoneNumber, otp })
+        body: JSON.stringify({ email, otp })
       })
 
       const data = await response.json()
 
       if (response.ok) {
         setOtpVerified(true)
-        alert("Phone number verified successfully!")
+        alert("Email verified successfully!")
       } else {
         setOtpError(data.error || "Invalid OTP")
       }
@@ -147,7 +149,7 @@ export default function CatalogueDownloadPage() {
     e.preventDefault()
     
     if (!otpVerified) {
-      setFormError("Please verify your phone number to continue")
+      setFormError("Please verify your email address to continue")
       return
     }
 
@@ -169,8 +171,8 @@ export default function CatalogueDownloadPage() {
           firstName,
           lastName,
           email,
-          companyName,
           phoneNumber,
+          companyName,
           country,
           state,
           otpVerified: true
@@ -272,44 +274,17 @@ export default function CatalogueDownloadPage() {
                   />
                 </div>
 
-                {/* Email */}
+                {/* Email with OTP Verification */}
                 <div>
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    placeholder="john.doe@example.com"
-                    className="mt-1"
-                  />
-                </div>
-
-                {/* Company Name */}
-                <div>
-                  <Label htmlFor="companyName">Company Name</Label>
-                  <Input
-                    id="companyName"
-                    type="text"
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    placeholder="Your Company"
-                    className="mt-1"
-                  />
-                </div>
-
-                {/* Phone Number */}
-                <div>
-                  <Label htmlFor="phoneNumber">Contact Number *</Label>
+                  <Label htmlFor="email">Email Address *</Label>
                   <div className="flex gap-2 mt-1">
                     <Input
-                      id="phoneNumber"
-                      type="tel"
-                      value={phoneNumber}
-                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      id="email"
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
-                      placeholder="+1234567890"
+                      placeholder="john.doe@example.com"
                       disabled={otpVerified}
                       className="flex-1"
                     />
@@ -338,6 +313,9 @@ export default function CatalogueDownloadPage() {
                       </div>
                     )}
                   </div>
+                  <p className="text-xs text-neutral-500 mt-1">
+                    We'll send a verification code to your email
+                  </p>
                 </div>
 
                 {/* OTP Input */}
@@ -367,6 +345,9 @@ export default function CatalogueDownloadPage() {
                         )}
                       </Button>
                     </div>
+                    <p className="text-xs text-neutral-500 mt-1">
+                      Check your email for the 6-digit verification code
+                    </p>
                   </div>
                 )}
 
@@ -377,6 +358,33 @@ export default function CatalogueDownloadPage() {
                     <span>{otpError}</span>
                   </div>
                 )}
+
+                {/* Phone Number */}
+                <div>
+                  <Label htmlFor="phoneNumber">Phone Number *</Label>
+                  <Input
+                    id="phoneNumber"
+                    type="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    required
+                    placeholder="+1 234 567 8900"
+                    className="mt-1"
+                  />
+                </div>
+
+                {/* Company Name */}
+                <div>
+                  <Label htmlFor="companyName">Company Name</Label>
+                  <Input
+                    id="companyName"
+                    type="text"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                    placeholder="Your Company"
+                    className="mt-1"
+                  />
+                </div>
 
                 {/* Country */}
                 <div>
@@ -411,8 +419,8 @@ export default function CatalogueDownloadPage() {
                   <div className="flex items-start gap-2 text-sm text-amber-700 bg-amber-50 p-3 rounded-md">
                     <Shield className="w-5 h-5 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold">Phone Verification Required</p>
-                      <p className="text-amber-600">Please verify your phone number to download catalogues.</p>
+                      <p className="font-semibold">Email Verification Required</p>
+                      <p className="text-amber-600">Please verify your email address to download catalogues.</p>
                     </div>
                   </div>
                 )}
@@ -439,7 +447,7 @@ export default function CatalogueDownloadPage() {
                   ) : otpVerified ? (
                     "Download Catalogue"
                   ) : (
-                    "Verify Phone to Continue"
+                    "Verify Email to Continue"
                   )}
                 </Button>
 
