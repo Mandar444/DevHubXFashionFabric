@@ -94,19 +94,19 @@ export default function TestimonialsPage() {
                   }}
                 >
                   <div
-                    className={`bg-[#f6ecdd] text-black rounded-2xl shadow-2xl
+                    className={`bg-[#2e7d32] text-black rounded-2xl shadow-2xl
                       transition-all duration-700 w-[360px]
                       ${isCenter ? 'h-[480px] p-12' : 'h-[400px] p-8'}
                     `}
                   >
-                    <h3 className={`font-serif font-semibold text-center mb-1 ${isCenter ? 'text-2xl' : 'text-xl'}`}>
+                    <h3 className={`font-serif font-semibold text-center mb-1 text-white ${isCenter ? 'text-2xl' : 'text-xl'}`}>
                       {item.name}
                     </h3>
                     {/* <p className={`text-center text-neutral-700 mb-6 ${isCenter ? 'text-sm' : 'text-xs'}`}>
                       {item.title}
                     </p> */}
 
-                    <p className={`leading-relaxed text-center mb-8 ${isCenter ? 'text-base' : 'text-sm'}`}>
+                    <p className={`leading-relaxed text-center mb-8 text-white  ${isCenter ? 'text-base' : 'text-sm'}`}>
                       {item.quote}
                     </p>
 
@@ -116,9 +116,10 @@ export default function TestimonialsPage() {
                       ))}
                     </div>
 
-                    <p className={`text-center font-semibold tracking-wide ${isCenter ? 'text-base' : 'text-sm'}`}>
+                    <p className={`text-center font-semibold tracking-wide text-white ${isCenter ? 'text-base' : 'text-sm'}`}>
                       {item.company}
                     </p>
+                    {/* <img src={item.logo} alt={`${item.company} logo`} className="mx-auto mt-4" /> */}
                   </div>
                 </div>
               )

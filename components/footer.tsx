@@ -19,15 +19,15 @@ export default function Footer() {
               timeless elegance.
             </p>
             <div className="flex items-center mb-3">
-              <Phone className="h-5 w-5 text-[#f0f4c3] mr-3 flex-shrink-0" />
+              <Phone className="h-5 w-5 text-white mr-3 flex-shrink-0" />
               <p className="text-white">+91 9867275524</p>
             </div>
             <div className="flex items-center mb-3">
-              <Mail className="h-5 w-5 text-[#f0f4c3] mr-3 flex-shrink-0" />
+              <Mail className="h-5 w-5 text-white mr-3 flex-shrink-0" />
               <p className="text-white">fashionfabric@rocketmail.com</p>
             </div>
             <div className="flex items-start">
-              <MapPin className="h-5 w-5 text-[#f0f4c3] mt-1 mr-3 flex-shrink-0" />
+              <MapPin className="h-5 w-5 text-white mt-1 mr-3 flex-shrink-0" />
               <p className="text-white">
                 Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa 403001
               </p>
@@ -124,7 +124,7 @@ export default function Footer() {
                   href="https://www.instagram.com/fashionfabric.info/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#f0f4c3] hover:text-white transition-colors"
+                  className="text-white hover:text-white transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="h-8 w-8" />
@@ -133,7 +133,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/company/fashionfabric/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#f0f4c3] hover:text-white transition-colors"
+                  className="text-white hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-8 w-8" />
