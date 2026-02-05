@@ -31,7 +31,7 @@ export default function FAQPage() {
 
   const faqSections: FAQSection[] = [
     {
-      title: "I. General",
+      title: " General",
       items: [
         {
           question: "What type of uniforms do you manufacture?",
@@ -52,7 +52,7 @@ export default function FAQPage() {
       ],
     },
     {
-      title: "II. Why Choose Fashion Fabric",
+      title: "Why Choose Fashion Fabric",
       items: [
         {
           question: "What makes Fashion Fabric different from other suppliers?",
@@ -65,7 +65,7 @@ export default function FAQPage() {
       ],
     },
     {
-      title: "III. Product Quality",
+      title: "Product Quality",
       items: [
         {
           question: "What products does Fashion Fabric Offer?",
@@ -86,7 +86,7 @@ export default function FAQPage() {
       ],
     },
     {
-      title: "IV. Ordering & Delivery",
+      title: "Ordering & Delivery",
       items: [
         {
           question: "What is the step-by-step process from enquiry to delivery?",
@@ -103,7 +103,7 @@ export default function FAQPage() {
       ],
     },
     {
-      title: "V. Samples & Designs",
+      title: "Samples & Designs",
       items: [
         {
           question: "Does Fashion Fabric provide samples?",
@@ -120,7 +120,7 @@ export default function FAQPage() {
       ],
     },
     {
-      title: "VI. After-sales",
+      title: "After-sales",
       items: [
         {
           question: "Do you offer uniform maintenance or after-sales services?",
@@ -141,7 +141,7 @@ export default function FAQPage() {
       ],
     },
     {
-      title: "VII. Contact & Support",
+      title: "Contact & Support",
       items: [
         {
           question: "How do I request a quotation?",
@@ -202,22 +202,22 @@ export default function FAQPage() {
 
                   return (
                     <AnimateIn key={itemIndex} delay={itemIndex * 0.1}>
-                      <div className="border-2 border-[#2e7d32] rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                      <div className="border-2 border-neutral-300 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                         <button
                           onClick={() => toggleItem(sectionIndex, itemIndex)}
-                          className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 bg-[#2e7d32] hover:bg-[#1b5e20] transition-colors flex items-center justify-between text-left gap-2"
+                          className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 bg-white hover:bg-neutral-50 transition-colors flex items-center justify-between text-left gap-2"
                         >
-                          <span className="font-semibold text-white text-sm sm:text-base md:text-lg pr-2">
+                          <span className="font-semibold text-neutral-800 text-sm sm:text-base md:text-lg pr-2">
                             {item.question}
                           </span>
                           {isOpen ? (
-                            <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" />
+                            <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-800 flex-shrink-0" />
                           ) : (
-                            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0" />
+                            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-800 flex-shrink-0" />
                           )}
                         </button>
                         {isOpen && (
-                          <div className="px-4 sm:px-5 md:px-6 py-4 sm:py-5 bg-white border-t-2 border-[#2e7d32]">
+                          <div className="px-4 sm:px-5 md:px-6 py-4 sm:py-5 bg-white border-t-2 border-neutral-300">
                             <div className="text-neutral-700 leading-relaxed text-sm sm:text-base">
                               {item.answer}
                             </div>
@@ -246,13 +246,13 @@ export default function FAQPage() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
               <Link
                 href="/enquiry"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-[#2e7d32] text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-[#1b5e20] transition-colors"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-neutral-800 text-sm sm:text-base font-semibold rounded-lg border-2 border-neutral-300 hover:bg-neutral-50 transition-colors"
               >
                 Get in Touch
               </Link>
               <Link
                 href="/catalogue"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-[#2e7d32] text-sm sm:text-base font-semibold rounded-lg border-2 border-[#2e7d32] hover:bg-[#f5f5f5] transition-colors"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-neutral-800 text-sm sm:text-base font-semibold rounded-lg border-2 border-neutral-300 hover:bg-neutral-50 transition-colors"
               >
                 View Our Catalogue
               </Link>

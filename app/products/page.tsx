@@ -127,7 +127,7 @@ translate-x-0 md:translate-x-4 lg:translate-x-8">
                       </div>
                     </div>
 
-                    <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
                       Hospitality
                     </h2>
                     <p className="text-neutral-700 leading-relaxed text-sm md:text-base">

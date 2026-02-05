@@ -62,7 +62,7 @@ export default function TestimonialsPage() {
       {/* Title */}
       <section className="py-20 text-center">
         <AnimateIn>
-          <h1 className="text-4xl md:text-5xl font-serif text-black font-semibold">
+          <h1 className="text-4xl md:text-5xl text-black font-semibold">
             Client Testimonials
           </h1>
         </AnimateIn>
@@ -105,7 +105,7 @@ export default function TestimonialsPage() {
                       ${isCenter ? 'h-[480px] p-10' : 'h-[400px] p-8'}
                     `}
                   >
-                    <h3 className={`font-serif font-semibold text-center mb-4 text-white ${isCenter ? 'text-2xl' : 'text-xl'}`}>
+                    <h3 className={`font-semibold text-center mb-4 text-white ${isCenter ? 'text-2xl' : 'text-xl'}`}>
                       {item.name}
                     </h3>
 

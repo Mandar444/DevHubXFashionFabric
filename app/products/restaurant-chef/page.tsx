@@ -52,7 +52,7 @@ export default function RestaurantChefPage() {
             </div>
 
             {/* Updated Content */}
-            <h2 className="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-3 md:mb-4">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-3 md:mb-4">
               Restaurants / Bar
             </h2>
 
@@ -89,8 +89,8 @@ export default function RestaurantChefPage() {
       <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container px-4 md:px-6">
           <AnimateIn>
-            <div className="text-center mb-8 md:mb-16">
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-3 md:mb-4">
+            <div className="pl-10 mb-8 md:mb-16">
+              <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-3 md:mb-4">
                 Frequently Asked Questions
               </h2>
               <div className="w-20 md:w-24 h-1 bg-[#2e7d32] mx-auto rounded-full"></div>

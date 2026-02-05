@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 import { InfiniteLogoScroll } from "./components/infinite-logo-scroll"
 import TestimonialsPage from "./testimonials/page"
+import { StatCard } from "@/components/stat-card"
 const clients = [
   { name: "Araqila", logo: "/images/home-icons-all/clients-home-logos/Araqila.png" },
   { name: "Baale", logo: "/images/home-icons-all/clients-home-logos/Baale.png" },
@@ -133,7 +134,8 @@ export default function Home() {
         </section>
         {/* Testimonials Section */}
     <TestimonialsPage />
-        {/* Featured Products */}
+       
+   {/* Featured Products */}
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">
             <AnimateIn>
@@ -306,7 +308,7 @@ export default function Home() {
 
             </AnimateInStagger>
           </div>
-        </section>
+        </section>  
 
         {/* Trusted By Section */}
         <section className="py-16 bg-white">
@@ -327,6 +329,35 @@ export default function Home() {
           </div>
         </section>
 
+
+ 
+
+           {/* Statistics Section */}
+        <section className="py-16 bg-neutral-50">
+          <div className="container px-4 md:px-6">
+            <AnimateIn>
+              <h2 className="text-3xl font-bold text-center mb-12">Our Achievements</h2>
+            </AnimateIn>
+            <div className="flex flex-col lg:flex-row gap-4">
+              <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-grow">
+                <StatCard value="10+" label="Industries Served" />
+                <StatCard value="60+" label="Brands Served" />
+                <StatCard value="15+" label="Years of Industry Experience" />
+                <StatCard value="27,500+" label="Completed Orders" />
+                <StatCard value="100+" label="Products Range" />
+                <StatCard value="100,000+" label="Crews outfitted annually" />
+                <StatCard value="700+" label="Textile Solutions" />
+                <StatCard value="740+" label="Customisation Options" />
+                <StatCard value="11,500+" label="Monthly Production Capacity" />
+              </AnimateInStagger>
+              <AnimateInStagger className="mb-8 lg:w-80">
+                <StatCard value="+88%" label="Repeat Cutomers" />
+                <StatCard value="+92%" label="On-Time Delivery" />
+                <StatCard value="4.4/5" label="Client Rating" />
+              </AnimateInStagger>
+            </div>
+          </div>
+        </section>
         {/* Map Section
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">
