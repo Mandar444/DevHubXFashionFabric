@@ -134,7 +134,7 @@ export default function EnquiryPage() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
                           Name
                         </label>
                         <Input
@@ -147,7 +147,7 @@ export default function EnquiryPage() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-2">
+                        <label htmlFor="phone" className="block text-sm font-medium text-black mb-2">
                           Phone
                         </label>
                         <Input
@@ -162,7 +162,7 @@ export default function EnquiryPage() {
                       </div>
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                         Email
                       </label>
                       <Input
@@ -176,7 +176,7 @@ export default function EnquiryPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
                         Message
                       </label>
                       <Textarea
@@ -201,28 +201,28 @@ export default function EnquiryPage() {
               </AnimateIn>
               <AnimateIn direction="right">
                 <div>
-                  <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
-                  <p className="text-neutral-600 mb-8">
+                  <h2 className="text-3xl font-bold text-[#2e7d32] mb-6">Contact Information</h2>
+                  <p className="text-black mb-8">
                     Feel free to reach out to us directly using the contact information below.
                   </p>
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <MapPin className="h-5 w-5 text-amber-700 mt-1 mr-3 flex-shrink-0" />
-                      <p className="text-neutral-600">
+                      <MapPin className="h-5 w-5 text-[#2e7d32] mt-1 mr-3 flex-shrink-0" />
+                      <p className="text-black">
                         Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom, Santa Inez, Panaji, Taleigao, Goa
                         403001
                       </p>
                     </div>
                     <div className="flex items-center">
-                      <Phone className="h-5 w-5 text-amber-700 mr-3 flex-shrink-0" />
-                      <p className="text-neutral-600">+91 9867275524</p>
+                      <Phone className="h-5 w-5 text-[#2e7d32] mr-3 flex-shrink-0" />
+                      <p className="text-black">+91 9867275524</p>
                     </div>
                     <div className="flex items-center">
-                      <Mail className="h-5 w-5 text-amber-700 mr-3 flex-shrink-0" />
-                      <p className="text-neutral-600">fashionfabric@rocketmail.com</p>
+                      <Mail className="h-5 w-5 text-[#2e7d32] mr-3 flex-shrink-0" />
+                      <p className="text-black">fashionfabric@rocketmail.com</p>
                     </div>
                   </div>
-                  <div className="h-[400px] bg-neutral-200 rounded-lg overflow-hidden">
+                  <div className="h-[400px] bg-neutral-200 rounded-lg overflow-hidden  mt-8">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.3302675743397!2d73.82595091482943!3d15.493999589246702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc0c8818cdc8b%3A0x94ccf697e9a90b3c!2sDukle%20Heaven%2C%20Santa%20Inez%2C%20Panaji%2C%20Goa%20403001!5e0!3m2!1sen!2sin!4v1651234567890!5m2!1sen!2sin"
                     width="100%"
@@ -243,16 +243,15 @@ export default function EnquiryPage() {
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6 text-center">
             <AnimateIn>
-              <h2 className="text-3xl font-bold mb-6">Business Hours</h2>
+              <h2 className="text-3xl font-bold mb-6 text-[#2e7d32]">Business Hours</h2>
               <div className="max-w-[500px] mx-auto bg-white p-8 rounded-lg shadow-sm">
                 <div className="grid grid-cols-2 gap-4 text-left">
                   <p className="font-medium">Monday - Saturday:</p>
                   <p>10:00 AM - 8:00 PM</p>
-                  <p className="font-medium">Sunday:</p>
-                  <p>Closed</p>
+                  
                 </div>
                 <div className="mt-6 pt-6 border-t border-neutral-200">
-                  <p className="text-neutral-600">
+                  <p className="text-black">
                     For urgent inquiries outside business hours, please email us and we will respond as soon as
                     possible.
                   </p>

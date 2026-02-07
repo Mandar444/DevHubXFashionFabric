@@ -9,79 +9,61 @@ import { ChevronDown } from "lucide-react"
 export default function HospitalPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Hospitality Section Banner */}
-      <section className="py-10 bg-white">
-        <div className="container px-4 md:px-6">
-          <AnimateIn>
-            <div className="relative w-full rounded-[2rem] md:rounded-[2.5rem] bg-[#2e7d32] overflow-hidden shadow-xl">
-              <div className="relative grid md:grid-cols-2 gap-4 md:gap-8 items-end md:items-center p-4 md:p-8 lg:p-10 pr-6 md:pr-10">
-                
-                {/* Left Content Card */}
-                <div
-                  className="relative z-10 bg-[#f5f3e8] rounded-lg md:rounded-2xl 
-                  p-4 md:p-8 lg:p-10 shadow-lg order-1 overflow-hidden 
-                  translate-x-0 md:translate-x-4 lg:translate-x-8"
-                >
-                  {/* Decorative circles */}
-                  <div className="absolute -bottom-16 -right-16 md:-bottom-20 md:-right-20">
-                    <div className="relative w-32 h-32 md:w-40 md:h-40">
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          clipPath:
-                            "polygon(0 15%, 15% 0, 85% 0, 100% 15%, 100% 100%, 0 100%)",
-                        }}
-                      >
-                        {[...Array(6)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="absolute rounded-full"
-                            style={{
-                              border: "5px solid #2e7d32",
-                              width: `${50 + i * 20}px`,
-                              height: `${50 + i * 20}px`,
-                              top: "50%",
-                              left: "50%",
-                              transform: "translate(-50%, -50%)",
-                            }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-3 md:mb-4">
-                    Hospitality
-                  </h2>
-
-                  <p className="text-neutral-700 leading-relaxed text-xs md:text-base">
-                    In hospitality, every interaction tells a story, and your team
-                    is its narrator. At Fashion Fabric, we craft uniforms that move
-                    with your staff, balance comfort with style, and reflect the
-                    personality of your brand. Thoughtful design, durable fabrics,
-                    and practical details ensure your team looks poised, feels
-                    confident, and leaves a lasting impression on every guest.
-                  </p>
-                </div>
-
-                {/* Right Image Section */}
-                <div className="relative z-10 flex justify-center md:justify-end items-end order-2">
-                  <div className="relative w-full max-w-[630px] h-[280px] md:h-[380px] lg:h-[360px] translate-y-6 md:translate-y-10">
-                    <Image
-                      src="/images/collections-images/Hospitality.png"
-                      alt="Hospitality team in professional uniforms"
-                      fill
-                      className="object-contain object-bottom"
-                      priority
-                    />
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </AnimateIn>
+ {/* Hospitality Section Banner */}   
+ <div className="flex justify-center px-4 md:px-8 lg:px-12 mb-12 pt-10">
+  <div className="relative w-full max-w-7xl h-[500px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
+        
+        {/* Layered Waves Logic */}
+        {/* We use absolute positioning and skew/rotate to mimic the organic flow */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Top Dark Wave */}
+          <div className="absolute -right-20 -top-20 w-[120%] h-[150%] bg-[#2d5a27] border-t-2 border-yellow-200/30 rounded-[40%] rotate-[-15deg] transform translate-y-20"></div>
+          
+          {/* Middle Wave */}
+          <div className="absolute -right-20 -top-10 w-[120%] h-[150%] bg-[#3d7a36] border-t-2 border-yellow-200/40 rounded-[42%] rotate-[-12deg] transform translate-y-40"></div>
+          
+          {/* Lower Bright Wave */}
+          <div className="absolute -right-20 top-10 w-[120%] h-[150%] bg-[#5eab55] border-t-2 border-yellow-200/50 rounded-[45%] rotate-[-10deg] transform translate-y-60"></div>
+          
+          {/* Bottom Corner Accent */}
+          <div className="absolute right-0 bottom-0 w-64 h-64 bg-[#8ed97d] rounded-full blur-3xl opacity-40"></div>
         </div>
-      </section>
+
+        <div className="relative z-10 w-full h-full flex items-center justify-between px-8 md:px-16 gap-8 md:gap-12">
+          {/* Content Area (The White Box) */}
+          <div className="w-full md:w-2/5 h-[75%] bg-white rounded-tr-[80px] rounded-bl-[40px] rounded-tl-[20px] rounded-br-[20px] shadow-lg">
+            {/* Add your text or logo here */}
+            <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center h-full">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+                Hospitality
+              </h2>
+              <p className="text-black leading-relaxed text-base md:text-lg front-medium">
+                In hospitality, every interaction tells a story, and your team
+                is its narrator. At Fashion Fabric, we craft uniforms that move
+                with your staff, balance comfort with style, and reflect the
+                personality of your brand. Thoughtful design, durable fabrics,
+                and practical details ensure your team looks poised, feels
+                confident, and leaves a lasting impression on every guest.
+              </p>
+            </div>
+          </div>
+
+          {/* Image on Right Side */}
+          <div className="hidden md:block w-3/5 h-full flex items-end justify-end">
+            <div className="relative w-full h-full flex items-end justify-end">
+              <Image
+                src="/images/collections-images/Hospitality.png"
+                alt="Hospitality team in professional uniforms"
+                fill
+                className="object-contain object-bottom"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>  
+     </div>
 <Process />
 
       {/* FAQ Section */}

@@ -38,16 +38,16 @@ export default function AboutPage() {
               <AnimateIn direction="left">
                 <div>
                   <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-                  <p className="text-neutral-600 mb-4 text-justify">
+                  <p className=" mb-4 text-black text-justify">
                     Fashion Fabric began its journey in 2010, not as a uniform manufacturer, but as a retail linen showroom built on a deep understanding of textiles. Our strength has always been fabric-first quality, feel, finish and durability; because we believe every great garment starts with the right material.
                   </p>
-                  <p className="text-neutral-600 mb-4 text-justify">
+                  <p className=" mb-4 text-black text-justify">
                     Our entry into uniforms happened through a sheer request from a spa that needed professional uniforms. We weren&apos;t specialised in uniforms at the time, and we didn&apos;t have the full infrastructure either, but we said yes. We sourced the fabric, got customisation done in another city, and managed multiple rounds of follow-ups just to deliver the perfect final product. When we saw the client&apos;s smile at delivery, we knew we had created something beyond a garment, we had created trust.
                   </p>
-                  <p className="text-neutral-600 mb-4 text-justify">
+                  <p className=" mb-4 text-black text-justify">
                     That one order became a turning point. More requests followed, and we realised there was a genuine need for uniforms that looked premium, felt comfortable, and represented the brand with pride. That&apos;s when Fashion Fabric evolved from a showroom into a full-scale uniform solution brand. Since then, Fashion Fabric has grown into a brand trusted by leading names across industries, especially hospitality and service-driven businesses; building processes, strengthening production capability, and taking ownership of design, tailoring, branding and finishing. What began as a request became our purpose and uniforms became our core.
                   </p>
-                  <p className="text-neutral-600 mb-4 text-justify">
+                  <p className=" mb-4 text-black text-justify">
                     Today, Fashion Fabric outfits over 100,000 crew members every year, redefining what uniforms mean to the modern workforce. Uniforms are no longer just attire, they carry your team&apos;s confidence and your brand&apos;s first impression. With over 15 years of expertise, we deliver uniforms crafted with precision, quality control and elegance; where comfort and style are stitched into every detail.
                   </p>
                 </div>

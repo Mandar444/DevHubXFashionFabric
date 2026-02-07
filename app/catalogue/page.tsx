@@ -76,7 +76,7 @@ export default function CataloguePage() {
           <div className="container px-4 md:px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Available Catalogues</h2>
-              <p className="text-neutral-600 max-w-2xl mx-auto">
+              <p className="text-black max-w-2xl mx-auto">
                 Select a catalogue to download. You'll need to fill in your details before accessing the catalogue.
               </p>
             </div>
@@ -158,7 +158,7 @@ export default function CataloguePage() {
                           href={`/catalogue/${catalogue.id}/download`}
                           className="w-full"
                         >
-                          <Button className="w-full bg-amber-700 hover:bg-amber-800 text-white mt-4 group/btn">
+                          <Button className="w-full bg-[#2e7d32] text-white mt-4 group/btn">
                             <Download className="w-4 h-4 mr-2 group-hover/btn:animate-bounce" />
                             Download Catalogue
                           </Button>
@@ -177,7 +177,7 @@ export default function CataloguePage() {
           <div className="container px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
               <AnimateIn>
-                <h2 className="text-3xl font-bold mb-6">Why Download Our Catalogues?</h2>
+                <h2 className="text-3xl font-bold text-[#2e7d32] mb-6">Why Download Our Catalogues?</h2>
               </AnimateIn>
               <AnimateIn delay={0.2}>
                 <div className="grid md:grid-cols-3 gap-8 mt-12">

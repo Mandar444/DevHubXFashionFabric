@@ -77,7 +77,7 @@ export default function ClientsPage() {
         <section className="py-16 bg-white">
           <div className="container px-4 md:px-6">
             <AnimateIn>
-              <p className="text-center text-neutral-600 mb-12 max-w-[800px] mx-auto">
+              <p className="text-center text-black mb-12 max-w-[800px] mx-auto">
                 At Fashion Fabric, we take pride in serving some of the most prestigious hospitality establishments. Our commitment to quality and excellence has made us the preferred uniform supplier for these
                 renowned brands.
               </p>
@@ -100,7 +100,7 @@ export default function ClientsPage() {
                       className="object-contain max-w-full max-h-full"
                     />
                   </div>
-                  <p className="text-sm font-medium text-neutral-700 text-center w-full leading-tight">
+                  <p className="text-sm font-medium text-black text-center w-full leading-tight">
                     {client.name}
                   </p>
                 </div>
@@ -111,13 +111,13 @@ export default function ClientsPage() {
 
         {/* Testimonial Preview */}
         <section className="py-16 bg-neutral-50">
-          <div className="container px-4 md:px-6 text-center">
+          <div className="container px-4 md:px-6 text-center ">
             <AnimateIn>
-              <h2 className="text-3xl font-bold mb-12">What Our Clients Say</h2>
+              <h2 className="text-3xl font-bold mb-12 text-[#2e7d32]">What Our Clients Say</h2>
             </AnimateIn>
             <AnimateIn direction="up" delay={0.3}>
               <div className="max-w-[800px] mx-auto bg-white p-8 rounded-lg shadow-sm">
-                <p className="text-neutral-600 italic mb-6">
+                <p className="text-black italic mb-6">
                   "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of
                   fabrics, and timely delivery have made them an invaluable asset to our operations. The staff uniforms
                   they provide perfectly represent our brand image."

@@ -39,10 +39,10 @@ export default function Header() {
           </div>
         </Link>
         <nav className="hidden md:flex gap-6">
-          <Link href="/" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          <Link href="/" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black">
             Home
           </Link>
-          <Link href="/about" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          <Link href="/about" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black">
             About Us
           </Link>
           <div 
@@ -50,7 +50,7 @@ export default function Header() {
             onMouseEnter={() => setIsCollectionOpen(true)}
             onMouseLeave={() => setIsCollectionOpen(false)}
           >
-            <Link href="/#" className="text-sm font-medium hover:text-[#2e7d32] transition-colors flex items-center gap-1">
+            <Link href="/#" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black flex items-center gap-1">
               Collection
               <ChevronDown className={`h-4 w-4 transition-transform ${isCollectionOpen ? 'rotate-180' : ''}`} />
             </Link>
@@ -61,7 +61,7 @@ export default function Header() {
                     <Link
                       key={category.name}
                       href={category.href}
-                      className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-[#2e7d32] transition-colors"
+                      className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-[#2e7d32] transition-colors text-black"
                     >
                       {category.name}
                     </Link>
@@ -70,22 +70,22 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Link href="/clients" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          <Link href="/clients" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black  ">
             Clients
           </Link>
-          <Link href="/catalogue" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          <Link href="/catalogue" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black  ">
             Catalogues
           </Link>
-          <Link href="/faq" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          <Link href="/faq" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black  ">
             FAQs
           </Link>
-          <Link href="/blog" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          <Link href="/blog" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black  ">
             Blogs
           </Link>
           {/* <Link href="/testimonials" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
             Testimonials
           </Link> */}
-          <Link href="/enquiry" className="text-sm font-medium hover:text-[#2e7d32] transition-colors">
+          <Link href="/enquiry" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black    ">
             Enquire
           </Link>
         </nav>
@@ -99,12 +99,12 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden border-t">
           <div className="container px-4 py-4 flex flex-col gap-4">
-            <Link href="/" className="text-sm font-medium hover:text-[#2e7d32] transition-colors" onClick={toggleMenu}>
+            <Link href="/" className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black" onClick={toggleMenu}>
               Home
             </Link>
             <Link
               href="/about"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black"
               onClick={toggleMenu}
             >
               About Us
@@ -113,7 +113,7 @@ export default function Header() {
               <div className="flex items-center justify-between">
                 <Link
                   href="/#"
-                  className="text-sm font-medium hover:text-[#2e7d32] transition-colors flex-1"
+                  className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black flex-1"
                   onClick={toggleMenu}
                 >
                   Collection
@@ -131,7 +131,7 @@ export default function Header() {
                     <Link
                       key={category.name}
                       href={category.href}
-                      className="text-sm hover:text-[#2e7d32] transition-colors py-1"
+                      className="text-sm hover:text-[#2e7d32] transition-colors py-1 text-black"
                       onClick={toggleMenu}
                     >
                       {category.name}
@@ -142,28 +142,28 @@ export default function Header() {
             </div>
             <Link
               href="/clients"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black"
               onClick={toggleMenu}
             >
               Clients
             </Link>
             <Link
               href="/catalogue"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black"
               onClick={toggleMenu}
             >
               Catalogues
             </Link>
             <Link
               href="/faq"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black"
               onClick={toggleMenu}
             >
               FAQs
             </Link>
             <Link
               href="/blog"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black"
               onClick={toggleMenu}
             >
               Blogs
@@ -177,12 +177,12 @@ export default function Header() {
             </Link> */}
             <Link
               href="/enquiry"
-              className="text-sm font-medium hover:text-[#2e7d32] transition-colors"
+              className="text-sm font-medium hover:text-[#2e7d32] transition-colors text-black"
               onClick={toggleMenu}
             >
               Enquire
             </Link>
-            <Button asChild className="w-full bg-[#2e7d32] hover:bg-[#1b5e20] text-white">
+            <Button asChild className="w-full bg-[#2e7d32] hover:bg-[#1b5e20] text-white ">
               <Link href="/enquiry" onClick={toggleMenu}>
                 Contact Us
               </Link>

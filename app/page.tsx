@@ -98,49 +98,48 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="container px-4 md:px-6">
             <AnimateIn>
-              <h2 className="text-3xl font-bold text-center mb-12">Why Choose Fashion Fabric?</h2>
+              <h2 className="text-3xl font-bold text-black pl-6 mb-12">Why Choose Fashion Fabric?</h2>
             </AnimateIn>
             <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-32 h-32  flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Affirdble.svg" alt="Affordable" width={140} height={140} />
+                  <Image src="/images/home-icons-all/home-icons/1.png" alt="Affordable" width={100} height={100} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Affordable</h3>
-                <p className="text-neutral-600">Quality uniforms at competitive prices for all budgets</p>
+                <p className=" text-black">Quality uniforms at competitive prices for all budgets</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-32 h-32   flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/custom made.svg" alt="Custom-Made" width={140} height={140} />
+                  <Image src="/images/home-icons-all/home-icons/2.png" alt="Custom-Made" width={100} height={100} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Custom-Made</h3>
-                <p className="text-neutral-600">Tailored to your exact specifications and requirements</p>
+                <p className=" text-black">Tailored to your exact specifications and requirements</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-32 h-32   flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Qulaity.svg" alt="Quality" width={140} height={140} />
+                  <Image src="/images/home-icons-all/home-icons/3.png" alt="Quality" width={100} height={100} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Quality</h3>
-                <p className="text-neutral-600">Premium fabrics and expert craftsmanship in every piece</p>
+                <p className=" text-black">Premium fabrics and expert craftsmanship in every piece</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-32 h-32   flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/timly delivery .svg" alt="Timely Delivery" width={140} height={140} />
+                  <Image src="/images/home-icons-all/home-icons/4.png" alt="Timely Delivery" width={100} height={100} />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Timely Delivery</h3>
-                <p className="text-neutral-600">Reliable and punctual delivery to meet your deadlines</p>
+                <p className=" text-black">Reliable and punctual delivery to meet your deadlines</p>
               </div>
             </AnimateInStagger>
           </div>
         </section>
-        {/* Testimonials Section */}
-    <TestimonialsPage />
+    
        
    {/* Featured Products */}
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">
             <AnimateIn>
-              <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-                <h2 className="text-3xl font-bold">Industry <span className="text-[#2e7d32]">Served</span></h2>
+              <div className="flex flex-col md:flex-row justify-between items-center mb-12 pl-6">
+                <h2 className="text-3xl text-[#2e7d32] font-bold">Industry Served </h2>
                
               </div>
             </AnimateIn>
@@ -309,12 +308,30 @@ export default function Home() {
             </AnimateInStagger>
           </div>
         </section>  
+ {/* Statistics Section */}
+        <section className="py-16 bg-neutral-50">
+          <div className="container px-4 md:px-6 ">
+            <AnimateIn>
+              <h2 className="text-3xl font-bold text-black pl-6 mb-12">Our Achievements</h2>
+            </AnimateIn>
+            <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <StatCard value="10+" label="Industries Served" icon="/images/home-icons-all/our-achivments-icons/Industries Served.svg" />
+              <StatCard value="60+" label="Brands Served" icon="/images/home-icons-all/our-achivments-icons/Brands Served.svg" />
+              <StatCard value="15+" label="Years of Industry Experience" icon="/images/home-icons-all/our-achivments-icons/Year of experience.svg" />
+              <StatCard value="+88%" label="Repeat Customers" icon="/images/home-icons-all/our-achivments-icons/Repeat Customer.svg" />
+              <StatCard value="27,500+" label="Completed Orders" icon="/images/home-icons-all/our-achivments-icons/Completed Order.svg" />
+              <StatCard value="100,000+" label="Crews outfitted annually" icon="/images/home-icons-all/our-achivments-icons/Crew Outfitted .svg" />
+              <StatCard value="+92%" label="On-Time Delivery" icon="/images/home-icons-all/our-achivments-icons/On-time delivery.svg" />
+              <StatCard value="4.6/5" label="Client Rating" icon="/images/home-icons-all/our-achivments-icons/Clinet Rating.svg" />
+            </AnimateInStagger>
+          </div>
+        </section>
 
         {/* Trusted By Section */}
         <section className="py-16 bg-white">
           <div className="container px-4 md:px-6">
             <AnimateIn>
-              <h2 className="text-3xl font-bold text-center mb-12">Trusted By Leading Hospitality Brands</h2>
+              <h2 className="text-3xl font-bold text-[#2e7d32]  mb-12 pl-6">Trusted By Leading Hospitality Brands</h2>
             </AnimateIn>
             <AnimateIn>
               <InfiniteLogoScroll clients={clients} speed={60} />
@@ -329,35 +346,10 @@ export default function Home() {
           </div>
         </section>
 
+     
+    {/* Testimonials Section */}
+    <TestimonialsPage />
 
- 
-
-           {/* Statistics Section */}
-        <section className="py-16 bg-neutral-50">
-          <div className="container px-4 md:px-6">
-            <AnimateIn>
-              <h2 className="text-3xl font-bold text-center mb-12">Our Achievements</h2>
-            </AnimateIn>
-            <div className="flex flex-col lg:flex-row gap-4">
-              <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 flex-grow">
-                <StatCard value="10+" label="Industries Served" />
-                <StatCard value="60+" label="Brands Served" />
-                <StatCard value="15+" label="Years of Industry Experience" />
-                <StatCard value="27,500+" label="Completed Orders" />
-                <StatCard value="100+" label="Products Range" />
-                <StatCard value="100,000+" label="Crews outfitted annually" />
-                <StatCard value="700+" label="Textile Solutions" />
-                <StatCard value="740+" label="Customisation Options" />
-                <StatCard value="11,500+" label="Monthly Production Capacity" />
-              </AnimateInStagger>
-              <AnimateInStagger className="mb-8 lg:w-80">
-                <StatCard value="+88%" label="Repeat Cutomers" />
-                <StatCard value="+92%" label="On-Time Delivery" />
-                <StatCard value="4.4/5" label="Client Rating" />
-              </AnimateInStagger>
-            </div>
-          </div>
-        </section>
         {/* Map Section
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">

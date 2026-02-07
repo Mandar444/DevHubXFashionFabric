@@ -1,13 +1,16 @@
 "use client"
 
 import { useCounter } from "@/hooks/use-counter"
+import Image from "next/image"
 
 interface StatCardProps {
   value: string
   label: string
+  icon?: string
+  iconColor?: string
 }
 
-export function StatCard({ value, label }: StatCardProps) {
+export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
   // Extract number and suffix from value (e.g., "10+" -> {num: 10, suffix: "+"})
   const parseValue = (val: string) => {
     const match = val.match(/^([+\-])?([0-9,]+)([+%])?$/)
@@ -39,21 +42,51 @@ export function StatCard({ value, label }: StatCardProps) {
     })
     
     return (
-      <div ref={ratingRef} className="bg-neutral-200 p-8 h-full flex flex-col justify-center">
-        <h3 className="text-4xl font-bold text-[#2e7d32] mb-3">
-          {(ratingCount / 10).toFixed(1)}/{parts[1]}
-        </h3>
-        <p className="text-lg font-semibold text-neutral-800">{label}</p>
+      <div ref={ratingRef} className="bg-white rounded-2xl h-full flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div className="flex-1 flex items-center justify-center gap-4 p-6">
+          {icon && (
+            <div className="w-12 h-12 relative flex-shrink-0">
+              <Image 
+                src={icon} 
+                alt={label} 
+                fill 
+                className="object-contain" 
+                style={iconColor ? { filter: 'invert(18%) sepia(35%) saturate(1284%) hue-rotate(105deg) brightness(95%) contrast(92%)' } : {}}
+              />
+            </div>
+          )}
+          <h3 className="text-4xl font-bold text-[#2e7d32]">
+            {(ratingCount / 10).toFixed(1)}/{parts[1]}
+          </h3>
+        </div>
+        <div className="bg-neutral-100 p-4 text-center border-b-8 border-[#2e7d32]">
+          <p className="text-base font-semibold text-neutral-800">{label}</p>
+        </div>
       </div>
     )
   }
 
   return (
-    <div ref={ref} className="bg-neutral-200 p-8 h-full flex flex-col justify-center">
-      <h3 className="text-4xl font-bold text-[#2e7d32] mb-3">
-        {prefix}{formatNumber(count)}{suffix}
-      </h3>
-      <p className="text-lg font-semibold text-neutral-800">{label}</p>
+    <div ref={ref} className="bg-white rounded-2xl h-full flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+      <div className="flex-1 flex items-center justify-center gap-4 p-6">
+        {icon && (
+          <div className="w-12 h-12 relative flex-shrink-0">
+            <Image 
+              src={icon} 
+              alt={label} 
+              fill 
+              className="object-contain" 
+              style={iconColor ? { filter: 'invert(18%) sepia(35%) saturate(1284%) hue-rotate(105deg) brightness(95%) contrast(92%)' } : {}}
+            />
+          </div>
+        )}
+        <h3 className="text-4xl font-bold text-[#2e7d32]">
+          {prefix}{formatNumber(count)}{suffix}
+        </h3>
+      </div>
+      <div className="bg-neutral-100 p-4 text-center border-b-8 border-[#2e7d32]">
+        <p className="text-base font-semibold text-neutral-800">{label}</p>
+      </div>
     </div>
   )
 }

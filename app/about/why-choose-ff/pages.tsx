@@ -55,7 +55,7 @@ export default function WhyChooseFashionFabric() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl  font-bold text-center mb-16">
+        <h2 className="text-3xl text-[#2e7d32] font-bold mb-16 -ml-10">
           Redefining The Art of Workwear
         </h2>
 
@@ -79,7 +79,7 @@ export default function WhyChooseFashionFabric() {
                 <h3 className="text-green-700 font-semibold text-lg mb-1">
                   {item.title}
                 </h3>
-                <p className="text-sm italic text-gray-700 leading-relaxed">
+                <p className="text-sm italic text-black leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -93,12 +93,12 @@ export default function WhyChooseFashionFabric() {
             {Array.from({ length: 9 }).map((_, i) => (
               <div
                 key={i}
-                className="w-4 h-4 rounded-full bg-green-700"
+                className="w-6 h-6 rounded-full bg-green-700"
               />
             ))}
           </div>
 
-          <p className="text-center text-sm  text-gray-800 max-w-md">
+          <p className="text-center text-sm  text-black max-w-md">
             Each dot symbolizes a core value in our approach to exceptional
             uniform manufactures
           </p>

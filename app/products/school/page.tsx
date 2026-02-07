@@ -9,31 +9,48 @@ import { ChevronDown } from "lucide-react"
 export default function SchoolsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-  {/* Schools Section Banner */}
-<section className="py-10 bg-white">
-  <div className="container px-4 md:px-6">
-    <AnimateIn>
-      <div className="relative w-full rounded-[2rem] md:rounded-[2.5rem] bg-[#2e7d32] overflow-hidden shadow-xl">
-        <div className="relative grid md:grid-cols-2 gap-4 md:gap-8 items-end md:items-center p-4 md:p-8 lg:p-10 pr-6 md:pr-10">
+ {/* Schools Section Banner */}   
+ <div className="flex justify-center px-4 md:px-8 lg:px-12 mb-12 pt-10">
+  <div className="relative w-full max-w-7xl h-[500px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
+        
+        {/* Layered Waves Logic */}
+        {/* We use absolute positioning and skew/rotate to mimic the organic flow */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Top Dark Wave */}
+          <div className="absolute -right-20 -top-20 w-[120%] h-[150%] bg-[#2d5a27] border-t-2 border-yellow-200/30 rounded-[40%] rotate-[-15deg] transform translate-y-20"></div>
+          
+          {/* Middle Wave */}
+          <div className="absolute -right-20 -top-10 w-[120%] h-[150%] bg-[#3d7a36] border-t-2 border-yellow-200/40 rounded-[42%] rotate-[-12deg] transform translate-y-40"></div>
+          
+          {/* Lower Bright Wave */}
+          <div className="absolute -right-20 top-10 w-[120%] h-[150%] bg-[#5eab55] border-t-2 border-yellow-200/50 rounded-[45%] rotate-[-10deg] transform translate-y-60"></div>
+          
+          {/* Bottom Corner Accent */}
+          <div className="absolute right-0 bottom-0 w-64 h-64 bg-[#8ed97d] rounded-full blur-3xl opacity-40"></div>
+        </div>
 
-          <div className="relative z-10 bg-[#f5f3e8] rounded-lg md:rounded-2xl p-4 md:p-8 lg:p-10 shadow-lg order-1 overflow-hidden translate-x-0 md:translate-x-4 lg:translate-x-8">
-
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-3 md:mb-4">
-              Schools
-            </h2>
-
-            <p className="text-neutral-700 leading-relaxed text-xs md:text-base">
-              We make uniforms for education institutes that combine durability,
-              comfort, and freedom of movement. Crafted to withstand daily use from
-              classroom lessons to playground activities our uniforms keep students
-              and teachers alike looking neat and feeling comfortable, allowing
-              them to teach, learn, and engage without restriction, while creating
-              a cohesive environment.
-            </p>
+        <div className="relative z-10 w-full h-full flex items-center justify-between px-8 md:px-16 gap-8 md:gap-12">
+          {/* Content Area (The White Box) */}
+          <div className="w-full md:w-2/5 h-[75%] bg-white rounded-tr-[80px] rounded-bl-[40px] rounded-tl-[20px] rounded-br-[20px] shadow-lg">
+            {/* Add your text or logo here */}
+            <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center h-full">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-4">
+                Schools
+              </h2>
+              <p className="text-black leading-relaxed text-base md:text-lg front-medium">
+                We make uniforms for education institutes that combine durability,
+                comfort, and freedom of movement. Crafted to withstand daily use from
+                classroom lessons to playground activities our uniforms keep students
+                and teachers alike looking neat and feeling comfortable, allowing
+                them to teach, learn, and engage without restriction, while creating
+                a cohesive environment.
+              </p>
+            </div>
           </div>
 
-          <div className="relative z-10 flex justify-center md:justify-end items-end order-2">
-            <div className="relative w-full max-w-[550px] h-[300px] md:h-[380px] lg:h-[350px] translate-y-6 md:translate-y-10">
+          {/* Image on Right Side */}
+          <div className="hidden md:block w-3/5 h-full flex items-end justify-end">
+            <div className="relative w-full h-full flex items-end justify-end">
               <Image
                 src="/images/collections-images/School.png"
                 alt="School students and teachers uniforms"
@@ -43,12 +60,10 @@ export default function SchoolsPage() {
               />
             </div>
           </div>
-
         </div>
-      </div>
-    </AnimateIn>
-  </div>
-</section>
+
+      </div>  
+     </div>
 
 <Process />
 
