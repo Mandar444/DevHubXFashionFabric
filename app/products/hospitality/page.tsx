@@ -9,6 +9,23 @@ import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import TestimonialsPage from "../testimonials/page"
 import WereBuiltOn from "./were-built-on/page"
+import { ImageSlideshow } from "@/components/image-slideshow"
+
+// Hotels/Hospitality images array
+const hotelImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-01.svg", alt: "Hotel staff uniform 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-02.svg", alt: "Hotel staff uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-03.svg", alt: "Hotel staff uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-04.svg", alt: "Hotel staff uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-05.svg", alt: "Hotel staff uniform 5" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-06.svg", alt: "Hotel staff uniform 6" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-07.svg", alt: "Hotel staff uniform 7" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-08.svg", alt: "Hotel staff uniform 8" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-09.svg", alt: "Hotel staff uniform 9" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-10.svg", alt: "Hotel staff uniform 10" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-11.svg", alt: "Hotel staff uniform 11" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-12.svg", alt: "Hotel staff uniform 12" },
+]
 
 export default function HospitalPage() {
   return (
@@ -154,6 +171,7 @@ export default function HospitalPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -177,6 +195,7 @@ export default function HospitalPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -200,6 +219,7 @@ export default function HospitalPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -223,6 +243,7 @@ export default function HospitalPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -246,6 +267,7 @@ export default function HospitalPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -269,6 +291,7 @@ export default function HospitalPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -282,26 +305,9 @@ export default function HospitalPage() {
                 </div>
               </div>
 
-              {/* Right Side - Images */}
-              <div className="w-full lg:w-2/5">
-                <div className="relative h-auto lg:h-[1050px] space-y-6 md:space-y-8">
-                  <div className="relative h-[450px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collections-images/Hospitality.png"
-                      alt="Hospitality professionals"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-[450px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collections-images/Hospitality.png"
-                      alt="Hospitality team members"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+              {/* Right Side - Single Image Slideshow */}
+              <div className="w-full lg:w-1/2">
+                <ImageSlideshow images={hotelImages} />
               </div>
             </div>
           </AnimateIn>

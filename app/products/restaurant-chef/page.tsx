@@ -7,7 +7,18 @@ import Process from "@/app/products/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ImageSlideshow } from "@/components/image-slideshow"
 
+// Restaurant/Bar images array
+const restaurantImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-01.svg", alt: "Restaurant staff uniform 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-02.svg", alt: "Restaurant staff uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-03.svg", alt: "Restaurant staff uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-04.svg", alt: "Restaurant staff uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-05.svg", alt: "Restaurant staff uniform 5" },
+  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-06.svg", alt: "Restaurant staff uniform 6" },
+  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-07.svg", alt: "Restaurant staff uniform 7" },
+]
 export default function RestaurantChefPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -148,6 +159,7 @@ export default function RestaurantChefPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -171,6 +183,7 @@ export default function RestaurantChefPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -194,6 +207,7 @@ export default function RestaurantChefPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -217,6 +231,7 @@ export default function RestaurantChefPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -240,6 +255,7 @@ export default function RestaurantChefPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -263,6 +279,7 @@ export default function RestaurantChefPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -276,26 +293,9 @@ export default function RestaurantChefPage() {
                 </div>
               </div>
 
-              {/* Right Side - Images */}
-              <div className="w-full lg:w-2/5">
-                <div className="relative h-auto lg:h-[1050px] space-y-6 md:space-y-8">
-                  <div className="relative h-[450px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collection-pateners/collection-right-side-images/restrants-Bars/Restaurants- Bars/1.png"
-                      alt="Restaurant and chef professionals"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-[450px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collection-pateners/collection-right-side-images/restrants-Bars/Restaurants- Bars/2.png"
-                      alt="Restaurant staff members"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+              {/* Right Side - Single Image Slideshow */}
+              <div className="w-full lg:w-1/2">
+                <ImageSlideshow images={restaurantImages} />
               </div>
             </div>
           </AnimateIn>

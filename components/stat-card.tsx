@@ -50,7 +50,8 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
                 src={icon} 
                 alt={label} 
                 fill 
-                className="object-contain" 
+                className="object-contain"
+                loading="lazy"
                 style={iconColor ? { filter: 'invert(18%) sepia(35%) saturate(1284%) hue-rotate(105deg) brightness(95%) contrast(92%)' } : {}}
               />
             </div>

@@ -7,6 +7,16 @@ import Process from "@/app/products/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ImageSlideshow } from "@/components/image-slideshow"
+
+// Spa/Saloon images array
+const spaImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-01.svg", alt: "Spa professionals in purple uniform" },
+  { src: "/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-02.svg", alt: "Spa staff in black uniform with orange trim" },
+  { src: "/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-03.svg", alt: "Salon team member 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-04.svg", alt: "Salon team member 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-05.svg", alt: "Salon team member 5" },
+]
 
 export default function RestaurantChefPage() {
   return (
@@ -135,27 +145,28 @@ export default function RestaurantChefPage() {
               Why Partner With Us
             </h2>
             
-            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
               {/* Left Side - Content Cards */}
-              <div className="w-full lg:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {/* Dedicated Concierge */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-01 1.svg"
                           alt="Dedicated Concierge"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={36}
+                          height={36}
+                          className="w-8 h-8 md:w-9 md:h-9"
+                          loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Dedicated Concierge
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       A single expert point of contact ensuring clarity consistency personalised service
                     </p>
                   </div>
@@ -163,22 +174,23 @@ export default function RestaurantChefPage() {
 
                 {/* Flexible Quantities */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-02 1.svg"
                           alt="Flexible Quantities"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={36}
+                          height={36}
+                          className="w-8 h-8 md:w-9 md:h-9"
+                          loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Flexible Quantities
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Single uniforms for new hires, small replenishments for occasions to large replacements for entire teams
                     </p>
                   </div>
@@ -186,22 +198,23 @@ export default function RestaurantChefPage() {
 
                 {/* Turnaround Time */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-03 1.svg"
                           alt="Turnaround Time"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={36}
+                          height={36}
+                          className="w-8 h-8 md:w-9 md:h-9"
+                          loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Turnaround Time
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Industry leading speed including, measurements, trails, resizing & final production
                     </p>
                   </div>
@@ -209,22 +222,23 @@ export default function RestaurantChefPage() {
 
                 {/* Scalable Capacity */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-04 1.svg"
                           alt="Scalable Capacity"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={36}
+                          height={36}
+                          className="w-8 h-8 md:w-9 md:h-9"
+                          loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Scalable Capacity
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Production expands seamlessly to match your expanding operations and staffing demands
                     </p>
                   </div>
@@ -232,22 +246,23 @@ export default function RestaurantChefPage() {
 
                 {/* Smart Inventory */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-05 1.svg"
                           alt="Smart Inventory"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={36}
+                          height={36}
+                          className="w-8 h-8 md:w-9 md:h-9"
+                          loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Smart Inventory
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Pre-managed fabrics, trims, & size reorders enable effortless reorders with consistent fit
                     </p>
                   </div>
@@ -255,48 +270,32 @@ export default function RestaurantChefPage() {
 
                 {/* Sustained Alliance */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-12 h-12 md:w-14 md:h-14 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-06 1.svg"
                           alt="Sustained Alliance"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={36}
+                          height={36}
+                          className="w-8 h-8 md:w-9 md:h-9"
+                          loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Sustained Alliance
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Ongoing support across reorders refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Right Side - Images */}
-              <div className="w-full lg:w-2/5">
-                <div className="relative h-auto lg:h-[750px] space-y-4 md:space-y-6">
-                  <div className="relative h-[300px] md:h-[350px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-01.svg"
-                      alt="Spa and salon professionals"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-[300px] md:h-[350px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-02.svg"
-                      alt="Spa staff members"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+              {/* Right Side - Single Image Slideshow */}
+              <div className="w-full lg:w-1/2">
+                <ImageSlideshow images={spaImages} />
               </div>
             </div>
           </AnimateIn>

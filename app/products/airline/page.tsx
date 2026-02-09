@@ -7,7 +7,17 @@ import Process from "@/app/products/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ImageSlideshow } from "@/components/image-slideshow"
 
+// Airline images array
+const airlineImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Airline/airline-01.svg", alt: "Airline staff uniform 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Airline/airline-02.svg", alt: "Airline staff uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Airline/airline-03.svg", alt: "Airline staff uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Airline/airline-04.svg", alt: "Airline staff uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Airline/airline-05.svg", alt: "Airline staff uniform 5" },
+  { src: "/images/collection-pateners/collection-right-side-images/Airline/airline-06.svg", alt: "Airline staff uniform 6" },
+]
 export default function AirlinePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -151,6 +161,7 @@ export default function AirlinePage() {
                     width={32}
                     height={32}
                     className="w-7 h-7 md:w-8 md:h-8"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">
@@ -174,6 +185,7 @@ export default function AirlinePage() {
                     width={32}
                     height={32}
                     className="w-7 h-7 md:w-8 md:h-8"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">
@@ -197,6 +209,7 @@ export default function AirlinePage() {
                     width={32}
                     height={32}
                     className="w-7 h-7 md:w-8 md:h-8"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">
@@ -220,6 +233,7 @@ export default function AirlinePage() {
                     width={32}
                     height={32}
                     className="w-7 h-7 md:w-8 md:h-8"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">
@@ -243,6 +257,7 @@ export default function AirlinePage() {
                     width={32}
                     height={32}
                     className="w-7 h-7 md:w-8 md:h-8"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">
@@ -266,6 +281,7 @@ export default function AirlinePage() {
                     width={32}
                     height={32}
                     className="w-7 h-7 md:w-8 md:h-8"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold">
@@ -279,26 +295,9 @@ export default function AirlinePage() {
           </div>
         </div>
 
-        {/* Right Side - Images in Grid */}
-        <div className="w-full lg:w-2/5">
-          <div className="grid grid-cols-2 gap-4 md:gap-6">
-            <div className="relative h-[300px] md:h-[500px] lg:h-[510px] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/collection-pateners/collection-right-side-images/Corporate/Corporate/Corporate 1.png"
-                alt="Corporate professionals"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative h-[300px] md:h-[500px] lg:h-[510px] rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/collection-pateners/collection-right-side-images/Corporate/Corporate/Corporate 2.png"
-                alt="Corporate team members"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-          </div>
+        {/* Right Side - Single Image Slideshow */}
+        <div className="w-full lg:w-1/2">
+          <ImageSlideshow images={airlineImages} />
         </div>
       </div>
     </AnimateIn>

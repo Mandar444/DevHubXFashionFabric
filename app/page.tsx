@@ -103,28 +103,28 @@ export default function Home() {
             <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-40 h-40  flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Cost-Effective.svg" alt="Cost-Effective" width={140} height={140} />
+                  <Image src="/images/home-icons-all/home-icons/Cost-Effective.svg" alt="Cost-Effective" width={140} height={140} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Cost-Effective</h3>
                 <p className=" text-black">Quality uniforms at competitive prices for all budgets</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-40 h-40   flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Reliable Service .svg" alt="Custom-Made" width={152} height={152} />
+                  <Image src="/images/home-icons-all/home-icons/Reliable Service .svg" alt="Custom-Made" width={152} height={152} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Bespoke Solution</h3>
                 <p className=" text-black">Tailored to your exact specifications and requirements</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-40 h-40   flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Premium Quality.svg" alt="Premium Quality" width={150} height={150} />
+                  <Image src="/images/home-icons-all/home-icons/Premium Quality.svg" alt="Premium Quality" width={150} height={150} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Premium Quality</h3>
                 <p className=" text-black">Premium fabrics and expert craftsmanship in every piece</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
                 <div className="w-40 h-40   flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Bespoke Solution .svg" alt="Bespoke Solution" width={150} height={150} />
+                  <Image src="/images/home-icons-all/home-icons/Bespoke Solution .svg" alt="Bespoke Solution" width={150} height={150} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Reliable Services</h3>
                 <p className=" text-black">Reliable and punctual delivery to meet your deadlines</p>
@@ -148,7 +148,7 @@ export default function Home() {
               {/* Hotels */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Hotels.png" alt="Hotels" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/Hotels.png" alt="Hotels" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Hotels</h3>
@@ -168,7 +168,7 @@ export default function Home() {
               {/* Food Production */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Food Production.png" alt="Food Production" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/Food Production.png" alt="Food Production" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Food Production</h3>
@@ -188,7 +188,7 @@ export default function Home() {
               {/* Restaurants & Bars */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Food Service.png" alt="Food Service" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/Food Service.png" alt="Food Service" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Food Service</h3>
@@ -208,7 +208,7 @@ export default function Home() {
               {/* Spa/Saloons */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Spa Image.png" alt="Spa/Saloons" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/Spa Image.png" alt="Spa/Saloons" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Spa/Saloons</h3>
@@ -228,7 +228,7 @@ export default function Home() {
               {/* Healthcare */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Healthcare.png" alt="Healthcare" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/Healthcare.png" alt="Healthcare" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Healthcare</h3>
@@ -248,7 +248,7 @@ export default function Home() {
               {/* Airlines */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Airline.png" alt="Airlines" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/Airline.png" alt="Airlines" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Airlines</h3>
@@ -268,7 +268,7 @@ export default function Home() {
               {/* Corporate */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Corporate Image.png" alt="Corporate" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/Corporate Image.png" alt="Corporate" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Corporate</h3>
@@ -288,7 +288,7 @@ export default function Home() {
               {/* Education */}
               <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/School-home.png" alt="Education" fill className="object-cover transition-transform duration-300 group-hover:scale-110" />
+                  <Image src="/images/home-icons-all/featured-images/School-home.png" alt="Education" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                   
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-white text-xl font-bold">Education</h3>

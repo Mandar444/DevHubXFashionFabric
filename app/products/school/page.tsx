@@ -7,7 +7,15 @@ import Process from "@/app/products/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ImageSlideshow } from "@/components/image-slideshow"
 
+// School/Educational Institute images array
+const schoolImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-01.svg", alt: "School uniform 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-02.svg", alt: "School uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-03.svg", alt: "School uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-04.svg", alt: "School uniform 4" },
+]
 export default function SchoolsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -150,6 +158,7 @@ export default function SchoolsPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -173,6 +182,7 @@ export default function SchoolsPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -196,6 +206,7 @@ export default function SchoolsPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -219,6 +230,7 @@ export default function SchoolsPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -242,6 +254,7 @@ export default function SchoolsPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -265,6 +278,7 @@ export default function SchoolsPage() {
                           width={32}
                           height={32}
                           className="w-7 h-7 md:w-8 md:h-8"
+                          loading="lazy"
                         />
                       </div>
                       <h3 className="text-lg md:text-xl font-bold">
@@ -278,26 +292,9 @@ export default function SchoolsPage() {
                 </div>
               </div>
 
-              {/* Right Side - Images */}
-              <div className="w-full lg:w-2/5">
-                <div className="relative h-auto lg:h-[1050px] space-y-6 md:space-y-8">
-                  <div className="relative h-[450px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collection-pateners/collection-right-side-images/Educational/Educational Institute/Educational Ins 1.png"
-                      alt="School students and teachers"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-[450px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                    <Image
-                      src="/images/collection-pateners/collection-right-side-images/Educational/Educational Institute/Educational Ins 2.png"
-                      alt="School uniforms"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+              {/* Right Side - Single Image Slideshow */}
+              <div className="w-full lg:w-1/2">
+                <ImageSlideshow images={schoolImages} />
               </div>
             </div>
           </AnimateIn>

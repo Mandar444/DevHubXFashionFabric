@@ -35,6 +35,7 @@ export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollPr
               width={150}
               height={75}
               className="object-contain"
+              loading="lazy"
             />
           </div>
         ))}
@@ -58,6 +59,7 @@ export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollPr
               width={150}
               height={75}
               className="object-contain"
+              loading="lazy"
             />
           </div>
         ))}
