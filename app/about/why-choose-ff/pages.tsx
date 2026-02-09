@@ -12,6 +12,7 @@ const values = [
     title: "Client-First Approach",
     desc: "We design around your operations, not our convenience.",
     icon: "/images/about-choose-ff/Client First.png",
+    style: { width: "90px", height: "90px" },
   },
   {
     title: "Craftmenship",
@@ -52,34 +53,34 @@ const values = [
 
 export default function WhyChooseFashionFabric() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-10 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Heading */}
-        <h2 className="text-3xl text-[#2e7d32] font-bold mb-16 -ml-10">
+        <h2 className="text-2xl md:text-3xl text-[#2e7d32] font-bold mb-8 md:mb-16 md:-ml-10">
           Redefining The Art of Workwear
         </h2>
 
         {/* Values Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-16 gap-y-8 md:gap-y-12">
           {values.map((item, index) => (
-            <div key={index} className="flex items-start gap-5">
+            <div key={index} className="flex items-start gap-3 md:gap-5">
               {/* Icon */}
-              <div className="w-20 h-20 rounded-full bg-green-700 flex items-center justify-center flex-shrink-0">
+              <div className={`${item.title === "Client-First Approach" ? "w-20 h-20 md:w-24 md:h-24" : "w-16 h-16 md:w-20 md:h-20"} rounded-full bg-green-700 flex items-center justify-center flex-shrink-0`}>
                 <Image
                   src={item.icon}
                   alt={item.title}
                   width={80}
                   height={80}
-                  className="object-contain"
+                  className={`object-contain ${item.title === "Client-First Approach" ? "w-12 h-12 md:w-16 md:h-16" : "w-10 h-10 md:w-full md:h-full"}`}
                 />
               </div>
 
               {/* Text */}
               <div>
-                <h3 className="text-green-700 font-semibold text-lg mb-1">
+                <h3 className="text-green-700 font-semibold text-base md:text-lg mb-1">
                   {item.title}
                 </h3>
-                <p className="text-sm italic text-black leading-relaxed">
+                <p className="text-xs md:text-sm italic text-black leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -88,17 +89,17 @@ export default function WhyChooseFashionFabric() {
         </div>
 
         {/* Dots Section */}
-        <div className="mt-20 flex flex-col items-center">
-          <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className="mt-12 md:mt-20 flex flex-col items-center">
+          <div className="grid grid-cols-3 gap-3 md:gap-4 mb-4 md:mb-6">
             {Array.from({ length: 9 }).map((_, i) => (
               <div
                 key={i}
-                className="w-6 h-6 rounded-full bg-green-700"
+                className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-700"
               />
             ))}
           </div>
 
-          <p className="text-center text-sm  text-black max-w-md">
+          <p className="text-center text-xs md:text-sm text-black max-w-md px-4">
             Each dot symbolizes a core value in our approach to exceptional
             uniform manufactures
           </p>

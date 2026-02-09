@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   theme: {
     container: {
       center: true,
@@ -17,6 +17,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        garamond: ["var(--font-garamond)", "Georgia", "serif"],
+      },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },

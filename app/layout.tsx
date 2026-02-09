@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
+import { Inter, EB_Garamond } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
 import Header from "@/components/header"
@@ -10,6 +10,12 @@ import { Toaster } from "@/components/ui/sonner"
 import { WhatsAppSticky } from "@/components/whatsapp-sticky"
 
 const inter = Inter({ subsets: ["latin"] })
+const garamond = EB_Garamond({ 
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-garamond",
+  display: "swap",
+})
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -84,7 +90,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${garamond.variable}`}>
         <AuthProvider>
           <Header />
           {children}

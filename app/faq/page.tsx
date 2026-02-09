@@ -162,7 +162,7 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative w-full h-[30vh] sm:h-[35vh] md:h-[40vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center overflow-hidden">
         <Image
           src="/images/bg-imges-hero-sections/image-03.jpg"
           alt="FAQ Background"
@@ -170,15 +170,16 @@ export default function FAQPage() {
           className="object-cover z-0"
           priority
         />
-        <div className="absolute inset-0 z-10 bg-black/40"></div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/40 to-black/50"></div>
         <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
           <AnimateIn>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-2 sm:mb-3 md:mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3 sm:mb-4 md:mb-5">
               Frequently Asked Questions
             </h1>
+            <div className="w-24 sm:w-32 h-1.5 bg-[#2e7d32] mx-auto rounded-full mb-4"></div>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <p className="max-w-[800px] text-sm sm:text-base md:text-lg text-white/90 px-2">
+            <p className="max-w-[800px] text-sm sm:text-base md:text-lg text-white/95 px-2 leading-relaxed">
               Find answers to common questions about our uniform manufacturing and services
             </p>
           </AnimateIn>
@@ -186,14 +187,17 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Sections */}
-      <section className="py-8 sm:py-12 md:py-16 px-3 sm:px-4">
+      <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto max-w-5xl">
           {faqSections.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="mb-8 sm:mb-10 md:mb-12">
+            <div key={sectionIndex} className="mb-12 sm:mb-14 md:mb-16">
               <AnimateIn>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-6 text-neutral-800 px-1">
-                  {section.title}
-                </h2>
+                <div className=" mb-8 sm:mb-10 md:mb-12">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2e7d32] mb-3 sm:mb-4">
+                    {section.title}
+                  </h2>
+                  <div className="w-20 sm:w-24 h-1 bg-[#2e7d32] rounded-full"></div>
+                </div>
               </AnimateIn>
               <div className="space-y-3 sm:space-y-4">
                 {section.items.map((item, itemIndex) => {
@@ -202,23 +206,25 @@ export default function FAQPage() {
 
                   return (
                     <AnimateIn key={itemIndex} delay={itemIndex * 0.1}>
-                      <div className="border-2 border-neutral-300 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                      <div className="border-2 border-[#2e7d32]/20 rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:border-[#2e7d32]/40 transition-all duration-300 bg-white">
                         <button
                           onClick={() => toggleItem(sectionIndex, itemIndex)}
-                          className="w-full px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 bg-white hover:bg-neutral-50 transition-colors flex items-center justify-between text-left gap-2"
+                          className="w-full px-4 sm:px-5 md:px-6 py-4 sm:py-5 md:py-6 bg-gradient-to-r from-white to-gray-50 hover:from-[#2e7d32]/5 hover:to-[#2e7d32]/10 transition-all duration-300 flex items-center justify-between text-left gap-2 group"
                         >
-                          <span className="font-semibold text-neutral-800 text-sm sm:text-base md:text-lg pr-2">
+                          <span className="font-semibold text-neutral-800 group-hover:text-[#2e7d32] text-sm sm:text-base md:text-lg pr-2 transition-colors">
                             {item.question}
                           </span>
-                          {isOpen ? (
-                            <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-800 flex-shrink-0" />
-                          ) : (
-                            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-800 flex-shrink-0" />
-                          )}
+                          <div className="bg-[#2e7d32]/10 group-hover:bg-[#2e7d32]/20 rounded-full p-1.5 transition-colors">
+                            {isOpen ? (
+                              <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#2e7d32] flex-shrink-0" />
+                            ) : (
+                              <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-[#2e7d32] flex-shrink-0" />
+                            )}
+                          </div>
                         </button>
                         {isOpen && (
-                          <div className="px-4 sm:px-5 md:px-6 py-4 sm:py-5 bg-white border-t-2 border-neutral-300">
-                            <div className="text-neutral-700 leading-relaxed text-sm sm:text-base">
+                          <div className="px-4 sm:px-5 md:px-6 py-5 sm:py-6 bg-gradient-to-br from-white to-gray-50 border-t-2 border-[#2e7d32]/10">
+                            <div className="text-neutral-700 leading-relaxed text-sm sm:text-base pl-3 border-l-4 border-[#2e7d32]">
                               {item.answer}
                             </div>
                           </div>
@@ -234,25 +240,30 @@ export default function FAQPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-10 sm:py-12 md:py-16 px-4 bg-neutral-50">
-        <div className="container mx-auto max-w-4xl text-center">
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-[#2e7d32]/5 to-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-[#2e7d32] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#2e7d32] rounded-full blur-3xl"></div>
+        </div>
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
           <AnimateIn>
-            <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-neutral-800">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5 text-[#2e7d32]">
               Still Have Questions?
             </h2>
-            <p className="text-base sm:text-lg text-neutral-600 mb-6 sm:mb-8 px-2">
+            <div className="w-20 sm:w-24 h-1 bg-[#2e7d32] mx-auto rounded-full mb-6 sm:mb-8"></div>
+            <p className="text-base sm:text-lg text-neutral-700 mb-8 sm:mb-10 px-2 max-w-2xl mx-auto">
               We're here to help! Contact our team for personalized assistance with your uniform requirements.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-2">
               <Link
                 href="/enquiry"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-neutral-800 text-sm sm:text-base font-semibold rounded-lg border-2 border-neutral-300 hover:bg-neutral-50 transition-colors"
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-4 bg-[#2e7d32] text-white text-sm sm:text-base font-semibold rounded-xl shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
               >
                 Get in Touch
               </Link>
               <Link
                 href="/catalogue"
-                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-white text-neutral-800 text-sm sm:text-base font-semibold rounded-lg border-2 border-neutral-300 hover:bg-neutral-50 transition-colors"
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-4 bg-white text-[#2e7d32] text-sm sm:text-base font-semibold rounded-xl border-2 border-[#2e7d32] shadow-lg hover:bg-[#2e7d32] hover:text-white hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
               >
                 View Our Catalogue
               </Link>

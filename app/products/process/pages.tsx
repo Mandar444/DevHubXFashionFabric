@@ -61,7 +61,7 @@ export default function EndToEndProcess() {
               {/* Step Image */}
               <div className="w-38 h-38 mx-auto mb-4 flex items-center justify-center  overflow-hidden ">
                 {/* Step Number */}
-              <div className="text-green-700 font-semibold text-lg mb-3">
+              <div className="text-green-700 font-semibold text-lg mb-16 pr-2">
                 {step.id}
               </div>
                 <Image
