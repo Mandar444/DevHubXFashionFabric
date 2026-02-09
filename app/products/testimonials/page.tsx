@@ -60,9 +60,9 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-screen bg-neutral-50 text-white">
       {/* Title */}
-      <section className="py-20 pl-28">
+      <section className="py-20-280">
         <AnimateIn>
-          <h1 className="text-3xl font-bold text-black ">
+          <h1 className="text-3xl font-bold text-black 32">
             Client Testimonials
           </h1>
         </AnimateIn>

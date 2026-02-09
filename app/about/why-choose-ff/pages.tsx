@@ -12,7 +12,7 @@ const values = [
     title: "Client-First Approach",
     desc: "We design around your operations, not our convenience.",
     icon: "/images/about-choose-ff/Client First.png",
-    style: { width: "90px", height: "90px" },
+    
   },
   {
     title: "Craftmenship",
@@ -65,13 +65,13 @@ export default function WhyChooseFashionFabric() {
           {values.map((item, index) => (
             <div key={index} className="flex items-start gap-3 md:gap-5">
               {/* Icon */}
-              <div className={`${item.title === "Client-First Approach" ? "w-20 h-20 md:w-24 md:h-24" : "w-16 h-16 md:w-20 md:h-20"} rounded-full bg-green-700 flex items-center justify-center flex-shrink-0`}>
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-green-700 flex items-center justify-center flex-shrink-0">
                 <Image
                   src={item.icon}
                   alt={item.title}
                   width={80}
                   height={80}
-                  className={`object-contain ${item.title === "Client-First Approach" ? "w-12 h-12 md:w-16 md:h-16" : "w-10 h-10 md:w-full md:h-full"}`}
+                  className={`object-contain ${item.title === "Client-First Approach" ? "w-28 h-28 md:w-32 md:h-32" : "w-14 h-14 md:w-16 md:h-16"}`}
                 />
               </div>
 

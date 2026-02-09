@@ -12,8 +12,8 @@ export default function RestaurantChefPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
  {/* Restaurant & Chef Section Banner */}   
- <div className="flex justify-center px-4 md:px-8 lg:px-12 mb-12 pt-10">
-  <div className="relative w-full max-w-7xl h-[500px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
+ <div className="flex justify-center px-2 sm:px-4 md:px-8 lg:px-12 mb-8 md:mb-12 pt-6 md:pt-10">
+  <div className="relative w-full max-w-7xl min-h-[650px] sm:min-h-[550px] md:min-h-[600px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
         
         {/* Layered Waves Logic */}
         {/* We use absolute positioning and skew/rotate to mimic the organic flow */}
@@ -31,9 +31,9 @@ export default function RestaurantChefPage() {
           <div className="absolute right-0 bottom-0 w-64 h-64 bg-[#8ed97d] rounded-full blur-3xl opacity-40"></div>
         </div>
 
-        <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-start md:items-center justify-between px-4 md:px-16 pt-8 md:pt-0 gap-3 md:gap-12">
+        <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-start md:items-center justify-between px-3 sm:px-4 md:px-16 pt-6 md:pt-0 gap-4 md:gap-12">
           {/* Content Area (The White Box) */}
-          <div className="w-11/12 md:w-2/5 h-auto md:h-[75%] bg-white rounded-tr-[80px] rounded-bl-[40px] rounded-tl-[20px] rounded-br-[20px] shadow-lg">
+          <div className="w-full sm:w-11/12 md:w-2/5 h-auto md:h-[75%] bg-white rounded-tr-[50px] sm:rounded-tr-[80px] rounded-bl-[30px] sm:rounded-bl-[40px] rounded-tl-[15px] sm:rounded-tl-[20px] rounded-br-[15px] sm:rounded-br-[20px] shadow-lg">
             {/* Add your text or logo here */}
             <div className="p-4 md:p-8 lg:p-10 flex flex-col justify-center h-full">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-2 md:mb-4">
@@ -49,8 +49,8 @@ export default function RestaurantChefPage() {
           </div>
 
           {/* Image on Right Side */}
-          <div className="w-full md:w-3/5 h-96 md:h-full flex items-end justify-end">
-            <div className="relative w-full h-full flex items-end justify-end">
+          <div className="w-full md:w-3/5 h-[280px] sm:h-[320px] md:h-full flex items-end justify-center md:justify-end">
+            <div className="relative w-full h-full flex items-end justify-center md:justify-end">
               <Image
                 src="/images/collections-images/Restaurants.png"
                 alt="Restaurant and bar staff in professional uniforms"
@@ -345,13 +345,13 @@ export default function RestaurantChefPage() {
       <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container px-4 md:px-6">
           <AnimateIn>
-            <div className="pl-10 mb-8 md:mb-16">
-              <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-3 md:mb-4">
+            <div className="pl-4 sm:pl-6 md:pl-10 mb-8 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-3 md:mb-4">
                 Frequently Asked Questions
               </h2>
               
             </div>
-            <div className="max-w-7xl pl-10 pr-4 md:pr-6 space-y-2 md:space-y-3">
+            <div className="max-w-7xl pl-4 sm:pl-6 md:pl-10 pr-4 md:pr-6 space-y-2 md:space-y-3">
               <FAQItem
                 question="Do you create theme-based uniforms for restaurants, cafés, and bars?"
                 answer="Yes, we manufacture fully customized, theme-led uniforms and support smaller quantities while maintaining consistent quality, ensuring your concept translates seamlessly into staff presentation."
