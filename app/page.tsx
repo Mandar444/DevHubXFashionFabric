@@ -12,8 +12,7 @@ import { Suspense } from "react"
 const TestimonialsPage = dynamic(() => import("./testimonials/page"), {
   loading: () => <div className="h-[600px] bg-neutral-50 flex items-center justify-center">
     <div className="animate-pulse text-gray-400">Loading testimonials...</div>
-  </div>,
-  ssr: false // Disable SSR for this heavy component
+  </div>
 })
 
 const clients = [
