@@ -11,15 +11,16 @@ import { ImageSlideshow } from "@/components/image-slideshow"
 
 // School/Educational Institute images array
 const schoolImages = [
-  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-01.svg", alt: "School uniform 1" },
-  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-02.svg", alt: "School uniform 2" },
-  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-03.svg", alt: "School uniform 3" },
-  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-04.svg", alt: "School uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-01.svg", alt: "School uniform collection 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-02.svg", alt: "School uniform collection 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-03.svg", alt: "School uniform collection 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-04.svg", alt: "School uniform collection 4" },
 ]
-export default function SchoolsPage() {
+
+export default function SchoolUniformPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
- {/* Schools Section Banner */}   
+ {/* School Section Banner */}   
  <div className="flex justify-center px-2 sm:px-4 md:px-8 lg:px-12 mb-8 md:mb-12 pt-6 md:pt-10">
   <div className="relative w-full max-w-7xl min-h-[650px] sm:min-h-[550px] md:min-h-[600px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
         
@@ -45,15 +46,13 @@ export default function SchoolsPage() {
             {/* Add your text or logo here */}
             <div className="p-4 md:p-8 lg:p-10 flex flex-col justify-center h-full">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-2 md:mb-4">
-                School
+                Schools
               </h2>
               <p className="text-black leading-relaxed text-sm md:text-lg front-medium">
-                We make uniforms for education institutes that combine durability,
-                comfort, and freedom of movement. Crafted to withstand daily use from
-                classroom lessons to playground activities our uniforms keep students
-                and teachers alike looking neat and feeling comfortable, allowing
-                them to teach, learn, and engage without restriction, while creating
-                a cohesive environment.
+                We craft durable, high-quality school uniforms that instill pride 
+                and belonging. Designed for comfort and everyday wear, our 
+                uniforms maintain their smart appearance wash after wash, 
+                supporting students from classroom to playground.
               </p>
             </div>
           </div>
@@ -63,7 +62,7 @@ export default function SchoolsPage() {
             <div className="relative w-full h-full flex items-end justify-center md:justify-end">
               <Image
                 src="/images/collections-images/School.png"
-                alt="School students and teachers uniforms"
+                alt="Students wearing school uniforms"
                 fill
                 className="object-contain object-bottom"
                 priority
@@ -79,14 +78,23 @@ export default function SchoolsPage() {
       <section className="py-12 md:py-20 bg-white">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-left mb-12 md:mb-16">
               What We're Built On
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {/* Premium Fabric */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-07 1.svg"
+                      alt="Premium Fabric"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Premium Fabric
                   </h3>
@@ -98,7 +106,16 @@ export default function SchoolsPage() {
 
               {/* Precision Fit */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-08 1.svg"
+                      alt="Precision Fit"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Precision Fit
                   </h3>
@@ -110,7 +127,16 @@ export default function SchoolsPage() {
 
               {/* Reliable Fulfilment */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-09 1.svg"
+                      alt="Reliable Fulfilment"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Reliable Fulfilment
                   </h3>
@@ -122,7 +148,16 @@ export default function SchoolsPage() {
 
               {/* Responsible Sourcing */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-10 1.svg"
+                      alt="Responsible Sourcing"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Responsible Sourcing
                   </h3>
@@ -140,32 +175,32 @@ export default function SchoolsPage() {
       <section className="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] text-left mb-12 md:mb-16">
               Why Partner With Us
             </h2>
             
-            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
               {/* Left Side - Content Cards */}
-              <div className="w-full lg:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {/* Dedicated Concierge */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-01 1.svg"
                           alt="Dedicated Concierge"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Dedicated Concierge
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       A single expert point of contact ensuring clarity consistency personalised service
                     </p>
                   </div>
@@ -173,23 +208,23 @@ export default function SchoolsPage() {
 
                 {/* Flexible Quantities */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-02 1.svg"
                           alt="Flexible Quantities"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Flexible Quantities
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Single uniforms for new hires, small replenishments for occasions to large replacements for entire teams
                     </p>
                   </div>
@@ -197,23 +232,23 @@ export default function SchoolsPage() {
 
                 {/* Turnaround Time */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-03 1.svg"
                           alt="Turnaround Time"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Turnaround Time
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Industry leading speed including, measurements, trails, resizing & final production
                     </p>
                   </div>
@@ -221,23 +256,23 @@ export default function SchoolsPage() {
 
                 {/* Scalable Capacity */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-04 1.svg"
                           alt="Scalable Capacity"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Scalable Capacity
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Production expands seamlessly to match your expanding operations and staffing demands
                     </p>
                   </div>
@@ -245,23 +280,23 @@ export default function SchoolsPage() {
 
                 {/* Smart Inventory */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-05 1.svg"
                           alt="Smart Inventory"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Smart Inventory
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Pre-managed fabrics, trims, & size reorders enable effortless reorders with consistent fit
                     </p>
                   </div>
@@ -269,23 +304,23 @@ export default function SchoolsPage() {
 
                 {/* Sustained Alliance */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-06 1.svg"
                           alt="Sustained Alliance"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Sustained Alliance
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Ongoing support across reorders refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
@@ -344,27 +379,31 @@ export default function SchoolsPage() {
         <div className="container px-4 md:px-6">
           <AnimateIn>
             <div className="pl-4 sm:pl-6 md:pl-10 mb-8 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-3 md:mb-4">
+              <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 md:mb-4">
                 Frequently Asked Questions
               </h2>
               
             </div>
             <div className="max-w-7xl pl-4 sm:pl-6 md:pl-10 pr-4 md:pr-6 space-y-2 md:space-y-3">
               <FAQItem
-                question="What fabrics do you recommend for school and college uniforms?"
-                answer="We primarily use breathable 100% pure cotton and durable blended fabrics designed for daily wear, comfort, easy maintenance, and long classroom hours."
+                question="Can you customize school uniforms with our logo and specific colors?"
+                answer="Yes, customization is our core strength. We precisely match school colors, embroider crests/logos, and design patterns (like checks or stripes) that align perfectly with your school's brand identity."
               />
               <FAQItem
-                question="Can you produce uniforms for different school houses with color variations?"
-                answer="Yes, we maintain consistent designs while incorporating house-based color distinctions, ensuring visual unity alongside clear identity across student groups."
+                question="Do you offer size trials before finalizing the order?"
+                answer="Absolutely. We provide a full size set for students to try on, ensuring accurate fitting. This minimizes exchange requests and ensures every student gets a uniform that fits well from day one."
               />
               <FAQItem
-                question="Do you ensure uniform fabric and color continuity year after year?"
-                answer="Yes, we run continuity programs to maintain consistent fabric quality, color shades, and design standards for repeat academic cycles."
+                question="What fabrics do you use for school uniforms?"
+                answer="We use premium, breathable, and durable blends (like poly-viscose or poly-cotton) designed to withstand active school life, frequent washing, and fading, while keeping students comfortable throughout the day."
               />
               <FAQItem
-                question="Do you provide matching accessories along with student uniforms?"
-                answer="Yes, we supply coordinated accessories such as ties, belts, bows, and shoes to ensure a complete, polished school uniform program."
+                question="What are your delivery timelines for bulk orders?"
+                answer="Our typical turnaround is 2–4 weeks from design approval, depending on order volume. We also offer planned partial deliveries to ensure students have their essentials ready before the term begins."
+              />
+              <FAQItem
+                question="Do you support mid-year orders for new admissions?"
+                answer="Yes, we maintain fabric stock and patterns for our partner schools, allowing us to quickly fulfill small refill orders or individual sets for new students joining mid-term."
               />
             </div>
           </AnimateIn>

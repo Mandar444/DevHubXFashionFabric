@@ -7,27 +7,24 @@ import Process from "@/app/products/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import TestimonialsPage from "../testimonials/page"
-import WereBuiltOn from "./were-built-on/page"
 import { ImageSlideshow } from "@/components/image-slideshow"
 
-// Hotels/Hospitality images array
-const hotelImages = [
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-01.svg", alt: "Hotel staff uniform 1" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-02.svg", alt: "Hotel staff uniform 2" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-03.svg", alt: "Hotel staff uniform 3" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-04.svg", alt: "Hotel staff uniform 4" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-05.svg", alt: "Hotel staff uniform 5" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-06.svg", alt: "Hotel staff uniform 6" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-07.svg", alt: "Hotel staff uniform 7" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-08.svg", alt: "Hotel staff uniform 8" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-09.svg", alt: "Hotel staff uniform 9" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-10.svg", alt: "Hotel staff uniform 10" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-11.svg", alt: "Hotel staff uniform 11" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-12.svg", alt: "Hotel staff uniform 12" },
+// Hospitality images array
+const hospitalityImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-01.svg", alt: "Hospitality staff uniform 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-02.svg", alt: "Hospitality staff uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-03.svg", alt: "Hospitality staff uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-04.svg", alt: "Hospitality staff uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-05.svg", alt: "Hospitality staff uniform 5" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-06.svg", alt: "Hospitality staff uniform 6" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-07.svg", alt: "Hospitality staff uniform 7" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-08.svg", alt: "Hospitality staff uniform 8" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-09.svg", alt: "Hospitality staff uniform 9" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-10.svg", alt: "Hospitality staff uniform 10" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-11.svg", alt: "Hospitality staff uniform 11" },
 ]
 
-export default function HospitalPage() {
+export default function HotelUniformPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
  {/* Hospitality Section Banner */}   
@@ -59,12 +56,11 @@ export default function HospitalPage() {
                 Hospitality
               </h2>
               <p className="text-black leading-relaxed text-sm md:text-lg front-medium">
-                In hospitality, every interaction tells a story, and your team
-                is its narrator. At Fashion Fabric, we craft uniforms that move
-                with your staff, balance comfort with style, and reflect the
-                personality of your brand. Thoughtful design, durable fabrics,
-                and practical details ensure your team looks poised, feels
-                confident, and leaves a lasting impression on every guest.
+                We craft hotel uniforms that define guest experiences. From front 
+                desk elegance to housekeeping practicality, our designs ensure your 
+                team looks impeccable while staying comfortable. With premium 
+                fabrics and tailored fits, we help your brand make a lasting 
+                impression from the moment guests arrive.
               </p>
             </div>
           </div>
@@ -74,7 +70,7 @@ export default function HospitalPage() {
             <div className="relative w-full h-full flex items-end justify-center md:justify-end">
               <Image
                 src="/images/collections-images/Hospitality.png"
-                alt="Hospitality team in professional uniforms"
+                alt="Hotel staff welcoming guests"
                 fill
                 className="object-contain object-bottom"
                 priority
@@ -90,14 +86,23 @@ export default function HospitalPage() {
       <section className="py-12 md:py-20 bg-white">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-left mb-12 md:mb-16">
               What We're Built On
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {/* Premium Fabric */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-07 1.svg"
+                      alt="Premium Fabric"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Premium Fabric
                   </h3>
@@ -109,7 +114,16 @@ export default function HospitalPage() {
 
               {/* Precision Fit */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-08 1.svg"
+                      alt="Precision Fit"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Precision Fit
                   </h3>
@@ -121,7 +135,16 @@ export default function HospitalPage() {
 
               {/* Reliable Fulfilment */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-09 1.svg"
+                      alt="Reliable Fulfilment"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Reliable Fulfilment
                   </h3>
@@ -133,7 +156,16 @@ export default function HospitalPage() {
 
               {/* Responsible Sourcing */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300">
+                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-6">
+                    <Image
+                      src="/images/collections-images/built-on-icons/Icons-10 1.svg"
+                      alt="Responsible Sourcing"
+                      width={100}
+                      height={100}
+                      className="w-20 h-20 md:w-24 md:h-24"
+                    />
+                  </div>
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Responsible Sourcing
                   </h3>
@@ -147,38 +179,36 @@ export default function HospitalPage() {
         </div>
       </section>
 
-    
-
       {/* Why Partner With Us Section */}
       <section className="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] text-left mb-12 md:mb-16">
               Why Partner With Us
             </h2>
             
-            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
+            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
               {/* Left Side - Content Cards */}
-              <div className="w-full lg:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {/* Dedicated Concierge */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-01 1.svg"
                           alt="Dedicated Concierge"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Dedicated Concierge
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       A single expert point of contact ensuring clarity consistency personalised service
                     </p>
                   </div>
@@ -186,23 +216,23 @@ export default function HospitalPage() {
 
                 {/* Flexible Quantities */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-02 1.svg"
                           alt="Flexible Quantities"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Flexible Quantities
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Single uniforms for new hires, small replenishments for occasions to large replacements for entire teams
                     </p>
                   </div>
@@ -210,23 +240,23 @@ export default function HospitalPage() {
 
                 {/* Turnaround Time */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-03 1.svg"
                           alt="Turnaround Time"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Turnaround Time
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Industry leading speed including, measurements, trails, resizing & final production
                     </p>
                   </div>
@@ -234,23 +264,23 @@ export default function HospitalPage() {
 
                 {/* Scalable Capacity */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-04 1.svg"
                           alt="Scalable Capacity"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Scalable Capacity
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Production expands seamlessly to match your expanding operations and staffing demands
                     </p>
                   </div>
@@ -258,23 +288,23 @@ export default function HospitalPage() {
 
                 {/* Smart Inventory */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-05 1.svg"
                           alt="Smart Inventory"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Smart Inventory
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Pre-managed fabrics, trims, & size reorders enable effortless reorders with consistent fit
                     </p>
                   </div>
@@ -282,23 +312,23 @@ export default function HospitalPage() {
 
                 {/* Sustained Alliance */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-5 md:p-6 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-06 1.svg"
                           alt="Sustained Alliance"
-                          width={32}
-                          height={32}
-                          className="w-7 h-7 md:w-8 md:h-8"
+                          width={40}
+                          height={40}
+                          className="w-9 h-9 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-lg md:text-xl font-bold">
+                      <h3 className="text-xl md:text-2xl font-bold">
                         Sustained Alliance
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm">
+                    <p className="leading-relaxed text-sm md:text-base">
                       Ongoing support across reorders refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
@@ -307,15 +337,12 @@ export default function HospitalPage() {
 
               {/* Right Side - Single Image Slideshow */}
               <div className="w-full lg:w-1/2">
-                <ImageSlideshow images={hotelImages} />
+                <ImageSlideshow images={hospitalityImages} />
               </div>
             </div>
           </AnimateIn>
         </div>
-        
       </section>
-
-      {/* <TestimonialsPage /> */}
 
 <Process />
 
@@ -332,7 +359,7 @@ export default function HospitalPage() {
                   </h2>
                   <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed">
                     Schedule a personalized demo call with our uniform experts. We'll discuss your specific needs, 
-                    show you our customization options, and create a solution that perfectly fits your hospitality brand.
+                    show you our customization options, and create a solution that perfectly fits your hotel's brand.
                   </p>
                   
                   <div className="flex justify-center">
@@ -360,27 +387,27 @@ export default function HospitalPage() {
         <div className="container px-4 md:px-6">
           <AnimateIn>
             <div className="pl-4 sm:pl-6 md:pl-10 mb-8 md:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-3 md:mb-4">
+              <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 md:mb-4">
                 Frequently Asked Questions
               </h2>
               
             </div>
             <div className="max-w-7xl pl-4 sm:pl-6 md:pl-10 pr-4 md:pr-6 space-y-2 md:space-y-3">
               <FAQItem
-                question="What fabrics do you use for hospitality uniforms across different departments?"
-                answer="We offer department-specific fabric weights in cotton, polyester, poly-cotton blends, plus custom options like linen and denim, tailored to durability, comfort, and brand presentation needs."
+                question="Do you provide uniforms for all hotel departments?"
+                answer="Yes, we cover every role, including front desk, concierge, housekeeping, kitchen/chefs, waitstaff, and security, creating a cohesive visual identity throughout the property."
               />
               <FAQItem
-                question="Can hospitality uniforms be fully customized to match our brand identity?"
-                answer="Yes, we customize colors, trims, embroidery, prints, and patches, treating each uniform as a blank canvas aligned precisely with your brand's visual language."
+                question="Can you match our hotel's brand colors?"
+                answer="Absolutely. We dye fabrics to specific Pantone numbers to ensure your staff's attire perfectly aligns with your hotel's interior and branding guidelines."
               />
               <FAQItem
-                question="Do you provide size charts or tailored sizing for bulk production orders?"
-                answer="We offer both standardized size charts for scale production and tailored fit programs, ensuring consistent comfort, appearance, and fit convenience across your entire team."
+                question="What fabrics are best for housekeeping staff uniforms?"
+                answer="We recommend breathable, stretch-blend fabrics (like cotton-poly blends) that offer high durability and colour retention, allowing staff to move freely and comfortably all day."
               />
               <FAQItem
-                question="Which hotel departments do you design and manufacture uniforms for?"
-                answer="We cover all departments, from front office and housekeeping to F&B service and security, delivering complete 360 degree, coordinated uniform solutions under one program."
+                question="Do you offer fitting sessions for staff?"
+                answer="Yes, we conduct on-site fitting sessions or provide trial sets to ensure every team member receives a well-fitted uniform, boosting their confidence and comfort."
               />
             </div>
           </AnimateIn>

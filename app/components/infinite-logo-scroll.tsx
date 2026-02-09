@@ -39,18 +39,18 @@ export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollPr
         {clients.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
-            className={`flex items-center justify-center mx-4 md:mx-8 w-[150px] md:w-[200px] h-[75px] md:h-[100px] rounded-lg shadow-sm shrink-0 ${
+            className={`flex items-center justify-center mx-6 md:mx-10 w-[200px] md:w-[260px] h-[100px] md:h-[140px] rounded-lg shadow-sm shrink-0 ${
               client.darkBg ? 'bg-neutral-900' : 'bg-white'
             }`}
           >
             <Image
               src={client.logo}
               alt={client.name}
-              width={150}
-              height={75}
-              className="object-contain max-h-[60px] md:max-h-[75px] w-auto"
+              width={200}
+              height={100}
+              className="object-contain max-h-[80px] md:max-h-[110px] w-auto"
               loading="lazy"
-              sizes="150px"
+              sizes="200px"
             />
           </div>
         ))}
@@ -65,18 +65,18 @@ export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollPr
         {clients.map((client, index) => (
           <div
             key={`${client.name}-duplicate-${index}`}
-            className={`flex items-center justify-center mx-4 md:mx-8 w-[150px] md:w-[200px] h-[75px] md:h-[100px] rounded-lg shadow-sm shrink-0 ${
+            className={`flex items-center justify-center mx-6 md:mx-10 w-[200px] md:w-[260px] h-[100px] md:h-[140px] rounded-lg shadow-sm shrink-0 ${
               client.darkBg ? 'bg-neutral-900' : 'bg-white'
             }`}
           >
             <Image
               src={client.logo}
               alt=""
-              width={150}
-              height={75}
-              className="object-contain max-h-[60px] md:max-h-[75px] w-auto"
+              width={200}
+              height={100}
+              className="object-contain max-h-[80px] md:max-h-[110px] w-auto"
               loading="lazy"
-              sizes="150px"
+              sizes="200px"
             />
           </div>
         ))}
