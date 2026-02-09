@@ -9,12 +9,20 @@ import AuthProvider from "@/components/auth-provider"
 import { Toaster } from "@/components/ui/sonner"
 import { WhatsAppSticky } from "@/components/whatsapp-sticky"
 
-const inter = Inter({ subsets: ["latin"] })
+// Optimized font loading with display: swap for faster text rendering
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-inter",
+})
+
 const garamond = EB_Garamond({ 
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-garamond",
   display: "swap",
+  preload: true,
 })
 
 export const viewport: Viewport = {
@@ -75,8 +83,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${garamond.variable}`}>
       <head>
+        {/* DNS Prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Preload critical hero video poster if exists */}
+        <link rel="preload" as="image" href="/images/hero-poster.jpg" />
+        
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17044480425"
           strategy="afterInteractive"
@@ -90,7 +108,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.className} ${garamond.variable}`}>
+      <body className={inter.className}>
         <AuthProvider>
           <Header />
           {children}

@@ -12,9 +12,9 @@ interface AnimateInProps {
   style?: React.CSSProperties
 }
 
-// Optimized AnimateIn using CSS transitions + Intersection Observer
-// This is much more performant than framer-motion for simple scroll animations
-export function AnimateIn({
+// Lightweight animate-in using CSS transitions + Intersection Observer
+// Much faster than framer-motion for simple scroll animations
+export function AnimateInLight({
   children,
   className = "",
   direction = "up",
@@ -22,21 +22,17 @@ export function AnimateIn({
   duration = 0.5,
   once = true,
   style,
-  ...props
 }: AnimateInProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const element = ref.current
-    if (!element) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          if (once) {
-            observer.unobserve(element)
+          if (once && ref.current) {
+            observer.unobserve(ref.current)
           }
         } else if (!once) {
           setIsVisible(false)
@@ -45,7 +41,10 @@ export function AnimateIn({
       { threshold: 0.1, rootMargin: "50px" }
     )
 
-    observer.observe(element)
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
     return () => observer.disconnect()
   }, [once])
 
@@ -69,16 +68,15 @@ export function AnimateIn({
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
         transition: `opacity ${duration}s ease-out ${delay}s, transform ${duration}s ease-out ${delay}s`,
-        willChange: isVisible ? "auto" : "opacity, transform",
+        willChange: "opacity, transform",
       }}
-      {...props}
     >
       {children}
     </div>
   )
 }
 
-export function AnimateInStagger({
+export function AnimateInStaggerLight({
   children,
   className = "",
   direction = "up",
@@ -86,21 +84,17 @@ export function AnimateInStagger({
   duration = 0.5,
   once = true,
   style,
-  ...props
 }: AnimateInProps & { staggerDelay?: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const element = ref.current
-    if (!element) return
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          if (once) {
-            observer.unobserve(element)
+          if (once && ref.current) {
+            observer.unobserve(ref.current)
           }
         } else if (!once) {
           setIsVisible(false)
@@ -109,7 +103,10 @@ export function AnimateInStagger({
       { threshold: 0.2, rootMargin: "50px" }
     )
 
-    observer.observe(element)
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
     return () => observer.disconnect()
   }, [once])
 
@@ -125,14 +122,14 @@ export function AnimateInStagger({
   }
 
   return (
-    <div ref={ref} className={className} style={style} {...props}>
+    <div ref={ref} className={className} style={style}>
       {React.Children.map(children, (child, i) => (
         <div
           style={{
             opacity: isVisible ? 1 : 0,
             transform: getTransform(isVisible),
             transition: `opacity ${duration}s ease-out ${i * staggerDelay}s, transform ${duration}s ease-out ${i * staggerDelay}s`,
-            willChange: isVisible ? "auto" : "opacity, transform",
+            willChange: "opacity, transform",
           }}
         >
           {child}

@@ -1,11 +1,21 @@
 import Link from "next/link"
 import Image from "next/image"
-import { MapPin, Mail, Phone, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 import { InfiniteLogoScroll } from "./components/infinite-logo-scroll"
-import TestimonialsPage from "./testimonials/page"
 import { StatCard } from "@/components/stat-card"
+import dynamic from "next/dynamic"
+import { Suspense } from "react"
+
+// Dynamic import for TestimonialsPage - loads only when needed
+const TestimonialsPage = dynamic(() => import("./testimonials/page"), {
+  loading: () => <div className="h-[600px] bg-neutral-50 flex items-center justify-center">
+    <div className="animate-pulse text-gray-400">Loading testimonials...</div>
+  </div>,
+  ssr: false // Disable SSR for this heavy component
+})
+
 const clients = [
   { name: "Araqila", logo: "/images/home-icons-all/clients-home-logos/Araqila.png" },
   { name: "Baale", logo: "/images/home-icons-all/clients-home-logos/Baale.png" },
@@ -16,7 +26,6 @@ const clients = [
   { name: "Caravela", logo: "/images/home-icons-all/clients-home-logos/Caravela.png" },
   { name: "Casino Gold", logo: "/images/home-icons-all/clients-home-logos/Casino Gold.png" },
   { name: "Casino Pride", logo: "/images/home-icons-all/clients-home-logos/Casino Pride .png" },
-  // { name: "Cidade de Goa", logo: "/images/home-icons-all/clients-home-logos/Cidade de Goa .png" },
   { name: "Club Mahindra", logo: "/images/home-icons-all/clients-home-logos/Club Mahindra.png" },
   { name: "Deltin", logo: "/images/home-icons-all/clients-home-logos/deltin.png" },
   { name: "Double Tree", logo: "/images/home-icons-all/clients-home-logos/Double Tree.png" },
@@ -48,20 +57,35 @@ const clients = [
   { name: "W Hotels", logo: "/images/home-icons-all/clients-home-logos/W Hotels.png" }
 ]
 
+// Featured products data for cleaner JSX
+const featuredProducts = [
+  { title: "Hotels", image: "/images/home-icons-all/featured-images/Hotels.png", tagline: "Uniforms that elevate every guest interaction.", desc: "Tailored for comfort, durability, and brand presence, so your team looks poised through every shift.", href: "/products/hospitality" },
+  { title: "Food Production", image: "/images/home-icons-all/featured-images/Food Production.png", tagline: "Refined for discipline. Designed for distinction.", desc: "Designed for controlled environments and strict hygiene standards offering comfort, durability, and a polished professional look.", href: "/products/restaurant-chef" },
+  { title: "Food Service", image: "/images/home-icons-all/featured-images/Food Service.png", tagline: "Built for service. Styled for impact.", desc: "Performance-driven uniforms designed for fast-paced floors, long hours, and consistent brand expression.", href: "/products/restaurant-chef" },
+  { title: "Spa/Saloons", image: "/images/home-icons-all/featured-images/Spa Image.png", tagline: "Polished uniforms for calm, professional spaces.", desc: "Breathable fabrics and fluid cuts designed for ease of movement and a refined, serene look.", href: "/products/spa" },
+  { title: "Healthcare", image: "/images/home-icons-all/featured-images/Healthcare.png", tagline: "Hygiene-first uniforms made for long shifts.", desc: "Durable, easy-care fabrics with functional design, built for comfort, movement, and everyday reliability.", href: "/products/healthcare" },
+  { title: "Airlines", image: "/images/home-icons-all/featured-images/Airline.png", tagline: "Elegance in motion at 30,000 feet above the sky", desc: "Breathable, enduring uniforms designed to keep every crew member sharp from check-in to touchdown.", href: "/products/airline" },
+  { title: "Corporate", image: "/images/home-icons-all/featured-images/Corporate Image.png", tagline: "Sharp tailoring, around the clock comfort.", desc: "Premium corporate wear built to look composed from meetings to after-hours, without compromise!", href: "/products/corporate" },
+  { title: "Education", image: "/images/home-icons-all/featured-images/School-home.png", tagline: "A smarter uniform for smarter institutions.", desc: "Made for comfort and built for supporting students from classrooms to campus life.", href: "/products/school" },
+]
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Hero Section - Optimized video loading */}
         <section className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden">
           <video
             autoPlay
             loop
             muted
             playsInline
+            preload="metadata"
+            poster="/images/hero-poster.jpg"
             className="absolute inset-0 w-full h-full object-cover z-0"
           >
-            <source src="https://res.cloudinary.com/dluiqgiqj/video/upload/v1769069629/V5_hszso4.mp4" type="video/mp4" />
+            {/* Use optimized video with quality parameter */}
+            <source src="https://res.cloudinary.com/dluiqgiqj/video/upload/q_auto,f_auto/v1769069629/V5_hszso4.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 z-10 bg-black/40"></div>
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
@@ -102,213 +126,79 @@ export default function Home() {
             </AnimateIn>
             <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-40 h-40  flex items-center justify-center mx-auto mb-4">
+                <div className="w-40 h-40 flex items-center justify-center mx-auto mb-4">
                   <Image src="/images/home-icons-all/home-icons/Cost-Effective.svg" alt="Cost-Effective" width={140} height={140} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Cost-Effective</h3>
-                <p className=" text-black">Quality uniforms at competitive prices for all budgets</p>
+                <p className="text-black">Quality uniforms at competitive prices for all budgets</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-40 h-40   flex items-center justify-center mx-auto mb-4">
+                <div className="w-40 h-40 flex items-center justify-center mx-auto mb-4">
                   <Image src="/images/home-icons-all/home-icons/Reliable Service .svg" alt="Custom-Made" width={152} height={152} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Bespoke Solution</h3>
-                <p className=" text-black">Tailored to your exact specifications and requirements</p>
+                <p className="text-black">Tailored to your exact specifications and requirements</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-40 h-40   flex items-center justify-center mx-auto mb-4">
+                <div className="w-40 h-40 flex items-center justify-center mx-auto mb-4">
                   <Image src="/images/home-icons-all/home-icons/Premium Quality.svg" alt="Premium Quality" width={150} height={150} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Premium Quality</h3>
-                <p className=" text-black">Premium fabrics and expert craftsmanship in every piece</p>
+                <p className="text-black">Premium fabrics and expert craftsmanship in every piece</p>
               </div>
               <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-40 h-40   flex items-center justify-center mx-auto mb-4">
+                <div className="w-40 h-40 flex items-center justify-center mx-auto mb-4">
                   <Image src="/images/home-icons-all/home-icons/Bespoke Solution .svg" alt="Bespoke Solution" width={150} height={150} loading="lazy" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-[#306f34]">Reliable Services</h3>
-                <p className=" text-black">Reliable and punctual delivery to meet your deadlines</p>
+                <p className="text-black">Reliable and punctual delivery to meet your deadlines</p>
               </div>
             </AnimateInStagger>
           </div>
         </section>
     
        
-   {/* Featured Products */}
+   {/* Featured Products - Optimized with mapped data */}
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6">
             <AnimateIn>
               <div className="flex flex-col md:flex-row justify-between items-center mb-12 pl-6">
                 <h2 className="text-3xl text-[#2e7d32] font-bold">Industry Served </h2>
-               
               </div>
             </AnimateIn>
             <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              
-              {/* Hotels */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Hotels.png" alt="Hotels" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Hotels</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Hotels</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">Uniforms that elevate every guest interaction.</p>
-                    <p className="text-white/80 text-sm mb-4">Tailored for comfort, durability, and brand presence, so your team looks poised through every shift.</p>
-                    <Link href="/products/hospitality" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Food Production */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Food Production.png" alt="Food Production" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Food Production</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Food Production</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">Refined for discipline. Designed for distinction.</p>
-                    <p className="text-white/80 text-sm mb-4">Designed for controlled environments and strict hygiene standards offering comfort, durability, and a polished professional look..</p>
-                    <Link href="/products/restaurant-chef" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
+              {featuredProducts.map((product, index) => (
+                <div key={product.title} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <Image 
+                      src={product.image} 
+                      alt={product.title} 
+                      fill 
+                      className="object-cover transition-transform duration-300 group-hover:scale-110" 
+                      loading={index < 4 ? "eager" : "lazy"}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
+                      <h3 className="text-white text-xl font-bold">{product.title}</h3>
+                    </div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                      <h3 className="text-white text-xl font-bold mb-2">{product.title}</h3>
+                      <p className="text-white/90 text-sm mb-1 font-bold">{product.tagline}</p>
+                      <p className="text-white/80 text-sm mb-4">{product.desc}</p>
+                      <Link href={product.href} className="text-white font-medium hover:underline">
+                        Learn More →
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Restaurants & Bars */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Food Service.png" alt="Food Service" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Food Service</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Food Service</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">Built for service. Styled for impact.</p>
-                    <p className="text-white/80 text-sm mb-4">Performance-driven uniforms designed for fast-paced floors, long hours, and consistent brand expression.</p>
-                    <Link href="/products/restaurant-chef" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Spa/Saloons */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Spa Image.png" alt="Spa/Saloons" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Spa/Saloons</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Spa/Saloons</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">Polished uniforms for calm, professional spaces.</p>
-                    <p className="text-white/80 text-sm mb-4">Breathable fabrics and fluid cuts designed for ease of movement and a refined, serene look.</p>
-                    <Link href="/products/spa" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Healthcare */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Healthcare.png" alt="Healthcare" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Healthcare</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Healthcare</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">Hygiene-first uniforms made for long shifts.</p>
-                    <p className="text-white/80 text-sm mb-4">Durable, easy-care fabrics with functional design, built for comfort, movement, and everyday reliability.</p>
-                    <Link href="/products/healthcare" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Airlines */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Airline.png" alt="Airlines" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Airlines</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Airlines</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">Elegance in motion at 30,000 feet above the sky</p>
-                    <p className="text-white/80 text-sm mb-4">Breathable, enduring uniforms designed to keep every crew member sharp from check-in to touchdown.</p>
-                    <Link href="/products/airline" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Corporate */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/Corporate Image.png" alt="Corporate" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Corporate</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Corporate</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">Sharp tailoring, around the clock comfort.</p>
-                    <p className="text-white/80 text-sm mb-4">Premium corporate wear built to look composed from meetings to after-hours, without compromise!</p>
-                    <Link href="/products/corporate" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Education */}
-              <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <Image src="/images/home-icons-all/featured-images/School-home.png" alt="Education" fill className="object-cover transition-transform duration-300 group-hover:scale-110" loading="lazy" />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                    <h3 className="text-white text-xl font-bold">Education</h3>
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <h3 className="text-white text-xl font-bold mb-2">Education</h3>
-                    <p className="text-white/90 text-sm mb-1 font-bold">A smarter uniform for smarter institutions.</p>
-                    <p className="text-white/80 text-sm mb-4">Made for comfort and built for supporting students from classrooms to campus life.</p>
-                    <Link href="/products/school" className="text-white font-medium hover:underline">
-                      Learn More →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
+              ))}
             </AnimateInStagger>
           </div>
         </section>  
- {/* Statistics Section */}
+
+        {/* Statistics Section */}
         <section className="py-16 bg-neutral-50">
           <div className="container px-4 md:px-6 ">
             <AnimateIn>
@@ -347,8 +237,10 @@ export default function Home() {
         </section>
 
      
-    {/* Testimonials Section */}
-    <TestimonialsPage />
+    {/* Testimonials Section - Dynamically loaded */}
+    <Suspense fallback={<div className="h-[600px] bg-neutral-50" />}>
+      <TestimonialsPage />
+    </Suspense>
 
     {/* Mission Section */}
     <section className="py-16 bg-white">
