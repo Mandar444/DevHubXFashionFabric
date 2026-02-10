@@ -83,8 +83,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <AnimateIn>
               <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-md">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">25</div>
-                  <div className="text-xs font-semibold text-gray-500">DEC</div>
+                  <div className="text-2xl font-bold text-black">25</div>
+                  <div className="text-xs font-semibold text-black">DEC</div>
                 </div>
               </div>
             </AnimateIn>
@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
                     {blogPost.title}
                   </h1>
-                  <div className="flex items-center gap-4 text-sm text-gray-600 mt-4">
+                  <div className="flex items-center gap-4 text-sm text-black mt-4">
                     <span className="font-semibold">{blogPost.category}</span>
                     <span>/</span>
                     <span>by {blogPost.author}</span>
@@ -136,7 +136,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="max-w-4xl mx-auto">
               {/* Article Content */}
               <AnimateIn delay={0.2}>
-                <article className="text-gray-700 text-lg leading-relaxed space-y-6">
+                <article className="text-black text-lg leading-relaxed space-y-6">
                   {blogPost.content.split('\n').map((line: string, index: number) => {
                     const trimmedLine = line.trim()
 
@@ -173,7 +173,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             />
                           </div>
                           {alt && (
-                            <p className="text-sm text-gray-500 text-center mt-2 italic">
+                            <p className="text-sm text-black text-center mt-2 italic">
                               {alt}
                             </p>
                           )}
@@ -183,7 +183,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                     // Regular paragraph
                     return (
-                      <p key={index} className="text-gray-600">
+                      <p key={index} className="text-black">
                         {line}
                       </p>
                     )
@@ -194,7 +194,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {/* Share Section */}
               <AnimateIn delay={0.3}>
                 <div className="mt-12 pt-8 border-t border-gray-200">
-                  <h3 className="text-lg font-semibold mb-4 text-gray-800">Share this article</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-black">Share this article</h3>
                   <div className="flex gap-4">
                     <Button
                       variant="outline"
@@ -246,7 +246,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               {relatedPosts.length > 0 && (
                 <AnimateIn delay={0.4}>
                   <div className="mt-12 pt-8 border-t border-gray-200">
-                    <h3 className="text-2xl font-bold mb-6 text-gray-800">Related Articles</h3>
+                    <h3 className="text-2xl font-bold mb-6 text-black">Related Articles</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {relatedPosts.map((post) => (
                         <Link key={post.id} href={`/blog/${post.slug}`} className="group">
@@ -260,10 +260,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                               />
                             </div>
                             <div className="p-4">
-                              <h4 className="font-semibold text-gray-800 group-hover:text-[#2e7d32] transition-colors line-clamp-2">
+                              <h4 className="font-semibold text-black group-hover:text-[#2e7d32] transition-colors line-clamp-2">
                                 {post.title}
                               </h4>
-                              <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                              <p className="text-sm text-black mt-2 line-clamp-2">
                                 {post.excerpt}
                               </p>
                             </div>

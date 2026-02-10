@@ -75,10 +75,10 @@ export default function SchoolUniformPage() {
      </div>
 
       {/* What We're Built On Section */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-4 md:py-8 bg-white">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black text-left mb-12 md:mb-16">
+            <h2 className="text-3xl  font-bold text-black text-left mb-6 md:mb-8">
               What We're Built On
             </h2>
             
@@ -98,7 +98,7 @@ export default function SchoolUniformPage() {
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Premium Fabric
                   </h3>
-                  <p className="text-gray-700 text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
                     Carefully sourced materials tested for durability and comfort
                   </p>
                 </div>
@@ -119,7 +119,7 @@ export default function SchoolUniformPage() {
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Precision Fit
                   </h3>
-                  <p className="text-gray-700 text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
                     Patterned and fitted to move with your team, not restrict them
                   </p>
                 </div>
@@ -140,7 +140,7 @@ export default function SchoolUniformPage() {
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Reliable Fulfilment
                   </h3>
-                  <p className="text-gray-700 text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
                     On-time production, quality checks, and nationwide delivery
                   </p>
                 </div>
@@ -161,7 +161,7 @@ export default function SchoolUniformPage() {
                   <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
                     Responsible Sourcing
                   </h3>
-                  <p className="text-gray-700 text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
                     Carefully sourced materials tested for durability and comfort
                   </p>
                 </div>
@@ -172,10 +172,10 @@ export default function SchoolUniformPage() {
       </section>
 
       {/* Why Partner With Us Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-4 md:py-8 bg-gradient-to-b from-white to-gray-50">
         <div className="container px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] text-left mb-12 md:mb-16">
+            <h2 className="text-3xl  font-bold text-[#2e7d32] text-left mb-12 md:mb-16">
               Why Partner With Us
             </h2>
             
@@ -349,7 +349,7 @@ export default function SchoolUniformPage() {
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-4 md:mb-6">
                     Ready to Elevate Your Team's Look?
                   </h2>
-                  <p className="text-lg md:text-xl text-gray-700 mb-6 md:mb-8 leading-relaxed">
+                  <p className="text-lg md:text-xl text-black mb-6 md:mb-8 leading-relaxed">
                     Schedule a personalized demo call with our uniform experts. We'll discuss your specific needs, 
                     show you our customization options, and create a solution that perfectly fits your school's brand.
                   </p>
@@ -379,7 +379,7 @@ export default function SchoolUniformPage() {
         <div className="container px-4 md:px-6">
           <AnimateIn>
             <div className="pl-4 sm:pl-6 md:pl-10 mb-8 md:mb-16">
-              <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-3 md:mb-4">
+              <h2 className="text-3xl   font-bold text-black mb-3 md:mb-4">
                 Frequently Asked Questions
               </h2>
               
@@ -443,7 +443,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       >
         <div className="px-4 md:px-6 lg:px-8 pb-4 md:pb-6 pt-2">
           <div className="w-10 md:w-12 h-0.5 bg-[#2e7d32] mb-3 md:mb-4 rounded-full"></div>
-          <p className="text-neutral-700 leading-relaxed text-sm md:text-base">{answer}</p>
+          <p className="text-black leading-relaxed text-sm md:text-base">{answer}</p>
         </div>
       </div>
     </div>

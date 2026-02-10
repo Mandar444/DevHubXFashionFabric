@@ -223,7 +223,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-[#2e7d32]  mb-12 pl-6">Trusted By Leading Hospitality Brands</h2>
             </AnimateIn>
             <AnimateIn>
-              <InfiniteLogoScroll clients={clients} speed={60} />
+              <InfiniteLogoScroll clients={clients} speed={60} logoSize={160} />
             </AnimateIn>
             <AnimateIn delay={0.5}>
               <div className="text-center mt-8">

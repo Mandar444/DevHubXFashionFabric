@@ -199,7 +199,7 @@ export default function CatalogueDownloadPage() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-amber-700 mx-auto mb-4" />
+          <Loader2 className="w-12 h-12 animate-spin text-[#2e7d32] mx-auto mb-4" />
           <p className="text-neutral-600">Loading catalogue...</p>
         </div>
       </div>
@@ -232,7 +232,7 @@ export default function CatalogueDownloadPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+              <div className="inline-block bg-[#2e7d32] text-white text-xs font-semibold px-3 py-1 rounded-full mb-3">
                 {catalogue.category}
               </div>
               <h2 className="text-xl font-bold mb-2">{catalogue.title}</h2>
@@ -336,7 +336,7 @@ export default function CatalogueDownloadPage() {
                         type="button"
                         onClick={handleVerifyOtp}
                         disabled={isVerifyingOtp || otp.length !== 6}
-                        className="bg-amber-700 hover:bg-amber-800"
+                        className="bg-[#2e7d32] hover:bg-[#2e7d32]"
                       >
                         {isVerifyingOtp ? (
                           <Loader2 className="w-4 h-4 animate-spin" />
@@ -416,11 +416,11 @@ export default function CatalogueDownloadPage() {
                 {/* 
                 {/* Verification Message */}
                 {!otpVerified && (
-                  <div className="flex items-start gap-2 text-sm text-amber-700 bg-amber-50 p-3 rounded-md">
+                  <div className="flex items-start gap-2 text-sm text-[#2e7d32] bg-[#2e7d32]50 p-3 rounded-md">
                     <Shield className="w-5 h-5 flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold">Email Verification Required</p>
-                      <p className="text-amber-600">Please verify your email address to download catalogues.</p>
+                      <p className="text-black">Please verify your email address to download catalogues.</p>
                     </div>
                   </div>
                 )}
@@ -437,7 +437,7 @@ export default function CatalogueDownloadPage() {
                 <Button
                   type="submit"
                   disabled={!otpVerified || isSubmitting}
-                  className="w-full bg-amber-700 hover:bg-amber-800 text-white py-6 text-lg font-semibold"
+                  className="w-full bg-[#2e7d32] hover:bg-[#2e7d32] text-white py-6 text-lg font-semibold"
                 >
                   {isSubmitting ? (
                     <>
@@ -451,7 +451,7 @@ export default function CatalogueDownloadPage() {
                   )}
                 </Button>
 
-                <p className="text-xs text-neutral-500 text-center">
+                <p className="text-xs text-black text-center">
                   * Required fields. Your information will be kept confidential.
                 </p>
               </form>

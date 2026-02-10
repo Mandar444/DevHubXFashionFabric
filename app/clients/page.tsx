@@ -68,7 +68,7 @@ export default function ClientsPage() {
               </h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
-              <p className="max-w-[800px] text-lg text-white/90">Trusted by the leading hospitality brands</p>
+              <p className="max-w-[800px] text-lg text-white/90">Trusted by the leading brand</p>
             </AnimateIn>
           </div>
         </section>
@@ -109,37 +109,50 @@ export default function ClientsPage() {
           </div>
         </section>
 
-        {/* Testimonial Preview */}
-        <section className="py-16 bg-neutral-50">
-          <div className="container px-4 md:px-6 text-center ">
-            <AnimateIn>
-              <h2 className="text-3xl font-bold mb-12 text-[#2e7d32]">What Our Clients Say</h2>
-            </AnimateIn>
-            <AnimateIn direction="up" delay={0.3}>
-              <div className="max-w-[800px] mx-auto bg-white p-8 rounded-lg shadow-sm">
-                <div className="flex justify-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-6 h-6 fill-yellow-400"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+        {/* Testimonial Section - Formatted like Mission Layout */}
+        <section className="py-16 bg-white">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center max-w-6xl mx-auto">
+              <AnimateIn className="md:w-1/3 md:pl-12">
+                <h2 className="text-3xl flex font-bold text-[#2e7d32] leading-tight">What Our<br />Clients Say</h2>
+              </AnimateIn>
+            
+              <AnimateIn delay={0.2} className="md:w-2/3">
+                   <div className="bg-[#306f34] p-6 rounded-2xl shadow-lg relative flex flex-col md:flex-row items-center gap-6">
+                   <div className="flex-1">
+                      <div className="flex gap-1 mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-5 h-5 fill-yellow-400"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <p className="text-lg text-white leading-relaxed italic mb-4">
+                        "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of fabrics, and timely delivery have made them an invaluable asset to our operations. The staff uniforms they provide perfectly represent our brand image."
+                      </p>
+                      <div>
+                        <p className="font-semibold text-white">Hotel Manager</p>
+                        <p className="text-sm text-white/80">5-Star Hotel in Goa</p>
+                      </div>
+                   </div>
+                   
+                   <div className="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center p-4">
+                      <Image 
+                        src="/images/testimonieals/Untitled-4_Hotel Manager.svg" 
+                        alt="Generic Hotel Manager" 
+                        width={150}
+                        height={150}
+                        className="object-contain"
+                      />
+                   </div>
                 </div>
-                <p className="text-black italic mb-6">
-                  "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of
-                  fabrics, and timely delivery have made them an invaluable asset to our operations. The staff uniforms
-                  they provide perfectly represent our brand image."
-                </p>
-                <div>
-                  <p className="font-semibold">Hotel Manager</p>
-                  <p className="text-sm text-neutral-500">5-Star Hotel in Goa</p>
-                </div>
-              </div>
-            </AnimateIn>
+              </AnimateIn>
+            </div>
           </div>
         </section>
       </main>

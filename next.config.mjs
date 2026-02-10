@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'hpqtiqghtoslqkgtbqdp.supabase.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i0.wp.com',
+      },
     ],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days cache
   },

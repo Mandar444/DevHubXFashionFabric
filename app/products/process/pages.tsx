@@ -49,7 +49,7 @@ export default function EndToEndProcess() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl text-black font-bold mb-12">
+        <h2 className="text-3xl  text-black font-bold mb-12">
           Our End-to-End Process
         </h2>
 
@@ -80,7 +80,7 @@ export default function EndToEndProcess() {
               </h3>
 
               {/* Description */}
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-sm text-black leading-relaxed">
                 {step.desc}
               </p>
             </div>

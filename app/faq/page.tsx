@@ -176,7 +176,7 @@ export default function FAQPage() {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3 sm:mb-4 md:mb-5">
               Frequently Asked Questions
             </h1>
-            <div className="w-24 sm:w-32 h-1.5 bg-[#2e7d32] mx-auto rounded-full mb-4"></div>
+           
           </AnimateIn>
           <AnimateIn delay={0.2}>
             <p className="max-w-[800px] text-sm sm:text-base md:text-lg text-white/95 px-2 leading-relaxed">
@@ -193,10 +193,10 @@ export default function FAQPage() {
             <div key={sectionIndex} className="mb-12 sm:mb-14 md:mb-16">
               <AnimateIn>
                 <div className=" mb-8 sm:mb-10 md:mb-12">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2e7d32] mb-3 sm:mb-4">
+                  <h2 className={`text-3xl font-bold mb-3 ${sectionIndex % 2 === 0 ? 'text-[#2e7d32]' : 'text-black'}`}>
                     {section.title}
                   </h2>
-                  <div className="w-20 sm:w-24 h-1 bg-[#2e7d32] rounded-full"></div>
+                 
                 </div>
               </AnimateIn>
               <div className="space-y-3 sm:space-y-4">
@@ -211,7 +211,7 @@ export default function FAQPage() {
                           onClick={() => toggleItem(sectionIndex, itemIndex)}
                           className="w-full px-4 sm:px-5 md:px-6 py-4 sm:py-5 md:py-6 bg-gradient-to-r from-white to-gray-50 hover:from-[#2e7d32]/5 hover:to-[#2e7d32]/10 transition-all duration-300 flex items-center justify-between text-left gap-2 group"
                         >
-                          <span className="font-semibold text-neutral-800 group-hover:text-[#2e7d32] text-sm sm:text-base md:text-lg pr-2 transition-colors">
+                          <span className="font-semibold text-black group-hover:text-[#2e7d32] text-sm sm:text-base md:text-lg pr-2 transition-colors">
                             {item.question}
                           </span>
                           <div className="bg-[#2e7d32]/10 group-hover:bg-[#2e7d32]/20 rounded-full p-1.5 transition-colors">
@@ -224,7 +224,7 @@ export default function FAQPage() {
                         </button>
                         {isOpen && (
                           <div className="px-4 sm:px-5 md:px-6 py-5 sm:py-6 bg-gradient-to-br from-white to-gray-50 border-t-2 border-[#2e7d32]/10">
-                            <div className="text-neutral-700 leading-relaxed text-sm sm:text-base pl-3 border-l-4 border-[#2e7d32]">
+                            <div className="text-black leading-relaxed text-sm sm:text-base pl-3 border-l-4 border-[#2e7d32]">
                               {item.answer}
                             </div>
                           </div>
@@ -240,18 +240,14 @@ export default function FAQPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 bg-gradient-to-b from-[#2e7d32]/5 to-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-72 h-72 bg-[#2e7d32] rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#2e7d32] rounded-full blur-3xl"></div>
-        </div>
+      <section className="py-12 sm:py-16 md:py-20 px-4 bg-white relative overflow-hidden">
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <AnimateIn>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5 text-[#2e7d32]">
+            <h2 className="text-3xl font-bold mb-4 sm:mb-5 text-[#2e7d32]">
               Still Have Questions?
             </h2>
-            <div className="w-20 sm:w-24 h-1 bg-[#2e7d32] mx-auto rounded-full mb-6 sm:mb-8"></div>
-            <p className="text-base sm:text-lg text-neutral-700 mb-8 sm:mb-10 px-2 max-w-2xl mx-auto">
+          
+            <p className="text-base sm:text-lg text-black mb-8 sm:mb-10 px-2 max-w-2xl mx-auto">
               We're here to help! Contact our team for personalized assistance with your uniform requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-2">
@@ -260,12 +256,6 @@ export default function FAQPage() {
                 className="inline-flex items-center justify-center px-8 sm:px-10 py-4 bg-[#2e7d32] text-white text-sm sm:text-base font-semibold rounded-xl shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
               >
                 Get in Touch
-              </Link>
-              <Link
-                href="/catalogue"
-                className="inline-flex items-center justify-center px-8 sm:px-10 py-4 bg-white text-[#2e7d32] text-sm sm:text-base font-semibold rounded-xl border-2 border-[#2e7d32] shadow-lg hover:bg-[#2e7d32] hover:text-white hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
-              >
-                View Our Catalogue
               </Link>
             </div>
           </AnimateIn>

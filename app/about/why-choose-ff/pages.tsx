@@ -100,7 +100,7 @@ export default function WhyChooseFashionFabric() {
             ))}
           </div>
 
-          <p className="text-center text-xs md:text-sm text-black max-w-md px-4">
+            <p className="text-center text-xs md:text-sm text-black max-w-md px-4 font-garamond-pro ">
             Each dot symbolizes a core value in our approach to exceptional
             uniform manufactures
           </p>

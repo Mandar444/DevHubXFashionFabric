@@ -18,7 +18,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        garamond: ["var(--font-garamond)", "Georgia", "serif"],
+        garamond: ["var(--font-garamond)"],
       },
       keyframes: {
         marquee: {

@@ -84,8 +84,8 @@ export default function CataloguePage() {
             {isLoading ? (
               <div className="flex justify-center items-center min-h-[400px]">
                 <div className="text-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-700 mx-auto mb-4"></div>
-                  <p className="text-neutral-600">Loading catalogues...</p>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2e7d32] mx-auto mb-4"></div>
+                  <p className="text-black">Loading catalogues...</p>
                 </div>
               </div>
             ) : error ? (
@@ -101,7 +101,7 @@ export default function CataloguePage() {
               <div className="flex justify-center items-center min-h-[400px]">
                 <div className="text-center">
                   <FileText className="w-16 h-16 text-neutral-400 mx-auto mb-4" />
-                  <p className="text-neutral-600 text-lg">No catalogues available at the moment.</p>
+                  <p className="text-black text-lg">No catalogues available at the moment.</p>
                 </div>
               </div>
             ) : (
@@ -119,30 +119,30 @@ export default function CataloguePage() {
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                         />
                         {/* Category Badge */}
-                        <div className="absolute top-3 left-3 bg-amber-700 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                        <div className="absolute top-3 left-3 bg-[#2e7d32] text-white text-xs font-semibold px-3 py-1 rounded-full">
                           {catalogue.category}
                         </div>
                       </div>
 
                       {/* Content */}
                       <div className="p-5 flex flex-col flex-1">
-                        <h3 className="text-lg font-bold mb-2 line-clamp-2 group-hover:text-amber-700 transition-colors">
+                        <h3 className="text-lg font-bold mb-2 line-clamp-2 group-hover:text-[#2e7d32] transition-colors">
                           {catalogue.title}
                         </h3>
                         {catalogue.subtitle && (
-                          <p className="text-sm text-neutral-600 mb-4 line-clamp-2">
+                          <p className="text-sm text-black mb-4 line-clamp-2">
                             {catalogue.subtitle}
                           </p>
                         )}
 
                         {/* Description */}
                         {catalogue.description && (
-                          <div className="text-sm text-neutral-600 mb-4">
+                          <div className="text-sm text-black mb-4">
                             <p className="mb-2 font-medium">Inside you'll find:</p>
                             <ul className="space-y-1 text-xs">
                               {catalogue.description.split('\n').filter(line => line.trim()).map((line, idx) => (
                                 <li key={idx} className="flex items-start">
-                                  <span className="text-amber-700 mr-2">•</span>
+                                  <span className="text-[#2e7d32] mr-2">•</span>
                                   <span className="line-clamp-2">{line}</span>
                                 </li>
                               ))}
@@ -182,27 +182,27 @@ export default function CataloguePage() {
               <AnimateIn delay={0.2}>
                 <div className="grid md:grid-cols-3 gap-8 mt-12">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <BookOpen className="w-8 h-8 text-amber-700" />
+                    <div className="w-16 h-16 bg-[#2e7d32] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <BookOpen className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="font-semibold mb-2">Complete Collection</h3>
-                    <p className="text-neutral-600 text-sm">Access our full range of uniform products in one place</p>
+                    <p className="text-black text-sm">Access our full range of uniform products in one place</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-16 h-16 bg-[#2e7d32] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
                     <h3 className="font-semibold mb-2">Detailed Information</h3>
-                    <p className="text-neutral-600 text-sm">Specifications, materials, and sizing details included</p>
+                    <p className="text-black text-sm">Specifications, materials, and sizing details included</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Download className="w-8 h-8 text-amber-700" />
+                    <div className="w-16 h-16 bg-[#2e7d32] rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Download className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="font-semibold mb-2">Easy Access</h3>
-                    <p className="text-neutral-600 text-sm">Download and view offline anytime, anywhere</p>
+                    <p className="text-black text-sm">Download and view offline anytime, anywhere</p>
                   </div>
                 </div>
               </AnimateIn>

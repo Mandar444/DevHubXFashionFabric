@@ -9,12 +9,14 @@ interface Client {
   darkBg?: boolean;
 }
 
+
 interface InfiniteLogoScrollProps {
   clients: Client[];
   speed?: number;
+  logoSize?: number; // px, height of logo
 }
 
-export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollProps) {
+export function InfiniteLogoScroll({ clients, speed = 40, logoSize }: InfiniteLogoScrollProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isPaused, setIsPaused] = useState(false)
 
@@ -23,6 +25,16 @@ export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollPr
     animationDuration: `${speed}s`,
     animationPlayState: isPaused ? 'paused' : 'running',
   } as React.CSSProperties
+
+  // Default sizes
+  const containerW = logoSize ? logoSize * 2 : 200;
+  const containerWmd = logoSize ? Math.round(logoSize * 2.6) : 260;
+  const containerH = logoSize ? logoSize : 100;
+  const containerHmd = logoSize ? Math.round(logoSize * 1.4) : 140;
+  const imgW = logoSize ? logoSize * 2 : 200;
+  const imgH = logoSize ? logoSize : 100;
+  const imgMaxH = logoSize ? logoSize * 0.9 : 90;
+  const imgMaxHmd = logoSize ? logoSize * 1.1 : 110;
 
   return (
     <div 
@@ -39,18 +51,18 @@ export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollPr
         {clients.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
-            className={`flex items-center justify-center mx-6 md:mx-10 w-[200px] md:w-[260px] h-[100px] md:h-[140px] rounded-lg shadow-sm shrink-0 ${
-              client.darkBg ? 'bg-neutral-900' : 'bg-white'
-            }`}
+            className={`flex items-center justify-center mx-6 md:mx-10 rounded-lg shadow-sm shrink-0 ${client.darkBg ? 'bg-neutral-900' : 'bg-white'}`}
+            style={{ width: containerW, height: containerH, minWidth: containerW, minHeight: containerH }}
           >
             <Image
               src={client.logo}
               alt={client.name}
-              width={200}
-              height={100}
-              className="object-contain max-h-[80px] md:max-h-[110px] w-auto"
+              width={imgW}
+              height={imgH}
+              className="object-contain w-auto"
+              style={{ maxHeight: imgMaxH }}
               loading="lazy"
-              sizes="200px"
+              sizes={`${imgW}px`}
             />
           </div>
         ))}
@@ -65,18 +77,18 @@ export function InfiniteLogoScroll({ clients, speed = 40 }: InfiniteLogoScrollPr
         {clients.map((client, index) => (
           <div
             key={`${client.name}-duplicate-${index}`}
-            className={`flex items-center justify-center mx-6 md:mx-10 w-[200px] md:w-[260px] h-[100px] md:h-[140px] rounded-lg shadow-sm shrink-0 ${
-              client.darkBg ? 'bg-neutral-900' : 'bg-white'
-            }`}
+            className={`flex items-center justify-center mx-6 md:mx-10 rounded-lg shadow-sm shrink-0 ${client.darkBg ? 'bg-neutral-900' : 'bg-white'}`}
+            style={{ width: containerW, height: containerH, minWidth: containerW, minHeight: containerH }}
           >
             <Image
               src={client.logo}
               alt=""
-              width={200}
-              height={100}
-              className="object-contain max-h-[80px] md:max-h-[110px] w-auto"
+              width={imgW}
+              height={imgH}
+              className="object-contain w-auto"
+              style={{ maxHeight: imgMaxH }}
               loading="lazy"
-              sizes="200px"
+              sizes={`${imgW}px`}
             />
           </div>
         ))}
