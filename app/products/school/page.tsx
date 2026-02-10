@@ -46,10 +46,10 @@ export default function SchoolUniformPage() {
             {/* Add your text or logo here */}
             <div className="p-4 md:p-8 lg:p-10 flex flex-col justify-center h-full">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-2 md:mb-4">
-                Schools
+               Educational Institutes
               </h2>
               <p className="text-black leading-relaxed text-sm md:text-lg front-medium">
-                We craft durable, high-quality school uniforms that instill pride 
+                We craft durable, high-quality uniforms that instill pride 
                 and belonging. Designed for comfort and everyday wear, our 
                 uniforms maintain their smart appearance wash after wash, 
                 supporting students from classroom to playground.

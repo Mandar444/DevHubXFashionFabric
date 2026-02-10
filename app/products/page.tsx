@@ -6,51 +6,7 @@ import { Button } from "@/components/ui/button"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 
 export default function ProductsPage() {
-  // const categories = [
-  //   { name: "Air Hostess Uniform", image: "/images/catalogue/air-hostess.png" },
-  //   { name: "Bar Tender Uniform", image: "/images/catalogue/bar-tendor.png" },
-  //   { name: "Bow Tie", image: "/images/catalogue/bow.jpg" },
-  //   { name: "Casino Uniform", image: "/images/catalogue/casino-uniform.jpg" },
-  //   { name: "Catering Uniforms", image: "/images/catalogue/catering-uniforms.png" },
-  //   { name: "Chef Accessories", image: "/images/catalogue/CHEF-ACCESSORIES.jpg" },
-  //   { name: "Chef Apron", image: "/images/catalogue/chef-apron.png" },
-  //   { name: "Chef Coats", image: "/images/catalogue/chef-coats.jpg" },
-  //   { name: "Corporate Wear Suit", image: "/images/catalogue/CORPORATE-WEAR-SUIT.png" },
-  //   { name: "Doorman Uniforms", image: "/images/catalogue/DOORMAN-UNIFORMS.png" },
-  //   { name: "Driver Uniforms", image: "/images/catalogue/driver-uniforms.png" },
-  //   { name: "F&B Uniforms", image: "/images/catalogue/f&b-uniforms.png" },
-  //   { name: "Front Office Uniforms", image: "/images/catalogue/FRONT-OFFICE-UNIFORMS.png" },
-  //   { name: "Hospital Uniforms", image: "/images/catalogue/HOSPITAL-UNIFORMS.png" },
-  //   { name: "Security Uniform", image: "/images/catalogue/hotel-security.jpg" },
-  //   { name: "Housekeeping Uniforms", image: "/images/catalogue/HOUSEKEEPING-UNIFORMS.png" },
-  //   { name: "Lab Coats", image: "/images/catalogue/lab-coats.png" },
-  //   { name: "Polo T-shirt", image: "/images/catalogue/polo-tshirt.jpg" },
-  //   { name: "School Uniform", image: "/images/catalogue/school-uniform.png" },
-  //   { name: "Spa Uniforms", image: "/images/catalogue/SPA-UNIFORMS.png" },
-  //   { name: "Tie", image: "/images/catalogue/tie.jpg" },
-  //   { name: "Trousers", image: "/images/catalogue/trousers.jpg" },
-  //   { name: "Round Neck T-shirt", image: "/images/catalogue/uniform-ROUND-NECK-T-SHIRT.jpg" },
-  // ]
 
-  // const menShoes = [
-  //   { name: "Oxford shoes", image: "/images/catalogue/oxford-shoes.webp" },
-  //   { name: "Derby shoes", image: "/images/catalogue/derby-shoes.jpg" },
-  //   { name: "Brogues", image: "/images/catalogue/Brogues.webp" },
-  //   { name: "Monk Straps", image: "/images/catalogue/Monk-Straps.webp" },
-  //   { name: "Loafers", image: "/images/catalogue/Loafers.avif" },
-  //   { name: "Wholecut", image: "/images/catalogue/Wholecut.jpeg" },
-  //   { name: "Chelsea Boots", image: "/images/catalogue/Chelsea.jpg" },
-  // ]
-
-  // const womenShoes = [
-  //   { name: "Classic Pumps", image: "/images/catalogue/Classic-Pumps.jpg" },
-  //   { name: "Ballet Flats", image: "/images/catalogue/Ballet-Flats.jpg" },
-  //   { name: "Moccasins", image: "/images/catalogue/Moccasins.jpg" },
-  // ]
-
-  // const unisexShoes = [
-  //   { name: "Chef clogs", image: "/images/catalogue/Chef-clogs.jpg" },
-  // ]
 
   return (
     <div className="flex flex-col min-h-screen">

@@ -65,13 +65,13 @@ export default function WhyChooseFashionFabric() {
           {values.map((item, index) => (
             <div key={index} className="flex items-start gap-3 md:gap-5">
               {/* Icon */}
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-green-700 flex items-center justify-center flex-shrink-0">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-green-700 flex items-center justify-center flex-shrink-0">
                 <Image
                   src={item.icon}
                   alt={item.title}
                   width={80}
                   height={80}
-                  className={`object-contain ${item.title === "Client-First Approach" ? "w-28 h-28 md:w-32 md:h-32" : "w-14 h-14 md:w-16 md:h-16"}`}
+                  className={`object-contain ${item.title === "Client-First Approach" ? "w-32 h-32 md:w-36 md:h-36" : "w-16 h-16 md:w-20 md:h-20"}`}
                   loading="lazy"
                 />
               </div>

@@ -22,6 +22,7 @@ const hospitalityImages = [
   { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-09.svg", alt: "Hospitality staff uniform 9" },
   { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-10.svg", alt: "Hospitality staff uniform 10" },
   { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-11.svg", alt: "Hospitality staff uniform 11" },
+  {src:"/images/collection-pateners/collection-right-side-images/Hotels/hotels-05.svg", alt: "Hospitality staff uniform 12"},
 ]
 
 export default function HotelUniformPage() {

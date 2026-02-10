@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
+import { motion, AnimatePresence } from "framer-motion"
 
 interface ImageSlideshowProps {
   images: { src: string; alt: string }[]
@@ -10,72 +11,123 @@ interface ImageSlideshowProps {
 
 export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
 
-  // Memoized handlers for better performance
-  const goToNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % images.length)
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+  }
+
+  const swipeConfidenceThreshold = 10000
+  const swipePower = (offset: number, velocity: number) => {
+    return Math.abs(offset) * velocity
+  }
+
+  const paginate = useCallback((newDirection: number) => {
+    setDirection(newDirection)
+    setCurrentIndex((prev) => {
+      let nextIndex = prev + newDirection
+      if (nextIndex < 0) nextIndex = images.length - 1
+      if (nextIndex >= images.length) nextIndex = 0
+      return nextIndex
+    })
   }, [images.length])
 
-  const goToPrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
-  }, [images.length])
-
-  const goToSlide = useCallback((index: number) => {
+  const goToSlide = (index: number) => {
+    setDirection(index > currentIndex ? 1 : -1)
     setCurrentIndex(index)
-  }, [])
+  }
 
   useEffect(() => {
-    if (isHovered) return // Pause on hover
+    if (isHovered) return
     
-    const interval = setInterval(goToNext, autoPlayInterval)
+    const interval = setInterval(() => {
+      paginate(1)
+    }, autoPlayInterval)
+    
     return () => clearInterval(interval)
-  }, [goToNext, autoPlayInterval, isHovered])
+  }, [isHovered, autoPlayInterval, paginate])
 
-  // Preload next image for smoother transitions
+  // Preload next image
   const nextIndex = (currentIndex + 1) % images.length
 
   return (
     <div 
-      className="relative"
+      className="relative group h-[500px] md:h-[650px] lg:h-[750px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Main Image Container */}
-      <div className="relative h-[500px] md:h-[650px] lg:h-[750px] rounded-2xl overflow-hidden shadow-xl bg-white">
-        {images.map((image, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
-            aria-hidden={index !== currentIndex}
+      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl bg-white">
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          <motion.div
+            key={currentIndex}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={1}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x)
+
+              if (swipe < -swipeConfidenceThreshold) {
+                paginate(1)
+              } else if (swipe > swipeConfidenceThreshold) {
+                paginate(-1)
+              }
+            }}
+            className="absolute inset-0 w-full h-full"
           >
             <Image
-              src={image.src}
-              alt={image.alt}
+              src={images[currentIndex].src}
+              alt={images[currentIndex].alt}
               fill
               className="object-contain p-4"
-              priority={index === 0}
-              loading={index === 0 ? "eager" : "lazy"}
+              priority={currentIndex === 0} // Only priority for initial load
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
             />
-          </div>
-        ))}
+          </motion.div>
+        </AnimatePresence>
         
-        {/* Preload next image */}
-        <link
-          rel="preload"
-          as="image"
-          href={images[nextIndex]?.src}
-        />
+        {/* Preload next image logic using Next.js Image logic is a bit tricky with dynamic imports, 
+            but we can use a hidden image or link tag if needed. 
+            However, with AnimatePresence, the new image mounts as the old one exits. 
+        */}
+         <div className="hidden">
+           <Image 
+             src={images[nextIndex]?.src || ""}
+             alt="preload"
+             width={1}
+             height={1}
+             priority
+           />
+         </div>
       </div>
 
-      {/* Navigation Arrows (visible on hover) */}
+      {/* Navigation Arrows */}
       <button
-        onClick={goToPrev}
+        onClick={() => paginate(-1)}
         className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
-          isHovered ? "opacity-100" : "opacity-0"
+           "opacity-0 group-hover:opacity-100"
         }`}
         aria-label="Previous image"
       >
@@ -85,9 +137,9 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
       </button>
       
       <button
-        onClick={goToNext}
+        onClick={() => paginate(1)}
         className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
-          isHovered ? "opacity-100" : "opacity-0"
+           "opacity-0 group-hover:opacity-100"
         }`}
         aria-label="Next image"
       >
@@ -97,15 +149,15 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
       </button>
 
       {/* Navigation Dots */}
-      <div className="flex justify-center gap-2 mt-4">
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-3 rounded-full transition-all duration-300 ${
+            className={`h-3 rounded-full transition-all duration-300 shadow-sm ${
               index === currentIndex
                 ? "bg-[#2e7d32] w-8"
-                : "bg-gray-300 hover:bg-gray-400 w-3"
+                : "bg-gray-300/80 hover:bg-gray-400 w-3"
             }`}
             aria-label={`Go to image ${index + 1}`}
             aria-current={index === currentIndex}
@@ -115,3 +167,4 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
     </div>
   )
 }
+

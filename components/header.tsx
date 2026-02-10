@@ -22,7 +22,7 @@ export default function Header() {
   { name: "Healthcare", href: "/products/healthcare" },
   { name: "Airline", href: "/products/airline" },
   { name: "Corporate", href: "/products/corporate" },
-  { name: "Schools", href: "/products/school" },
+  { name: "Educational Institutes", href: "/products/school" },
 ];
 
 

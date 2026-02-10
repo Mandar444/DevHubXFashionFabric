@@ -141,15 +141,7 @@ export default function ClientsPage() {
                       </div>
                    </div>
                    
-                   <div className="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0 bg-white/10 rounded-full flex items-center justify-center p-4">
-                      <Image 
-                        src="/images/testimonieals/Untitled-4_Hotel Manager.svg" 
-                        alt="Generic Hotel Manager" 
-                        width={150}
-                        height={150}
-                        className="object-contain"
-                      />
-                   </div>
+                  
                 </div>
               </AnimateIn>
             </div>
