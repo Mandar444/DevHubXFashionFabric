@@ -21,8 +21,8 @@ export default function SchoolUniformPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
  {/* School Section Banner */}   
- <div className="flex justify-center px-2 sm:px-4 md:px-8 lg:px-12 mb-8 md:mb-12 pt-6 md:pt-10">
-  <div className="relative w-full max-w-7xl min-h-[650px] sm:min-h-[550px] md:min-h-[600px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
+ <div className="flex justify-center px-2 sm:px-4 md:px-8 lg:px-12 mb-6 sm:mb-8 md:mb-12 pt-4 sm:pt-6 md:pt-10">
+  <div className="relative w-full max-w-7xl min-h-[520px] sm:min-h-[550px] md:min-h-[600px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
         
         {/* Layered Waves Logic */}
         {/* We use absolute positioning and skew/rotate to mimic the organic flow */}
@@ -40,15 +40,15 @@ export default function SchoolUniformPage() {
           <div className="absolute right-0 bottom-0 w-64 h-64 bg-[#8ed97d] rounded-full blur-3xl opacity-40"></div>
         </div>
 
-        <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-start md:items-center justify-between px-3 sm:px-4 md:px-16 pt-6 md:pt-0 gap-4 md:gap-12">
+        <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-start md:items-center justify-between px-3 sm:px-4 md:px-16 pt-4 sm:pt-6 md:pt-0 gap-3 sm:gap-4 md:gap-12">
           {/* Content Area (The White Box) */}
-          <div className="w-full sm:w-11/12 md:w-2/5 h-auto md:h-[75%] bg-white rounded-tr-[50px] sm:rounded-tr-[80px] rounded-bl-[30px] sm:rounded-bl-[40px] rounded-tl-[15px] sm:rounded-tl-[20px] rounded-br-[15px] sm:rounded-br-[20px] shadow-lg">
+          <div className="w-[95%] sm:w-11/12 md:w-2/5 h-auto md:h-[75%] bg-white rounded-tr-[40px] sm:rounded-tr-[80px] rounded-bl-[25px] sm:rounded-bl-[40px] rounded-tl-[12px] sm:rounded-tl-[20px] rounded-br-[12px] sm:rounded-br-[20px] shadow-lg mx-auto md:mx-0">
             {/* Add your text or logo here */}
-            <div className="p-4 md:p-8 lg:p-10 flex flex-col justify-center h-full">
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-2 md:mb-4">
+            <div className="p-4 sm:p-5 md:p-8 lg:p-10 flex flex-col justify-center h-full">
+              <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-1 sm:mb-2 md:mb-4">
                Educational Institutes
               </h2>
-              <p className="text-black leading-relaxed text-sm md:text-lg front-medium">
+              <p className="text-black leading-relaxed text-xs sm:text-sm md:text-lg front-medium">
                 We craft durable, high-quality uniforms that instill pride 
                 and belonging. Designed for comfort and everyday wear, our 
                 uniforms maintain their smart appearance wash after wash, 
@@ -58,7 +58,7 @@ export default function SchoolUniformPage() {
           </div>
 
           {/* Image on Right Side */}
-          <div className="w-full md:w-3/5 h-[280px] sm:h-[320px] md:h-full flex items-end justify-center md:justify-end">
+          <div className="w-full md:w-3/5 h-[220px] sm:h-[300px] md:h-full flex items-end justify-center md:justify-end">
             <div className="relative w-full h-full flex items-end justify-center md:justify-end">
               <Image
                 src="/images/collections-images/School.png"
@@ -76,29 +76,29 @@ export default function SchoolUniformPage() {
 
       {/* What We're Built On Section */}
       <section className="py-4 md:py-8 bg-white">
-        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="container px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl  font-bold text-black text-left mb-6 md:mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-black text-left mb-4 sm:mb-6 md:mb-8">
               What We're Built On
             </h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
               {/* Premium Fabric */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                  <div className="mb-6">
+                <div className="h-full p-3 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-3 sm:mb-4 md:mb-6">
                     <Image
                       src="/images/collections-images/built-on-icons/Icons-07 1.svg"
                       alt="Premium Fabric"
                       width={100}
                       height={100}
-                      className="w-20 h-20 md:w-24 md:h-24"
+                      className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
                     />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
+                  <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-[#2e7d32] text-center mb-2 sm:mb-3 md:mb-4">
                     Premium Fabric
                   </h3>
-                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-xs sm:text-sm md:text-base hidden sm:block">
                     Carefully sourced materials tested for durability and comfort
                   </p>
                 </div>
@@ -106,20 +106,20 @@ export default function SchoolUniformPage() {
 
               {/* Precision Fit */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                  <div className="mb-6">
+                <div className="h-full p-3 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-3 sm:mb-4 md:mb-6">
                     <Image
                       src="/images/collections-images/built-on-icons/Icons-08 1.svg"
                       alt="Precision Fit"
                       width={100}
                       height={100}
-                      className="w-20 h-20 md:w-24 md:h-24"
+                      className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
                     />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
+                  <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-[#2e7d32] text-center mb-2 sm:mb-3 md:mb-4">
                     Precision Fit
                   </h3>
-                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-xs sm:text-sm md:text-base hidden sm:block">
                     Patterned and fitted to move with your team, not restrict them
                   </p>
                 </div>
@@ -127,20 +127,20 @@ export default function SchoolUniformPage() {
 
               {/* Reliable Fulfilment */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                  <div className="mb-6">
+                <div className="h-full p-3 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-3 sm:mb-4 md:mb-6">
                     <Image
                       src="/images/collections-images/built-on-icons/Icons-09 1.svg"
                       alt="Reliable Fulfilment"
                       width={100}
                       height={100}
-                      className="w-20 h-20 md:w-24 md:h-24"
+                      className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
                     />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
+                  <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-[#2e7d32] text-center mb-2 sm:mb-3 md:mb-4">
                     Reliable Fulfilment
                   </h3>
-                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-xs sm:text-sm md:text-base hidden sm:block">
                     On-time production, quality checks, and nationwide delivery
                   </p>
                 </div>
@@ -148,20 +148,20 @@ export default function SchoolUniformPage() {
 
               {/* Responsible Sourcing */}
               <div className="group hover:scale-105 transition-transform duration-300">
-                <div className="h-full p-6 md:p-8 rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
-                  <div className="mb-6">
+                <div className="h-full p-3 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl border-2 border-[#2e7d32] bg-gradient-to-br from-gray-50 to-white shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col items-center">
+                  <div className="mb-3 sm:mb-4 md:mb-6">
                     <Image
                       src="/images/collections-images/built-on-icons/Icons-10 1.svg"
                       alt="Responsible Sourcing"
                       width={100}
                       height={100}
-                      className="w-20 h-20 md:w-24 md:h-24"
+                      className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
                     />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-[#2e7d32] text-center mb-4">
+                  <h3 className="text-sm sm:text-lg md:text-xl lg:text-2xl font-bold text-[#2e7d32] text-center mb-2 sm:mb-3 md:mb-4">
                     Responsible Sourcing
                   </h3>
-                  <p className="text-black text-center leading-relaxed text-sm md:text-base">
+                  <p className="text-black text-center leading-relaxed text-xs sm:text-sm md:text-base hidden sm:block">
                     Carefully sourced materials tested for durability and comfort
                   </p>
                 </div>
@@ -173,34 +173,34 @@ export default function SchoolUniformPage() {
 
       {/* Why Partner With Us Section */}
       <section className="py-4 md:py-8 bg-gradient-to-b from-white to-gray-50">
-        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="container px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <h2 className="text-3xl  font-bold text-[#2e7d32] text-left mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#2e7d32] text-left mb-6 sm:mb-8 md:mb-12 lg:mb-16">
               Why Partner With Us
             </h2>
             
-            <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
+            <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 md:gap-12 items-start">
               {/* Left Side - Content Cards */}
-              <div className="w-full lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                 {/* Dedicated Concierge */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-4 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-01 1.svg"
                           alt="Dedicated Concierge"
                           width={40}
                           height={40}
-                          className="w-9 h-9 md:w-10 md:h-10"
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold">
+                      <h3 className="text-base sm:text-lg md:text-2xl font-bold">
                         Dedicated Concierge
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm md:text-base">
+                    <p className="leading-relaxed text-xs sm:text-sm md:text-base">
                       A single expert point of contact ensuring clarity consistency personalised service
                     </p>
                   </div>
@@ -208,23 +208,23 @@ export default function SchoolUniformPage() {
 
                 {/* Flexible Quantities */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-4 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-02 1.svg"
                           alt="Flexible Quantities"
                           width={40}
                           height={40}
-                          className="w-9 h-9 md:w-10 md:h-10"
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold">
+                      <h3 className="text-base sm:text-lg md:text-2xl font-bold">
                         Flexible Quantities
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm md:text-base">
+                    <p className="leading-relaxed text-xs sm:text-sm md:text-base">
                       Single uniforms for new hires, small replenishments for occasions to large replacements for entire teams
                     </p>
                   </div>
@@ -232,23 +232,23 @@ export default function SchoolUniformPage() {
 
                 {/* Turnaround Time */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-4 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-03 1.svg"
                           alt="Turnaround Time"
                           width={40}
                           height={40}
-                          className="w-9 h-9 md:w-10 md:h-10"
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold">
+                      <h3 className="text-base sm:text-lg md:text-2xl font-bold">
                         Turnaround Time
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm md:text-base">
+                    <p className="leading-relaxed text-xs sm:text-sm md:text-base">
                       Industry leading speed including, measurements, trails, resizing & final production
                     </p>
                   </div>
@@ -256,23 +256,23 @@ export default function SchoolUniformPage() {
 
                 {/* Scalable Capacity */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-4 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-04 1.svg"
                           alt="Scalable Capacity"
                           width={40}
                           height={40}
-                          className="w-9 h-9 md:w-10 md:h-10"
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold">
+                      <h3 className="text-base sm:text-lg md:text-2xl font-bold">
                         Scalable Capacity
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm md:text-base">
+                    <p className="leading-relaxed text-xs sm:text-sm md:text-base">
                       Production expands seamlessly to match your expanding operations and staffing demands
                     </p>
                   </div>
@@ -280,23 +280,23 @@ export default function SchoolUniformPage() {
 
                 {/* Smart Inventory */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-4 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-05 1.svg"
                           alt="Smart Inventory"
                           width={40}
                           height={40}
-                          className="w-9 h-9 md:w-10 md:h-10"
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold">
+                      <h3 className="text-base sm:text-lg md:text-2xl font-bold">
                         Smart Inventory
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm md:text-base">
+                    <p className="leading-relaxed text-xs sm:text-sm md:text-base">
                       Pre-managed fabrics, trims, & size reorders enable effortless reorders with consistent fit
                     </p>
                   </div>
@@ -304,23 +304,23 @@ export default function SchoolUniformPage() {
 
                 {/* Sustained Alliance */}
                 <div className="group hover:scale-105 transition-transform duration-300">
-                  <div className="h-full p-6 md:p-8 rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div className="flex items-center gap-3 md:gap-4 mb-4">
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="h-full p-4 sm:p-5 md:p-8 rounded-2xl sm:rounded-3xl bg-[#2e7d32] text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-center gap-2 sm:gap-3 md:gap-4 mb-2 sm:mb-3 md:mb-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center flex-shrink-0">
                         <Image
                           src="/images/collection-pateners/Icons-06 1.svg"
                           alt="Sustained Alliance"
                           width={40}
                           height={40}
-                          className="w-9 h-9 md:w-10 md:h-10"
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
                           loading="lazy"
                         />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold">
+                      <h3 className="text-base sm:text-lg md:text-2xl font-bold">
                         Sustained Alliance
                       </h3>
                     </div>
-                    <p className="leading-relaxed text-sm md:text-base">
+                    <p className="leading-relaxed text-xs sm:text-sm md:text-base">
                       Ongoing support across reorders refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
@@ -339,17 +339,17 @@ export default function SchoolUniformPage() {
 <Process />
 
       {/* Book Demo Call Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-br from-[#2e7d32] to-[#1b5e20]">
-        <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+      <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-br from-[#2e7d32] to-[#1b5e20]">
+        <div className="container px-3 sm:px-4 md:px-6 max-w-7xl mx-auto">
           <AnimateIn>
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
               <div className="flex flex-col items-center justify-center">
                 {/* Centered Content */}
-                <div className="w-full max-w-4xl p-8 md:p-12 lg:p-16 text-center">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-4 md:mb-6">
+                <div className="w-full max-w-4xl p-5 sm:p-8 md:p-12 lg:p-16 text-center">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2e7d32] mb-3 sm:mb-4 md:mb-6">
                     Ready to Elevate Your Team's Look?
                   </h2>
-                  <p className="text-lg md:text-xl text-black mb-6 md:mb-8 leading-relaxed">
+                  <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black mb-4 sm:mb-6 md:mb-8 leading-relaxed">
                     Schedule a personalized demo call with our uniform experts. We'll discuss your specific needs, 
                     show you our customization options, and create a solution that perfectly fits your school's brand.
                   </p>
@@ -358,7 +358,7 @@ export default function SchoolUniformPage() {
                     <Link href="/enquiry">
                     <Button 
                       size="lg" 
-                      className="bg-[#2e7d32] hover:bg-[#1b5e20] text-white text-lg px-8 md:px-12 py-6 md:py-7 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                      className="bg-[#2e7d32] hover:bg-[#1b5e20] text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-4 sm:py-5 md:py-7 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                     >
                        Let's Schedule a Call
                       <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -375,16 +375,16 @@ export default function SchoolUniformPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container px-4 md:px-6">
+      <section className="py-8 sm:py-12 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container px-3 sm:px-4 md:px-6">
           <AnimateIn>
-            <div className="pl-4 sm:pl-6 md:pl-10 mb-8 md:mb-16">
-              <h2 className="text-3xl   font-bold text-black mb-3 md:mb-4">
+            <div className="pl-2 sm:pl-4 md:pl-10 mb-6 sm:mb-8 md:mb-16">
+              <h2 className="text-2xl sm:text-3xl font-bold text-black mb-2 sm:mb-3 md:mb-4">
                 Frequently Asked Questions
               </h2>
               
             </div>
-            <div className="max-w-7xl pl-4 sm:pl-6 md:pl-10 pr-4 md:pr-6 space-y-2 md:space-y-3">
+            <div className="max-w-7xl pl-2 sm:pl-4 md:pl-10 pr-2 sm:pr-4 md:pr-6 space-y-2 md:space-y-3">
               <FAQItem
                 question="Can you customize school uniforms with our logo and specific colors?"
                 answer="Yes, customization is our core strength. We precisely match school colors, embroider crests/logos, and design patterns (like checks or stripes) that align perfectly with your school's brand identity."

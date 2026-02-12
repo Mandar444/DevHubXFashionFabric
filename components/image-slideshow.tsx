@@ -66,7 +66,7 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
 
   return (
     <div 
-      className="relative group h-[500px] md:h-[650px] lg:h-[750px]"
+      className="relative group h-[350px] sm:h-[450px] md:h-[650px] lg:h-[750px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -126,9 +126,9 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
       {/* Navigation Arrows */}
       <button
         onClick={() => paginate(-1)}
-        className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
-           "opacity-0 group-hover:opacity-100"
-        }`}
+        className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
+           "opacity-70 sm:opacity-0 group-hover:opacity-100"
+         }`}
         aria-label="Previous image"
       >
         <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,9 +138,9 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
       
       <button
         onClick={() => paginate(1)}
-        className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
-           "opacity-0 group-hover:opacity-100"
-        }`}
+        className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white/80 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
+           "opacity-70 sm:opacity-0 group-hover:opacity-100"
+         }`}
         aria-label="Next image"
       >
         <svg className="w-5 h-5 md:w-6 md:h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,21 +148,34 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
         </svg>
       </button>
 
-      {/* Navigation Dots */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-3 rounded-full transition-all duration-300 shadow-sm ${
-              index === currentIndex
-                ? "bg-[#2e7d32] w-8"
-                : "bg-gray-300/80 hover:bg-gray-400 w-3"
-            }`}
-            aria-label={`Go to image ${index + 1}`}
-            aria-current={index === currentIndex}
-          />
-        ))}
+      {/* Navigation */}
+      <div className="absolute bottom-1 left-0 right-0 z-20">
+        {/* Mobile: Slim progress slider */}
+        <div className="flex sm:hidden justify-center px-12">
+          <div className="w-full max-w-[180px] h-1 bg-gray-200/80 rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-[#2e7d32] rounded-full transition-all duration-500 ease-out"
+              style={{ width: `${((currentIndex + 1) / images.length) * 100}%` }}
+            />
+          </div>
+        </div>
+
+        {/* Desktop: Navigation dots */}
+        <div className="hidden sm:flex justify-center gap-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`h-2 sm:h-3 rounded-full transition-all duration-300 shadow-sm ${
+                index === currentIndex
+                  ? "bg-[#2e7d32] w-4 sm:w-8"
+                  : "bg-gray-300/80 hover:bg-gray-400 w-2 sm:w-3"
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+              aria-current={index === currentIndex}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -56,7 +56,7 @@ export default function WhyChooseFashionFabric() {
     <section className="py-10 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Heading */}
-        <h2 className="text-2xl md:text-3xl text-[#2e7d32] font-bold mb-8 md:mb-16 md:-ml-10">
+        <h2 className="text-2xl md:text-3xl text-[#2e7d32] font-bold mb-8 md:mb-16 md:-ml-2">
           Redefining The Art of Workwear
         </h2>
 
@@ -71,7 +71,7 @@ export default function WhyChooseFashionFabric() {
                   alt={item.title}
                   width={80}
                   height={80}
-                  className={`object-contain ${item.title === "Client-First Approach" ? "w-32 h-32 md:w-36 md:h-36" : "w-16 h-16 md:w-20 md:h-20"}`}
+                  className={`object-contain ${item.title === "Client-First Approach" || item.title === "Craftmenship" ? "w-32 h-32 md:w-36 md:h-36" : "w-16 h-16 md:w-20 md:h-20"}`}
                   loading="lazy"
                 />
               </div>
