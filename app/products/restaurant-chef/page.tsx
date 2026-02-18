@@ -331,7 +331,7 @@ export default function RestaurantChefPage() {
 
               {/* Right Side - Single Image Slideshow */}
               <div className="w-full lg:w-1/2">
-                <ImageSlideshow images={restaurantImages} />
+                <ImageSlideshow images={restaurantImages} imageClassName="object-bottom" />
               </div>
             </div>
           </AnimateIn>

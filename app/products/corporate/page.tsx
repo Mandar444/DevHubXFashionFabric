@@ -11,11 +11,11 @@ import { ImageSlideshow } from "@/components/image-slideshow"
 
 // Corporate images array
 const corporateImages = [
-  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Artboard 1-01.svg", alt: "Corporate staff uniform 1" },
-  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Artboard 1-02.svg", alt: "Corporate staff uniform 2" },
-  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Artboard 1-03.svg", alt: "Corporate staff uniform 3" },
-  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Artboard 1-04.svg", alt: "Corporate staff uniform 4" },
-  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Artboard 1-05.svg", alt: "Corporate staff uniform 5" },
+  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Corporate 1.png", alt: "Corporate staff uniform 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Corporate 2.png", alt: "Corporate staff uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Corporate 3.png", alt: "Corporate staff uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Corporate 4.png", alt: "Corporate staff uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Corprate/Corporate 5 .png", alt: "Corporate staff uniform 5" },
 ]
 
 export default function CorporateUniformPage() {

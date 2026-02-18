@@ -7,9 +7,10 @@ import { motion, AnimatePresence } from "framer-motion"
 interface ImageSlideshowProps {
   images: { src: string; alt: string }[]
   autoPlayInterval?: number
+  imageClassName?: string
 }
 
-export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlideshowProps) {
+export function ImageSlideshow({ images, autoPlayInterval = 8000, imageClassName }: ImageSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
@@ -101,7 +102,7 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               fill
-              className="object-contain p-4"
+              className={`object-contain p-4 ${imageClassName || ""}`}
               priority={currentIndex === 0} // Only priority for initial load
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
             />
@@ -180,4 +181,3 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000 }: ImageSlidesh
     </div>
   )
 }
-
