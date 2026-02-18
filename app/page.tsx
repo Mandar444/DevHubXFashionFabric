@@ -84,7 +84,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover z-0"
           >
             {/* Use optimized video with quality parameter */}
-            <source src="https://res.cloudinary.com/dluiqgiqj/video/upload/q_auto,f_auto/v1769069629/V5_hszso4.mp4" type="video/mp4" />
+            <source src="/video/V5.webm" type="video/mp4" />
           </video>
           <div className="absolute inset-0 z-10 bg-black/40"></div>
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
