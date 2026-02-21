@@ -16,7 +16,7 @@ export default function Footer() {
                   src="/images/footer-logo.svg"
                   alt="Fashion Fabric Logo"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain "
                 />
               </div>
               <h3 className="text-base md:text-lg font-semibold pt-2 text-[#ffffff]">
