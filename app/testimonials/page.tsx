@@ -153,7 +153,7 @@ export default function TestimonialsPage() {
           </button>
 
           {/* Dots */}
-          <div className="flex justify-center gap-3 mt-10">
+          <div className="flex justify-center gap-3 mt-10 hidden">
             {testimonials.map((_, i) => (
               <button
                 key={i}
