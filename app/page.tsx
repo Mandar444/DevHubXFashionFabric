@@ -299,7 +299,7 @@ export default function Home() {
       <section className="py-16">
         <div className="container px-4 md:px-6">
           <AnimateIn>
-            <h1 className="text-3xl font-bold text-black mb-12 pl-7">
+            <h1 className="text-3xl font-bold text-[#2e7d32] mb-12 pl-6">
               Client Testimonials
             </h1>
           </AnimateIn>

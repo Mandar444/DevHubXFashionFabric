@@ -30,21 +30,21 @@ export default function Footer() {
             </p>
 
             <div className="flex items-center mb-3">
-              <Phone className="h-4 w-4 md:h-5 md:w-5 mr-3 text-[#ffffff]" />
+              <Phone className="h-5 w-5 md:h-6 md:w-6 shrink-0 mr-3 text-[#ffffff]" />
               <p className="text-sm md:text-base text-[#ffffff]">
                 +91 9867275524
               </p>
             </div>
 
             <div className="flex items-center mb-3">
-              <Mail className="h-4 w-4 md:h-5 md:w-5 mr-3 text-[#ffffff]" />
+              <Mail className="h-5 w-5 md:h-6 md:w-6 shrink-0 mr-3 text-[#ffffff]" />
               <p className="text-sm md:text-base text-[#ffffff]">
                 fashionfabric@rocketmail.com
               </p>
             </div>
 
             <div className="flex items-start">
-              <MapPin className="h-8 w-8 md:h-12 md:w-12 mt-1 mr-3 text-[#ffffff]" />
+              <MapPin className="h-6 w-6 md:h-7 md:w-7 shrink-0 mt-0.5 mr-3 text-[#ffffff]" />
               <p className="text-sm md:text-base text-[#ffffff]">
                 Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom,
                 Santa Inez, Panaji, Taleigao, Goa 403001

@@ -117,7 +117,7 @@ export default function AboutPage() {
    <section className="py-16 bg-white">
       <div className="container px-4 md:px-6 ">
         {/* Heading */}
-        <h2 className="text-2xl md:text-3xl text-[#2e7d32] font-bold mb-8 md:mb-16 md:-ml-1">
+        <h2 className="text-3xl text-[#2e7d32] font-bold mb-8 md:mb-16 md:-ml-1">
           Redefining The Art of Workwear
         </h2>
 
