@@ -4,7 +4,7 @@ import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#307035] text-[#ffffff]">
+    <footer className="bg-[#307035] ">
       <div className="container px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-start">
-              <MapPin className="h-4 w-4 md:h-5 md:w-5 mt-1 mr-3 text-[#ffffff]" />
+              <MapPin className="h-8 w-8 md:h-12 md:w-12 mt-1 mr-3 text-[#ffffff]" />
               <p className="text-sm md:text-base text-[#ffffff]">
                 Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom,
                 Santa Inez, Panaji, Taleigao, Goa 403001
