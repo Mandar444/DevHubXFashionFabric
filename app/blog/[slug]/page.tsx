@@ -5,6 +5,7 @@ import { AnimateIn } from "@/components/animate-in"
 import { Button } from "@/components/ui/button"
 import { prisma } from "@/lib/prisma"
 import { notFound } from "next/navigation"
+import { BlogShareButtons } from "@/components/blog-share-buttons"
 
 async function getBlogPost(slug: string) {
   try {
@@ -195,50 +196,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <AnimateIn delay={0.3}>
                 <div className="mt-12 pt-8 border-t border-gray-200">
                   <h3 className="text-lg font-semibold mb-4 text-black">Share this article</h3>
-                  <div className="flex gap-4">
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="hover:bg-[#2e7d32] hover:text-white hover:border-[#2e7d32] transition-colors"
-                      asChild
-                    >
-                      <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yourdomain.com/blog/${blogPost.slug}`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Facebook
-                      </a>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="hover:bg-[#2e7d32] hover:text-white hover:border-[#2e7d32] transition-colors"
-                      asChild
-                    >
-                      <a
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://yourdomain.com/blog/${blogPost.slug}`)}&text=${encodeURIComponent(blogPost.title)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Twitter
-                      </a>
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="hover:bg-[#2e7d32] hover:text-white hover:border-[#2e7d32] transition-colors"
-                      asChild
-                    >
-                      <a
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://yourdomain.com/blog/${blogPost.slug}`)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        LinkedIn
-                      </a>
-                    </Button>
-                  </div>
+                  <BlogShareButtons slug={blogPost.slug} title={blogPost.title} />
                 </div>
               </AnimateIn>
 
