@@ -414,32 +414,37 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className="group bg-white rounded-lg md:rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
+    <div className={`group bg-white rounded-lg md:rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border ${isOpen ? 'border-[#2e7d32]/20' : 'border-gray-100'}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6 text-left flex items-start justify-between gap-3 md:gap-4 transition-colors active:bg-gray-50"
+        className={`w-full px-4 md:px-6 lg:px-8 py-4 md:py-5 lg:py-6 text-left flex items-start justify-between gap-3 md:gap-4 transition-colors ${
+          isOpen ? 'bg-[#f0f9f0]' : 'hover:bg-[#f0f9f0]'
+        }`}
       >
-        <span className="font-semibold text-sm md:text-base lg:text-lg text-neutral-900 pr-2 md:pr-4 leading-relaxed">
+        <span className={`font-semibold text-sm md:text-base lg:text-lg pr-2 md:pr-4 leading-relaxed transition-colors mt-0.5 ${
+          isOpen ? 'text-[#2e7d32]' : 'text-neutral-900 group-hover:text-[#2e7d32]'
+        }`}>
           {question}
         </span>
-        <div className={`flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-gray-100 group-hover:bg-[#2e7d32] transition-all duration-300 flex items-center justify-center ${
-          isOpen ? 'bg-[#2e7d32]' : ''
+        <div className={`flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full transition-all duration-300 flex items-center justify-center ${
+          isOpen ? 'bg-[#d5e8d5]' : 'bg-gray-100 group-hover:bg-[#d5e8d5]'
         }`}>
           <ChevronDown
             className={`w-4 h-4 md:w-5 md:h-5 transition-all duration-300 ${
-              isOpen ? "rotate-180 text-white" : "text-gray-600 group-hover:text-white"
+              isOpen ? "rotate-180 text-[#2e7d32]" : "text-gray-600 group-hover:text-[#2e7d32]"
             }`}
           />
         </div>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`overflow-hidden transition-all duration-300 ease-in-out bg-white ${
           isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-4 md:px-6 lg:px-8 pb-4 md:pb-6 pt-2">
-          <div className="w-10 md:w-12 h-0.5 bg-[#2e7d32] mb-3 md:mb-4 rounded-full"></div>
-          <p className="text-black leading-relaxed text-sm md:text-base">{answer}</p>
+        <div className="px-4 md:px-6 lg:px-8 pb-4 md:pb-6 pt-4">
+          <div className="border-l-4 border-[#2e7d32] pl-4 md:pl-5">
+            <p className="text-black leading-relaxed text-sm md:text-base">{answer}</p>
+          </div>
         </div>
       </div>
     </div>

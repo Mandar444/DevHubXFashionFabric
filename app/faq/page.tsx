@@ -209,12 +209,18 @@ export default function FAQPage() {
                       <div className="border-2 border-[#2e7d32]/20 rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:border-[#2e7d32]/40 transition-all duration-300 bg-white">
                         <button
                           onClick={() => toggleItem(sectionIndex, itemIndex)}
-                          className="w-full px-4 sm:px-5 md:px-6 py-4 sm:py-5 md:py-6 bg-gradient-to-r from-white to-gray-50 hover:from-[#2e7d32]/5 hover:to-[#2e7d32]/10 transition-all duration-300 flex items-center justify-between text-left gap-2 group"
+                          className={`w-full px-4 sm:px-5 md:px-6 py-4 sm:py-5 md:py-6 transition-all duration-300 flex items-center justify-between text-left gap-2 group ${
+                            isOpen ? "bg-[#f0f9f0]" : "hover:bg-[#f0f9f0] bg-white"
+                          }`}
                         >
-                          <span className="font-semibold text-black group-hover:text-[#2e7d32] text-sm sm:text-base md:text-lg pr-2 transition-colors">
+                          <span className={`font-semibold text-sm sm:text-base md:text-lg pr-2 transition-colors mt-0.5 ${
+                            isOpen ? "text-[#2e7d32]" : "text-black group-hover:text-[#2e7d32]"
+                          }`}>
                             {item.question}
                           </span>
-                          <div className="bg-[#2e7d32]/10 group-hover:bg-[#2e7d32]/20 rounded-full p-1.5 transition-colors">
+                          <div className={`rounded-full p-1.5 transition-colors ${
+                            isOpen ? "bg-[#d5e8d5]" : "bg-[#2e7d32]/10 group-hover:bg-[#d5e8d5]"
+                          }`}>
                             {isOpen ? (
                               <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#2e7d32] flex-shrink-0" />
                             ) : (
@@ -223,8 +229,8 @@ export default function FAQPage() {
                           </div>
                         </button>
                         {isOpen && (
-                          <div className="px-4 sm:px-5 md:px-6 py-5 sm:py-6 bg-gradient-to-br from-white to-gray-50 border-t-2 border-[#2e7d32]/10">
-                            <div className="text-black leading-relaxed text-sm sm:text-base pl-3 border-l-4 border-[#2e7d32]">
+                          <div className="px-4 sm:px-5 md:px-6 py-5 sm:py-6 bg-white border-t border-gray-100">
+                            <div className="text-black leading-relaxed text-sm sm:text-base pl-4 border-l-4 border-[#2e7d32]">
                               {item.answer}
                             </div>
                           </div>
