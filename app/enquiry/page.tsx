@@ -70,6 +70,9 @@ export default function EnquiryPage() {
       })
       const result = await response.json()
       if (response.ok) {
+        if (typeof window !== 'undefined' && (window as any).dataLayer) {
+          (window as any).dataLayer.push({ event: 'enquiry_form_submitted' });
+        }
         setShowSuccessModal(true)
         setFormData({
           name: "",

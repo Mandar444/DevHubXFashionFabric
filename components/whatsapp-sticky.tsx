@@ -13,12 +13,18 @@ export function WhatsAppSticky() {
 
     return (
         <Link
+            id="gtm-whatsapp-button"
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-6 right-6 z-50 group"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={() => {
+                if (typeof window !== 'undefined' && (window as any).dataLayer) {
+                    (window as any).dataLayer.push({ event: 'whatsapp_click' });
+                }
+            }}
         >
             <div className="relative flex items-center">
                 {/* Tooltip */}

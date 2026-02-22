@@ -161,7 +161,17 @@ export default function Home() {
             <AnimateIn delay={0.4}>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-[#2e7d32] hover:bg-[#388e3c] text-white">
-                  <Link href="/enquiry">Make an Enquiry</Link>
+                  <Link 
+                    href="/enquiry" 
+                    id="gtm-home-enquiry-btn"
+                    onClick={() => {
+                      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+                        (window as any).dataLayer.push({ event: 'make_enquiry_click' });
+                      }
+                    }}
+                  >
+                    Make an Enquiry
+                  </Link>
                 </Button>
                 <Button
                   asChild
@@ -169,7 +179,17 @@ export default function Home() {
                   variant="outline"
                   className="bg-white/10 text-white border-white/20 hover:bg-white/20"
                 >
-                  <Link href="/catalogue">View Catalogue</Link>
+                  <Link 
+                    href="/catalogue" 
+                    id="gtm-home-catalogue-btn"
+                    onClick={() => {
+                      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+                        (window as any).dataLayer.push({ event: 'view_catalogue_click' });
+                      }
+                    }}
+                  >
+                    View Catalogue
+                  </Link>
                 </Button>
               </div>
             </AnimateIn>
