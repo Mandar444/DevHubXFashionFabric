@@ -14,7 +14,7 @@ const clients = [
   { name: "Deltin Group", logo: "/images/clients/DeltinOnLogo_new.png" },
   { name: "Double Tree by Hilton", logo: "/images/clients/double-tree_new.png" },
   { name: "Elements by Rosetta", logo: "/images/clients/elements.png" },
-  { name: "Fairfield by Marriots", logo: "/images/clients/fair-field.png" },
+  { name: "Fairfield by Marriott", logo: "/images/clients/fair-field.png" },
   { name: "Fortune by ITC", logo: "/images/clients/fortune_new.png" },
   { name: "Marriott", logo: "/images/clients/Goa_Marriott_Resort.jpg" },
   { name: "Grand Hyatt", logo: "/images/clients/grand_hyatt_new.png" },
@@ -68,7 +68,7 @@ export default function ClientsPage() {
               </h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
-              <p className="max-w-[800px] text-lg text-white/90">Trusted by the leading brand</p>
+              <p className="max-w-[800px] text-lg text-white/90">Trusted by Leading Brands</p>
             </AnimateIn>
           </div>
         </section>

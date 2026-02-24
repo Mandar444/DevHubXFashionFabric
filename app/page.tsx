@@ -62,14 +62,14 @@ const clients = [
 
 // Featured products data for cleaner JSX
 const featuredProducts = [
-  { title: "Hotels", image: "/images/home-icons-all/featured-images/Hotels.png", tagline: "Uniforms that elevate every guest interaction.", desc: "Tailored for comfort, durability, and brand presence, so your team looks poised through every shift.", href: "/products/hospitality" },
-  { title: "Food Production", image: "/images/home-icons-all/featured-images/Food Production.png", tagline: "Refined for discipline. Designed for distinction.", desc: "Designed for controlled environments and strict hygiene standards offering comfort, durability, and a polished professional look.", href: "/products/restaurant-chef" },
-  { title: "Food Service", image: "/images/home-icons-all/featured-images/Food Service.png", tagline: "Built for service. Styled for impact.", desc: "Performance-driven uniforms designed for fast-paced floors, long hours, and consistent brand expression.", href: "/products/restaurant-chef" },
-  { title: "Spa/Saloons", image: "/images/home-icons-all/featured-images/Spa Image.png", tagline: "Polished uniforms for calm, professional spaces.", desc: "Breathable fabrics and fluid cuts designed for ease of movement and a refined, serene look.", href: "/products/spa" },
-  { title: "Healthcare", image: "/images/home-icons-all/featured-images/Healthcare.png", tagline: "Hygiene-first uniforms made for long shifts.", desc: "Durable, easy-care fabrics with functional design, built for comfort, movement, and everyday reliability.", href: "/products/healthcare" },
-  { title: "Airlines", image: "/images/home-icons-all/featured-images/Airline.png", tagline: "Elegance in motion at 30,000 feet above the sky", desc: "Breathable, enduring uniforms designed to keep every crew member sharp from check-in to touchdown.", href: "/products/airline" },
-  { title: "Corporate", image: "/images/home-icons-all/featured-images/Corporate Image.png", tagline: "Sharp tailoring, around the clock comfort.", desc: "Premium corporate wear built to look composed from meetings to after-hours, without compromise!", href: "/products/corporate" },
-  { title: "Education", image: "/images/home-icons-all/featured-images/School-home.png", tagline: "A smarter uniform for smarter institutions.", desc: "Made for comfort and built for supporting students from classrooms to campus life.", href: "/products/school" },
+  { title: "Hotels", image: "/images/home-icons-all/featured-images/Hotels.png", tagline: "Uniforms that elevate every guest interaction.", desc: "Tailored for comfort, durability, and brand presence, so your team looks poised through every shift.", href: "/collection/hospitality" },
+  { title: "Food Production", image: "/images/home-icons-all/featured-images/Food Production.png", tagline: "Refined for discipline. Designed for distinction.", desc: "Designed for controlled environments and strict hygiene standards offering comfort, durability, and a polished professional look.", href: "/collection/restaurant-chef" },
+  { title: "Food Service", image: "/images/home-icons-all/featured-images/Food Service.png", tagline: "Built for service. Styled for impact.", desc: "Performance-driven uniforms designed for fast-paced floors, long hours, and consistent brand expression.", href: "/collection/restaurant-chef" },
+  { title: "Spa/Salons", image: "/images/home-icons-all/featured-images/Spa Image.png", tagline: "Polished uniforms for calm, professional spaces.", desc: "Breathable fabrics and fluid cuts designed for ease of movement and a refined, serene look.", href: "/collection/spa" },
+  { title: "Healthcare", image: "/images/home-icons-all/featured-images/Healthcare.png", tagline: "Hygiene-first uniforms made for long shifts.", desc: "Durable, easy-care fabrics with functional design, built for comfort, movement, and everyday reliability.", href: "/collection/healthcare" },
+  { title: "Airlines", image: "/images/home-icons-all/featured-images/Airline.png", tagline: "Elegance in motion at 30,000 feet above the sky", desc: "Breathable, enduring uniforms designed to keep every crew member sharp from check-in to touchdown.", href: "/collection/airline" },
+  { title: "Corporate", image: "/images/home-icons-all/featured-images/Corporate Image.png", tagline: "Sharp tailoring, around the clock comfort.", desc: "Premium corporate wear built to look composed from meetings to after-hours, without compromise!", href: "/collection/corporate" },
+  { title: "Education", image: "/images/home-icons-all/featured-images/School-home.png", tagline: "A smarter uniform for smarter institutions.", desc: "Made for comfort and built for supporting students from classrooms to campus life.", href: "/collection/school" },
 ]
 
 export default function Home() {
@@ -80,42 +80,42 @@ export default function Home() {
           "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of fabrics, and timely delivery have made them an invaluable asset to our operations.",
         name: "Hotel Manager",
         company: "5-Star Hotel in Goa",
-        logo: "/images/testimonieals/Untitled-4_Hotel Manager.svg"
+        logo: "/images/testimonials/Untitled-4_Hotel Manager.svg"
       },
       {
         quote:
           "The team at Fashion Fabric understands our brand aesthetic perfectly. They've created custom uniforms that our staff love to wear and that perfectly represent our brand image.",
         name: "F&B Director",
         company: "Luxury Resort in Goa",
-        logo: "/images/testimonieals/Untitled-4_F&B Director.svg"
+        logo: "/images/testimonials/Untitled-4_F&B Director.svg"
       },
       {
         quote:
           "We've been working with Fashion Fabric for over 5 years now. Their consistent quality and reliability make them our go-to uniform supplier for all our properties.",
         name: "Procurement Manager",
         company: "Hotel Chain",
-        logo: "/images/testimonieals/Untitled-4_Procurement Manager.svg"
+        logo: "/images/testimonials/Untitled-4_Procurement Manager.svg"
       },
       {
         quote:
           "The custom chef coats designed by Fashion Fabric are not only stylish but also incredibly comfortable and durable. Our kitchen team is very satisfied.",
         name: "Executive Chef",
         company: "Fine Dining Restaurant",
-        logo: "/images/testimonieals/Untitled-4_Executive Chef.svg"
+        logo: "/images/testimonials/Untitled-4_Executive Chef.svg"
       },
       {
         quote:
           "Fashion Fabric's attention to detail and commitment to quality is unmatched. They delivered our large order on time and exceeded our expectations.",
         name: "General Manager",
         company: "Casino in Goa",
-        logo: "/images/testimonieals/Untitled-4_General Manager.svg"
+        logo: "/images/testimonials/Untitled-4_General Manager.svg"
       },
       {
         quote:
           "Working with Fashion Fabric has been a pleasure. Their team is responsive, professional, and always willing to go the extra mile to meet our requirements.",
         name: "Operations Director",
         company: "Boutique Hotel",
-        logo: "/images/testimonieals/Untitled-4_Operations Director.svg"
+        logo: "/images/testimonials/Untitled-4_Operations Director.svg"
       },
     ]
   
@@ -283,14 +283,14 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-black pl-6 mb-12">Performance You Can Depend On</h2>
             </AnimateIn>
             <AnimateInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <StatCard value="10+" label="Industries Served" icon="/images/home-icons-all/our-achivments-icons/Industries Served.svg" />
-              <StatCard value="60+" label="Brands Served" icon="/images/home-icons-all/our-achivments-icons/Brands Served.svg" />
-              <StatCard value="15+" label="Years of Industry Experience" icon="/images/home-icons-all/our-achivments-icons/Year of experience.svg" />
-              <StatCard value="+88%" label="Repeat Customers" icon="/images/home-icons-all/our-achivments-icons/Repeat Customer.svg" />
-              <StatCard value="43,700+" label="Completed Orders" icon="/images/home-icons-all/our-achivments-icons/Completed Order.svg" />
-              <StatCard value="100,000+" label="Crews outfitted annually" icon="/images/home-icons-all/our-achivments-icons/Crew Outfitted .svg" />
-              <StatCard value="+95%" label="On-Time Delivery" icon="/images/home-icons-all/our-achivments-icons/On-time delivery.svg" />
-              <StatCard value="4.6/5" label="Client Rating" icon="/images/home-icons-all/our-achivments-icons/Clinet Rating.svg" />
+              <StatCard value="10+" label="Industries Served" icon="/images/home-icons-all/our-achievements-icons/Industries Served.svg" />
+              <StatCard value="60+" label="Brands Served" icon="/images/home-icons-all/our-achievements-icons/Brands Served.svg" />
+              <StatCard value="15+" label="Years of Industry Experience" icon="/images/home-icons-all/our-achievements-icons/Year of experience.svg" />
+              <StatCard value="+88%" label="Repeat Customers" icon="/images/home-icons-all/our-achievements-icons/Repeat Customer.svg" />
+              <StatCard value="43,700+" label="Completed Orders" icon="/images/home-icons-all/our-achievements-icons/Completed Order.svg" />
+              <StatCard value="100,000+" label="Crews outfitted annually" icon="/images/home-icons-all/our-achievements-icons/Crew Outfitted .svg" />
+              <StatCard value="+95%" label="On-Time Delivery" icon="/images/home-icons-all/our-achievements-icons/On-time delivery.svg" />
+              <StatCard value="4.6/5" label="Client Rating" icon="/images/home-icons-all/our-achievements-icons/Clinet Rating.svg" />
             </AnimateInStagger>
           </div>
         </section>

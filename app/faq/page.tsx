@@ -254,7 +254,7 @@ export default function FAQPage() {
             </h2>
           
             <p className="text-base sm:text-lg text-black mb-8 sm:mb-10 px-2 max-w-2xl mx-auto">
-              We're here to help! Contact our team for personalized assistance with your uniform requirements.
+              We're here to help! Contact our team for personalised assistance with your uniform requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-2">
               <Link

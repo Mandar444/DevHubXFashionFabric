@@ -10,42 +10,42 @@ export default function TestimonialsPage() {
         "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of fabrics, and timely delivery have made them an invaluable asset to our operations.",
       name: "Hotel Manager",
       company: "5-Star Hotel in Goa",
-      logo: "/images/testimonieals/Untitled-4_Hotel Manager.svg"
+      logo: "/images/testimonials/Untitled-4_Hotel Manager.svg"
     },
     {
       quote:
         "The team at Fashion Fabric understands our brand aesthetic perfectly. They've created custom uniforms that our staff love to wear and that perfectly represent our brand image.",
       name: "F&B Director",
       company: "Luxury Resort in Goa",
-      logo: "/images/testimonieals/Untitled-4_F&B Director.svg"
+      logo: "/images/testimonials/Untitled-4_F&B Director.svg"
     },
     {
       quote:
         "We've been working with Fashion Fabric for over 5 years now. Their consistent quality and reliability make them our go-to uniform supplier for all our properties.",
       name: "Procurement Manager",
       company: "Hotel Chain",
-      logo: "/images/testimonieals/Untitled-4_Procurement Manager.svg"
+      logo: "/images/testimonials/Untitled-4_Procurement Manager.svg"
     },
     {
       quote:
         "The custom chef coats designed by Fashion Fabric are not only stylish but also incredibly comfortable and durable. Our kitchen team is very satisfied.",
       name: "Executive Chef",
       company: "Fine Dining Restaurant",
-      logo: "/images/testimonieals/Untitled-4_Executive Chef.svg"
+      logo: "/images/testimonials/Untitled-4_Executive Chef.svg"
     },
     {
       quote:
         "Fashion Fabric's attention to detail and commitment to quality is unmatched. They delivered our large order on time and exceeded our expectations.",
       name: "General Manager",
       company: "Casino in Goa",
-      logo: "/images/testimonieals/Untitled-4_General Manager.svg"
+      logo: "/images/testimonials/Untitled-4_General Manager.svg"
     },
     {
       quote:
         "Working with Fashion Fabric has been a pleasure. Their team is responsive, professional, and always willing to go the extra mile to meet our requirements.",
       name: "Operations Director",
       company: "Boutique Hotel",
-      logo: "/images/testimonieals/Untitled-4_Operations Director.svg"
+      logo: "/images/testimonials/Untitled-4_Operations Director.svg"
     },
   ]
 

@@ -90,13 +90,13 @@ export default function Footer() {
 
             <ul className="space-y-2 text-[#ffffff]">
               {[
-                ["Hospitality", "/products/hospitality"],
-                ["Restaurant & Chef", "/products/restaurant-chef"],
-                ["Spa / Saloons", "/products/spa"],
-                ["Healthcare", "/products/healthcare"],
-                ["Airline", "/products/airline"],
-                ["Corporate", "/products/corporate"],
-                ["Schools", "/products/school"],
+                ["Hospitality", "/collection/hospitality"],
+                ["Restaurant & Chef", "/collection/restaurant-chef"],
+                ["Spa / Salons", "/collection/spa"],
+                ["Healthcare", "/collection/healthcare"],
+                ["Airline", "/collection/airline"],
+                ["Corporate", "/collection/corporate"],
+                ["Schools", "/collection/school"],
               ].map(([label, href]) => (
                 <li key={label}>
                   <Link

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { AnimateIn } from "@/components/animate-in"
-import Process from "@/app/products/process/pages"
+import Process from "@/app/collection/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -203,7 +203,7 @@ export default function AirlineUniformPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      A single expert point of contact ensuring clarity consistency personalised service
+                      A single expert point of contact ensuring clarity, consistency, and personalised service
                     </p>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ export default function AirlineUniformPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Industry leading speed including, measurements, trails, resizing & final production
+                      Industry leading speed including, measurements, trials, resizing & final production
                     </p>
                   </div>
                 </div>
@@ -323,7 +323,7 @@ export default function AirlineUniformPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Ongoing support across reorders refinements, fittings, & evolving uniforms needs
+                      Ongoing support across reorders, refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
                 </div>
@@ -352,7 +352,7 @@ export default function AirlineUniformPage() {
                     Ready to Elevate Your Team's Look?
                   </h2>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black mb-4 sm:mb-6 md:mb-8 leading-relaxed">
-                    Schedule a personalized demo call with our uniform experts. We'll discuss your specific needs, 
+                    Schedule a personalised demo call with our uniform experts. We'll discuss your specific needs, 
                     show you our customization options, and create a solution that perfectly fits your airline brand.
                   </p>
                   

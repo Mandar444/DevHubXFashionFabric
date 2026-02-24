@@ -3,24 +3,32 @@
 import Link from "next/link"
 import Image from "next/image"
 import { AnimateIn } from "@/components/animate-in"
-import Process from "@/app/products/process/pages"
+import Process from "@/app/collection/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ImageSlideshow } from "@/components/image-slideshow"
 
-// Healthcare images array
-const healthcareImages = [
-  { src: "/images/collection-pateners/collection-right-side-images/Healthcare/Untitled-2-01.svg", alt: "Healthcare staff uniform 1" },
-  { src: "/images/collection-pateners/collection-right-side-images/Healthcare/Untitled-2-02.svg", alt: "Healthcare staff uniform 2" },
-  { src: "/images/collection-pateners/collection-right-side-images/Healthcare/Untitled-2-03.svg", alt: "Healthcare staff uniform 3" },
-  { src: "/images/collection-pateners/collection-right-side-images/Healthcare/Untitled-2-04.svg", alt: "Healthcare staff uniform 4" },
-  { src: "/images/collection-pateners/collection-right-side-images/Healthcare/Untitled-2-05.svg", alt: "Healthcare staff uniform 5" },
+// Hospitality images array
+const hospitalityImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-01.svg", alt: "Hospitality staff uniform 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-02.svg", alt: "Hospitality staff uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-03.svg", alt: "Hospitality staff uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-04.svg", alt: "Hospitality staff uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-05.svg", alt: "Hospitality staff uniform 5" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-06.svg", alt: "Hospitality staff uniform 6" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-07.svg", alt: "Hospitality staff uniform 7" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-08.svg", alt: "Hospitality staff uniform 8" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-09.svg", alt: "Hospitality staff uniform 9" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-10.svg", alt: "Hospitality staff uniform 10" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-11.svg", alt: "Hospitality staff uniform 11" },
+  {src:"/images/collection-pateners/collection-right-side-images/Hotels/hotels-05.svg", alt: "Hospitality staff uniform 12"},
 ]
+
 export default function HotelUniformPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
- {/* Healthcare Section Banner */}   
+ {/* Hospitality Section Banner */}   
  <div className="flex justify-center px-2 sm:px-4 md:px-8 lg:px-12 mb-6 sm:mb-8 md:mb-12 pt-4 sm:pt-6 md:pt-10">
   <div className="relative w-full max-w-7xl min-h-[520px] sm:min-h-[550px] md:min-h-[600px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
         
@@ -46,13 +54,14 @@ export default function HotelUniformPage() {
             {/* Add your text or logo here */}
             <div className="p-4 sm:p-5 md:p-8 lg:p-10 flex flex-col justify-center h-full">
               <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-1 sm:mb-2 md:mb-4">
-                Healthcare
+                Hospitality
               </h2>
               <p className="text-black leading-relaxed text-xs sm:text-sm md:text-lg front-medium">
-                We make uniforms for healthcare professionals with hygiene and
-                functionality as the top priority. Made from durable, easy-to-clean
-                fabrics and crafted for comfort and ease of movement, each uniform
-                keeps staff ready for a long day without compromising their comfort.
+                We craft hotel uniforms that define guest experiences. From front 
+                desk elegance to housekeeping practicality, our designs ensure your 
+                team looks impeccable while staying comfortable. With premium 
+                fabrics and tailored fits, we help your brand make a lasting 
+                impression from the moment guests arrive.
               </p>
             </div>
           </div>
@@ -61,8 +70,8 @@ export default function HotelUniformPage() {
           <div className="w-full md:w-3/5 h-[220px] sm:h-[300px] md:h-full flex items-end justify-center md:justify-end">
             <div className="relative w-full h-full flex items-end justify-center md:justify-end">
               <Image
-                src="/images/collections-images/Healthcare.png"
-                alt="Healthcare professionals wearing medical uniforms"
+                src="/images/collections-images/Hospitality.png"
+                alt="Hotel staff welcoming guests"
                 fill
                 className="object-contain object-bottom"
                 priority
@@ -201,7 +210,7 @@ export default function HotelUniformPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      A single expert point of contact ensuring clarity consistency personalised service
+                      A single expert point of contact ensuring clarity, consistency, and personalised service
                     </p>
                   </div>
                 </div>
@@ -249,7 +258,7 @@ export default function HotelUniformPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Industry leading speed including, measurements, trails, resizing & final production
+                      Industry leading speed including, measurements, trials, resizing & final production
                     </p>
                   </div>
                 </div>
@@ -321,7 +330,7 @@ export default function HotelUniformPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Ongoing support across reorders refinements, fittings, & evolving uniforms needs
+                      Ongoing support across reorders, refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
                 </div>
@@ -329,7 +338,7 @@ export default function HotelUniformPage() {
 
               {/* Right Side - Single Image Slideshow */}
               <div className="w-full lg:w-1/2">
-                <ImageSlideshow images={healthcareImages} />
+                <ImageSlideshow images={hospitalityImages} />
               </div>
             </div>
           </AnimateIn>
@@ -350,8 +359,8 @@ export default function HotelUniformPage() {
                     Ready to Elevate Your Team's Look?
                   </h2>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black mb-4 sm:mb-6 md:mb-8 leading-relaxed">
-                    Schedule a personalized demo call with our uniform experts. We'll discuss your specific needs, 
-                    show you our customization options, and create a solution that perfectly fits your healthcare facility's brand.
+                    Schedule a personalised demo call with our uniform experts. We'll discuss your specific needs, 
+                    show you our customization options, and create a solution that perfectly fits your hotel's brand.
                   </p>
                   
                   <div className="flex justify-center">
@@ -386,20 +395,20 @@ export default function HotelUniformPage() {
             </div>
             <div className="max-w-7xl pl-2 sm:pl-4 md:pl-10 pr-2 sm:pr-4 md:pr-6 space-y-2 md:space-y-3">
               <FAQItem
-                question="Can your healthcare uniforms withstand frequent hospital washing and sterilization?"
-                answer="Yes, our fabrics are selected for high wash durability, colorfastness, and shape retention, maintaining a professional appearance through repeated hospital laundry cycles."
+                question="Do you provide uniforms for all hotel departments?"
+                answer="Yes, we cover every role, including front desk, concierge, housekeeping, kitchen/chefs, waitstaff, and security, creating a cohesive visual identity throughout the property."
               />
               <FAQItem
-                question="Do you offer fluid-resistant fabrics suitable for clinical environments?"
-                answer="Yes, we provide fabric options with fluid-resistant finishes designed to enhance practicality and protection in everyday medical and healthcare settings."
+                question="Can you match our hotel's brand colors?"
+                answer="Absolutely. We dye fabrics to specific Pantone numbers to ensure your staff's attire perfectly aligns with your hotel's interior and branding guidelines."
               />
               <FAQItem
-                question="Can uniforms be color-coded according to hospital departments?"
-                answer="Yes, we develop department-specific color programs while maintaining consistent fabric performance, helping teams remain identifiable yet visually aligned."
+                question="What fabrics are best for housekeeping staff uniforms?"
+                answer="We recommend breathable, stretch-blend fabrics (like cotton-poly blends) that offer high durability and colour retention, allowing staff to move freely and comfortably all day."
               />
               <FAQItem
-                question="What types of hospital uniforms and garments do you manufacture?"
-                answer="We manufacture scrubs, lab coats, patient gowns, pantry coats, pantry aprons, polos, and support staff uniforms tailored to healthcare operational needs."
+                question="Do you offer fitting sessions for staff?"
+                answer="Yes, we conduct on-site fitting sessions or provide trial sets to ensure every team member receives a well-fitted uniform, boosting their confidence and comfort."
               />
             </div>
           </AnimateIn>

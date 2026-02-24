@@ -16,13 +16,13 @@ export default function Header() {
   }
 
  const collectionCategories = [
-   { name: "Hospitality", href: "/products/hospitality" },
-   { name: "Restaurant & Chef", href: "/products/restaurant-chef" },
-{ name: "Spa / Saloons", href: "/products/spa" },
-  { name: "Healthcare", href: "/products/healthcare" },
-  { name: "Airline", href: "/products/airline" },
-  { name: "Corporate", href: "/products/corporate" },
-  { name: "Educational Institutes", href: "/products/school" },
+   { name: "Hospitality", href: "/collection/hospitality" },
+   { name: "Restaurant & Chef", href: "/collection/restaurant-chef" },
+{ name: "Spa / Salons", href: "/collection/spa" },
+  { name: "Healthcare", href: "/collection/healthcare" },
+  { name: "Airline", href: "/collection/airline" },
+  { name: "Corporate", href: "/collection/corporate" },
+  { name: "Educational Institutes", href: "/collection/school" },
 ];
 
 

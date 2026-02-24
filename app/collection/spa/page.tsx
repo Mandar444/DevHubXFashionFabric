@@ -3,13 +3,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import { AnimateIn } from "@/components/animate-in"
-import Process from "@/app/products/process/pages"
+import Process from "@/app/collection/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ImageSlideshow } from "@/components/image-slideshow"
 
-// Spa/Saloon images array
+// Spa/Salon images array
 const spaImages = [
   { src: "/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-01.svg", alt: "Spa professionals in purple uniform" },
   { src: "/images/collection-pateners/collection-right-side-images/Spa- Saloon/Untitled-5-02.svg", alt: "Spa staff in black uniform with orange trim" },
@@ -21,7 +21,7 @@ const spaImages = [
 export default function RestaurantChefPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
- {/* Spa / Saloons Section Banner */}   
+ {/* Spa / Salons Section Banner */}   
  <div className="flex justify-center px-2 sm:px-4 md:px-8 lg:px-12 mb-6 sm:mb-8 md:mb-12 pt-4 sm:pt-6 md:pt-10">
   <div className="relative w-full max-w-7xl min-h-[520px] sm:min-h-[550px] md:min-h-[600px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
         
@@ -47,7 +47,7 @@ export default function RestaurantChefPage() {
             {/* Add your text or logo here */}
             <div className="p-4 sm:p-5 md:p-8 lg:p-10 flex flex-col justify-center h-full">
               <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-1 sm:mb-2 md:mb-4">
-                Spa / Saloons
+                Spa / Salons
               </h2>
               <p className="text-black leading-relaxed text-xs sm:text-sm md:text-lg front-medium">
                 We create uniforms for the spa and salon industry that let your team
@@ -203,7 +203,7 @@ export default function RestaurantChefPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      A single expert point of contact ensuring clarity consistency personalised service
+                      A single expert point of contact ensuring clarity, consistency, and personalised service
                     </p>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ export default function RestaurantChefPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Industry leading speed including, measurements, trails, resizing & final production
+                      Industry leading speed including, measurements, trials, resizing & final production
                     </p>
                   </div>
                 </div>
@@ -323,7 +323,7 @@ export default function RestaurantChefPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Ongoing support across reorders refinements, fittings, & evolving uniforms needs
+                      Ongoing support across reorders, refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
                 </div>
@@ -352,7 +352,7 @@ export default function RestaurantChefPage() {
                     Ready to Elevate Your Team's Look?
                   </h2>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black mb-4 sm:mb-6 md:mb-8 leading-relaxed">
-                    Schedule a personalized demo call with our uniform experts. We'll discuss your specific needs, 
+                    Schedule a personalised demo call with our uniform experts. We'll discuss your specific needs, 
                     show you our customization options, and create a solution that perfectly fits your spa's brand.
                   </p>
                   

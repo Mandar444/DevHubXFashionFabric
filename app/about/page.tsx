@@ -13,7 +13,7 @@ const values = [
     
   },
   {
-    title: "Craftmenship",
+    title: "Craftsmanship",
     desc: "Refined finishing that turns uniforms into signature pieces.",
     icon: "/images/about-choose-ff/Craftmenship.png",
   },
@@ -132,7 +132,7 @@ export default function AboutPage() {
                   alt={item.title}
                   width={80}
                   height={80}
-                  className={`object-contain ${item.title === "Client-First Approach" || item.title === "Craftmenship" ? "w-32 h-32 md:w-36 md:h-36" : "w-16 h-16 md:w-20 md:h-20"}`}
+                  className={`object-contain ${item.title === "Client-First Approach" || item.title === "Craftsmanship" ? "w-32 h-32 md:w-36 md:h-36" : "w-16 h-16 md:w-20 md:h-20"}`}
                   loading="lazy"
                 />
               </div>
@@ -163,7 +163,7 @@ export default function AboutPage() {
 
             <p className="text-center text-xs md:text-sm text-black max-w-md px-4 font-garamond-pro ">
             Each dot symbolizes a core value in our approach to exceptional
-            uniform manufactures
+            uniform manufacturing
           </p>
         </div>
       </div>

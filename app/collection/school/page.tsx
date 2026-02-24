@@ -3,26 +3,24 @@
 import Link from "next/link"
 import Image from "next/image"
 import { AnimateIn } from "@/components/animate-in"
-import Process from "@/app/products/process/pages"
+import Process from "@/app/collection/process/pages"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ImageSlideshow } from "@/components/image-slideshow"
 
-// Restaurant/Bar images array
-const restaurantImages = [
-  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-01.svg", alt: "Restaurant staff uniform 1" },
-  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-02.svg", alt: "Restaurant staff uniform 2" },
-  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-03.svg", alt: "Restaurant staff uniform 3" },
-  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-04.svg", alt: "Restaurant staff uniform 4" },
-  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-05.svg", alt: "Restaurant staff uniform 5" },
-  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-06.svg", alt: "Restaurant staff uniform 6" },
-  { src: "/images/collection-pateners/collection-right-side-images/Restaurants - Bars/Untitled-4-07.svg", alt: "Restaurant staff uniform 7" },
+// School/Educational Institute images array
+const schoolImages = [
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-01.svg", alt: "School uniform collection 1" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-02.svg", alt: "School uniform collection 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-03.svg", alt: "School uniform collection 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Educational Institute/Artboard 1-04.svg", alt: "School uniform collection 4" },
 ]
-export default function RestaurantChefPage() {
+
+export default function SchoolUniformPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
- {/* Restaurant & Chef Section Banner */}   
+ {/* School Section Banner */}   
  <div className="flex justify-center px-2 sm:px-4 md:px-8 lg:px-12 mb-6 sm:mb-8 md:mb-12 pt-4 sm:pt-6 md:pt-10">
   <div className="relative w-full max-w-7xl min-h-[520px] sm:min-h-[550px] md:min-h-[600px] md:h-[600px] bg-[#1a3c1a] rounded-lg overflow-hidden shadow-2xl flex items-center">
         
@@ -48,13 +46,13 @@ export default function RestaurantChefPage() {
             {/* Add your text or logo here */}
             <div className="p-4 sm:p-5 md:p-8 lg:p-10 flex flex-col justify-center h-full">
               <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-neutral-900 mb-1 sm:mb-2 md:mb-4">
-                Restaurants / Bar
+               Educational Institutes
               </h2>
               <p className="text-black leading-relaxed text-xs sm:text-sm md:text-lg front-medium">
-                Whether you operate a boutique fine-dining restaurant or a high-volume
-                service chain, our uniforms are built for performance, comfort, and
-                brand expression. Designed for long shifts and fast-paced environments,
-                they offer the right balance of style, mobility, and durability.
+                We craft durable, high-quality uniforms that instill pride 
+                and belonging. Designed for comfort and everyday wear, our 
+                uniforms maintain their smart appearance wash after wash, 
+                supporting students from classroom to playground.
               </p>
             </div>
           </div>
@@ -63,8 +61,8 @@ export default function RestaurantChefPage() {
           <div className="w-full md:w-3/5 h-[220px] sm:h-[300px] md:h-full flex items-end justify-center md:justify-end">
             <div className="relative w-full h-full flex items-end justify-center md:justify-end">
               <Image
-                src="/images/collections-images/Restaurants.png"
-                alt="Restaurant and bar staff in professional uniforms"
+                src="/images/collections-images/School.png"
+                alt="Students wearing school uniforms"
                 fill
                 className="object-contain object-bottom"
                 priority
@@ -203,7 +201,7 @@ export default function RestaurantChefPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      A single expert point of contact ensuring clarity consistency personalised service
+                      A single expert point of contact ensuring clarity, consistency, and personalised service
                     </p>
                   </div>
                 </div>
@@ -251,7 +249,7 @@ export default function RestaurantChefPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Industry leading speed including, measurements, trails, resizing & final production
+                      Industry leading speed including, measurements, trials, resizing & final production
                     </p>
                   </div>
                 </div>
@@ -323,7 +321,7 @@ export default function RestaurantChefPage() {
                       </h3>
                     </div>
                     <p className="leading-relaxed text-xs sm:text-sm md:text-base">
-                      Ongoing support across reorders refinements, fittings, & evolving uniforms needs
+                      Ongoing support across reorders, refinements, fittings, & evolving uniforms needs
                     </p>
                   </div>
                 </div>
@@ -331,7 +329,7 @@ export default function RestaurantChefPage() {
 
               {/* Right Side - Single Image Slideshow */}
               <div className="w-full lg:w-1/2">
-                <ImageSlideshow images={restaurantImages} imageClassName="object-bottom" />
+                <ImageSlideshow images={schoolImages} />
               </div>
             </div>
           </AnimateIn>
@@ -352,8 +350,8 @@ export default function RestaurantChefPage() {
                     Ready to Elevate Your Team's Look?
                   </h2>
                   <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black mb-4 sm:mb-6 md:mb-8 leading-relaxed">
-                    Schedule a personalized demo call with our uniform experts. We'll discuss your specific needs, 
-                    show you our customization options, and create a solution that perfectly fits your restaurant's brand.
+                    Schedule a personalised demo call with our uniform experts. We'll discuss your specific needs, 
+                    show you our customization options, and create a solution that perfectly fits your school's brand.
                   </p>
                   
                   <div className="flex justify-center">
@@ -388,20 +386,24 @@ export default function RestaurantChefPage() {
             </div>
             <div className="max-w-7xl pl-2 sm:pl-4 md:pl-10 pr-2 sm:pr-4 md:pr-6 space-y-2 md:space-y-3">
               <FAQItem
-                question="Do you create theme-based uniforms for restaurants, cafés, and bars?"
-                answer="Yes, we manufacture fully customized, theme-led uniforms and support smaller quantities while maintaining consistent quality, ensuring your concept translates seamlessly into staff presentation."
+                question="Can you customize school uniforms with our logo and specific colors?"
+                answer="Yes, customization is our core strength. We precisely match school colors, embroider crests/logos, and design patterns (like checks or stripes) that align perfectly with your school's brand identity."
               />
               <FAQItem
-                question="Do you offer standard size charts for restaurant and bar staff uniforms?"
-                answer="Yes, we provide structured size charts for smooth bulk production, ensuring consistent fits across service, kitchen, and guest-facing teams."
+                question="Do you offer size trials before finalizing the order?"
+                answer="Absolutely. We provide a full size set for students to try on, ensuring accurate fitting. This minimizes exchange requests and ensures every student gets a uniform that fits well from day one."
               />
               <FAQItem
-                question="Can you supply accessories along with the restaurant staff uniforms?"
-                answer="We supply coordinated accessories including chef hats, aprons, scarves, ties, and footwear, ensuring a complete, brand-aligned uniform presentation."
+                question="What fabrics do you use for school uniforms?"
+                answer="We use premium, breathable, and durable blends (like poly-viscose or poly-cotton) designed to withstand active school life, frequent washing, and fading, while keeping students comfortable throughout the day."
               />
               <FAQItem
-                question="Which restaurant departments do you provide uniforms for?"
-                answer="We cover back-of-house chefs and helpers to hosts, hostesses, and servers, creating a cohesive brand presence throughout the entire dining environment."
+                question="What are your delivery timelines for bulk orders?"
+                answer="Our typical turnaround is 2–4 weeks from design approval, depending on order volume. We also offer planned partial deliveries to ensure students have their essentials ready before the term begins."
+              />
+              <FAQItem
+                question="Do you support mid-year orders for new admissions?"
+                answer="Yes, we maintain fabric stock and patterns for our partner schools, allowing us to quickly fulfill small refill orders or individual sets for new students joining mid-term."
               />
             </div>
           </AnimateIn>
