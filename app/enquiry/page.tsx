@@ -255,7 +255,7 @@ export default function EnquiryPage() {
                 </div>
                 <div className="mt-6 pt-6 border-t border-neutral-200">
                   <p className="text-black">
-                    For urgent inquiries outside business hours, please email us and we will respond as soon as
+                    For urgent Enquiries outside business hours, please email us and we will respond as soon as
                     possible.
                   </p>
                 </div>

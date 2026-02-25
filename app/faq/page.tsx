@@ -179,7 +179,7 @@ export default function FAQPage() {
            
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <p className="max-w-[800px] text-sm sm:text-base md:text-lg text-white/95 px-2 leading-relaxed">
+            <p className="max-w-[800px] text-lg text-white/95 px-2 leading-relaxed">
               Find answers to common questions about our uniform manufacturing and services
             </p>
           </AnimateIn>

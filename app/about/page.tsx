@@ -83,7 +83,7 @@ export default function AboutPage() {
         {/* About Content */}
         <section className="py-16 bg-white">
           <div className="container px-4 md:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <AnimateIn direction="left">
                 <div>
                   <h2 className="text-3xl font-bold mb-6">Our Story</h2>
@@ -102,13 +102,37 @@ export default function AboutPage() {
                 </div>
               </AnimateIn>
               <AnimateIn direction="right">
-                <div className="relative h-[400px] rounded-lg overflow-hidden">
-                  <Image
-                    src="/images/work/DSC00460.jpg"
-                    alt="Fashion Fabric Workshop"
-                    fill
-                    className="object-cover"
-                  />
+                <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg p-6">
+                  {/* Person Image */}
+                  <div className="relative w-[260px] h-[380px] md:w-[300px] md:h-[450px] rounded-lg overflow-hidden flex-shrink-0 shadow-lg">
+                    <Image
+                      src="/images/about-choose-ff/person-img.jpeg"
+                      alt="Founder - Fashion Fabric"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  {/* Quote & Signature */}
+                  <div className="flex flex-col justify-center">
+                    <h3 className="text-3xl font-bold text-black italic mb-4">Founder's Note </h3>
+                    <p className="text-sm md:text-base text-black leading-relaxed mb-6 text-justify">
+                      &ldquo;I started this company because I believed a well-crafted uniform could do more than dress your staff. At Fashion Fabric, every piece we manufacture for Goa&apos;s hotels and casinos is made with one goal in mind &mdash; to give your team an identity that your guests never forget. We don&apos;t just make uniforms, we craft your brand&apos;s first impression.&rdquo;
+                    </p>
+                    <div>
+                      <p className="text-lg font-bold text-black">Deepak Goyal
+ </p>
+                      
+                      <div className="relative w-[280px] h-[110px] mt-3">
+                        <Image
+                          src="/images/about-choose-ff/sing.svg"
+                          alt="Signature"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </AnimateIn>
             </div>
