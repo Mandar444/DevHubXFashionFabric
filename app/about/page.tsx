@@ -81,63 +81,72 @@ export default function AboutPage() {
         </section>
 
         {/* About Content */}
-        <section className="py-16 bg-white">
-          <div className="container px-4 md:px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              <AnimateIn direction="left">
-                <div>
-                  <h2 className="text-3xl font-bold mb-6 pt-5">Our Story</h2>
-                  <p className=" mb-4 text-black text-justify">
-                    Fashion Fabric began its journey in 2010, not as a uniform manufacturer, but as a retail linen showroom built on a deep understanding of textiles. Our strength has always been fabric-first quality, feel, finish and durability; because we believe every great garment starts with the right material.
-                  </p>
-                  <p className=" mb-4 text-black text-justify">
-                    Our entry into uniforms happened through a sheer request from a spa that needed professional uniforms. We weren&apos;t specialised in uniforms at the time, and we didn&apos;t have the full infrastructure either, but we said yes. We sourced the fabric, got customisation done in another city, and managed multiple rounds of follow-ups just to deliver the perfect final product. When we saw the client&apos;s smile at delivery, we knew we had created something beyond a garment, we had created trust.
-                  </p>
-                  <p className=" mb-4 text-black text-justify">
-                    That one order became a turning point. More requests followed, and we realised there was a genuine need for uniforms that looked premium, felt comfortable, and represented the brand with pride. That&apos;s when Fashion Fabric evolved from a showroom into a full-scale uniform solution brand. Since then, Fashion Fabric has grown into a brand trusted by leading names across industries, especially hospitality and service-driven businesses; building processes, strengthening production capability, and taking ownership of design, tailoring, branding and finishing. What began as a request became our purpose and uniforms became our core.
-                  </p>
-                  <p className=" mb-4 text-black text-justify">
-                    Today, Fashion Fabric outfits over 100,000 crew members every year, redefining what uniforms mean to the modern workforce. Uniforms are no longer just attire, they carry your team&apos;s confidence and your brand&apos;s first impression. With over 15 years of expertise, we deliver uniforms crafted with precision, quality control and elegance; where comfort and style are stitched into every detail.
-                  </p>
-                </div>
-              </AnimateIn>
-              <AnimateIn direction="right">
-                <div className="flex flex-col md:flex-row items-center gap-8 bg-white rounded-lg p-6">
-                  {/* Person Image */}
-                  <div className="relative mt-6 w-[260px] h-[380px] md:w-[300px] md:h-[450px] rounded-lg overflow-hidden flex-shrink-0 shadow-lg">
-                    <Image
-                      src="/images/about-choose-ff/person-img.jpeg"
-                      alt="Founder - Fashion Fabric"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+      <section className="py-10 md:py-16 bg-white">
+  <div className="container px-4 md:px-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
+      
+      {/* Left: Our Story */}
+      <AnimateIn direction="left">
+        <div>
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 pt-3 md:pt-5">
+            Our Story
+          </h2>
+          <p className="mb-4 text-black text-justify text-sm md:text-base">
+            Fashion Fabric began its journey in 2010, not as a uniform manufacturer, but as a retail linen showroom built on a deep understanding of textiles. Our strength has always been fabric-first quality, feel, finish and durability; because we believe every great garment starts with the right material.
+          </p>
+          <p className="mb-4 text-black text-justify text-sm md:text-base">
+            Our entry into uniforms happened through a sheer request from a spa that needed professional uniforms. We weren&apos;t specialised in uniforms at the time, and we didn&apos;t have the full infrastructure either, but we said yes. We sourced the fabric, got customisation done in another city, and managed multiple rounds of follow-ups just to deliver the perfect final product. When we saw the client&apos;s smile at delivery, we knew we had created something beyond a garment, we had created trust.
+          </p>
+          <p className="mb-4 text-black text-justify text-sm md:text-base">
+            That one order became a turning point. More requests followed, and we realised there was a genuine need for uniforms that looked premium, felt comfortable, and represented the brand with pride. That&apos;s when Fashion Fabric evolved from a showroom into a full-scale uniform solution brand. Since then, Fashion Fabric has grown into a brand trusted by leading names across industries, especially hospitality and service-driven businesses; building processes, strengthening production capability, and taking ownership of design, tailoring, branding and finishing. What began as a request became our purpose and uniforms became our core.
+          </p>
+          <p className="mb-4 text-black text-justify text-sm md:text-base">
+            Today, Fashion Fabric outfits over 100,000 crew members every year, redefining what uniforms mean to the modern workforce. Uniforms are no longer just attire, they carry your team&apos;s confidence and your brand&apos;s first impression. With over 15 years of expertise, we deliver uniforms crafted with precision, quality control and elegance; where comfort and style are stitched into every detail.
+          </p>
+        </div>
+      </AnimateIn>
 
-                  {/* Quote & Signature */}
-                  <div className="flex flex-col justify-center">
-                    <h3 className="text-3xl font-bold text-black pt-0 mb-4">Founder's Note </h3>
-                    <p className="text-sm md:text-base text-black leading-relaxed mb-6 text-justify">
-                      &ldquo;I started this company because I believed a well-crafted uniform could do more than dress your staff. At Fashion Fabric, every piece we manufacture for Goa&apos;s hotels and casinos is made with one goal in mind &mdash; to give your team an identity that your guests never forget. We don&apos;t just make uniforms, we craft your brand&apos;s first impression.&rdquo;
-                    </p>
-                    <div>
-                      <p className="text-lg font-bold text-black">Deepak Goyal
- </p>
-                      
-                      <div className="relative w-[220px] h-[110px] mt-3 -ml-8">
-                        <Image
-                          src="/images/about-choose-ff/sing.svg"
-                          alt="Signature"
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </AnimateIn>
+      {/* Right: Founder's Note */}
+      <AnimateIn direction="right">
+        <div className="flex flex-col sm:flex-row items-center gap-6 md:gap-8 bg-white rounded-lg p-4 md:p-6">
+          
+          {/* Person Image */}
+          <div className="relative mt-4 md:mt-6 w-[200px] h-[300px] sm:w-[240px] sm:h-[360px] md:w-[300px] md:h-[450px] rounded-lg overflow-hidden flex-shrink-0 shadow-lg mx-auto sm:mx-0">
+            <Image
+              src="/images/about-choose-ff/person-img.jpeg"
+              alt="Founder - Fashion Fabric"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Quote & Signature */}
+          <div className="flex flex-col justify-center text-center sm:text-left">
+            <h3 className="text-2xl md:text-3xl font-bold text-black mb-3 md:mb-4">
+              Founder&apos;s Note
+            </h3>
+            <p className="text-sm md:text-base text-black leading-relaxed mb-4 md:mb-6 text-justify">
+              &ldquo;I started this company because I believed a well-crafted uniform could do more than dress your staff. At Fashion Fabric, every piece we manufacture for Goa&apos;s hotels and casinos is made with one goal in mind &mdash; to give your team an identity that your guests never forget. We don&apos;t just make uniforms, we craft your brand&apos;s first impression.&rdquo;
+            </p>
+            <div>
+              <p className="text-lg font-bold text-black">Deepak Goyal</p>
+              <div className="relative w-[180px] md:w-[220px] h-[90px] md:h-[110px] mt-3 mx-auto sm:mx-0 sm:-ml-6 md:-ml-8">
+                <Image
+                  src="/images/about-choose-ff/sing.svg"
+                  alt="Signature"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
-        </section>
+
+        </div>
+      </AnimateIn>
+
+    </div>
+  </div>
+</section>
    <section className="py-16 bg-white">
       <div className="container px-4 md:px-6 ">
         {/* Heading */}
