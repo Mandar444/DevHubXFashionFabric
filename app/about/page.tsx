@@ -115,7 +115,7 @@ export default function AboutPage() {
 
                   {/* Quote & Signature */}
                   <div className="flex flex-col justify-center">
-                    <h3 className="text-3xl font-bold text-black italic mb-4">Founder's Note </h3>
+                    <h3 className="text-3xl font-bold text-black  mb-4">Founder's Note </h3>
                     <p className="text-sm md:text-base text-black leading-relaxed mb-6 text-justify">
                       &ldquo;I started this company because I believed a well-crafted uniform could do more than dress your staff. At Fashion Fabric, every piece we manufacture for Goa&apos;s hotels and casinos is made with one goal in mind &mdash; to give your team an identity that your guests never forget. We don&apos;t just make uniforms, we craft your brand&apos;s first impression.&rdquo;
                     </p>
@@ -123,7 +123,7 @@ export default function AboutPage() {
                       <p className="text-lg font-bold text-black">Deepak Goyal
  </p>
                       
-                      <div className="relative w-[280px] h-[110px] mt-3">
+                      <div className="relative w-[220px] h-[110px] mt-3 -ml-8">
                         <Image
                           src="/images/about-choose-ff/sing.svg"
                           alt="Signature"
