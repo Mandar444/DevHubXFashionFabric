@@ -7,7 +7,7 @@ import { AnimateIn, AnimateInStagger } from "@/components/animate-in";
 import { InfiniteLogoScroll } from "./components/infinite-logo-scroll";
 import { StatCard } from "@/components/stat-card";
 import dynamic from "next/dynamic";
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import { TestimonialStack } from "@/components/testimonial-stack";
 
 const clients = [
@@ -216,6 +216,25 @@ const featuredProducts = [
 ];
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Force play on mount to bypass browser autoplay restrictions
+    const playVideo = async () => {
+      try {
+        if (videoRef.current) {
+          await videoRef.current.play();
+        }
+      } catch (err) {
+        console.warn("Autoplay failed, user interaction may be required:", err);
+      }
+    };
+    
+    // Small timeout to ensure browser is ready after hydration
+    const timer = setTimeout(playVideo, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const testimonials = [
     {
       quote:
@@ -277,17 +296,18 @@ export default function Home() {
           {/* Hero Video - More visible and royal */}
           <div className="absolute inset-0 w-full h-full z-0 opacity-100 bg-black">
             <video
+              ref={videoRef}
               autoPlay
               loop
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               poster="/images/bg-imges-hero-sections/image-01.jpg"
-              className="w-full h-full object-cover transition-opacity duration-1000 saturate-[1.1] brightness-[0.9]"
-            >
-              <source src="/video/V5.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              src="/video/V5.mp4"
+              className="w-full h-full object-cover"
+            />
+            {/* Cinematic Overlay - better performance than CSS filters on video */}
+            <div className="absolute inset-0 bg-black/20 backdrop-brightness-[0.8] saturate-[1.2]"></div>
           </div>
 
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center -mt-32 md:-mt-20">
