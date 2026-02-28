@@ -54,12 +54,12 @@ export default function Header() {
   return (
     <header 
       className={`absolute top-0 z-50 w-full transition-all duration-300 ${
-        isHomePage ? "bg-transparent py-8" : "bg-black/95 py-4 border-b border-white/5"
+        isHomePage ? "bg-transparent py-4 sm:py-8" : "bg-black/95 py-3 sm:py-4 border-b border-white/5"
       }`}
     >
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
+      <div className="container flex h-14 sm:h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center group">
-          <div className="relative h-16 w-16 mr-3 transition-transform duration-500 group-hover:scale-110">
+          <div className="relative h-12 w-12 sm:h-16 sm:w-16 mr-2 sm:mr-3 transition-transform duration-500 group-hover:scale-110">
             <Image 
               src="/images/logo.svg" 
               alt="Fashion Fabric Logo" 
@@ -69,10 +69,10 @@ export default function Header() {
             />
           </div>
           <div className="flex flex-col">
-            <span className={`text-xl sm:text-2xl font-bold font-garamond italic tracking-tight leading-none ${scrolled || !isHomePage ? 'text-white' : 'text-white'}`}>
+            <span className={`text-lg sm:text-2xl font-bold font-garamond italic tracking-tight leading-none text-white`}>
               Fashion <span className="text-amber-500">Fabric</span>
             </span>
-            <span className={`text-[7px] sm:text-[8px] uppercase tracking-[0.4em] mt-1 font-bold ${scrolled || !isHomePage ? 'text-white/50' : 'text-white/80'}`}>The Master Tailors</span>
+            <span className={`text-[6px] sm:text-[8px] uppercase tracking-[0.4em] mt-1 font-bold ${scrolled || !isHomePage ? 'text-white/50' : 'text-white/80'}`}>The Master Tailors</span>
           </div>
         </Link>
 
@@ -121,8 +121,8 @@ export default function Header() {
 
           {[
             ["Clients", "/clients"],
-            ["Catalogues", "/catalogue"],
-            ["FAQs", "/faq"],
+            ["Catalogue", "/catalogue"],
+            ["FAQ", "/faq"],
             ["Blogs", "/blog"],
             ["Enquire", "/enquiry"]
           ].map(([label, href]) => (
@@ -139,7 +139,7 @@ export default function Header() {
 
         <div className="flex items-center">
           <button className={`xl:hidden group p-2 rounded-full border transition-colors ${scrolled || !isHomePage ? 'border-white/10 hover:border-amber-500' : 'border-white/20 hover:border-white'}`} onClick={toggleMenu}>
-            {isMenuOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
+            {isMenuOpen ? <X className="h-5 w-5 text-white" /> : <Menu className="h-5 w-5 text-white" />}
           </button>
         </div>
       </div>
@@ -150,28 +150,36 @@ export default function Header() {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/linen.png')] opacity-20 pointer-events-none"></div>
         
         {/* Menu Header */}
-        <div className="relative z-10 w-full px-6 py-8 flex items-center justify-between border-b border-white/10 bg-[#0a0f0a]/80 backdrop-blur-md">
+        <div className="relative z-10 w-full px-6 py-4 flex items-center justify-between border-b border-white/10 bg-[#0a0f0a]/80 backdrop-blur-md">
           <div className="flex items-center">
-            <div className="relative h-10 w-10 mr-3">
+            <div className="relative h-8 w-8 mr-2">
               <Image src="/images/logo.svg" alt="Logo" fill className="object-contain" />
             </div>
-            <span className="text-xl font-bold text-white font-garamond italic tracking-tight">Fashion <span className="text-amber-500">Fabric</span></span>
+            <span className="text-lg font-bold text-white font-garamond italic tracking-tight">Fashion <span className="text-amber-500">Fabric</span></span>
           </div>
-          <button onClick={toggleMenu} className="p-3 bg-white/5 rounded-full hover:bg-amber-500 hover:text-black transition-colors border border-white/10 text-white">
-            <X className="h-6 w-6" />
+          <button onClick={toggleMenu} className="p-2 bg-white/5 rounded-full hover:bg-amber-500 hover:text-black transition-colors border border-white/10 text-white">
+            <X className="h-5 w-5" />
           </button>
         </div>
         
         {/* Scrollable Links Area */}
-        <div className="relative z-10 flex-1 overflow-y-auto w-full px-6 py-10 flex flex-col gap-6 text-center">
-          {["Home", "About Us", "Clients", "Catalogues", "FAQs", "Blogs", "Enquire"].map((item) => (
+        <div className="relative z-10 flex-1 overflow-y-auto w-full px-6 py-6 flex flex-col gap-4 text-center">
+          {[
+            { name: "Home", href: "/" },
+            { name: "About Us", href: "/about" },
+            { name: "Clients", href: "/clients" },
+            { name: "Catalogue", href: "/catalogue" },
+            { name: "FAQ", href: "/faq" },
+            { name: "Blogs", href: "/blog" },
+            { name: "Enquire", href: "/enquiry" }
+          ].map((item) => (
             <Link 
-              key={item}
-              href={item === "Home" ? "/" : item === "About Us" ? "/about" : `/${item.toLowerCase().replace(" ", "-")}`} 
-              className="text-3xl font-garamond italic text-white/80 hover:text-amber-500 transition-colors tracking-tight py-2 border-b border-white/5"
+              key={item.name}
+              href={item.href} 
+              className="text-2xl font-garamond italic text-white/80 hover:text-amber-500 transition-colors tracking-tight py-2 border-b border-white/5"
               onClick={toggleMenu}
             >
-              {item}
+              {item.name}
             </Link>
           ))}
           

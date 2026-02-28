@@ -277,15 +277,17 @@ export default function Home() {
           {/* Hero Video - More visible and royal */}
           <div className="absolute inset-0 w-full h-full z-0 opacity-100 bg-black">
             <video
-              src="/video/V5.mp4"
-              poster="/images/bg-imges-hero-sections/image-01.jpg"
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="w-full h-full object-cover transition-opacity duration-1000 saturate-[1.2]"
-            />
+              poster="/images/bg-imges-hero-sections/image-01.jpg"
+              className="w-full h-full object-cover transition-opacity duration-1000 saturate-[1.1] brightness-[0.9]"
+            >
+              <source src="/video/V5.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center -mt-32 md:-mt-20">
