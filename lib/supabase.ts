@@ -1,20 +1,47 @@
 import { createClient } from "@supabase/supabase-js"
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+const getSupabaseConfig = () => {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  return { url, serviceRoleKey, anonKey }
+}
 
 // Create a Supabase client with service role key for server-side operations
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false
+// This is now a getter to avoid build-time errors when ENV vars are missing
+export const getSupabaseAdmin = () => {
+  const { url, serviceRoleKey } = getSupabaseConfig()
+  
+  if (!url || !serviceRoleKey) {
+    // During build time, return a dummy or handle it
+    if (process.env.NODE_ENV === 'production' && typeof window === 'undefined') {
+        console.warn("Supabase credentials missing during build - this is expected if using static generation")
+    }
+    return null
   }
-})
+
+  return createClient(url, serviceRoleKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false
+    }
+  })
+}
+
+// Global instance for reuse (server-side only)
+let supabaseAdminInstance: any = null
+const getAdmin = () => {
+    if (!supabaseAdminInstance) {
+        supabaseAdminInstance = getSupabaseAdmin()
+    }
+    return supabaseAdminInstance
+}
 
 // Create a Supabase client for client-side operations
 export const createSupabaseClient = () => {
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  return createClient(supabaseUrl, supabaseAnonKey)
+  const { url, anonKey } = getSupabaseConfig()
+  if (!url || !anonKey) return null
+  return createClient(url, anonKey)
 }
 
 /**
@@ -30,9 +57,12 @@ export async function uploadToSupabase(
   path: string
 ): Promise<string> {
   try {
-    // Validate environment variables
-    if (!supabaseUrl || !supabaseServiceRoleKey) {
-      throw new Error("Supabase credentials are not configured. Check your .env file.")
+    const { url, serviceRoleKey } = getSupabaseConfig()
+    const supabase = getAdmin()
+
+    // Validate configuration
+    if (!url || !serviceRoleKey || !supabase) {
+      throw new Error("Supabase credentials are not configured or failed to initialize.")
     }
 
     const fileBuffer = file instanceof File
@@ -42,7 +72,7 @@ export async function uploadToSupabase(
     console.log(`Uploading to Supabase: bucket="${bucket}", path="${path}"`)
 
     // Upload file to Supabase Storage
-    const { data, error } = await supabaseAdmin.storage
+    const { data, error } = await supabase.storage
       .from(bucket)
       .upload(path, fileBuffer, {
         contentType: file instanceof File ? file.type : 'application/octet-stream',
@@ -66,7 +96,7 @@ export async function uploadToSupabase(
     console.log("Upload successful, getting public URL...")
 
     // Get public URL
-    const { data: { publicUrl } } = supabaseAdmin.storage
+    const { data: { publicUrl } } = supabase.storage
       .from(bucket)
       .getPublicUrl(data.path)
 
@@ -89,7 +119,10 @@ export async function deleteFromSupabase(
   path: string
 ): Promise<void> {
   try {
-    const { error } = await supabaseAdmin.storage
+    const supabase = getAdmin()
+    if (!supabase) throw new Error("Supabase client not initialized")
+
+    const { error } = await supabase.storage
       .from(bucket)
       .remove([path])
 
@@ -113,7 +146,10 @@ export async function listSupabaseFiles(
   path?: string
 ) {
   try {
-    const { data, error } = await supabaseAdmin.storage
+    const supabase = getAdmin()
+    if (!supabase) throw new Error("Supabase client not initialized")
+
+    const { data, error } = await supabase.storage
       .from(bucket)
       .list(path, {
         limit: 100,
