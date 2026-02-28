@@ -1,6 +1,4 @@
-"use client"
-
-import { useState } from "react"
+import { TestimonialStack } from "@/components/testimonial-stack"
 import { AnimateIn } from "@/components/animate-in"
 
 export default function TestimonialsPage() {
@@ -47,125 +45,73 @@ export default function TestimonialsPage() {
       company: "Boutique Hotel",
       logo: "/images/testimonials/Untitled-4_Operations Director.svg"
     },
+    {
+      quote:
+        "The durability of the housekeeping uniforms is impressive. Even after multiple washes, the color remains vibrant and the fabric stays crisp and professional.",
+      name: "Executive Housekeeper",
+      company: "Resort in North Goa",
+      logo: "/images/testimonials/Untitled-4_Operations Director.svg"
+    },
+    {
+      quote:
+        "Their design team took our brand colors and turned them into elegant uniforms that our front desk team wears with pride. The fit is perfect for everyone.",
+      name: "Front Office Manager",
+      company: "Heritage Hotel, Goa",
+      logo: "/images/testimonials/Untitled-4_Hotel Manager.svg"
+    },
+    {
+      quote:
+        "Fashion Fabric's handle on large-scale orders is remarkable. They outfitted our entire crew of 500+ members with zero fitting issues and high precision.",
+      name: "Casino Operations Head",
+      company: "Leading Casino Group",
+      logo: "/images/testimonials/Untitled-4_General Manager.svg"
+    },
+    {
+      quote:
+        "The customized branding on our aprons and chef coats is sharp and professional. It really elevated our brand's visual identity in the dining area.",
+      name: "Restaurant Owner",
+      company: "Beachfront Bistro",
+      logo: "/images/testimonials/Untitled-4_Executive Chef.svg"
+    },
   ]
 
-  const [index, setIndex] = useState(1)
-
-  const prev = () =>
-    setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
-
-  const next = () =>
-    setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
-
   return (
-    <div className="min-h-screen bg-neutral-50 text-white">
-      {/* Title */}
-      <section className="py-20">
-        <div className="container px-4 md:px-6">
+    <div className="bg-white py-32 min-h-screen relative overflow-hidden border-t-4 border-amber-500/20">
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/exclusive-paper.png')] opacity-30 pointer-events-none"></div>
+      
+      <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-500/5 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3"></div>
+      </div>
+
+      <div className="container px-4 md:px-6 relative z-10 pt-16">
+        <div className="flex flex-col items-center text-center mb-24">
           <AnimateIn>
-            <h1 className="text-3xl font-bold text-black mb-12 pl-6">
-              Client Testimonials
+            <span className="text-black font-bold tracking-[0.4em] uppercase text-xs sm:text-sm mb-6 block drop-shadow-sm">
+              Global Recognition
+            </span>
+            <h1 className="text-5xl md:text-[6rem] font-bold text-black mb-10 font-garamond italic tracking-tighter leading-none">
+              Word of the <span className="text-black drop-shadow-sm">Master</span>
             </h1>
+            <div className="flex items-center justify-center gap-6 mb-12">
+              <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+              <div className="flex gap-2">
+                {[...Array(3)].map((_, i) => (
+                  <div key={i} className="w-2.5 h-2.5 rounded-full bg-amber-500/20 border border-amber-500/50" />
+                ))}
+              </div>
+              <div className="h-px w-24 bg-gradient-to-l from-transparent via-amber-500/50 to-transparent"></div>
+            </div>
+            <p className="text-neutral-600 max-w-2xl text-xl md:text-2xl font-light italic font-garamond mx-auto leading-relaxed px-4 drop-shadow-sm">
+              "Excellence is not a skill, it is an attitude. Explore the testimony of our esteemed partners."
+            </p>
           </AnimateIn>
         </div>
-      </section>
-
-      {/* Slider */}
-      <section className="relative pb-24 px-4">
-        <div className="container mx-auto">
-          <div className="relative h-[550px] flex items-center justify-center">
-            {testimonials.map((item, i) => {
-              // Calculate position relative to center
-              let position = i - index
-              
-              // Handle wrap around
-              if (position < -Math.floor(testimonials.length / 2)) {
-                position += testimonials.length
-              }
-              if (position > Math.floor(testimonials.length / 2)) {
-                position -= testimonials.length
-              }
-
-              const isCenter = position === 0
-              const isVisible = Math.abs(position) <= 1
-
-              return (
-                <div
-                  key={i}
-                  className="absolute transition-all duration-700 ease-in-out"
-                  style={{
-                    left: '50%',
-                    transform: `translateX(calc(-50% + ${position * 380}px)) scale(${isCenter ? 1 : 0.85})`,
-                    zIndex: isCenter ? 20 : 10 - Math.abs(position),
-                    opacity: isVisible ? (isCenter ? 1 : 0.5) : 0,
-                    pointerEvents: isVisible ? 'auto' : 'none',
-                  }}
-                >
-                  <div
-                    className={`bg-[#306f34] text-black rounded-2xl shadow-2xl
-                      transition-all duration-700 w-[360px] flex flex-col
-                      ${isCenter ? 'h-[480px] p-10' : 'h-[400px] p-8'}
-                    `}
-                  >
-                    <h3 className={`font-semibold text-center mb-4 text-white ${isCenter ? 'text-2xl' : 'text-xl'}`}>
-                      {item.name}
-                    </h3>
-
-                    <p className={`leading-relaxed text-center mb-8 text-white flex-grow ${isCenter ? 'text-base' : 'text-sm'}`}>
-                      {item.quote}
-                    </p>
-
-                    <div className="flex justify-center text-amber-500 mb-3">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <span key={i} className={isCenter ? 'text-2xl' : 'text-xl'}>★</span>
-                      ))}
-                    </div>
-
-                    <p className={`text-center font-semibold tracking-wide text-white mb-0 ${isCenter ? 'text-base' : 'text-sm'}`}>
-                      {item.company}
-                    </p>
-                    
-                    <div className="flex justify-center items-end ">
-                      <img src={item.logo} alt={`${item.company} logo`} className={`${isCenter ? 'h-[178px]' : 'h-32'}`} />
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Left Button */}
-          <button
-            onClick={prev}
-            className="absolute left-6 top-1/2 -translate-y-1/2
-                       text-black text-4xl hover:opacity-70 z-30"
-          >
-            ‹
-          </button>
-
-          {/* Right Button */}
-          <button
-            onClick={next}
-            className="absolute right-6 top-1/2 -translate-y-1/2
-                       text-black text-4xl hover:opacity-70 z-30"
-          >
-            ›
-          </button>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-3 mt-10 hidden">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                className={`h-3 w-3 rounded-full transition ${
-                  index === i ? "bg-black" : "bg-neutral-400"
-                }`}
-              />
-            ))}
-          </div>
+        
+        <div className="flex justify-center mt-8 relative">
+          <TestimonialStack testimonials={testimonials} />
         </div>
-      </section>
+      </div>
     </div>
   )
 }

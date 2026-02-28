@@ -67,7 +67,7 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000, imageClassName
 
   return (
     <div 
-      className="relative group h-[350px] sm:h-[450px] md:h-[650px] lg:h-[750px]"
+      className="relative group h-[300px] sm:h-[400px] md:h-[550px] lg:h-[650px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

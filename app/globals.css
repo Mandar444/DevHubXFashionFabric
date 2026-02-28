@@ -70,8 +70,6 @@ footer div {
 html,
 body {
   min-height: 100vh;
-  height: 100%;
-  overflow-x: hidden;
   /* Optimize text rendering globally */
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -2,7 +2,8 @@
 
 import { JSX, useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
-import { AnimateIn } from "@/components/animate-in"
+import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -160,111 +161,130 @@ export default function FAQPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative w-full h-[35vh] sm:h-[40vh] md:h-[45vh] flex items-center justify-center overflow-hidden">
-        <Image
-          src="/images/bg-imges-hero-sections/image-03.jpg"
-          alt="FAQ Background"
-          fill
-          className="object-cover z-0"
-          priority
-        />
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/50 via-black/40 to-black/50"></div>
+    <div className="min-h-screen bg-[#fdfbf7] text-emerald-950">
+      {/* Royal Hero Section - Lighter more elegant approach */}
+      <section className="relative w-full h-[50vh] flex items-center justify-center overflow-hidden">
+        {/* Subtle royal texture */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-20 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/10 via-transparent to-[#fdfbf7]"></div>
+        
+        {/* Ornate corner decorations */}
+        <div className="absolute top-10 left-10 w-32 h-32 border-t-2 border-l-2 border-amber-500/30 rounded-tl-3xl hidden md:block" />
+        <div className="absolute top-10 right-10 w-32 h-32 border-t-2 border-r-2 border-amber-500/30 rounded-tr-3xl hidden md:block" />
+
         <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
-          <AnimateIn>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-3 sm:mb-4 md:mb-5">
-              Frequently Asked Questions
+          <AnimateInStagger>
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="w-12 h-px bg-amber-500"></div>
+              <span className="text-amber-600 font-bold tracking-[0.6em] uppercase text-xs">The Archives of Knowledge</span>
+              <div className="w-12 h-px bg-amber-500"></div>
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-emerald-950 mb-8 font-garamond italic drop-shadow-sm">
+              Sovereign <span className="text-amber-600">Clarification</span>
             </h1>
-           
-          </AnimateIn>
-          <AnimateIn delay={0.2}>
-            <p className="max-w-[800px] text-lg text-white/95 px-2 leading-relaxed">
-              Find answers to common questions about our uniform manufacturing and services
+            
+            <p className="max-w-[800px] text-2xl md:text-3xl font-garamond italic text-emerald-950/70 font-light leading-relaxed">
+              "Every great achievement begins with understanding. We reveal the meticulous details of our craft."
             </p>
-          </AnimateIn>
+          </AnimateInStagger>
         </div>
       </section>
 
       {/* FAQ Sections */}
-      <section className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto max-w-5xl">
-          {faqSections.map((section, sectionIndex) => (
-            <div key={sectionIndex} className="mb-12 sm:mb-14 md:mb-16">
-              <AnimateIn>
-                <div className=" mb-8 sm:mb-10 md:mb-12">
-                  <h2 className={`text-3xl font-bold mb-3 ${sectionIndex % 2 === 0 ? 'text-[#2e7d32]' : 'text-black'}`}>
-                    {section.title}
-                  </h2>
-                 
-                </div>
-              </AnimateIn>
-              <div className="space-y-3 sm:space-y-4">
-                {section.items.map((item, itemIndex) => {
-                  const key = `${sectionIndex}-${itemIndex}`
-                  const isOpen = openItems[key]
+      <section className="py-24 relative overflow-hidden">
+        {/* Philosophical Dividers */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+        
+        <div className="container mx-auto max-w-5xl px-4">
+          <div className="flex flex-col gap-24">
+            {faqSections.map((section, sectionIndex) => (
+              <div key={sectionIndex} className="relative">
+                <AnimateIn>
+                  <div className="flex items-center gap-6 mb-16">
+                    <span className="text-4xl md:text-5xl border-b-2 border-amber-500 pb-2 font-garamond italic font-bold">0{sectionIndex + 1}</span>
+                    <h2 className="text-4xl md:text-6xl font-bold font-garamond italic text-emerald-950">
+                      {section.title}
+                    </h2>
+                  </div>
+                </AnimateIn>
 
-                  return (
-                    <AnimateIn key={itemIndex} delay={itemIndex * 0.1}>
-                      <div className="border-2 border-[#2e7d32]/20 rounded-xl overflow-hidden shadow-md hover:shadow-xl hover:border-[#2e7d32]/40 transition-all duration-300 bg-white">
-                        <button
-                          onClick={() => toggleItem(sectionIndex, itemIndex)}
-                          className={`w-full px-4 sm:px-5 md:px-6 py-4 sm:py-5 md:py-6 transition-all duration-300 flex items-center justify-between text-left gap-2 group ${
-                            isOpen ? "bg-[#f0f9f0]" : "hover:bg-[#f0f9f0] bg-white"
-                          }`}
-                        >
-                          <span className={`font-semibold text-sm sm:text-base md:text-lg pr-2 transition-colors mt-0.5 ${
-                            isOpen ? "text-[#2e7d32]" : "text-black group-hover:text-[#2e7d32]"
+                <div className="grid grid-cols-1 gap-8">
+                  {section.items.map((item, itemIndex) => {
+                    const key = `${sectionIndex}-${itemIndex}`
+                    const isOpen = openItems[key]
+
+                    return (
+                      <AnimateIn key={itemIndex} delay={itemIndex * 0.1}>
+                        <div className={`group relative transition-all duration-700 bg-white border-2 rounded-[2.5rem] overflow-hidden ${
+                          isOpen 
+                            ? "border-amber-500 shadow-[0_30px_60px_-15px_rgba(180,120,0,0.1)]" 
+                            : "border-amber-500/10 hover:border-amber-500/30"
+                        }`}>
+                          <button
+                            onClick={() => toggleItem(sectionIndex, itemIndex)}
+                            className="w-full px-8 md:px-12 py-8 md:py-10 flex items-center justify-between text-left gap-6"
+                          >
+                            <span className={`text-xl md:text-2xl font-garamond italic font-medium transition-colors ${
+                              isOpen ? "text-emerald-950" : "text-emerald-950/80 group-hover:text-amber-600"
+                            }`}>
+                              {item.question}
+                            </span>
+                            <div className={`shrink-0 w-12 h-12 rounded-full border flex items-center justify-center transition-all duration-500 ${
+                              isOpen ? "bg-amber-500 border-amber-500 rotate-180" : "bg-transparent border-amber-500/20"
+                            }`}>
+                              <ChevronDown className={`w-6 h-6 ${isOpen ? "text-white" : "text-amber-500"}`} />
+                            </div>
+                          </button>
+                          
+                          <div className={`transition-all duration-700 ease-in-out ${
+                            isOpen ? "max-h-[800px] opacity-100 pb-12" : "max-h-0 opacity-0"
                           }`}>
-                            {item.question}
-                          </span>
-                          <div className={`rounded-full p-1.5 transition-colors ${
-                            isOpen ? "bg-[#d5e8d5]" : "bg-[#2e7d32]/10 group-hover:bg-[#d5e8d5]"
-                          }`}>
-                            {isOpen ? (
-                              <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-[#2e7d32] flex-shrink-0" />
-                            ) : (
-                              <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-[#2e7d32] flex-shrink-0" />
-                            )}
-                          </div>
-                        </button>
-                        {isOpen && (
-                          <div className="px-4 sm:px-5 md:px-6 py-5 sm:py-6 bg-white border-t border-gray-100">
-                            <div className="text-black leading-relaxed text-sm sm:text-base pl-4 border-l-4 border-[#2e7d32]">
-                              {item.answer}
+                            <div className="px-8 md:px-12 flex gap-8">
+                              <div className="w-1.5 bg-amber-500/30 rounded-full shrink-0" />
+                              <div className="text-emerald-950/70 text-lg md:text-2xl font-garamond italic font-light leading-relaxed pr-8">
+                                {item.answer}
+                              </div>
                             </div>
                           </div>
-                        )}
-                      </div>
-                    </AnimateIn>
-                  )
-                })}
+                        </div>
+                      </AnimateIn>
+                    )
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 bg-white relative overflow-hidden">
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <AnimateIn>
-            <h2 className="text-3xl font-bold mb-4 sm:mb-5 text-[#2e7d32]">
-              Still Have Questions?
-            </h2>
-          
-            <p className="text-base sm:text-lg text-black mb-8 sm:mb-10 px-2 max-w-2xl mx-auto">
-              We're here to help! Contact our team for personalised assistance with your uniform requirements.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-2">
-              <Link
-                href="/enquiry"
-                className="inline-flex items-center justify-center px-8 sm:px-10 py-4 bg-[#2e7d32] text-white text-sm sm:text-base font-semibold rounded-xl shadow-lg hover:bg-[#1b5e20] hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
-              >
-                Get in Touch
+      {/* Book Call Section - More Lavish Ivory/Gold approach */}
+      <section className="py-32 bg-emerald-950 relative overflow-hidden">
+        {/* Background Texture */}
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/linen.png')] opacity-10 pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-amber-500/5 rounded-full blur-[180px] pointer-events-none" />
+
+        <div className="container px-4 md:px-6 relative z-10 text-center">
+          <AnimateInStagger>
+            <div className="max-w-4xl mx-auto">
+              <span className="text-amber-400 font-bold tracking-[0.5em] uppercase text-xs mb-8 block">Royal Proclamation</span>
+              <h2 className="text-5xl md:text-8xl font-bold text-white mb-10 font-garamond italic">
+                Ready to <span className="text-amber-500">Transform</span> Your Image?
+              </h2>
+              <p className="text-white/60 text-xl md:text-3xl font-garamond italic mb-16 font-light leading-relaxed">
+                "Experience the bespoke consultation that has defined the aesthetics of world-class establishments for two decades."
+              </p>
+              
+              <Link href="/enquiry">
+                <Button 
+                  size="lg" 
+                  className="bg-amber-500 hover:bg-amber-600 text-emerald-950 px-16 py-10 rounded-full text-2xl font-garamond italic font-bold tracking-[0.1em] shadow-[0_20px_60px_rgba(245,158,11,0.3)] hover:scale-105 transition-all"
+                >
+                  SCHEDULE AN AUDIENCE
+                </Button>
               </Link>
             </div>
-          </AnimateIn>
+          </AnimateInStagger>
         </div>
       </section>
     </div>

@@ -1,146 +1,147 @@
 import Link from "next/link"
 import Image from "next/image"
-import { MapPin, Mail, Phone, Instagram, Linkedin } from "lucide-react"
+import { MapPin, Mail, Phone, Instagram, Linkedin, ArrowRight } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#307035] ">
-      <div className="container px-4 md:px-6 py-8 md:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-black text-white border-t border-white/5 pt-24 pb-12 relative overflow-hidden">
+      {/* Background Decor Masala */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-yellow-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-          {/* Company Info */}
-          <div>
-            <div className="flex items-center mb-4">
-              <div className="relative h-10 w-10 md:h-12 md:w-12 mr-3 rounded-md p-1">
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+
+          {/* Company Identity */}
+          <div className="lg:col-span-4 flex flex-col items-start px-4">
+            <Link href="/" className="flex items-center mb-8 group">
+              <div className="relative h-16 w-16 mr-4 transition-transform duration-500 group-hover:scale-110">
                 <Image
-                  src="/images/footer-logo.svg"
+                  src="/images/logo.svg"
                   alt="Fashion Fabric Logo"
                   fill
-                  className="object-contain "
+                  className="object-contain transition-all duration-500"
                 />
               </div>
-              <h3 className="text-base md:text-lg font-semibold pt-2 text-[#ffffff]">
-                Fashion Fabric
-              </h3>
-            </div>
+              <div className="flex flex-col">
+                <h3 className="text-2xl font-bold font-garamond italic text-white leading-none">
+                  Fashion <span className="text-amber-500">Fabric</span>
+                </h3>
+                <span className="text-[9px] uppercase tracking-[0.4em] text-white/50 mt-1 font-bold">The Master Tailors</span>
+              </div>
+            </Link>
 
-            <p className="mb-4 md:mb-6 text-sm md:text-base text-[#ffffff]">
-              India&apos;s premier destination for bespoke textile solutions,
-              renowned for exquisite craftsmanship and timeless elegance.
+            <p className="text-white/70 text-lg font-garamond italic leading-relaxed mb-10 max-w-sm">
+              "Redefining the art of textile mastery. Serving the world's most distinguished establishments with precision and craft since 2008."
             </p>
 
-            <div className="flex items-center mb-3">
-              <Phone className="h-5 w-5 md:h-6 md:w-6 shrink-0 mr-3 text-[#ffffff]" />
-              <p className="text-sm md:text-base text-[#ffffff]">
-                +91 9867275524
-              </p>
+            <div className="space-y-4 w-full">
+              <div className="flex items-center gap-4 group cursor-pointer">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-amber-500 transition-all duration-500 border border-white/10">
+                  <Phone size={16} className="text-amber-500 group-hover:text-[#0b130c]" />
+                </div>
+                <span className="text-sm font-bold tracking-widest text-white/80 group-hover:text-amber-500 transition-colors">+91 9867275524</span>
+              </div>
+              <div className="flex items-center gap-4 group cursor-pointer">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-amber-500 transition-all duration-500 border border-white/10">
+                  <Mail size={16} className="text-amber-500 group-hover:text-[#0b130c]" />
+                </div>
+                <span className="text-sm font-bold tracking-widest text-white/80 group-hover:text-amber-500 transition-colors uppercase">fashionfabric@rocketmail.com</span>
+              </div>
             </div>
+          </div>
 
-            <div className="flex items-center mb-3">
-              <Mail className="h-5 w-5 md:h-6 md:w-6 shrink-0 mr-3 text-[#ffffff]" />
-              <p className="text-sm md:text-base text-[#ffffff]">
-                fashionfabric@rocketmail.com
-              </p>
+          {/* Quick Nav */}
+          <div className="lg:col-span-2 px-4">
+            <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold text-amber-500 mb-10">Quick Nav</h4>
+            <ul className="space-y-4">
+              {[
+                ["Home", "/"],
+                ["About Us", "/about"],
+                ["The Collection", "/catalogue"],
+                ["Our Clients", "/clients"],
+                ["Blogs", "/blog"],
+                ["Inquire", "/enquiry"],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    className="text-white/60 hover:text-amber-500 hover:translate-x-2 transition-all duration-300 flex items-center gap-2 group text-sm font-medium"
+                  >
+                    <ArrowRight size={10} className="opacity-0 group-hover:opacity-100 transition-all" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Expertises */}
+          <div className="lg:col-span-3 px-4">
+            <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold text-amber-500 mb-10">Expertise</h4>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                ["Hospitality", "/collection/hospitality"],
+                ["Culinary & Chef", "/collection/restaurant-chef"],
+                ["Wellness & Spa", "/collection/spa"],
+                ["Healthcare", "/collection/healthcare"],
+                ["Aviation", "/collection/airline"],
+                ["Corporate", "/collection/corporate"],
+                ["Industrial", "/collection/industrial"],
+                ["Education", "/collection/school"],
+              ].map(([label, href]) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="text-white/60 hover:text-amber-500 flex items-center justify-between group py-1 border-b border-white/5 hover:border-amber-500/30 transition-all duration-300"
+                >
+                  <span className="text-sm font-medium">{label}</span>
+                  <span className="text-[8px] uppercase tracking-widest text-white/20 group-hover:text-amber-500 transition-all">Discover</span>
+                </Link>
+              ))}
             </div>
+          </div>
 
-            <div className="flex items-start">
-              <MapPin className="h-6 w-6 md:h-7 md:w-7 shrink-0 mt-0.5 mr-3 text-[#ffffff]" />
-              <p className="text-sm md:text-base text-[#ffffff]">
+          {/* Contact & Legal */}
+          <div className="lg:col-span-3 px-4">
+            <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold text-amber-500 mb-10">Visit The Atelier</h4>
+            <div className="flex gap-4 mb-10 group">
+              <MapPin className="shrink-0 text-amber-500 mt-1" size={20} />
+              <p className="text-white/70 text-sm leading-relaxed font-medium">
                 Shop No. 8, Block - II, Dukle Heaven, Near Old Yamaha Showroom,
                 Santa Inez, Panaji, Taleigao, Goa 403001
               </p>
             </div>
-          </div>
 
-          {/* Quick Links */}
-          <div className="md:pl-20">
-            <h3 className="text-base md:text-lg font-semibold mb-4 text-[#ffffff]">
-              Quick Links
-            </h3>
-
-            <ul className="space-y-2 text-[#ffffff]">
-              {[
-                ["Home", "/"],
-                ["About Us", "/about"],
-                ["Collection", "/products"],
-                ["Clients", "/clients"],
-                ["Catalogues", "/catalogue"],
-                ["FAQs", "/faq"],
-                ["Blogs", "/blog"],
-                ["Testimonials", "/testimonials"],
-                ["Enquire", "/enquiry"],
-              ].map(([label, href]) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-[#ffffff] hover:opacity-80 transition-colors text-sm md:text-base"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Collection & Social */}
-          <div>
-            <h3 className="text-base md:text-lg font-semibold mb-4 text-[#ffffff]">
-              Our Collection
-            </h3>
-
-            <ul className="space-y-2 text-[#ffffff]">
-              {[
-                ["Hospitality", "/collection/hospitality"],
-                ["Restaurant & Chef", "/collection/restaurant-chef"],
-                ["Spa / Salons", "/collection/spa"],
-                ["Healthcare", "/collection/healthcare"],
-                ["Airline", "/collection/airline"],
-                ["Corporate", "/collection/corporate"],
-                ["Schools", "/collection/school"],
-              ].map(([label, href]) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="text-[#ffffff] hover:opacity-80 transition-colors text-sm md:text-base"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            {/* Social */}
-            <div className="mt-6">
-              <h3 className="text-base md:text-lg font-semibold mb-4 text-[#ffffff]">
-                Follow Fashion Fabric
-              </h3>
-
-              <div className="flex gap-4 items-center md:pl-10">
-                <Link
-                  href="https://www.instagram.com/fashionfabric.info/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-6 w-6 md:h-8 md:w-8 text-[#ffffff]" />
-                </Link>
-
-                <Link
-                  href="https://www.linkedin.com/company/fashionfabric/?viewAsMember=true"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-6 w-6 md:h-8 md:w-8 text-[#ffffff]" />
-                </Link>
-              </div>
+            <h4 className="text-[10px] uppercase tracking-[0.5em] font-bold text-amber-500 mb-6">Socials</h4>
+            <div className="flex gap-4">
+              <Link
+                href="https://www.instagram.com/fashionfabric.info/"
+                target="_blank"
+                className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-[#0b130c] hover:scale-110 transition-all duration-500 group shadow-sm border border-white/10"
+              >
+                <Instagram className="h-6 w-6 text-amber-500 group-hover:text-[#0b130c]" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/company/fashionfabric/"
+                target="_blank"
+                className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-amber-500 hover:text-[#0b130c] hover:scale-110 transition-all duration-500 group shadow-sm border border-white/10"
+              >
+                <Linkedin className="h-6 w-6 text-amber-500 group-hover:text-[#0b130c]" />
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-white/30 mt-12 pt-6 text-center text-sm text-[#ffffff]">
-          <p>&copy; {new Date().getFullYear()} Fashion Fabric. All rights reserved.</p>
+        {/* Closing Bar */}
+        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] tracking-[0.2em] font-bold text-white/30 uppercase text-center">
+            &copy; {new Date().getFullYear()} Fashion Fabric. The Pinnacle of Tailoring Excellence.
+          </p>
+          <div className="flex gap-10 text-[10px] tracking-[0.2em] font-bold text-white/30 uppercase">
+            <Link href="/privacy" className="hover:text-amber-500 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-amber-500 transition-colors">Terms of Service</Link>
+          </div>
         </div>
       </div>
     </footer>
