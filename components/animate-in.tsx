@@ -28,6 +28,13 @@ export function AnimateIn({
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // Check for mobile to avoid hidden content issues
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      setIsVisible(true);
+      return;
+    }
+
     const element = ref.current
     if (!element) return
 
@@ -45,8 +52,14 @@ export function AnimateIn({
       { threshold: 0.01, rootMargin: "100px" }
     )
 
+    // Fail-safe: if observer doesn't fire in 1s, show content
+    const timer = setTimeout(() => setIsVisible(true), 1000);
+
     observer.observe(element)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    }
   }, [once])
 
   const getTransform = () => {
@@ -92,6 +105,13 @@ export function AnimateInStagger({
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // Check for mobile to avoid hidden content issues
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    if (isMobile) {
+      setIsVisible(true);
+      return;
+    }
+
     const element = ref.current
     if (!element) return
 
@@ -106,11 +126,17 @@ export function AnimateInStagger({
           setIsVisible(false)
         }
       },
-      { threshold: 0.01, rootMargin: "100px" }
+      { threshold: 0.01, rootMargin: "200px" }
     )
 
+    // Fail-safe: if observer doesn't fire in 1.5s, show content anyway
+    const timer = setTimeout(() => setIsVisible(true), 1500);
+
     observer.observe(element)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    }
   }, [once])
 
   const getTransform = (visible: boolean) => {

@@ -275,9 +275,10 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
           {/* Hero Video - More visible and royal */}
-          <div className="absolute inset-0 w-full h-full z-0 opacity-100 bg-neutral-900">
+          <div className="absolute inset-0 w-full h-full z-0 opacity-100 bg-black">
             <video
               src="/video/V5.mp4"
+              poster="/images/bg-imges-hero-sections/image-01.jpg"
               autoPlay
               loop
               muted
