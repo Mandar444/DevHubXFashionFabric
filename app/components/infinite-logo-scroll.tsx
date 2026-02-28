@@ -26,15 +26,23 @@ export function InfiniteLogoScroll({ clients, speed = 40, logoSize }: InfiniteLo
     animationPlayState: isPaused ? 'paused' : 'running',
   } as React.CSSProperties
 
-  // Default sizes
-  const containerW = logoSize ? logoSize * 2 : 200;
-  const containerWmd = logoSize ? Math.round(logoSize * 2.6) : 260;
-  const containerH = logoSize ? logoSize : 100;
-  const containerHmd = logoSize ? Math.round(logoSize * 1.4) : 140;
-  const imgW = logoSize ? logoSize * 2 : 200;
-  const imgH = logoSize ? logoSize : 100;
-  const imgMaxH = logoSize ? logoSize * 0.9 : 90;
-  const imgMaxHmd = logoSize ? logoSize * 1.1 : 110;
+  const [baseSize, setBaseSize] = useState(logoSize || 160)
+  
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+      setBaseSize(logoSize ? (isMobile ? logoSize * 0.6 : logoSize) : (isMobile ? 80 : 160));
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [logoSize]);
+
+  const containerW = baseSize * 1.8;
+  const containerH = baseSize * 0.8;
+  const imgW = baseSize * 1.6;
+  const imgH = baseSize * 0.7;
+  const imgMaxH = baseSize * 0.6;
 
   return (
     <div 
