@@ -11,12 +11,12 @@ import { ImageSlideshow } from "@/components/image-slideshow"
 
 // Hospitality images array
 const hospitalityImages = [
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-01.svg", alt: "Hospitality staff uniform 1" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-02.svg", alt: "Hospitality staff uniform 2" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-03.svg", alt: "Hospitality staff uniform 3" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-04.svg", alt: "Hospitality staff uniform 4" },
-  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-05.svg", alt: "Hospitality staff uniform 5" },
   { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-06.svg", alt: "Hospitality staff uniform 6" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-05.svg", alt: "Hospitality staff uniform 5" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-04.svg", alt: "Hospitality staff uniform 4" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-03.svg", alt: "Hospitality staff uniform 3" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-02.svg", alt: "Hospitality staff uniform 2" },
+  { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-01.svg", alt: "Hospitality staff uniform 1" },
   { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-07.svg", alt: "Hospitality staff uniform 7" },
   { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-08.webp", alt: "Hospitality staff uniform 8" },
   { src: "/images/collection-pateners/collection-right-side-images/Hotels/Untitled-3-09.webp", alt: "Hospitality staff uniform 9" },
