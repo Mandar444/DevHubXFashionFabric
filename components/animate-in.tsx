@@ -42,7 +42,7 @@ export function AnimateIn({
           setIsVisible(false)
         }
       },
-      { threshold: 0.1, rootMargin: "50px" }
+      { threshold: 0.01, rootMargin: "50px" }
     )
 
     observer.observe(element)
@@ -106,7 +106,7 @@ export function AnimateInStagger({
           setIsVisible(false)
         }
       },
-      { threshold: 0.2, rootMargin: "50px" }
+      { threshold: 0.01, rootMargin: "50px" }
     )
 
     observer.observe(element)
@@ -128,6 +128,7 @@ export function AnimateInStagger({
     <div ref={ref} className={className} style={style} {...props}>
       {React.Children.map(children, (child, i) => (
         <div
+          key={i}
           style={{
             opacity: isVisible ? 1 : 0,
             transform: getTransform(isVisible),
