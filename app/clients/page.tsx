@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { useState, useRef } from "react"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
-import { TestimonialsSlider } from "@/components/testimonials-slider"
+import { TiltedTestimonials } from "@/components/tilted-testimonials"
 
 const clients = [
   { name: "Araqila", logo: "/images/clients/araqila.png" },
@@ -148,7 +148,7 @@ export default function ClientsPage() {
         </section>
 
         {/* Unified Testimonials Section */}
-        <TestimonialsSlider />
+        <TiltedTestimonials />
       </main>
     </div>
   )

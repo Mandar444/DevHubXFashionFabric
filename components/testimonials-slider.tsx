@@ -1,100 +1,151 @@
 "use client"
 import Image from "next/image"
+import { useState, useRef } from "react"
 import { AnimateIn } from "@/components/animate-in"
-import { Quote, Star } from "lucide-react"
+import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react"
 
 const testimonials = [
   {
-    quote: "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of fabrics, and timely delivery have made them an invaluable asset to our operations. The team consistently delivers excellence.",
+    quote: "Fashion Fabric has been our trusted uniform partner for years. Their attention to detail, quality of fabrics, and timely delivery have made them an invaluable asset to our operations.",
     name: "Hotel Manager",
     company: "5-Star Hotel in Goa",
     logo: "/images/testimonials/Untitled-4_Hotel Manager.svg"
   },
   {
-    quote: "The team at Fashion Fabric understands our brand aesthetic perfectly. They've created custom uniforms that our staff love to wear and that perfectly represent our brand image in every detail.",
+    quote: "The team at Fashion Fabric understands our brand aesthetic perfectly. They've created custom uniforms that our staff love to wear and that perfectly represent our brand image.",
     name: "F&B Director",
     company: "Luxury Resort in Goa",
     logo: "/images/testimonials/Untitled-4_F&B Director.svg"
   },
   {
-    quote: "We've been working with Fashion Fabric for over 5 years now. Their consistent quality and reliability make them our go-to uniform supplier for all our properties across the country.",
+    quote: "We've been working with Fashion Fabric for over 5 years now. Their consistent quality and reliability make them our go-to uniform supplier for all our properties.",
     name: "Procurement Manager",
     company: "Hotel Chain",
     logo: "/images/testimonials/Untitled-4_Procurement Manager.svg"
-  }
+  },
+  {
+    quote: "The custom chef coats designed by Fashion Fabric are not only stylish but also incredibly comfortable and durable. Our kitchen team is very satisfied.",
+    name: "Executive Chef",
+    company: "Fine Dining Restaurant",
+    logo: "/images/testimonials/Untitled-4_Executive Chef.svg"
+  },
+  {
+    quote: "Fashion Fabric's attention to detail and commitment to quality is unmatched. They delivered our large order on time and exceeded our expectations.",
+    name: "General Manager",
+    company: "Casino in Goa",
+    logo: "/images/testimonials/Untitled-4_General Manager.svg"
+  },
+  {
+    quote: "Working with Fashion Fabric has been a pleasure. Their team is responsive, professional, and always willing to go the extra mile to meet our requirements.",
+    name: "Operations Director",
+    company: "Boutique Hotel",
+    logo: "/images/testimonials/Untitled-4_Operations Director.svg"
+  },
 ]
 
 export function TestimonialsSlider() {
+  const [index, setIndex] = useState(2)
+  const touchStartX = useRef<number | null>(null)
+
+  const handlePrev = () => setIndex((curr) => (curr === 0 ? testimonials.length - 1 : curr - 1))
+  const handleNext = () => setIndex((curr) => (curr === testimonials.length - 1 ? 0 : curr + 1))
+
   return (
-    <section className="relative py-24 md:py-32 px-4 bg-[#f8faf8] overflow-hidden min-h-[95vh] flex flex-col justify-center">
-      {/* Dynamic Background Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-[#00712C]/5 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-[#00712C]/3 rounded-full"></div>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-gradient-to-b from-[#00712C]/5 to-transparent"></div>
-      </div>
-
-      <div className="container mx-auto max-w-6xl relative z-10 text-center">
-        {/* Centered Heading - Big and Bold */}
-        <AnimateIn className="mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-7xl font-bold tracking-tight text-neutral-900 mb-6">
-            What Our <span className="text-[#00712C]">Clients</span> Say
-          </h2>
-          <div className="w-24 h-2 bg-[#00712C] mx-auto rounded-full mb-8"></div>
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-neutral-500 font-medium italic leading-relaxed">
-            "Your success is our signature. Discover how we've transformed the identity of India's leading hospitality brands."
-          </p>
+    <section className="relative py-16 md:py-28 px-4 bg-white overflow-hidden">
+      <div className="container mx-auto max-w-7xl relative z-10">
+        <AnimateIn className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-4">What Our Clients Say</h2>
+          <div className="w-16 md:w-20 h-1.5 bg-[#00712C] mx-auto rounded-full"></div>
         </AnimateIn>
 
-        {/* Centered Big Card Design */}
-        <AnimateIn delay={0.2}>
-          <div className="relative h-[650px] md:h-[750px] flex items-center justify-center perspective-[2000px]">
-            
-            {/* Background Decorative Card (Left) */}
-            <div className="absolute hidden lg:flex flex-col items-center justify-center text-center -translate-x-[280px] rotate-[-10deg] w-[320px] h-[500px] bg-white text-neutral-300 shadow-xl rounded-[3rem] p-10 border border-neutral-100 z-10 opacity-40">
-               <Quote size={32} className="mb-6 opacity-20" fill="currentColor" />
-               <h3 className="font-serif font-bold text-2xl mb-2">Hotel Manager</h3>
-               <p className="text-xs tracking-widest uppercase mb-4">5-STAR HOTEL</p>
-            </div>
+        <div 
+          className="relative h-[550px] md:h-[650px] flex items-center justify-center mb-4 md:mb-12 overflow-visible"
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX
+          }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return
+            const touchEndX = e.changedTouches[0].clientX
+            const deltaX = touchEndX - touchStartX.current
+            if (deltaX > 50) handlePrev()
+            if (deltaX < -50) handleNext()
+            touchStartX.current = null
+          }}
+        >
+          {testimonials.map((item, i) => {
+            let position = i - index
+            if (position < -Math.floor(testimonials.length / 2)) position += testimonials.length
+            if (position > Math.floor(testimonials.length / 2)) position -= testimonials.length
 
-            {/* Main Center Card - HUGE and PROMINENT */}
-            <div className="relative z-30 flex flex-col items-center justify-between text-center bg-gradient-to-br from-[#00712C] to-[#043d07] text-white shadow-[0_60px_120px_-30px_rgba(0,113,44,0.5)] rounded-[4rem] p-12 md:p-20 w-[350px] sm:w-[450px] md:w-[650px] h-[580px] md:h-[700px] border border-white/10 group transition-all duration-700 hover:scale-[1.03]">
-              <div className="text-white/20 transform group-hover:scale-110 transition-transform duration-500">
-                <Quote size={80} className="md:w-24 md:h-24" fill="currentColor" />
+            const isCenter = position === 0
+            const isVisible = Math.abs(position) <= 1
+
+            return (
+              <div
+                key={i}
+                className="absolute transition-all duration-700 ease-in-out cursor-pointer"
+                onClick={() => setIndex(i)}
+                style={{
+                  left: '50%',
+                  transform: `translateX(calc(-50% + ${position * (typeof window !== 'undefined' && window.innerWidth < 768 ? 260 : 450)}px)) scale(${isCenter ? 1 : 0.85})`,
+                  zIndex: isCenter ? 20 : 10 - Math.abs(position),
+                  opacity: isVisible ? 1 : 0,
+                  pointerEvents: isVisible ? 'auto' : 'none',
+                }}
+              >
+                <div
+                  className={`relative overflow-hidden transition-all duration-700 w-[290px] sm:w-[350px] md:w-[420px] flex flex-col items-center justify-between text-center rounded-[2.5rem] p-8 md:p-12 shadow-2xl ${
+                    isCenter 
+                      ? 'bg-[#00712C] text-white h-[480px] md:h-[580px]' 
+                      : 'bg-[#a3c9a8] text-white h-[400px] md:h-[500px] opacity-80'
+                  }`}
+                >
+                  <div className="flex flex-col items-center w-full h-full">
+                    <h3 className={`font-bold transition-all duration-700 mb-1 ${isCenter ? 'text-2xl md:text-3xl' : 'text-xl'}`}>{item.name}</h3>
+                    <p className={`transition-all duration-700 font-bold uppercase tracking-widest mb-4 ${isCenter ? 'text-xs md:text-sm' : 'text-[9px]'}`}>{item.company}</p>
+                    
+                    <div className="flex justify-center gap-1 mb-6">
+                      {[...Array(5)].map((_, starIdx) => (
+                        <Star key={starIdx} size={isCenter ? 20 : 16} className="text-yellow-400 fill-yellow-400" />
+                      ))}
+                    </div>
+
+                    <p className={`leading-relaxed italic flex-grow transition-all duration-700 mb-8 px-2 ${isCenter ? 'text-sm md:text-lg font-medium' : 'text-xs md:text-sm'}`}>
+                        "{item.quote}"
+                    </p>
+
+                    <div className={`relative transition-all duration-700 ${isCenter ? 'w-32 h-20 md:w-40 md:h-24 opacity-100' : 'w-24 h-16 opacity-60'}`}>
+                      <Image src={item.logo} alt="Client Logo" fill className="object-contain object-bottom" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              
-              <div className="text-[10px] md:text-xs tracking-[0.3em] font-bold uppercase py-2 px-8 rounded-full border-2 border-white/20 text-white/90 my-8">
-                VERIFIED PARTNER V3
-              </div>
+            )
+          })}
+        </div>
 
-              <h3 className="font-serif font-bold text-3xl md:text-5xl mb-2 text-white tracking-tight">F&B Director</h3>
-              <p className="text-[10px] md:text-sm tracking-[0.4em] uppercase mb-10 text-white/60">LUXURY RESORT IN GOA</p>
-
-              <p className="leading-relaxed italic flex-grow text-lg md:text-2xl font-medium text-white/95 max-w-[90%]">
-                "The team at Fashion Fabric understands our brand aesthetic perfectly. They've created custom uniforms that our staff love to wear and that perfectly represent our brand image!"
-              </p>
-
-              <div className="flex gap-3 mb-12 w-full justify-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={28} className="text-yellow-400 fill-yellow-400 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" />
-                ))}
-              </div>
-
-              {/* Logo - Large and Clear */}
-              <div className="relative w-72 h-36 md:w-[450px] md:h-52 opacity-100 mt-4 h-auto">
-                <Image src="/images/testimonials/Untitled-4_F&B Director.svg" alt="Signature Logo" fill className="object-contain object-bottom" priority />
-              </div>
-            </div>
-
-            {/* Background Decorative Card (Right) */}
-            <div className="absolute hidden lg:flex flex-col items-center justify-center text-center translate-x-[280px] rotate-[10deg] w-[320px] h-[500px] bg-white text-neutral-300 shadow-xl rounded-[3rem] p-10 border border-neutral-100 z-10 opacity-40">
-               <Quote size={32} className="mb-6 opacity-20" fill="currentColor" />
-               <h3 className="font-serif font-bold text-2xl mb-2">Procurement Manager</h3>
-               <p className="text-xs tracking-widest uppercase mb-4">HOTEL CHAIN</p>
-            </div>
-
+        {/* Controls - Refined for mobile */}
+        <div className="flex justify-center items-center gap-6 mt-8 md:mt-0">
+          <button 
+            onClick={(e) => { e.stopPropagation(); handlePrev(); }} 
+            className="group p-3 rounded-full bg-neutral-100 hover:bg-[#00712C] transition-all active:scale-95"
+          >
+            <ChevronLeft size={24} className="text-neutral-900 group-hover:text-white" />
+          </button>
+          
+          <div className="flex gap-2">
+            {testimonials.map((_, i) => (
+                <div key={i} className={`h-1.5 rounded-full transition-all duration-500 ${index === i ? 'w-8 bg-[#00712C]' : 'w-2 bg-neutral-200'}`} />
+            ))}
           </div>
-        </AnimateIn>
+
+          <button 
+            onClick={(e) => { e.stopPropagation(); handleNext(); }} 
+            className="group p-3 rounded-full bg-neutral-100 hover:bg-[#00712C] transition-all active:scale-95"
+          >
+            <ChevronRight size={24} className="text-neutral-900 group-hover:text-white" />
+          </button>
+        </div>
       </div>
     </section>
   )
