@@ -6,6 +6,19 @@
     "regions": [
         "bom1"
     ],
+    "redirects": [
+        {
+          "source": "/(.*)",
+          "has": [
+            {
+              "type": "host",
+              "value": "www.fashionfabric.info"
+            }
+          ],
+          "destination": "https://fashionfabric.info/$1",
+          "permanent": true
+        }
+    ],
     "headers": [
         {
             "source": "/(.*)",

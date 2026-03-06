@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   creator: "Fashion Fabric",
   publisher: "Fashion Fabric",
   alternates: {
-    canonical: '/',
+    // Page level canonicals are defined in individual page.tsx files
   },
   verification: {
     google: 'rBpCUFyuYtM2_o-dmCz2OJD_18u4l0gpmHV4jmuP0YE',

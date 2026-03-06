@@ -1,10 +1,19 @@
 export const dynamic = "force-dynamic"
+import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 import { Button } from "@/components/ui/button"
 import { prisma } from "@/lib/prisma"
 import { DUMMY_BLOG_POSTS } from "@/lib/dummy-data"
+
+export const metadata: Metadata = {
+  title: "Uniform Industry Insights | Fashion Fabric Blog",
+  description: "Expert advice on uniform design, manufacturing trends, and hospitality branding from India's #1 uniform partner.",
+  alternates: {
+    canonical: 'https://fashionfabric.info/blog',
+  },
+}
 
 async function getBlogPosts() {
   try {

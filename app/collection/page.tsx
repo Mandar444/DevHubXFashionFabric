@@ -1,4 +1,12 @@
-"use client";
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Bespoke Uniform Collections | Fashion Fabric India",
+  description: "Browse our premium range of uniforms for Hotels, Airlines, Healthcare, and Corporate teams. Custom-made collections for every professional sector.",
+  alternates: {
+    canonical: 'https://fashionfabric.info/collection',
+  },
+}
 
 import Image from "next/image";
 import Link from "next/link";

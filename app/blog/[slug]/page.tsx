@@ -9,6 +9,8 @@ import { notFound } from "next/navigation"
 import { BlogShareButtons } from "@/components/blog-share-buttons"
 import { DUMMY_BLOG_POSTS } from "@/lib/dummy-data"
 
+import { Metadata } from "next"
+
 async function getBlogPost(slug: string) {
   try {
     const blogPost = await prisma.blogPost.findUnique({
@@ -22,6 +24,24 @@ async function getBlogPost(slug: string) {
   } catch (error) {
     console.error("Error fetching blog post:", error)
     return null
+  }
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const post = await getBlogPost(slug)
+  
+  if (!post) return {}
+  
+  return {
+    title: `${post.title} | Fashion Fabric Blog`,
+    description: post.excerpt,
+    alternates: {
+      canonical: `https://fashionfabric.info/blog/${slug}`,
+    },
+    openGraph: {
+      images: [post.image],
+    }
   }
 }
 

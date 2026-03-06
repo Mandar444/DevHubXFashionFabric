@@ -1,5 +1,14 @@
 import Image from "next/image"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About Us | Fashion Fabric - 15+ Years of Uniform Excellence",
+  description: "Learn about Fashion Fabric's journey from a luxury textile showroom in 2010 to India's leading bespoke uniform manufacturer serving Marriott, Taj, and Hyatt.",
+  alternates: {
+    canonical: 'https://fashionfabric.info/about',
+  },
+}
 const values = [
   {
     title: "Reliability",

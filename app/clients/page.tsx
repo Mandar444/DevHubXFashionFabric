@@ -9,7 +9,10 @@ export const revalidate = 0
 
 export const metadata = {
   title: "Our Prestigious Clients | Fashion Fabric - India's Best Uniform Partner",
-  description: "Trusted by India's biggest brands in hospitality, corporate, and healthcare.",
+  description: "Trusted by India's biggest brands in hospitality, corporate, and healthcare. India's #1 uniform choice for Marriott, Taj, Hyatt and more.",
+  alternates: {
+    canonical: 'https://fashionfabric.info/clients',
+  },
 }
 
 const clients = [
