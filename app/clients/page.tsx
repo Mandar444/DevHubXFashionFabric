@@ -99,43 +99,48 @@ export default function ClientsPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+        {/* Hero Section - Refreshed with New UI Style */}
+        <section className="relative w-full h-[50vh] flex items-center justify-center overflow-hidden">
           <Image
-            src="/images/bg-imges-hero-sections/image-01.jpg"
-            alt="Our Clients Background"
+            src="/images/bg-imges-hero-sections/image-04.jpg"
+            alt="Our Clients Luxury Background"
             fill
             className="object-cover z-0"
             priority
           />
-          <div className="absolute inset-0 z-10 bg-black/40"></div>
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/40 to-white"></div>
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">
-                Our Prestigious Clients
+              <span className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white/90">
+                TRUSTED BY THE BEST
+              </span>
+              <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white mb-6">
+                Our Prestigious <span className="text-[#00712C]">Partners</span>
               </h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
-              <p className="max-w-[800px] text-lg text-white/90">Trusted by Leading Brands</p>
+              <p className="max-w-[700px] text-lg md:text-xl text-white/80 font-medium">
+                Serving India's most renowned hospitality, casino, and corporate brands with bespoke uniform excellence since 2010.
+              </p>
             </AnimateIn>
           </div>
         </section>
 
-        {/* Clients Grid */}
-        <section className="py-16 bg-white">
+        {/* Clients Grid Section */}
+        <section className="py-24 bg-white relative">
           <div className="container px-4 md:px-6">
-            <AnimateIn>
-              <p className="text-center text-black mb-12 max-w-[800px] mx-auto">
-                At Fashion Fabric, we take pride in serving some of the most prestigious hospitality establishments. Our commitment to quality and excellence has made us the preferred uniform supplier for these renowned brands.
-              </p>
+            <AnimateIn className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Brands We Support</h2>
+              <div className="w-20 h-1.5 bg-[#00712C] mx-auto rounded-full"></div>
             </AnimateIn>
-            <AnimateInStagger className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-10" staggerDelay={0.02}>
+            
+            <AnimateInStagger className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8" staggerDelay={0.01}>
               {clients.map((client, index) => (
-                <div key={index} className="group rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center h-48 md:h-52 shadow-sm hover:shadow-xl transition-all duration-300 bg-white border border-neutral-100 hover:border-[#00712C]/20">
-                  <div className="h-24 w-full flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                    <Image src={client.logo} alt={client.name} width={140} height={80} className="object-contain max-w-[85%] max-h-full" />
+                <div key={index} className="group rounded-3xl p-6 md:p-10 flex flex-col items-center justify-center h-48 md:h-60 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(0,113,44,0.15)] transition-all duration-500 bg-white border border-neutral-100 hover:border-[#00712C]/30 transform hover:-translate-y-2">
+                  <div className="h-28 w-full flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-500">
+                    <Image src={client.logo} alt={client.name} width={160} height={90} className="object-contain max-w-[90%] max-h-full filter grayscale group-hover:grayscale-0 transition-all duration-500" />
                   </div>
-                  <p className="text-xs md:text-sm font-semibold text-[#00712C] text-center w-full leading-tight opacity-70 group-hover:opacity-100 transition-opacity">{client.name}</p>
+                  <p className="text-[10px] md:text-xs font-bold tracking-widest text-neutral-400 group-hover:text-[#00712C] text-center w-full uppercase transition-colors">{client.name}</p>
                 </div>
               ))}
             </AnimateInStagger>
