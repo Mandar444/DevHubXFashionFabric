@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://fashionfabric.info'),
   title: "Fashion Fabric | India's Leading Uniform Manufacturer",
   description: "India's leading custom uniform manufacturer with 15+ years of excellence. Bespoke uniform solutions for hospitality, hotels, resorts, and corporate teams across Goa and India. Quality craftsmanship and reliable delivery.",
-  keywords: "uniform manufacturer India, hospitality uniforms Goa, hotel uniforms manufacturer, corporate wear India, custom uniforms Goa, linen supplier India, Fashion Fabric Deepak Goyal",
+  keywords: "uniform manufacturer India, hospitality uniforms Goa, hotel uniforms manufacturer, corporate wear India, custom uniforms Goa, hospital uniforms India, Fashion Fabric Deepak Goyal, bespoke uniform solutions",
   authors: [{ name: "Deepak Goyal" }],
   creator: "Fashion Fabric",
   publisher: "Fashion Fabric",
@@ -65,8 +65,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://fashionfabric.info/",
     siteName: "Fashion Fabric",
-    title: "Fashion Fabric | India's Leading Uniform Supplier & Manufacturer",
-    description: "India's leading uniform manufacturer since 2010. Specializing in hospitality, hotels, and corporate uniforms across Goa and India.",
+    title: "Fashion Fabric | India's #1 Custom Uniform Manufacturer",
+    description: "India's leading bespoke uniform manufacturer since 2010. We specialize in premium uniforms for hospitality, hotels, corporate, and healthcare sectors.",
     images: [
       {
         url: "https://fashionfabric.info/images/bg-imges-hero-sections/image-01.jpg",
@@ -78,8 +78,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fashion Fabric - Custom Uniform Solutions",
-    description: "Premium uniform manufacturing for hospitality and corporate sectors in India.",
+    title: "Fashion Fabric | #1 Custom Uniform Manufacturer India",
+    description: "Premium bespoke uniform manufacturing for luxury hospitality and corporate sectors in India since 2010.",
     images: ["https://fashionfabric.info/images/bg-imges-hero-sections/image-01.jpg"],
   },
 }

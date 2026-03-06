@@ -92,7 +92,7 @@ export default function AboutPage() {
             Our Story
           </h2>
           <p className="mb-4 text-black text-justify text-sm md:text-base">
-            Fashion Fabric began its journey in 2010, not as a uniform manufacturer, but as a retail linen showroom built on a deep understanding of textiles. Our strength has always been fabric-first quality, feel, finish and durability; because we believe every great garment starts with the right material.
+            Fashion Fabric began its journey in 2010, not as a uniform manufacturer, but as a luxury textile showroom built on a deep understanding of textiles. Our strength has always been fabric-first quality, feel, finish and durability; because we believe every great garment starts with the right material.
           </p>
           <p className="mb-4 text-black text-justify text-sm md:text-base">
             Our entry into uniforms happened through a sheer request from a spa that needed professional uniforms. We weren&apos;t specialised in uniforms at the time, and we didn&apos;t have the full infrastructure either, but we said yes. We sourced the fabric, got customisation done in another city, and managed multiple rounds of follow-ups just to deliver the perfect final product. When we saw the client&apos;s smile at delivery, we knew we had created something beyond a garment, we had created trust.

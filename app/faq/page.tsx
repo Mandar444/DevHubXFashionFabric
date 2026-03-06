@@ -74,7 +74,7 @@ export default function FAQPage() {
         },
         {
           question: "What materials are used to make uniforms?",
-          answer: "We use premium-quality fabrics sourced from trusted suppliers. Our material selection is based on comfort, durability, finish, and performance, and includes cotton, polyester blends, linen, and specialized performance fabrics. Fabric choice is customized as per department and working conditions.",
+          answer: "We use premium-quality fabrics sourced from trusted suppliers. Our material selection is based on comfort, durability, finish, and performance, and includes cotton, polyester blends, and specialized performance fabrics. Fabric choice is customized as per department and working conditions.",
         },
         {
           question: "What are Fashion Fabric's quality control measures?",
