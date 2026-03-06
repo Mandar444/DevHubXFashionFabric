@@ -1,9 +1,16 @@
 "use client"
 import Image from "next/image"
-// Page Version: ALL_WHITE_LOCKED_V2
 import { useState, useRef } from "react"
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in"
 import { TiltedTestimonials } from "@/components/tilted-testimonials"
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+export const metadata = {
+  title: "Our Prestigious Clients | Fashion Fabric - India's Best Uniform Partner",
+  description: "Trusted by India's biggest brands in hospitality, corporate, and healthcare.",
+}
 
 const clients = [
   { name: "Araqila", logo: "/images/clients/araqila.png" },
@@ -132,7 +139,7 @@ export default function ClientsPage() {
           <div className="container px-4 md:px-6">
             <AnimateIn className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Brands We Support</h2>
-              <div className="w-20 h-1.5 bg-[#00712C] mx-auto rounded-full"></div>
+              <div className="w-20 h-1.5 bg-neutral-200 mx-auto rounded-full"></div>
             </AnimateIn>
             
             <AnimateInStagger className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8" staggerDelay={0.01}>
