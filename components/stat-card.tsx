@@ -121,14 +121,14 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
       <div ref={ratingRef} className="bg-white rounded-2xl h-full flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow">
         <div className="flex-1 flex items-center justify-center gap-4 p-6">
           {icon && (
-            <div className="w-12 h-12 relative flex-shrink-0">
+            <div className="w-20 h-20 relative flex-shrink-0">
               <Image 
                 src={icon} 
                 alt={label} 
                 fill 
                 className="object-contain"
                 loading="lazy"
-                sizes="48px"
+                sizes="80px"
                 style={iconColor ? { filter: 'invert(18%) sepia(35%) saturate(1284%) hue-rotate(105deg) brightness(95%) contrast(92%)' } : {}}
               />
             </div>
@@ -148,14 +148,14 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
     <div ref={ref} className="bg-white rounded-2xl h-full flex flex-col overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       <div className="flex-1 flex items-center justify-center gap-4 p-6">
         {icon && (
-          <div className="w-12 h-12 relative flex-shrink-0">
+          <div className="w-20 h-20 relative flex-shrink-0">
             <Image 
               src={icon} 
               alt={label} 
               fill 
               className="object-contain"
               loading="lazy"
-              sizes="48px"
+              sizes="80px"
               style={iconColor ? { filter: 'invert(18%) sepia(35%) saturate(1284%) hue-rotate(105deg) brightness(95%) contrast(92%)' } : {}}
             />
           </div>

@@ -92,33 +92,33 @@ export function HomeClient({ clients, featuredProducts }: HomeClientProps) {
               <h2 className="text-3xl font-bold text-black pl-6 mb-12">Why Choose Fashion Fabric?</h2>
             </AnimateIn>
             <AnimateInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-52 h-52 flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Cost-Effective.webp" alt="Cost-effective uniform solutions India" width={180} height={180} loading="lazy" />
+              <div className="bg-neutral-50 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                <div className="w-64 h-64 flex items-center justify-center mx-auto mb-6">
+                  <Image src="/images/home-icons-all/home-icons/Cost-Effective.webp" alt="Cost-effective uniform solutions India" width={240} height={240} loading="lazy" className="object-contain" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-[#00712C]">Cost-Effective</h3>
-                <p className="text-black">Quality uniforms at competitive prices for all budgets</p>
+                <h3 className="text-2xl font-bold mb-3 text-[#00712C]">Cost-Effective</h3>
+                <p className="text-neutral-600 font-medium">Quality uniforms at competitive prices for all budgets</p>
               </div>
-              <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-52 h-52 flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Reliable Service .webp" alt="Custom-made bespoke uniform manufacturer" width={192} height={192} loading="lazy" />
+              <div className="bg-neutral-50 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                <div className="w-64 h-64 flex items-center justify-center mx-auto mb-6">
+                  <Image src="/images/home-icons-all/home-icons/Reliable Service .webp" alt="Custom-made bespoke uniform manufacturer" width={256} height={256} loading="lazy" className="object-contain" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-[#00712C]">Bespoke Solution</h3>
-                <p className="text-black">Tailored to your exact specifications and requirements</p>
+                <h3 className="text-2xl font-bold mb-3 text-[#00712C]">Bespoke Solution</h3>
+                <p className="text-neutral-600 font-medium">Tailored to your exact specifications and requirements</p>
               </div>
-              <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-52 h-52 flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Premium Quality.webp" alt="Premium quality uniform fabric and tailoring" width={190} height={190} loading="lazy" />
+              <div className="bg-neutral-50 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                <div className="w-64 h-64 flex items-center justify-center mx-auto mb-6">
+                  <Image src="/images/home-icons-all/home-icons/Premium Quality.webp" alt="Premium quality uniform fabric and tailoring" width={256} height={256} loading="lazy" className="object-contain" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-[#00712C]">Premium Quality</h3>
-                <p className="text-black">Premium fabrics and expert craftsmanship in every piece</p>
+                <h3 className="text-2xl font-bold mb-3 text-[#00712C]">Premium Quality</h3>
+                <p className="text-neutral-600 font-medium">Premium fabrics and expert craftsmanship in every piece</p>
               </div>
-              <div className="bg-neutral-50 p-6 rounded-lg text-center">
-                <div className="w-52 h-52 flex items-center justify-center mx-auto mb-4">
-                  <Image src="/images/home-icons-all/home-icons/Bespoke Solution .svg" alt="Reliable uniform delivery and service Goa" width={190} height={190} loading="lazy" />
+              <div className="bg-neutral-50 p-8 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
+                <div className="w-64 h-64 flex items-center justify-center mx-auto mb-6">
+                  <Image src="/images/home-icons-all/home-icons/Bespoke Solution .svg" alt="Reliable uniform delivery and service Goa" width={256} height={256} loading="lazy" className="object-contain" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-[#00712C]">Reliable Services</h3>
-                <p className="text-black">Reliable and punctual delivery to meet your deadlines</p>
+                <h3 className="text-2xl font-bold mb-3 text-[#00712C]">Reliable Services</h3>
+                <p className="text-neutral-600 font-medium">Reliable and punctual delivery to meet your deadlines</p>
               </div>
             </AnimateInStagger>
           </div>
