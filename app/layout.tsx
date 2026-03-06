@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fashionfabric.com'),
+  metadataBase: new URL('https://fashionfabric.info'),
   title: "Fashion Fabric - India's Premier Uniform Supplier",
   description: "India's leading uniform manufacturer with over 15 years of excellence. Specializing in hospitality uniforms, corporate wear, and premium linens. Custom-tailored solutions for hotels, restaurants, and businesses.",
   keywords: "uniforms in Goa, hotel uniforms, corporate uniforms, chef uniforms, hospitality uniforms, uniform manufacturer Goa, custom uniforms, linen shop Goa, Fashion Fabric",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IE",
-    url: "https://fashionfabric.com/",
+    url: "https://fashionfabric.info/",
     siteName: "Fashion Fabric",
     title: "Fashion Fabric - India's Premier Uniform Supplier & Linen Shop",
     description: "India's leading uniform manufacturer with over 15 years of excellence. Specializing in hospitality uniforms, corporate wear, and premium linens.",
@@ -86,19 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${garamond.variable}`}>
       <head>
-        {/* DNS Prefetch for external resources */}
-        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Preload critical hero video poster if exists */}
-        <link rel="preload" as="image" href="/images/hero-poster.jpg" />
-        
-      </head>
-      <body className={inter.className}>
-        {/* Google Tag Manager (Script optimized for Next.js) */}
+        {/* Google Tag Manager (Script) - Placed as high in <head> as possible */}
         <Script
           id="gtm-script"
           strategy="afterInteractive"
@@ -112,7 +100,19 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Google Tag Manager (noscript) */}
+        {/* DNS Prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Preload critical hero video poster if exists */}
+        <link rel="preload" as="image" href="/images/hero-poster.jpg" />
+        
+      </head>
+      <body className={inter.className}>
+        {/* Google Tag Manager (noscript) - Placed immediately after opening <body> */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-5DKSD76W"

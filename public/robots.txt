@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
  
 # Sitemap location
-Sitemap: https://fashionfabric.com/sitemap.xml 
+Sitemap: https://fashionfabric.info/sitemap.xml 

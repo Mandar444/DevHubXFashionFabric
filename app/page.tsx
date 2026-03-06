@@ -43,7 +43,7 @@ const clients = [
   { name: "JW Marriott", logo: "/images/home-icons-all/clients-home-logos/JW Marriott.png" },
   { name: "Kenilworth", logo: "/images/home-icons-all/clients-home-logos/Kenilworth.png" },
   { name: "Le Meridien", logo: "/images/home-icons-all/clients-home-logos/Le Meridien.png" },
-  { name: "Marriott", logo: "/images/home-icons-all/clients-home-logos/Marriott.png" },
+  { name: "Marriott Resort & Spa", logo: "/images/clients/Goa_Marriott_Resort.png" },
   { name: "Neptune", logo: "/images/home-icons-all/clients-home-logos/Neptune.png" },
   { name: "Novotel", logo: "/images/home-icons-all/clients-home-logos/Novotel.png" },
   { name: "Planet Hollywood", logo: "/images/home-icons-all/clients-home-logos/Planet Hollywood.png" },
@@ -58,8 +58,8 @@ const clients = [
   { name: "Vivanta", logo: "/images/home-icons-all/clients-home-logos/Vivanta.png" },
   { name: "W Hotels", logo: "/images/home-icons-all/clients-home-logos/W Hotels.png" },
   { name: "Taj Holiday Village", logo: "/images/clients/taj_holiday_village_new.png" },
-  { name: "Fortune 7 Casino", logo: "/images/home-icons-all/clients-home-logos/Fortune.png" },
-  { name: "Country Inn by Marriotts", logo: "/images/home-icons-all/clients-home-logos/Marriott.png" },
+  { name: "Fortune 7 Casino", logo: "/images/clients/fortune_new.png" },
+  { name: "Country Inn by Marriott", logo: "/images/clients/jw_marriot_new.png" },
 ]
 
 const featuredProducts = [

@@ -38,7 +38,8 @@ export function InfiniteLogoScroll({ clients, speed = 40, logoSize }: InfiniteLo
 
   return (
     <div 
-      className="relative flex overflow-hidden"
+      className="relative flex overflow-hidden py-4 select-none"
+      style={{ willChange: 'transform' }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       ref={scrollRef}
