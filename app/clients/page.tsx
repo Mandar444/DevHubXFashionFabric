@@ -138,7 +138,7 @@ export default function ClientsPage() {
               {clients.map((client, index) => (
                 <div key={index} className="group rounded-3xl p-6 md:p-10 flex flex-col items-center justify-center h-48 md:h-60 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-10px_rgba(0,113,44,0.15)] transition-all duration-500 bg-white border border-neutral-100 hover:border-[#00712C]/30 transform hover:-translate-y-2">
                   <div className="h-28 w-full flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-500">
-                    <Image src={client.logo} alt={client.name} width={160} height={90} className="object-contain max-w-[90%] max-h-full filter grayscale group-hover:grayscale-0 transition-all duration-500" />
+                    <Image src={client.logo} alt={client.name} width={160} height={90} className="object-contain max-w-[90%] max-h-full transition-all duration-500" />
                   </div>
                   <p className="text-[10px] md:text-xs font-bold tracking-widest text-neutral-400 group-hover:text-[#00712C] text-center w-full uppercase transition-colors">{client.name}</p>
                 </div>
