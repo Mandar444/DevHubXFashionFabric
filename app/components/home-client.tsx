@@ -40,7 +40,7 @@ export function HomeClient({ clients, featuredProducts }: HomeClientProps) {
           <div className="container relative z-20 px-4 md:px-6 flex flex-col items-center text-center">
             <AnimateIn>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-4">
-                India&apos;s Premier Uniform Manufacturer
+                Fashion Fabric: India&apos;s Premier Uniform Manufacturer
               </h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>

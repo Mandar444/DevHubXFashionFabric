@@ -34,8 +34,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://fashionfabric.info'),
   title: {
-    default: "Fashion Fabric - India's Premier Uniform Manufacturer & Retailer",
-    template: "%s | Fashion Fabric Goa"
+    default: "Fashion Fabric | India's Leading Uniform Manufacturer",
+    template: "%s | Fashion Fabric"
   },
   description: "India's leading custom uniform manufacturer with 15+ years of excellence. Bespoke uniform solutions for hospitality, hotels, resorts, and corporate teams across Goa and India. Quality craftsmanship and reliable delivery.",
   keywords: "uniform manufacturer India, hospitality uniforms Goa, hotel uniforms manufacturer, corporate wear India, custom uniforms Goa, linen supplier India, Fashion Fabric Deepak Goyal",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://fashionfabric.info/",
     siteName: "Fashion Fabric",
-    title: "Fashion Fabric - India's Premier Uniform Supplier & Linen Shop",
+    title: "Fashion Fabric | India's Leading Uniform Supplier & Manufacturer",
     description: "India's leading uniform manufacturer since 2010. Specializing in hospitality, hotels, and corporate uniforms across Goa and India.",
     images: [
       {
