@@ -83,7 +83,7 @@ export function InfiniteLogoScroll({ clients, speed = 40, logoSize }: InfiniteLo
           >
             <Image
               src={client.logo}
-              alt=""
+              alt={client.name}
               width={imgW}
               height={imgH}
               className="object-contain w-auto"

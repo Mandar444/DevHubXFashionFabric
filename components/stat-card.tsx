@@ -99,7 +99,15 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
   }, [])
 
   // If not started yet, show the static value in a way that respects JS-disabled or slow loading
-  const displayValue = hasStarted ? `${prefix}${formatNumber(count)}${suffix}` : value
+  const [hasActuallyStarted, setHasActuallyStarted] = useState(false)
+  
+  useEffect(() => {
+    if (hasStarted && count > 0) {
+      setHasActuallyStarted(true)
+    }
+  }, [hasStarted, count])
+
+  const displayValue = hasActuallyStarted ? `${prefix}${formatNumber(count)}${suffix}` : value
 
   if (value.includes("/")) {
     const parts = value.split("/")
@@ -126,7 +134,7 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
             </div>
           )}
           <h3 className="text-4xl font-bold text-[#00712C]">
-            {ratingStarted ? `${(ratingCount / 10).toFixed(1)}/${parts[1]}` : value}
+            {hasActuallyStarted ? `${(ratingCount / 10).toFixed(1)}/${parts[1]}` : value}
           </h3>
         </div>
         <div className="bg-neutral-100 p-4 text-center border-b-8 border-[#00712C]">
