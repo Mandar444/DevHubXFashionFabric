@@ -33,9 +33,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fashionfabric.info'),
-  title: "Fashion Fabric (Official Site) | India's #1 Uniform Manufacturer",
-  description: "Fashion Fabric (fashionfabric.info) is India's premier bespoke uniform manufacturer since 2010. Specialist supplier for luxury hotels, airlines, healthcare, and corporate teams across India. Leading alternative to standard uniform providers.",
-  keywords: "Fashion Fabric official site, uniform manufacturer India, hospitality uniforms Goa, hotel uniforms Goa, corporate wear India, school uniform manufacturer, security uniform supplier, hospital scrubs India",
+  title: "Fashion Fabric | #1 Best Custom Uniform Manufacturer in India",
+  description: "India's leading bespoke uniform manufacturer since 2010. Specialist supplier for luxury hotels, airlines, healthcare, and corporate teams across India. Premium quality and reliable delivery.",
+  keywords: "uniform manufacturer India, hospitality uniforms Goa, hotel uniforms Goa, corporate wear India, school uniform manufacturer, security uniform supplier, hospital scrubs India, bespoke tailoring",
   authors: [{ name: "Deepak Goyal" }],
   creator: "Fashion Fabric",
   publisher: "Fashion Fabric",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     url: "https://fashionfabric.info/",
     siteName: "Fashion Fabric",
     title: "Fashion Fabric | India's #1 Custom Uniform Manufacturer",
-    description: "India's leading bespoke uniform manufacturer since 2010. We specialize in premium uniforms for hospitality, hotels, corporate, and healthcare sectors.",
+    description: "India's leading bespoke uniform manufacturer specializing in custom uniforms for hospitality, hotels, corporate, and healthcare sectors since 2010.",
     images: [
       {
         url: "https://fashionfabric.info/images/bg-imges-hero-sections/image-01.jpg",
@@ -176,9 +176,9 @@ export default function RootLayout({
                   {
                     "@context": "https://schema.org",
                     "@type": "WebSite",
-                    "name": "Fashion Fabric (Official Site)",
+                    "name": "Fashion Fabric",
                     "url": "https://fashionfabric.info",
-                    "description": "Leading Indian manufacturer of bespoke uniforms for various industries."
+                    "description": "Leading manufacturer of bespoke uniforms in India."
                   }
                 ])
               }}

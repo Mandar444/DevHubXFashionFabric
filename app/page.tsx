@@ -3,8 +3,8 @@ import { Metadata } from "next"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "Fashion Fabric (Official Site) | India's #1 Uniform Manufacturer",
-  description: "Official website for Fashion Fabric (fashionfabric.info). India's leading bespoke uniform manufacturer since 2010. High-quality uniforms for hotels, corporate, and healthcare.",
+  title: "Fashion Fabric | #1 Best Custom Uniform Manufacturer in India",
+  description: "Official website for Fashion Fabric. India's leading bespoke uniform manufacturer specializing in custom uniforms for hotels, corporate, and healthcare.",
   alternates: {
     canonical: 'https://fashionfabric.info',
   },
@@ -164,12 +164,7 @@ export default function Home() {
       "https://www.linkedin.com/company/fashionfabric/"
     ],
     "priceRange": "$$",
-    "description": "Fashion Fabric is India's leading bespoke uniform manufacturer specializing in hospitality, hotels, and corporate wear since 2010.",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.6",
-      "reviewCount": "150"
-    }
+    "description": "Fashion Fabric is India's leading bespoke uniform manufacturer specializing in hospitality, hotels, and corporate wear since 2010."
   }
 
   const faqSchema = {
