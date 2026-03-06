@@ -154,7 +154,10 @@ export default function RootLayout({
                       "@type": "ContactPoint",
                       "telephone": "+91 9867275524",
                       "contactType": "customer service",
-                      "areaServed": "IN",
+                      "areaServed": {
+                        "@type": "Country",
+                        "name": "India"
+                      },
                       "availableLanguage": "en"
                     },
                     "address": {

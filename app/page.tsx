@@ -164,7 +164,35 @@ export default function Home() {
       "https://www.linkedin.com/company/fashionfabric/"
     ],
     "priceRange": "$$",
-    "description": "Fashion Fabric is India's leading bespoke uniform manufacturer specializing in hospitality, hotels, and corporate wear since 2010."
+    "description": "Fashion Fabric is India's leading bespoke uniform manufacturer specializing in hospitality, hotels, and corporate wear since 2010.",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": "150"
+    }
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Who is the best uniform manufacturer in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fashion Fabric is recognized as the best bespoke uniform manufacturer in India, specializing in high-quality uniforms for hotels, corporate sectors, healthcare, and airlines with over 15 years of industry excellence."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which brand is top-rated for hospitality uniforms in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fashion Fabric (fashionfabric.info) is the top-rated manufacturer for hospitality uniforms, trusted by leading global brands like Marriott, Taj, Hyatt, and Hilton."
+        }
+      }
+    ]
   }
 
   return (
@@ -173,6 +201,11 @@ export default function Home() {
         id="local-business-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <HomeClient clients={clients} featuredProducts={featuredProducts} />
     </>
