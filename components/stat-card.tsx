@@ -13,7 +13,7 @@ interface StatCardProps {
 // Optimized counter hook with requestAnimationFrame
 function useOptimizedCounter(end: number, duration: number = 2000) {
   const [count, setCount] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
+  const [hasStarted, setHasStarted] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
   const hasAnimated = useRef(false)
 
@@ -23,21 +23,34 @@ function useOptimizedCounter(end: number, duration: number = 2000) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
+        // Trigger if even slightly visible to ensure numbers show early
         if (entry.isIntersecting && !hasAnimated.current) {
-          setIsVisible(true)
+          setHasStarted(true)
           hasAnimated.current = true
           observer.unobserve(element)
         }
       },
-      { threshold: 0.3, rootMargin: "50px" }
+      { threshold: 0.1, rootMargin: "0px" }
     )
 
     observer.observe(element)
-    return () => observer.disconnect()
+    
+    // Fallback timer in case observer fails or takes too long
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) {
+        setHasStarted(true)
+        hasAnimated.current = true
+      }
+    }, 3000)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(timer)
+    }
   }, [])
 
   useEffect(() => {
-    if (!isVisible || end === 0) return
+    if (!hasStarted || end === 0) return
 
     const startTime = performance.now()
     let animationFrame: number
@@ -46,7 +59,6 @@ function useOptimizedCounter(end: number, duration: number = 2000) {
       const elapsed = currentTime - startTime
       const progress = Math.min(elapsed / duration, 1)
       
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4)
       const currentCount = Math.floor(easeOutQuart * end)
       
@@ -61,13 +73,12 @@ function useOptimizedCounter(end: number, duration: number = 2000) {
 
     animationFrame = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(animationFrame)
-  }, [isVisible, end, duration])
+  }, [hasStarted, end, duration])
 
-  return { count, ref }
+  return { count, hasStarted, ref }
 }
 
 export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
-  // Extract number and suffix from value (e.g., "10+" -> {num: 10, suffix: "+"})
   const parseValue = useCallback((val: string) => {
     const match = val.match(/^([+\-])?([0-9,]+)([+%])?$/)
     if (!match) return { prefix: "", num: 0, suffix: val }
@@ -81,18 +92,19 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
   }, [])
 
   const { prefix, num, suffix } = parseValue(value)
-  const { count, ref } = useOptimizedCounter(num, 1500)
+  const { count, hasStarted, ref } = useOptimizedCounter(num, 1500)
 
-  // Format number with commas
   const formatNumber = useCallback((n: number) => {
     return n.toLocaleString()
   }, [])
 
-  // Special handling for decimal values like "4.4/5"
+  // If not started yet, show the static value in a way that respects JS-disabled or slow loading
+  const displayValue = hasStarted ? `${prefix}${formatNumber(count)}${suffix}` : value
+
   if (value.includes("/")) {
     const parts = value.split("/")
     const rating = parseFloat(parts[0])
-    const { count: ratingCount, ref: ratingRef } = useOptimizedCounter(
+    const { count: ratingCount, hasStarted: ratingStarted, ref: ratingRef } = useOptimizedCounter(
       Math.floor(rating * 10), 
       1500
     )
@@ -114,7 +126,7 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
             </div>
           )}
           <h3 className="text-4xl font-bold text-[#00712C]">
-            {(ratingCount / 10).toFixed(1)}/{parts[1]}
+            {ratingStarted ? `${(ratingCount / 10).toFixed(1)}/${parts[1]}` : value}
           </h3>
         </div>
         <div className="bg-neutral-100 p-4 text-center border-b-8 border-[#00712C]">
@@ -141,7 +153,7 @@ export function StatCard({ value, label, icon, iconColor }: StatCardProps) {
           </div>
         )}
         <h3 className="text-4xl font-bold text-[#00712C]">
-          {prefix}{formatNumber(count)}{suffix}
+          {displayValue}
         </h3>
       </div>
       <div className="bg-neutral-100 p-4 text-center border-b-8 border-[#00712C]">
