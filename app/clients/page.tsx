@@ -115,7 +115,7 @@ export default function ClientsPage() {
                 TRUSTED BY THE BEST
               </span>
               <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-white mb-6">
-                Our Prestigious <span className="text-[#00712C]">Partners</span>
+                Our Bespoke <span className="text-[#00712C]">Partners</span>
               </h1>
             </AnimateIn>
             <AnimateIn delay={0.2}>
@@ -210,7 +210,7 @@ export default function ClientsPage() {
                   </div>
                   
                   <div className="text-[10px] md:text-xs tracking-[0.2em] font-bold uppercase py-1.5 px-6 rounded-full border border-white/20 text-white/90 my-6">
-                    VERIFIED CLIENT
+                    VERIFIED PARTNER V3
                   </div>
 
                   <h3 className="font-serif font-bold text-2xl md:text-3xl mb-1 text-white tracking-tight">F&B Director</h3>
