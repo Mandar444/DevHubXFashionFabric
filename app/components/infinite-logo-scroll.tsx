@@ -37,8 +37,12 @@ export function InfiniteLogoScroll({ clients, speed = 40, logoSize }: InfiniteLo
 
   return (
     <div 
-      className="relative flex overflow-hidden py-4 select-none"
-      style={{ willChange: 'transform' }}
+      className="relative flex overflow-hidden py-4 select-none pointer-events-none"
+      style={{ 
+        willChange: 'transform',
+        perspective: '1000px',
+        backfaceVisibility: 'hidden'
+      }}
       ref={scrollRef}
     >
       {/* First set of logos */}
