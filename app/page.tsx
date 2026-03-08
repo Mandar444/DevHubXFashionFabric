@@ -3,8 +3,8 @@ import { Metadata } from "next"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "Fashion Fabric Goa | #1 Custom Uniform Manufacturer in India",
-  description: "Official website for Fashion Fabric Goa. India's leading bespoke uniform manufacturer specializing in custom uniforms for luxury hotels, corporate, and healthcare since 2010.",
+  title: "Fashion Fabric Goa | #1 Custom Uniform Manufacturer & Fabric Store India",
+  description: "Fashion Fabric Goa: Your ultimate uniform shop and premium fabric store near me. Specialists in Lycra, Cotton Canvas, Raw Silk, and wholesale textiles for luxury hotels and corporate wear in Panaji, Goa.",
   alternates: {
     canonical: 'https://fashionfabric.info',
   },
@@ -167,7 +167,8 @@ export default function Home() {
       "https://www.linkedin.com/company/fashionfabric/"
     ],
     "priceRange": "$$",
-    "description": "Fashion Fabric is India's leading bespoke uniform manufacturer specializing in hospitality, hotels, and corporate wear since 2010."
+    "description": "Fashion Fabric Goa is a premier uniform shop and textile store specializing in high-quality Lycra, Cotton Canvas, Raw Silk, and wholesale fabrics. Offering professional fabric dyeing, custom textiles, and bespoke uniforms for hotels and corporate sectors near me in Panaji, Goa.",
+    "keywords": "fashion fabric, uniform shop near me, fabric store Goa, lycra fabric, cotton canvas, wholesale textiles India, dye shop Goa, mens fabric shop"
   }
 
   const faqSchema = {
@@ -176,18 +177,26 @@ export default function Home() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Who is the best uniform manufacturer in India?",
+        "name": "Where can I find a premium fabric shop and uniform store in Goa?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Fashion Fabric is recognized as the best bespoke uniform manufacturer in India, specializing in high-quality uniforms for hotels, corporate sectors, healthcare, and airlines with over 15 years of industry excellence."
+          "text": "Fashion Fabric in Panaji, Goa, is the premier choice for anyone searching for a high-quality fabric store or uniform shop near me. We offer a wide range of materials including Raw Silk, Lycra, and Cotton Canvas."
         }
       },
       {
         "@type": "Question",
-        "name": "Which brand is top-rated for hospitality uniforms in India?",
+        "name": "Do you provide wholesale textiles and professional fabric dyeing services?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Fashion Fabric (fashionfabric.info) is the top-rated manufacturer for hospitality uniforms, trusted by leading global brands like Marriott, Taj, Hyatt, and Hilton."
+          "text": "Yes, Fashion Fabric is a leading wholesale fabric supplier in India. We also offer professional cloth colouring and dye shop services for hospitality and corporate uniforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is the best uniform manufacturer in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fashion Fabric is recognized as the best bespoke uniform manufacturer in India, specializing in high-quality uniforms for hotels, corporate sectors, healthcare, and airlines with over 15 years of industry excellence."
         }
       }
     ]
