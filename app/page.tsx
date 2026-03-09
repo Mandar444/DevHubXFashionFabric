@@ -58,7 +58,7 @@ const clients = [
   { name: "The Fern", logo: "/images/home-icons-all/clients-home-logos/The Fern.png" },
   { name: "Vivanta", logo: "/images/home-icons-all/clients-home-logos/Vivanta.png" },
   { name: "W Hotels", logo: "/images/home-icons-all/clients-home-logos/W Hotels.png" },
-]
+].sort((a, b) => a.name.localeCompare(b.name));
 
 const featuredProducts = [
   { 
