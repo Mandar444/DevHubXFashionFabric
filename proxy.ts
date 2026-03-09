@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     // Admin routes protection is handled by the page components using useSession
     // This middleware can be extended for additional route protection if needed
     return NextResponse.next()
