@@ -51,10 +51,10 @@ const clients = [
   { name: "Taj Cidade de Goa", logo: "/images/clients/taj_cidade_de_new.png" },
   { name: "Taj Fort Aguada Resort & Spa", logo: "/images/clients/taj_aguada_resort.png" },
   { name: "Taj Holiday Village", logo: "/images/clients/taj_holiday_village_new.png" },
-  { name: "Taj Hotels", logo: "/images/clients/taj.png" },
   { name: "Taj Resort & Convention Centre", logo: "/images/clients/taj_convention_centre.png" },
   { name: "The Astor", logo: "/images/clients/astor-goa_new.png" },
   { name: "The Fern Residency", logo: "/images/clients/fern-hotels_new.png" },
+  { name: "Vivanta by Taj", logo: "/images/clients/icon-vivanta.png" },
   { name: "W Goa", logo: "/images/clients/wh-logo_new.png" },
 ]
 
