@@ -35,17 +35,6 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.fashionfabric.info',
-          },
-        ],
-        destination: 'https://fashionfabric.info/:path*',
-        permanent: true,
-      },
-      {
         source: '/collection',
         destination: '/collection/hospitality',
         permanent: true,
