@@ -81,29 +81,29 @@ export function ImageSlideshow({ images, autoPlayInterval = 8000, imageClassName
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
+              x: { type: "spring", stiffness: 400, damping: 40, mass: 0.8 },
+              opacity: { duration: 0.3, ease: "easeInOut" },
             }}
             drag="x"
             dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={1}
+            dragElastic={0.8}
             onDragEnd={(e, { offset, velocity }) => {
               const swipe = swipePower(offset.x, velocity.x)
-
-              if (swipe < -swipeConfidenceThreshold) {
+              if (swipe < -8000) {
                 paginate(1)
-              } else if (swipe > swipeConfidenceThreshold) {
+              } else if (swipe > 8000) {
                 paginate(-1)
               }
             }}
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full will-change-transform cursor-grab active:cursor-grabbing"
+            style={{ backfaceVisibility: "hidden", transformStyle: "preserve-3d" }}
           >
             <Image
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               fill
               className={`object-contain object-center p-2 sm:p-4 ${imageClassName || ""}`}
-              priority={currentIndex === 0} // Only priority for initial load
+              priority={currentIndex === 0}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
             />
           </motion.div>

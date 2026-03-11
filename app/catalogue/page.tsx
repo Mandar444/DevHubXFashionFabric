@@ -165,17 +165,7 @@ export default function CataloguePage() {
                             </Button>
                           </Link>
                           
-                          {catalogue.pdfUrl && (
-                            <Link
-                              href={`/catalogue/flip/${catalogue.id}`}
-                              className="w-full"
-                            >
-                              <Button variant="outline" className="w-full border-[#00712C] text-[#00712C] hover:bg-green-50">
-                                <BookOpen className="w-4 h-4 mr-2" />
-                                View Flip Book
-                              </Button>
-                            </Link>
-                          )}
+
                         </div>
                       </div>
                     </Card>
