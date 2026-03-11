@@ -33,11 +33,11 @@ export async function POST(request: Request) {
     const emailBody = {
       sender: {
         name: "Fashion Fabric Website",
-        email: "deepak76goyal@gmail.com"
+        email: "info@fashionfabric.info"
       },
       to: [
         {
-          email: "deepak76goyal@gmail.com",
+          email: "info@fashionfabric.info",
           name: "Fashion Fabric"
         }
       ],
