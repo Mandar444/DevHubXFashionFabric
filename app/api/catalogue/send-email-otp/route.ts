@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server"
 
-// Auth0 Passwordless Start API endpoint
-const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN
-const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID
-const AUTH0_CLIENT_SECRET = process.env.AUTH0_CLIENT_SECRET
-
 export async function POST(request: NextRequest) {
+    // Read environment variables dynamically per-request to avoid Next.js build-caching old values
+    const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN
+    const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID
+    const AUTH0_CLIENT_SECRET = process.env.AUTH0_CLIENT_SECRET
+
     try {
         const { email } = await request.json()
 
